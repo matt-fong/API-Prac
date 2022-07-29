@@ -52,7 +52,7 @@ Returns the information about the current user that is logged in.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /api/mypage
+  * URL: /api/users/:id
   * Body: none
 
 * Successful Response
@@ -78,7 +78,7 @@ information.
 * Require Authentication: false
 * Request
   * Method: POST
-  * URL: /api/user/login
+  * URL: /api/users/login
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -144,7 +144,7 @@ user's information.
 * Require Authentication: false
 * Request
   * Method: POST
-  * URL: /api/user/signup
+  * URL: /api/users
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -256,7 +256,7 @@ Returns all the spots owned (created) by the current user.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /api/spots/myspots
+  * URL: /api/users/:id/spots
   * Body: none
 
 * Successful Response
@@ -557,7 +557,7 @@ Returns all the reviews written by the current user.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /api/reviews/myreviews
+  * URL: /api/users/:id/reviews
   * Body: none
 
 * Successful Response
@@ -670,7 +670,7 @@ Create and return a new review for a spot specified by id.
 * Require Authentication: true
 * Request
   * Method: POST
-  * URL: /api/spots/:id/reviews
+  * URL: /api/reviews/:spotid
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -856,7 +856,7 @@ Return all the bookings that the current user has made.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /api/bookings/mybookings
+  * URL: /api/users/:id/bookings
   * Body: none
 
 * Successful Response
