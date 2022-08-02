@@ -3,13 +3,13 @@
 const bookings = [
  {
    spotId: 1,
-   userId: 2,
+   userId: 1,
    startDate: '2022-02-12',
    endDate: '2022-02-14',
  },
  {
    spotId: 2,
-   userId: 1,
+   userId: 2,
    startDate: '2022-07-04',
    endDate: '2022-07-14',
  },

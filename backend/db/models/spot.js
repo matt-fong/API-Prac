@@ -30,11 +30,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Spot.init({
-    ownerId: DataTypes.INTEGER,
+    ownerId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true,
+      references: { model: 'Users' },
+      onDelete: 'CASCADE'
+    },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: '',
+      unique: true,
       validate: {
         notEmpty: {
           msg: 'Address is required and cannot be empty.'
