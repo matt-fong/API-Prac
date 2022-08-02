@@ -29,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
     review: {
       type: DataTypes.TEXT,
       allowNull: false,
-      defaultValue: '',
       validate: {
           notEmpty: {
             msg: 'Review is required and cannot be empty.'
@@ -39,7 +38,6 @@ module.exports = (sequelize, DataTypes) => {
     stars: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: '',
       validate: {
         notEmpty: {
           msg: 'Star rating is required.'

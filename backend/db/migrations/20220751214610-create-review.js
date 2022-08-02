@@ -11,12 +11,10 @@ module.exports = {
       review: {
         type: Sequelize.TEXT,
         allowNull: false,
-        defaultValue: '',
       },
       stars: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: '',
       },
       userId: {
         type: Sequelize.INTEGER,

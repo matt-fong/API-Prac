@@ -40,7 +40,6 @@ module.exports = (sequelize, DataTypes) => {
     address: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: '',
       unique: true,
       validate: {
         notEmpty: {
@@ -51,7 +50,6 @@ module.exports = (sequelize, DataTypes) => {
     city: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: '',
       validate: {
         notEmpty: {
           msg: 'City is required and cannot be empty.'
@@ -61,7 +59,6 @@ module.exports = (sequelize, DataTypes) => {
     state: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: '',
       validate: {
         notEmpty: {
           msg: 'State is required and cannot be empty.'
@@ -71,7 +68,6 @@ module.exports = (sequelize, DataTypes) => {
     country: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: '',
       validate: {
         notEmpty: {
           msg: 'Country is required and cannot be empty.'
@@ -81,7 +77,6 @@ module.exports = (sequelize, DataTypes) => {
     lat: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      defaultValue: '',
       validate: {
         notEmpty: {
           msg: 'Lat is required and cannot be empty.'
@@ -91,7 +86,6 @@ module.exports = (sequelize, DataTypes) => {
     lng: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      defaultValue: '',
       validate: {
         notEmpty: {
           msg: 'Lng is required and cannot be empty.'
@@ -101,7 +95,6 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: '',
       validate: {
         notEmpty: {
           msg: 'Name is required and cannot be empty.'
@@ -111,7 +104,6 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: '',
       validate: {
         notEmpty: {
           msg: 'Description is required and cannot be empty.'
@@ -121,7 +113,6 @@ module.exports = (sequelize, DataTypes) => {
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: '',
       validate: {
         notEmpty: {
           msg: 'Price is required and cannot be empty.'
