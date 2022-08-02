@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '',
       validate: {
         notEmpty: {
-          msg: 'Address is required.'
+          msg: 'Address is required and cannot be empty.'
         }
       }
     },
@@ -47,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '',
       validate: {
         notEmpty: {
-          msg: 'City is required.'
+          msg: 'City is required and cannot be empty.'
         }
       }
     },
@@ -57,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '',
       validate: {
         notEmpty: {
-          msg: 'State is required.'
+          msg: 'State is required and cannot be empty.'
         }
       }
     },
@@ -67,7 +67,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '',
       validate: {
         notEmpty: {
-          msg: 'Country is required.'
+          msg: 'Country is required and cannot be empty.'
         }
       }
     },
@@ -77,7 +77,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '',
       validate: {
         notEmpty: {
-          msg: 'Lat is required.'
+          msg: 'Lat is required and cannot be empty.'
         }
       }
     },
@@ -87,7 +87,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '',
       validate: {
         notEmpty: {
-          msg: 'Lng is required.'
+          msg: 'Lng is required and cannot be empty.'
         }
       }
     },
@@ -97,7 +97,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '',
       validate: {
         notEmpty: {
-          msg: 'Name is required.'
+          msg: 'Name is required and cannot be empty.'
         }
       }
     },
@@ -107,7 +107,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '',
       validate: {
         notEmpty: {
-          msg: 'Description is required.'
+          msg: 'Description is required and cannot be empty.'
         }
       }
     },
@@ -117,7 +117,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: '',
       validate: {
         notEmpty: {
-          msg: 'Price is required.'
+          msg: 'Price is required and cannot be empty.'
         }
       }
     },
