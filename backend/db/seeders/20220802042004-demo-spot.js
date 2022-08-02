@@ -3,39 +3,39 @@
 const spots = [
   {
     ownerId: 1,
-    address: "123 Disney Lane",
-    city: "San Francisco",
-    state: "California",
+    address: "1 Dyker Ave",
+    city: "Brooklyn",
+    state: "New York",
     country: "United States of America",
-    lat: 37.7645358,
-    lng: -122.4730327,
+    lat: 57.7651358,
+    lng: -522.4730121,
     name: "House 1",
     description: "Spot 1",
-    price: 123,
+    price: 100,
   },
   {
     ownerId: 2,
-    address: "456 Disney Lane",
-    city: "San Francisco",
-    state: "California",
+    address: "2 Dyker Ave",
+    city: "Brooklyn",
+    state: "New York",
     country: "United States of America",
-    lat: 40.7645358,
-    lng: -120.4730327,
+    lat: 70.9445258,
+    lng: -380.6730325,
     name: "House 2",
     description: "Spot 2",
-    price: 456,
+    price: 200,
   },
   {
     ownerId: 3,
-    address: "3 Disney Lane",
-    city: "San Francisco",
-    state: "California",
+    address: "3 Dyker Ave",
+    city: "Brooklyn",
+    state: "New York",
     country: "United States of America",
-    lat: 41.7645358,
-    lng: -123.4730327,
+    lat: 82.7648618,
+    lng: -531.4487327,
     name: "House 3",
     description: "Spot 3",
-    price: 789,
+    price: 300,
   },
 ]
 
@@ -46,6 +46,8 @@ module.exports = {
 
   async down (queryInterface, Sequelize) {
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete()
+    return queryInterface.bulkDelete('Spots', {
+      name: { [Op.in]: ['House1', 'House2', 'House3'] }
+    })
   }
 };
