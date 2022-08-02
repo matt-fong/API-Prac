@@ -18,7 +18,7 @@ const bookings = [
    userId: 3,
    startDate: '2022-03-11',
    endDate: '2022-04-11',
- },
+ }
 ]
 
 module.exports = {
