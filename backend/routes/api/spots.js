@@ -20,10 +20,10 @@ router.get('/', async (req, res, next) => {
         [ sequelize.literal('Images.url'), 'previewImage' ]
       ]
     },
+    group: ['Spot.id'],
   })
 
-  res.status(200)
-  res.json({Spots: spots})
+  res.json({ Spot: spots })
 })
 
 // Get Spots for Current User
