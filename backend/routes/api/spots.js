@@ -78,8 +78,6 @@ router.get('/:spotId', async (req, res) => {
     raw: true
   })
 
-  console.log(rating)
-
   const images = await Image.findAll({
     attributes: [ 'id', ['spotId', 'imageableId'], 'url' ],
     where: { spotId: spotId }
