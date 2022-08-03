@@ -89,6 +89,8 @@ router.post('/:spotId/images', requireAuth, restoreUser, async (req, res, next) 
     })
   }
 
+  console.log(spot)
+
   const image = await Image.create({
     url,
     spotId: spot.dataValues.id,

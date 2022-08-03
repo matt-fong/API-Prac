@@ -14,17 +14,16 @@ module.exports = {
       },
       previewImage: {
         type: Sequelize.BOOLEAN,
-        allowNull: false
       },
       spotId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: { model: 'Spots' },
         onDelete: 'CASCADE'
       },
       reviewId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: { model: 'Reviews' },
         onDelete: 'CASCADE'
       },

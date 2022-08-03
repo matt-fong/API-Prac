@@ -32,17 +32,16 @@ module.exports = (sequelize, DataTypes) => {
     },
     previewImage: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
     },
     spotId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: { model: 'Spots' },
       onDelete: 'CASCADE'
     },
     reviewId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: { model: 'Reviews' },
       onDelete: 'CASCADE'
     },
