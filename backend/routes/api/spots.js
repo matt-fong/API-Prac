@@ -70,12 +70,12 @@ router.get('/:spotId', async (req, res) => {
   }
 
   const numReviews = await Review.count({
-    where: { spotId: req.params.spotId }
+    where: { spotId: spotId }
   })
 
   const rating = await Review.findOne({
     attributes: [[ sequelize.fn("avg", sequelize.col('stars')), "avgStarRating" ]],
-    where: { spotId },
+    where: { spotId: spotId },
     raw: true
   })
 
@@ -83,7 +83,7 @@ router.get('/:spotId', async (req, res) => {
 
   const images = await Image.findAll({
     attributes: [ 'id', ['spotId', 'imageableId'], 'url' ],
-    where: { spotId }
+    where: { spotId: spotId }
   })
 
   const owner = await User.findByPk(spot.ownerId, {
