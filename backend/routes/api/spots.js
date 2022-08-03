@@ -4,7 +4,6 @@ const { setTokenCookie, requireAuth, restoreUser } = require('../../utils/auth')
 
 const { Booking, Image, Review, Spot, User, sequelize } = require("../../db/models");
 const { Op } = require("sequelize");
-const image = require('../../db/models/image');
 
 const router = express.Router();
 
@@ -196,6 +195,56 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
     message: "Successfully deleted",
     statusCode: 200
   })
+})
+
+// Create a Review for a Spot based on the Spot's id
+router.post('/:spotId/reviews', requireAuth, async (req, res, next) => {
+  const spotId = req.params.spotId
+  const { review, stars } = req.body
+  let spot = await Spot.findByPk(spotId)
+
+  if (!spot) {
+    res.json({
+      message: "Spot couldn't be found",
+      statusCode: 404
+    })
+  }
+
+  const checkReviews = await Review.findAll({
+    where: {
+      [Op.and]: [
+        { spotId: spotId},
+        { userId: req.user.id }
+      ]
+    }
+  })
+
+  if (!review || !stars || stars > 5 || stars < 1) {
+    return res.json({
+      message: "Validation error",
+      statusCode: 400,
+      errors: {
+        review: "Review text is required",
+        stars: "Stars must be an integer from 1 to 5",
+      }
+    })
+  }
+
+  if (checkReviews.length > 0) {
+    return res.json({
+      message: "User already has a review for this spot",
+      statusCode: 403
+    })
+  }
+
+  const newReview = await Review.create({
+    userId: req.user.id,
+    spotId: spotId,
+    review,
+    stars,
+  })
+
+  res.json(newReview)
 })
 
 module.exports = router;
