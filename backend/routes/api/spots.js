@@ -250,7 +250,11 @@ router.get('/:spotId/reviews', async (req, res, next) => {
   const spotId = req.params.spotId
   let spot = await Spot.findByPk(spotId)
   const reviews = await Review.findAll({
-    where: { spotId: spotId }
+    where: { spotId: spotId },
+    include: [
+      { model: User, attributes: ['id', 'firstName', 'lastName'] },
+      { model: Image, attributes: ['id', ['spotId', 'imageableId'], 'url'] }
+    ]
   });
 
   if (!spot) {
