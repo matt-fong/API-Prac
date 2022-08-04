@@ -284,7 +284,7 @@ router.get('/:spotId/reviews', async (req, res, next) => {
     where: { spotId: spotId },
     include: [
       { model: User, attributes: ['id', 'firstName', 'lastName'] },
-      { model: Image, attributes: ['id', ['spotId', 'imageableId'], 'url'] }
+      { model: Image, attributes: ['id', ['reviewId', 'imageableId'], 'url'] }
     ]
   });
 
@@ -367,8 +367,8 @@ router.get('/:spotId/bookings', requireAuth, async (req, res, next) => {
   // If you ARE NOT the owner of the spot
   if (spot.ownerId !== req.user.id) {
     let notOwnerBookings = await Booking.findAll({
+      attributes: ['spotId', 'startDate', 'endDate'],
       where: { spotId: spotId },
-      attributes: ['spotId', 'startDate', 'endDate']
     })
     res.json({ Bookings: notOwnerBookings })
   }
