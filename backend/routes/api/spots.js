@@ -245,4 +245,22 @@ router.post('/:spotId/reviews', requireAuth, async (req, res, next) => {
   res.json(newReview)
 })
 
+// Get all Reviews by a Spot's id
+router.get('/:spotId/reviews', async (req, res, next) => {
+  const spotId = req.params.spotId
+  let spot = await Spot.findByPk(spotId)
+  const reviews = await Review.findAll({
+    where: { spotId: spotId }
+  });
+
+  if (!spot) {
+    res.json({
+      message: "Spot couldn't be found",
+      statusCode: 404
+    })
+  }
+
+  res.json({ Reviews: reviews })
+})
+
 module.exports = router;
