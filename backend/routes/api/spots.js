@@ -268,4 +268,58 @@ router.get('/:spotId/reviews', async (req, res, next) => {
   res.json({ Reviews: reviews })
 })
 
+// Create a Booking for a Spot based on the Spot's id
+router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
+  const spotId = req.params.spotId
+  const { startDate, endDate } = req.body
+  let spot = await Spot.findByPk(spotId)
+
+  if (!spot) {
+    res.json({
+      message: "Spot couldn't be found",
+      statusCode: 404
+    })
+  }
+
+  const currentBookings = await Booking.findAll({
+    where: {
+      spotId: spotId,
+      [Op.and]: [
+        {endDate: {[Op.gte]: startDate}},
+        {startDate: {[Op.lte]: endDate}},
+      ],
+    },
+  });
+
+  if (startDate >= endDate) {
+    res.json({
+      "message": "Validation error",
+      "statusCode": 400,
+      "errors": {
+        "endDate": "endDate cannot be on or before startDate"
+      }
+    })
+  }
+
+  if (currentBookings.length) {
+    res.json({
+      message: "Sorry, this spot is already booked for the specified dates",
+      statusCode: 403,
+      errors: {
+        startDate: "Start date conflicts with an existing booking",
+        endDate: "End date conflicts with an existing booking"
+      }
+    })
+  }
+
+  let booking = await Booking.create({
+    spotId: spotId,
+    userId: req.user.id,
+    startDate,
+    endDate
+  })
+
+  res.json({ booking })
+})
+
 module.exports = router;
