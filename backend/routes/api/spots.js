@@ -10,19 +10,49 @@ const router = express.Router();
 
 // Get All Spots
 router.get('/', async (req, res, next) => {
+  // const spots = await Spot.findAll({
+  //   include: [
+  //     { model: Review, attributes: [] },
+  //     { model: Image, attributes: [], where: { previewImage: true } }
+  //   ],
+  //   attributes: {
+  //     include: [
+  //       [ sequelize.fn('AVG', sequelize.col('Reviews.stars')), 'avgRating' ],
+  //       [ sequelize.literal('Images.url'), 'previewImage' ]
+  //     ]
+  //   },
+  //   group: ['Spot.id'],
+  // })
+
+  // res.json({ Spots: spots })
+
   const spots = await Spot.findAll({
     include: [
       { model: Review, attributes: [] },
-      { model: Image, attributes: [], where: { previewImage: true } }
     ],
     attributes: {
       include: [
         [ sequelize.fn('AVG', sequelize.col('Reviews.stars')), 'avgRating' ],
-        [ sequelize.literal('Images.url'), 'previewImage' ]
       ]
     },
     group: ['Spot.id'],
   })
+
+  for (let spot of spots) {
+    let previewImage = await Image.findOne({
+      attributes: ['url'],
+      where: {
+        previewImage: true,
+        spotId: spot.id
+      }
+    })
+
+    if (spot.dataValues.previewImage = previewImage === null) {
+      spot.dataValues.previewImage = null;
+    } else {
+      spot.dataValues.previewImage = previewImage.toJSON().url
+    }
+  }
 
   res.json({ Spots: spots })
 })
