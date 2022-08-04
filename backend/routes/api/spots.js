@@ -322,7 +322,7 @@ router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
   });
 
   if (startDate >= endDate) {
-    res.json({
+    return res.json({
       "message": "Validation error",
       "statusCode": 400,
       "errors": {
@@ -332,7 +332,7 @@ router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
   }
 
   if (currentBookings.length) {
-    res.json({
+    return res.json({
       message: "Sorry, this spot is already booked for the specified dates",
       statusCode: 403,
       errors: {
