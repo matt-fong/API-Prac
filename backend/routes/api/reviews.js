@@ -60,7 +60,6 @@ router.get('/current', requireAuth, async (req, res, next) => {
       { model: Spot, attributes: ['id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price'] },
       { model: Image, attributes: ['id', ['reviewId', 'imageableId'], 'url'] },
     ],
-    // group: ['Review.id'],
     where: { userId: req.user.id },
   });
 
