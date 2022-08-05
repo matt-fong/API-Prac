@@ -9,6 +9,7 @@ const router = express.Router();
 
 // Get All Spots
 router.get('/', async (req, res, next) => {
+<<<<<<< HEAD
   const spots = await Spot.findAll({
     include: [
       { model: Review, attributes: [] },
@@ -19,25 +20,149 @@ router.get('/', async (req, res, next) => {
       ]
     },
     group: ['Spot.id'],
+=======
+  let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+
+  page = parseInt(page);
+  size = parseInt(size);
+
+  if (Number.isNaN(page) || page > 10) page = 0;
+  if (Number.isNaN(size) || size > 20) size = 20;
+
+  const pagination = {};
+
+  if (page >= 0 || size >= 0) {
+      pagination.limit = size;
+      pagination.offset = size * (page - 1);
+  }
+
+  if (page < 0) {
+    return res.json({
+      message: "Validation Error",
+      statusCode: 400,
+      errors: {
+        page: "Page must be greater than or equal to 0"
+      }
+    })
+  }
+
+  if (size < 0) {
+    return res.json({
+      message: "Validation Error",
+      statusCode: 400,
+      errors: {
+        size: "Size must be greater than or equal to 0"
+      }
+    })
+  }
+
+  if (maxLat) {
+    if (Number.isNaN(parseFloat(maxLat))) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Maximum latitude is invalid"
+        }
+      })
+    }
+  }
+
+  if (minLat) {
+    if (Number.isNaN(parseFloat(minLat))) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Minimum latitude is invalid"
+        }
+      })
+    }
+  }
+
+  if (minLng) {
+    if (Number.isNaN(parseFloat(minLng))) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Maximum longitude is invalid"
+        }
+      })
+    }
+  }
+
+  if (maxLng) {
+    if (Number.isNaN(parseFloat(maxLng))) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Minimum longitude is invalid"
+        }
+      })
+    }
+  }
+
+  if (minPrice) {
+    if (Number.isNaN(parseFloat(minPrice)) || (parseFloat(minPrice) < 0)) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Maximum price must be greater than or equal to 0"
+        }
+      })
+    }
+  }
+
+  if (maxPrice) {
+    if (Number.isNaN(parseFloat(maxPrice)) || (parseFloat(minPrice) < 0)) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Minimum price must be greater than or equal to 0"
+        }
+      })
+    }
+  }
+
+  let spots = await Spot.findAll({
+    limit: pagination.limit,
+    offset: pagination.offset,
+    raw: true
+>>>>>>> spots
   })
 
   for (let spot of spots) {
+
+    let avgRating = await Review.findOne({
+      attributes: [[ sequelize.fn('AVG', sequelize.col('stars')), 'avgRating' ]],
+      where: { spotId: spot.id },
+      raw: true
+    })
+
     let previewImage = await Image.findOne({
       attributes: ['url'],
       where: {
         previewImage: true,
         spotId: spot.id
-      }
-    })
+      },
+      raw: true
+    });
 
-    if (spot.dataValues.previewImage = previewImage === null) {
-      spot.dataValues.previewImage = null;
+    spot.avgRating = avgRating.avgRating;
+
+    if (spot.previewImage = previewImage !== null) {
+      spot.previewImage = previewImage.url
     } else {
-      spot.dataValues.previewImage = previewImage.toJSON().url
+      spot.previewImage = null
     }
+
   }
 
-  res.json({ Spots: spots })
+  res.json({ Spots: spots, page, size });
 })
 
 // Get all Spots owned by the Current User
