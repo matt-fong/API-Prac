@@ -306,6 +306,79 @@ router.put('/:spotId', requireAuth, async (req, res, next) => {
   res.json(spot)
 })
 
+// Create a Review for a Spot based on the Spot's id
+router.post('/:spotId/reviews', requireAuth, async (req, res, next) => {
+  const spotId = req.params.spotId
+  const { review, stars } = req.body
+  let spot = await Spot.findByPk(spotId)
+
+  if (!spot) {
+    res.json({
+      message: "Spot couldn't be found",
+      statusCode: 404
+    })
+  }
+
+  const checkReviews = await Review.findAll({
+    where: {
+      [Op.and]: [
+        { spotId: spotId},
+        { userId: req.user.id }
+      ]
+    }
+  })
+
+  if (!review || !stars || stars > 5 || stars < 1) {
+    return res.json({
+      message: "Validation error",
+      statusCode: 400,
+      errors: {
+        review: "Review text is required",
+        stars: "Stars must be an integer from 1 to 5",
+      }
+    })
+  }
+
+  if (checkReviews.length > 0) {
+    return res.json({
+      message: "User already has a review for this spot",
+      statusCode: 403
+    })
+  }
+
+  const newReview = await Review.create({
+    userId: req.user.id,
+    spotId: spotId,
+    review,
+    stars,
+  })
+
+  res.json(newReview)
+})
+
+// Get all Reviews by a Spot's id
+router.get('/:spotId/reviews', async (req, res, next) => {
+  const spotId = req.params.spotId
+  let spot = await Spot.findByPk(spotId)
+
+  const reviews = await Review.findAll({
+    where: { spotId: spotId },
+    include: [
+      { model: User, attributes: ['id', 'firstName', 'lastName'] },
+      { model: Image, attributes: ['id', ['spotId', 'imageableId'], 'url'] }
+    ]
+  });
+
+  if (!spot) {
+    res.json({
+      message: "Spot couldn't be found",
+      statusCode: 404
+    })
+  }
+
+  res.json({ Reviews: reviews })
+})
+
 // Delete a Spot
 router.delete('/:spotId', requireAuth, async (req, res, next) => {
   const spotId = req.params.spotId
