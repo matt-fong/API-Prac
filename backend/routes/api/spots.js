@@ -15,17 +15,18 @@ router.get('/', async (req, res, next) => {
   page = parseInt(page);
   size = parseInt(size);
 
-  if (Number.isNaN(page) || !page || page > 10) page = 0;
-  if (Number.isNaN(size) || !size || size > 20) size = 20;
+  if (Number.isNaN(page) || page > 10) page = 0;
+  if (Number.isNaN(size) || size > 20) size = 20;
 
-  let offset = null
+  const pagination = {};
 
-  if (page > 0) {
-    offset = size * (page - 1)
+  if (page >= 0 || size >= 0) {
+      pagination.limit = size;
+      pagination.offset = size * (page - 1);
   }
 
   if (page < 0) {
-    res.json({
+    return res.json({
       message: "Validation Error",
       statusCode: 400,
       errors: {
@@ -35,7 +36,7 @@ router.get('/', async (req, res, next) => {
   }
 
   if (size < 0) {
-    res.json({
+    return res.json({
       message: "Validation Error",
       statusCode: 400,
       errors: {
@@ -116,10 +117,40 @@ router.get('/', async (req, res, next) => {
     }
   }
 
+  let spots = await Spot.findAll({
+    limit: pagination.limit,
+    offset: pagination.offset,
+    raw: true
+  })
 
+  for (let spot of spots) {
 
+    let avgRating = await Review.findOne({
+      attributes: [[ sequelize.fn('AVG', sequelize.col('stars')), 'avgRating' ]],
+      where: { spotId: spot.id },
+      raw: true
+    })
 
+    let previewImage = await Image.findOne({
+      attributes: ['url'],
+      where: {
+        previewImage: true,
+        spotId: spot.id
+      },
+      raw: true
+    });
 
+    spot.avgRating = avgRating.avgRating;
+
+    if (spot.previewImage = previewImage !== null) {
+      spot.previewImage = previewImage.url
+    } else {
+      spot.previewImage = null
+    }
+
+  }
+
+  res.json({ Spots: spots, page, size });
 })
 
 // // Get All Spots
