@@ -479,9 +479,9 @@ router.get('/:spotId/bookings', requireAuth, async (req, res, next) => {
       include: [{ model: User, attributes: ['id', 'firstName', 'lastName'] }],
       where: { spotId: spotId },
     })
+
     res.json({ Bookings: ownerBookings })
   }
-
 })
 
 module.exports = router;
