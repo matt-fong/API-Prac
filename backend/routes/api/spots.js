@@ -10,52 +10,150 @@ const router = express.Router();
 
 // Get All Spots
 router.get('/', async (req, res, next) => {
-  // const spots = await Spot.findAll({
-  //   include: [
-  //     { model: Review, attributes: [] },
-  //     { model: Image, attributes: [], where: { previewImage: true } }
-  //   ],
-  //   attributes: {
-  //     include: [
-  //       [ sequelize.fn('AVG', sequelize.col('Reviews.stars')), 'avgRating' ],
-  //       [ sequelize.literal('Images.url'), 'previewImage' ]
-  //     ]
-  //   },
-  //   group: ['Spot.id'],
-  // })
+  let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
 
-  // res.json({ Spots: spots })
+  page = parseInt(page);
+  size = parseInt(size);
 
-  const spots = await Spot.findAll({
-    include: [
-      { model: Review, attributes: [] },
-    ],
-    attributes: {
-      include: [
-        [ sequelize.fn('AVG', sequelize.col('Reviews.stars')), 'avgRating' ],
-      ]
-    },
-    group: ['Spot.id'],
-  })
+  if (Number.isNaN(page) || !page || page > 10) page = 0;
+  if (Number.isNaN(size) || !size || size > 20) size = 20;
 
-  for (let spot of spots) {
-    let previewImage = await Image.findOne({
-      attributes: ['url'],
-      where: {
-        previewImage: true,
-        spotId: spot.id
+  let offset = null
+
+  if (page > 0) {
+    offset = size * (page - 1)
+  }
+
+  if (page < 0) {
+    res.json({
+      message: "Validation Error",
+      statusCode: 400,
+      errors: {
+        page: "Page must be greater than or equal to 0"
       }
     })
+  }
 
-    if (spot.dataValues.previewImage = previewImage === null) {
-      spot.dataValues.previewImage = null;
-    } else {
-      spot.dataValues.previewImage = previewImage.toJSON().url
+  if (size < 0) {
+    res.json({
+      message: "Validation Error",
+      statusCode: 400,
+      errors: {
+        size: "Size must be greater than or equal to 0"
+      }
+    })
+  }
+
+  if (maxLat) {
+    if (Number.isNaN(parseFloat(maxLat))) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Maximum latitude is invalid"
+        }
+      })
     }
   }
 
-  res.json({ Spots: spots })
+  if (minLat) {
+    if (Number.isNaN(parseFloat(minLat))) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Minimum latitude is invalid"
+        }
+      })
+    }
+  }
+
+  if (minLng) {
+    if (Number.isNaN(parseFloat(minLng))) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Maximum longitude is invalid"
+        }
+      })
+    }
+  }
+
+  if (maxLng) {
+    if (Number.isNaN(parseFloat(maxLng))) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Minimum longitude is invalid"
+        }
+      })
+    }
+  }
+
+  if (minPrice) {
+    if (Number.isNaN(parseFloat(minPrice)) || (parseFloat(minPrice) < 0)) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Maximum price must be greater than or equal to 0"
+        }
+      })
+    }
+  }
+
+  if (maxPrice) {
+    if (Number.isNaN(parseFloat(maxPrice)) || (parseFloat(minPrice) < 0)) {
+      res.json({
+        message: "Validation Error",
+        statusCode: 400,
+        errors: {
+          size: "Minimum price must be greater than or equal to 0"
+        }
+      })
+    }
+  }
+
+
+
+
+
 })
+
+// // Get All Spots
+// router.get('/', async (req, res, next) => {
+//   const spots = await Spot.findAll({
+//     include: [
+//       { model: Review, attributes: [] },
+//     ],
+//     attributes: {
+//       include: [
+//         [ sequelize.fn('AVG', sequelize.col('Reviews.stars')), 'avgRating' ],
+//       ]
+//     },
+//     group: ['Spot.id'],
+//   })
+
+//   for (let spot of spots) {
+//     let previewImage = await Image.findOne({
+//       attributes: ['url'],
+//       where: {
+//         previewImage: true,
+//         spotId: spot.id
+//       }
+//     })
+
+//     if (spot.dataValues.previewImage = previewImage === null) {
+//       spot.dataValues.previewImage = null;
+//     } else {
+//       spot.dataValues.previewImage = previewImage.toJSON().url
+//     }
+//   }
+
+//   res.json({ Spots: spots })
+// })
 
 // Get all Spots owned by the Current User
 router.get('/current', restoreUser, requireAuth, async (req, res)=>{
