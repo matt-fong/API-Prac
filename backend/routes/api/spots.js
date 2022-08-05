@@ -7,7 +7,7 @@ const { Op } = require("sequelize");
 
 const router = express.Router();
 
-// Get All Spots
+// Get All Spots (With Pagination)
 router.get('/', async (req, res, next) => {
   let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
 
@@ -20,8 +20,8 @@ router.get('/', async (req, res, next) => {
   const pagination = {};
 
   if (page >= 0 || size >= 0) {
-      pagination.limit = size;
-      pagination.offset = size * (page - 1);
+    pagination.limit = size;
+    pagination.offset = size * (page - 1);
   }
 
   if (page < 0) {
@@ -146,7 +146,6 @@ router.get('/', async (req, res, next) => {
     } else {
       spot.previewImage = null
     }
-
   }
 
   res.json({ Spots: spots, page, size });
