@@ -142,7 +142,7 @@ router.get('/', async (req, res, next) => {
       raw: true
     });
 
-    let rating = avgRating.avgRating.toFixed()
+    let rating = (avgRating.avgRating).toFixed()
     spot.avgRating = rating
 
     if (spot.previewImage = previewImage !== null) {
