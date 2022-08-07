@@ -23,11 +23,13 @@ router.get('/current', requireAuth, async (req, res, next) => {
     })
 
     let image = await Image.findOne({
-      where:{
+      where: {
         spotId: booking.spotId,
         previewImage: true
       }
     })
+
+    console.log(image)
 
     if (image) {
       spot.previewImage = image.url
