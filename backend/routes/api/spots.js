@@ -220,7 +220,7 @@ router.get('/:spotId', async (req, res) => {
   const response = spot.toJSON()
 
   response.numReviews = numReviews
-  response.avgStarRating = rating.avgStarRating
+  response.avgStarRating = rating.avgStarRating.toFixed(1)
   response.Images = images
   response.Owner = owner
 
