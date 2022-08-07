@@ -142,7 +142,7 @@ router.get('/', async (req, res, next) => {
       raw: true
     });
 
-    spot.avgRating = Number.parseFloat(avgRating.avgRating).toFixed(1)
+    spot.avgRating = parseFloat(parseFloat(avgRating.avgRating).toFixed(1))
 
     if (spot.previewImage = previewImage !== null) {
       spot.previewImage = previewImage.url
@@ -178,22 +178,14 @@ router.get('/current', restoreUser, requireAuth, async (req, res)=>{
       }
     })
 
-    // console.log(spot)
-    console.log((spot.dataValues.avgRating).toFixed(1))
+    console.log(spot.dataValues.avgRating)
 
-    // if (isNaN(Number.parseFloat(spot.dataValues.avgRating).toFixed(1))) {
-      // spot.dataValues.avgRating = null
-    // } else {
-      spot.dataValues.avgRating = Number.parseFloat((spot.dataValues.avgRating).toFixed(1))
-    // }
+    if (isNaN(parseFloat(parseFloat(spot.avgRating).toFixed(1)))) {
+      spot.avgRating = null
+    } else {
+      spot.avgRating = parseFloat(parseFloat(spot.avgRating).toFixed(1))
+    }
 
-    // if (isNaN(Number.parseFloat(spot.avgRating).toFixed(1))) {
-    //   spot.avgRating = null
-    // } else {
-    //   spot.avgRating = Number.parseFloat(spot.avgRating).toFixed(1)
-    // }
-
-    // spot.avgRating = Number.parseFloat(spot.avgRating).toFixed(1)
     spot.dataValues.previewImage = image.url
   }
 
