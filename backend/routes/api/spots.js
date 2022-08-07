@@ -222,7 +222,6 @@ router.get('/:spotId', async (req, res) => {
     raw: true
   })
 
-  console.log(rating)
 
   const images = await Image.findAll({
     attributes: [ 'id', ['spotId', 'imageableId'], 'url' ],
@@ -239,7 +238,7 @@ router.get('/:spotId', async (req, res) => {
 
   console.log(rating)
 
-  response.avgStarRating = parseFloat((rating.avgStarRating).toFixed(1))
+  response.avgStarRating = parseFloat(parseFloat(rating.avgStarRating).toFixed(1))
 
   // if (isNaN(Number.parseFloat(rating.avgStarRating).toFixed(1))) {
     // response.avgStarRating = null
