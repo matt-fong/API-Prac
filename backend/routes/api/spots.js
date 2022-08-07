@@ -239,7 +239,7 @@ router.get('/:spotId', async (req, res) => {
 
   console.log(rating)
 
-  response.avgStarRating = parseFloat(rating.avgStarRating.toFixed(1))
+  response.avgStarRating = parseFloat((rating.avgStarRating).toFixed(1))
 
   // if (isNaN(Number.parseFloat(rating.avgStarRating).toFixed(1))) {
     // response.avgStarRating = null
