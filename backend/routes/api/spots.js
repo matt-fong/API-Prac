@@ -220,9 +220,14 @@ router.get('/:spotId', async (req, res) => {
   const response = spot.toJSON()
 
   response.numReviews = numReviews
-  response.avgStarRating = Number.parseFloat(rating.avgStarRating).toFixed(1)
   response.Images = images
   response.Owner = owner
+
+  if (isNaN(Number.parseFloat(rating.avgStarRating).toFixed(1))) {
+    response.avgStarRating = null
+  } else {
+    response.avgStarRating = Number.parseFloat(rating.avgStarRating).toFixed(1)
+  }
 
   res.json(response)
 })
