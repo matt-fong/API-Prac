@@ -178,6 +178,22 @@ router.get('/current', restoreUser, requireAuth, async (req, res)=>{
       }
     })
 
+    // console.log(spot)
+    console.log((spot.dataValues.avgRating).toFixed(1))
+
+    // if (isNaN(Number.parseFloat(spot.dataValues.avgRating).toFixed(1))) {
+      // spot.dataValues.avgRating = null
+    // } else {
+      spot.dataValues.avgRating = Number.parseFloat((spot.dataValues.avgRating).toFixed(1))
+    // }
+
+    // if (isNaN(Number.parseFloat(spot.avgRating).toFixed(1))) {
+    //   spot.avgRating = null
+    // } else {
+    //   spot.avgRating = Number.parseFloat(spot.avgRating).toFixed(1)
+    // }
+
+    // spot.avgRating = Number.parseFloat(spot.avgRating).toFixed(1)
     spot.dataValues.previewImage = image.url
   }
 
@@ -221,12 +237,16 @@ router.get('/:spotId', async (req, res) => {
 
   response.numReviews = numReviews
 
-  if (isNaN(Number.parseFloat(rating.avgStarRating).toFixed(1))) {
-    response.avgStarRating = null
-  } else {
-    response.avgStarRating = Number.parseFloat(rating.avgStarRating).toFixed(1)
-  }
-  
+  console.log(rating)
+
+  response.avgStarRating = parseFloat(rating.avgStarRating.toFixed(1))
+
+  // if (isNaN(Number.parseFloat(rating.avgStarRating).toFixed(1))) {
+    // response.avgStarRating = null
+  // } else {
+    // response.avgStarRating = Number.parseFloat(rating.avgStarRating).toFixed(1)
+  // }
+
   response.Images = images
   response.Owner = owner
 
@@ -377,7 +397,7 @@ router.post('/:spotId/reviews', requireAuth, async (req, res, next) => {
 
   const newReview = await Review.create({
     userId: req.user.id,
-    spotId: spotId,
+    spotId: parseInt(spotId),
     review,
     stars,
   })
