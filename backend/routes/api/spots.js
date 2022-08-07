@@ -236,15 +236,11 @@ router.get('/:spotId', async (req, res) => {
 
   response.numReviews = numReviews
 
-  console.log(rating)
-
-  response.avgStarRating = parseFloat(parseFloat(rating.avgStarRating).toFixed(1))
-
-  // if (isNaN(Number.parseFloat(rating.avgStarRating).toFixed(1))) {
-    // response.avgStarRating = null
-  // } else {
-    // response.avgStarRating = Number.parseFloat(rating.avgStarRating).toFixed(1)
-  // }
+  if (isNaN(parseFloat(parseFloat(rating.avgStarRating).toFixed(1)))) {
+    response.avgStarRating = null
+  } else {
+    response.avgStarRating = parseFloat(parseFloat(rating.avgStarRating).toFixed(1))
+  }
 
   response.Images = images
   response.Owner = owner
