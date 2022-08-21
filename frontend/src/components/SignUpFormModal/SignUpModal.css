@@ -1,0 +1,11 @@
+.signup-modal-container {
+  display: flex;
+}
+
+.signup-modal-header {
+  display: flex;
+}
+
+.signup-modal-form {
+  display: flex;
+}

@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import './SignUpForm.css';
 
-function SignupFormPage() {
+function SignUpForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -31,8 +30,8 @@ function SignupFormPage() {
   };
 
   return (
-    <div className='signUpFormContainer'>
-      <form onSubmit={handleSubmit} className='signUpForm'>
+    <div className>
+      <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
@@ -96,4 +95,4 @@ function SignupFormPage() {
   );
 }
 
-export default SignupFormPage;
+export default SignUpForm;
