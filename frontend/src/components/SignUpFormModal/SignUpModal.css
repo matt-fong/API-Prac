@@ -1,11 +1,13 @@
-.signup-modal-container {
-  display: flex;
-}
-
 .signup-modal-header {
   display: flex;
+  justify-content: center;
 }
 
 .signup-modal-form {
+  padding: 30px;
+}
+
+.signup-form-input {
   display: flex;
+  width: 100%;
 }

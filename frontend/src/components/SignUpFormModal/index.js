@@ -13,7 +13,7 @@ function SignUpFormModal() {
         <Modal onClose={() => setShowModal(false)}>
           <div className='signup-modal-container'>
             <div className='signup-modal-header'>
-
+              Sign up
             </div>
             <div className='signup-modal-form'>
               <SignUpForm />

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import './SignUpModal.css';
 
 function SignUpForm() {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ function SignUpForm() {
         <label>
           Email
           <input
+            className="signup-form-input"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -47,6 +49,7 @@ function SignUpForm() {
         <label>
           Username
           <input
+            className="signup-form-input"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -56,6 +59,7 @@ function SignUpForm() {
         <label>
           Password
           <input
+            className="signup-form-input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -65,6 +69,7 @@ function SignUpForm() {
         <label>
           Confirm Password
           <input
+            className="signup-form-input"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -74,6 +79,7 @@ function SignUpForm() {
         <label>
           First Name
           <input
+            className="signup-form-input"
             type="text"
             value={firstName}
             onChange={(e) => setfirstName(e.target.value)}
@@ -83,6 +89,7 @@ function SignUpForm() {
         <label>
           Last Name
           <input
+            className="signup-form-input"
             type="text"
             value={lastName}
             onChange={(e) => setlastName(e.target.value)}
