@@ -15,8 +15,6 @@ function App() {
     dispatch(dispatchGetAllSpotsAction())
   }, [dispatch]);
 
-
-
   return (
     <>
       <Navigation isLoaded={isLoaded} />

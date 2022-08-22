@@ -11,14 +11,14 @@ function LoginModal() {
       <button onClick={() => setShowModal(true)}>Log In</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-        <div className='login-modal-container'>
-          <div className='login-modal-header'>
-            Log in
+          <div className='login-modal-container'>
+            <div className='login-modal-header'>
+              Log in
+            </div>
+            <div className='login-modal-form'>
+              <LoginForm />
+            </div>
           </div>
-          <div className='login-modal-form'>
-            <LoginForm />
-          </div>
-        </div>
       </Modal>
       )}
     </>
