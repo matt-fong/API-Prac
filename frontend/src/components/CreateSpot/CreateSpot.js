@@ -13,7 +13,6 @@ const CreateSpot = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
-  const [previewImage, setPreviewImage] = useState("");
   const [errors, setErrors] = useState([]);
   const [submit, setSubmit] = useState(false);
 
@@ -31,7 +30,6 @@ const CreateSpot = () => {
       city: city,
       state: state,
       country: country,
-      previewImage: previewImage,
       lat: lat,
       lng: lng,
       name: name,
@@ -150,15 +148,6 @@ const CreateSpot = () => {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           required
-        />
-      </label>
-      <label className="createImg">
-        <span>Image Url:</span>
-        <input
-          type="text"
-          placeholder="img-url"
-          value={previewImage}
-          onChange={(e) => setPreviewImage(e.target.value)}
         />
       </label>
       <button className="createSpotButton" type="submit">
