@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
+import SignupFormPage from "./components/SignupFormPage/SignupFormPage";
 import * as sessionActions from "./store/session";
-import Navigation from "./components/Navigation";
-import HomePage from "./components/HomePage";
+import Navigation from "./components/Navigation/Navigation";
+import HomePage from "./components/HomePage/HomePage";
 import * as spotsActions from "./store/spots";
-import SpotDetails from "./components/SpotDetails";
+import SpotDetails from "./components/SpotDetails/SpotDetails";
 import CreateSpot from "./components/CreateSpot/CreateSpot";
 
 function App() {
