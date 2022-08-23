@@ -7,8 +7,21 @@ const SpotDetails = () => {
   const spot = spots.find((spot) => spot.id == spotId);
 
   return (
-    <div>
-      {spot.name}
+    <div className='spotDetailContainer'>
+      <div className='spotDetailHeader'>
+        <h1 className='spotDetailName'>{spot.name}</h1>
+        <div className='spotDetailReview'>
+          <i className="fa-solid fa-star">{spot.avgRating}</i>
+          {/* <div className='spotDetailRatingNumber'>{spot.avgRating}</div> */}
+        </div>
+        <div className='spotDetailAddress'>{spot.city}, {spot.state}, {spot.country}</div>
+      </div>
+      <div className='spotDetailPicture'>
+        <img className='spotDetailImage' src={spot.previewImage} />
+      </div>
+      <div className='spotDetailBody'>
+
+      </div>
     </div>
   )
 }
