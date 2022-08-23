@@ -28,3 +28,13 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.spotLocation {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.spotPrice {
+  font-weight: bold;
+  text-decoration: none;
+}
