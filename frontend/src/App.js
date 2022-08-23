@@ -8,7 +8,7 @@ import HomePage from "./components/HomePage/HomePage";
 import * as spotsActions from "./store/spots";
 import SpotDetails from "./components/SpotDetails/SpotDetails";
 import CreateSpot from "./components/CreateSpot/CreateSpot";
-import UserSpots from "./components/UserSpot/UserSpots";
+import UserSpots from "./components/UserSpots/UserSpots";
 
 function App() {
   const dispatch = useDispatch();

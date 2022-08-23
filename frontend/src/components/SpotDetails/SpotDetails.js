@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const SpotDetails = () => {
   const spots = useSelector((state) => Object.values(state.spots));
   const { spotId } = useParams();
-  const spot = spots.find((spot) => spot.id == spotId);
+  const spot = spots.find((spot) => spot.id === spotId);
 
   return (
     <div className='spotDetailContainer'>
