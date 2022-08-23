@@ -1,9 +1,20 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import './HomePage.css'
+import SpotCard from "../SpotCard";
 
 const HomePage = () => {
+  const spots = useSelector((state) => Object.values(state.spots));
+
   return (
     <div className="homePageContainer">
-      <h1>Home Page</h1>
+      <div className="spotsContainer">
+        <div className="spotLayout">
+          {spots.map((spot) => (
+            <SpotCard key={spot.id} spot={spot}/>
+          ))}
+          </div>
+      </div>
     </div>
   )
 }

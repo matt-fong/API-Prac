@@ -5,14 +5,14 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
-import { dispatchGetAllSpotsAction } from "./store/spots";
+import * as spotsActions from "./store/spots";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    dispatch(dispatchGetAllSpotsAction())
+    dispatch(spotsActions.getAllSpots())
   }, [dispatch]);
 
   return (
