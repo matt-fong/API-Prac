@@ -12,7 +12,6 @@ const SpotDetails = () => {
         <h1 className='spotDetailName'>{spot.name}</h1>
         <div className='spotDetailReview'>
           <i className="fa-solid fa-star">{spot.avgRating}</i>
-          {/* <div className='spotDetailRatingNumber'>{spot.avgRating}</div> */}
         </div>
         <div className='spotDetailAddress'>{spot.city}, {spot.state}, {spot.country}</div>
       </div>

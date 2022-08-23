@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage/HomePage";
 import * as spotsActions from "./store/spots";
 import SpotDetails from "./components/SpotDetails/SpotDetails";
 import CreateSpot from "./components/CreateSpot/CreateSpot";
+import UserSpots from "./components/UserSpot/UserSpots";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,8 +33,12 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/testcreate">
-            {user ? <CreateSpot />: <Redirect to='/signup' /> }
+          <Route path="/my-spots">
+            <UserSpots />
+          </Route>
+          <Route path="/create-spot">
+            {/* {user ? <CreateSpot />: <Redirect to='/signup' /> } */}
+            <CreateSpot />
           </Route>
         </Switch>
       )}
