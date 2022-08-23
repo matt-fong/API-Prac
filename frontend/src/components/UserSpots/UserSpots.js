@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { getOwnedSpots } from "../../store/spots";
-import { deleteSpot } from "../../store/spots";
+import * as sessionActions from "../../store/session";
 
 const UserSpots = () => {
   const user = useSelector(state => state.session.user);
   const spots = useSelector((state) => Object.values(state.spots));
   const userSpots = spots.filter((spot) => spot.ownerId === user.id);
 
-  console.log('THIS IS USER', user)
-  console.log('THIS IS SPOTS', spots)
-  console.log('THIS IS USERSPOTS', userSpots)
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (password === confirmPassword) {
+  //     setErrors([]);
+  //     return dispatch(sessionActions.editSpot({ email, username, password, firstName, lastName }))
+  //   }
+  // };
 
   return (
     <div>
@@ -27,6 +29,7 @@ const UserSpots = () => {
           <div>
             {spot.city}, {spot.state}, {spot.country}
           </div>
+            <NavLink to={`/spots/${spot.id}/edit`}>Edit Spot</NavLink>
         </div>
       ))}
     </div>

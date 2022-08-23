@@ -52,7 +52,7 @@ function LoginForm() {
         className="login-form-submit"
         type="submit"
         onClick={() => {
-          setCredential("demo");
+          setCredential("demouser");
           setPassword("password");
         }}
       >

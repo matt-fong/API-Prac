@@ -9,11 +9,12 @@ import * as spotsActions from "./store/spots";
 import SpotDetails from "./components/SpotDetails/SpotDetails";
 import CreateSpot from "./components/CreateSpot/CreateSpot";
 import UserSpots from "./components/UserSpots/UserSpots";
+import EditSpot from "./components/EditSpot/EditSpot"
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const user = useSelector((state) => state.session.user)
+  // const user = useSelector((state) => state.session.user)
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(spotsActions.getAllSpots())
@@ -26,6 +27,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <HomePage />
+          </Route>
+          <Route path="/spots/:spotId/edit">
+            <EditSpot />
           </Route>
           <Route path="/spots/:spotId">
             <SpotDetails />

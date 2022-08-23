@@ -17,7 +17,7 @@ function SignUpForm() {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
@@ -32,7 +32,7 @@ function SignUpForm() {
 
   return (
     <div className>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>

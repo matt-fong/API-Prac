@@ -2,21 +2,23 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import "./SpotEditForm.css";
+import "./EditSpot.css";
 import { editSpot } from "../../store/spots";
 
 function SpotEditForm({ spot }) {
-  const dispatch = useDispatch();
-  const [name, setName] = useState(spot?.name);
-  const [price, setPrice] = useState(spot?.price);
-  const [lat, setLat] = useState(spot?.lat);
-  const [lng, setLng] = useState(spot?.lng);
-  const [description, setDescription] = useState(spot?.description);
   const [address, setAddress] = useState(spot?.address);
   const [city, setCity] = useState(spot?.city);
   const [state, setState] = useState(spot?.state);
   const [country, setCountry] = useState(spot?.country);
+  const [lat, setLat] = useState(spot?.lat);
+  const [lng, setLng] = useState(spot?.lng);
+  const [name, setName] = useState(spot?.name);
+  const [description, setDescription] = useState(spot?.description);
+  const [price, setPrice] = useState(spot?.price);
   const [errors, setErrors] = useState([]);
+
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 

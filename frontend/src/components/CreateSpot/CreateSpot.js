@@ -8,12 +8,12 @@ const CreateSpot = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
-  const [previewImage, setPreviewImage] = useState("");
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
+  const [previewImage, setPreviewImage] = useState("");
   const [errors, setErrors] = useState([]);
   const [submit, setSubmit] = useState(false);
 
