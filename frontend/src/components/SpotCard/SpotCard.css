@@ -1,6 +1,7 @@
 .spotCardContainer {
   width: 300px;
   height: 285px;
+  padding: 30px
 }
 
 .spotImage {
@@ -8,4 +9,22 @@
   height: 285px;
   border-radius: 12px;
   object-fit: cover;
+}
+
+.spotDescription {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding: 15px 0px;
+  width: 300px;
+}
+
+.spotDescriptionLeft {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.spotDescriptionRight {
+  display: flex;
+  justify-content: flex-end;
 }
