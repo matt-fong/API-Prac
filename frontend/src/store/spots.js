@@ -38,11 +38,10 @@ const createSpotAction = (payload) => {
     }
 }
 
-const editSpotAction = (payload, spotId) => {
+const editSpotAction = (spot) => {
     return {
         type: EDIT_A_SPOT,
-        payload,
-        spotId
+        spot,
     }
 }
 
@@ -61,7 +60,7 @@ export const getAllSpots = () => async (dispatch) => {
     })
     if (response.ok) {
         const data = await response.json();
-        dispatch(getAllSpotsAction(data))
+        dispatch(getAllSpotsAction(data.Spots))
     }
 }
 
@@ -105,7 +104,7 @@ export const editSpot = (payload, spotId) => async (dispatch) => {
     })
     if (response.ok){
         const data = await response.json();
-        dispatch(getSpotsById(data.id))
+        dispatch(editSpotAction(data))
         return response;
     }
 }
@@ -125,10 +124,14 @@ export const spotsReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
     case GET_ALL_SPOTS:
-        newState = {...state, ...action.payload['Spots']}
-      return newState;
+        newState = {  }
+        action.payload.forEach((spot) => {
+            newState[spot.id] = spot
+        })
+        return newState;
     case CREATE_A_SPOT:
-        newState = {...state, ...action.payload}
+        newState = {...state }
+        newState[action.payload.id] = action.payload
         return newState;
     case EDIT_A_SPOT:
         newState = { ...state };
@@ -136,6 +139,8 @@ export const spotsReducer = (state = {}, action) => {
         return newState;
     case DELETE_A_SPOT:
         newState = { ...state };
+        // console.log(newState)
+        // console.log(action)
         delete newState[action.spotId];
         return newState;
     default:
