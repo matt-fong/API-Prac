@@ -3,13 +3,13 @@
 const reviews = [
   {
     userId: 1,
-    spotId: 2,
+    spotId: 1,
     review: "First Review",
     stars: 5,
   },
   {
     userId: 2,
-    spotId: 1,
+    spotId: 2,
     review: "Second Review",
     stars: 5,
   },
