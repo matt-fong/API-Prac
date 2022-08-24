@@ -10,14 +10,15 @@ const SpotDetails = () => {
   const { spotId } = useParams();
   const spot = spots.find((spot) => spot.id == spotId);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getSpotById(spotId));
-  //   dispatch(getReviewsBySpotId(spotId));
-  // }, []);
+  useEffect(() => {
+    // dispatch(getSpotById(spotId));
+    dispatch(getReviewsBySpotId(spotId));
+  }, []);
 
-  // const reviews = useSelector((state) => Object.values(state.reviews));
+  const reviews = useSelector((state) => Object.values(state.reviews));
+  console.log('THIS IS REVIEWS', reviews)
 
   return (
     <div className='spotDetailContainer'>

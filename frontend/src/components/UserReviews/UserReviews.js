@@ -9,15 +9,11 @@ const UserReviews = () => {
   const user = useSelector(state => state.session.user);
   const reviews = useSelector((state) => Object.values(state.reviews));
 
-  const { spotId } = useParams();
-
   console.log('THIS IS REVIEWS', reviews)
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(getSpotById(spotId));
-    // dispatch(getReviewsBySpotId(spotId));
     dispatch(getReviewsByCurrentUser())
   }, []);
 
