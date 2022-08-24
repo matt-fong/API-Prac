@@ -42,6 +42,9 @@ function ProfileButton({ user }) {
             <NavLink to='/my-spots'>My Spots</NavLink>
           </li>
           <li>
+            <NavLink to='/my-reviews'>My Reviews</NavLink>
+          </li>
+          <li>
             <NavLink to='/create-spot'>Host Your Home</NavLink>
           </li>
           <li>

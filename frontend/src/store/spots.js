@@ -16,10 +16,10 @@ const getAllSpotsAction = (payload) => {
     }
 }
 
-const getSpotByIdAction = (payload) => {
+const getSpotByIdAction = (spot) => {
     return {
         type: GET_SPOT_BY_ID,
-        payload
+        spot
     }
 }
 
@@ -64,14 +64,12 @@ export const getAllSpots = () => async (dispatch) => {
     }
 }
 
-export const getSpotsById = (spotId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/${spotId}`, {
-        method: 'GET'
-    })
+export const getSpotById = (spotId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${spotId}`)
     if (response.ok){
         const data = await response.json();
+        console.log(data)
         dispatch(getSpotByIdAction(data))
-        return response;
     }
 }
 
@@ -143,6 +141,15 @@ export const spotsReducer = (state = {}, action) => {
         // console.log(action)
         delete newState[action.spotId];
         return newState;
+    case GET_SPOT_BY_ID:
+        newState = {...state }
+        newState[action.spot.id] = action.spot
+        return newState;
+        // newState = {  }
+        // newState[action.spot.id] = action.spot
+        // console.log('THIS IS NEW STATE', newState)
+        // console.log('THIS IS ACTION', action)
+        // return newState
     default:
         return state;
   }

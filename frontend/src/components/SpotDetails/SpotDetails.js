@@ -1,10 +1,23 @@
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getReviews, createReview } from "../../store/reviews";
+import { getSpotById } from "../../store/spots";
+import { getReviewsBySpotId } from "../../store/reviews";
 
 const SpotDetails = () => {
   const spots = useSelector((state) => Object.values(state.spots));
   const { spotId } = useParams();
   const spot = spots.find((spot) => spot.id == spotId);
+
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getSpotById(spotId));
+  //   dispatch(getReviewsBySpotId(spotId));
+  // }, []);
+
+  // const reviews = useSelector((state) => Object.values(state.reviews));
 
   return (
     <div className='spotDetailContainer'>

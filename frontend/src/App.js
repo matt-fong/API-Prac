@@ -10,11 +10,11 @@ import SpotDetails from "./components/SpotDetails/SpotDetails";
 import CreateSpot from "./components/CreateSpot/CreateSpot";
 import UserSpots from "./components/UserSpots/UserSpots";
 import EditSpot from "./components/EditSpot/EditSpot"
+import UserReviews from "./components/UserReviews/UserReviews";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  // const user = useSelector((state) => state.session.user)
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(spotsActions.getAllSpots())
@@ -43,6 +43,9 @@ function App() {
           <Route path="/create-spot">
             {/* {user ? <CreateSpot />: <Redirect to='/signup' /> } */}
             <CreateSpot />
+          </Route>
+          <Route path="/my-reviews">
+            <UserReviews />
           </Route>
         </Switch>
       )}
