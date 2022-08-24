@@ -6,7 +6,7 @@ export const GET_SPOT_BY_ID = 'spots/getSpotById/get'
 export const GET_OWNED_SPOTS = 'spots/getOwnedSpots/get'
 export const CREATE_A_SPOT = 'spots/createSpot/post'
 export const EDIT_A_SPOT = 'spots/editSpot/update'
-export const DELETE_A_SPOT = 'spots/Spot/delete'
+export const DELETE_A_SPOT = 'spots/delete'
 
 // Actions
 const getAllSpotsAction = (payload) => {
@@ -38,17 +38,18 @@ const createSpotAction = (payload) => {
     }
 }
 
-const editSpotAction = (spotId) => {
+const editSpotAction = (payload, spotId) => {
     return {
         type: EDIT_A_SPOT,
+        payload,
         spotId
     }
 }
 
-const deleteSpotAction = (id) => {
+const deleteSpotAction = (spotId) => {
     return {
         type: DELETE_A_SPOT,
-        id
+        spotId
     }
 }
 
@@ -96,26 +97,27 @@ export const createSpot = (payload) => async (dispatch) => {
     }
 }
 
-export const editSpot = (spotId) => async (dispatch) => {
+export const editSpot = (payload, spotId) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${spotId}`, {
-        method: 'PUT'
+        method: 'PUT',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(payload)
     })
     if (response.ok){
         const data = await response.json();
-        dispatch(editSpotAction(data))
+        dispatch(getSpotsById(data.id))
         return response;
     }
 }
 
-export const deleteSpot = (id) => async (dispatch) => {
-    const response = await csrfFetch('/api/spots', {
+export const deleteSpot = (spotId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${spotId}`, {
         method: 'DELETE',
     })
     if (response.ok) {
-        const data = await response.json();
-        dispatch(deleteSpotAction(id))
-        return data
+        dispatch(deleteSpotAction(spotId))
     }
+    return response
 }
 
 // Reducer
@@ -129,10 +131,12 @@ export const spotsReducer = (state = {}, action) => {
         newState = {...state, ...action.payload}
         return newState;
     case EDIT_A_SPOT:
-        newState = {...state}
+        newState = { ...state };
+        newState[action.spot.id] = action.spot;
         return newState;
     case DELETE_A_SPOT:
-        newState = {...state}
+        newState = { ...state };
+        delete newState[action.spotId];
         return newState;
     default:
         return state;

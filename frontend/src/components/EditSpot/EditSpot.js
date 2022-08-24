@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useParams, useHistory } from "react-router-dom";
 import "./EditSpot.css";
 import { editSpot } from "../../store/spots";
 
@@ -10,49 +10,54 @@ function EditSpotForm() {
   const { spotId } = useParams();
   const spot = spots.find((spot) => spot.id == spotId);
 
-  const [address, setAddress] = useState(spot.address);
-  const [city, setCity] = useState(spot.city);
-  const [state, setState] = useState(spot.state);
-  const [country, setCountry] = useState(spot.country);
-  const [lat, setLat] = useState(spot.lat);
-  const [lng, setLng] = useState(spot.lng);
-  const [name, setName] = useState(spot.name);
-  const [description, setDescription] = useState(spot.description);
-  const [price, setPrice] = useState(spot.price);
+  const [name, setName] = useState(spot?.name);
+  const [price, setPrice] = useState(spot?.price);
+  const [lat, setLat] = useState(spot?.lat);
+  const [lng, setLng] = useState(spot?.lng);
+  const [description, setDescription] = useState(spot?.description);
+  const [address, setAddress] = useState(spot?.address);
+  const [city, setCity] = useState(spot?.city);
+  const [state, setState] = useState(spot?.state);
+  const [country, setCountry] = useState(spot?.country);
   const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     const data = {};
-    if (spot.name) spot.name = name;
-    if (price) spot.price = price;
-    if (lat) spot.lat = lat;
-    if (lng) spot.lng = lng;
-    if (description) spot.description = description;
-    if (address) spot.address = address;
-    if (city) spot.city = city;
-    if (state) spot.state = state;
-    if (country) spot.country = country;
+    if (name) data.name = name;
+    if (price) data.price = price;
+    if (lat) data.lat = lat;
+    if (lng) data.lng = lng;
+    if (description) data.description = description;
+    if (address) data.address = address;
+    if (city) data.city = city;
+    if (state) data.state = state;
+    if (country) data.country = country;
 
     setErrors([]);
-    // return dispatch(editSpot(data, spot.id)).catch(async (res) => {
-    //   console.log("Res:", res);
-    //   const data = await res.json();
-    //   if (data && data.errors) setErrors(data.errors);
-    // });
+    dispatch(editSpot(data, spot.id)).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });
+
+    history.push('/')
+
   };
 
   return (
+    <>
+    <div>Edit Form</div>
     <form onSubmit={onSubmit}>
-      <ul className="spot_error">
+      <ul>
         {Object.values(errors).map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <div className="spot-input-item">
+      <div>
         <input
           placeholder="Spot Name"
           type="text"
@@ -60,7 +65,7 @@ function EditSpotForm() {
           onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div className="spot-input-item">
+      <div>
         <input
           placeholder="Description"
           type="text"
@@ -68,7 +73,7 @@ function EditSpotForm() {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <div className="spot-input-item">
+      <div>
         <input
           placeholder="Price"
           type="number"
@@ -76,7 +81,7 @@ function EditSpotForm() {
           onChange={(e) => setPrice(e.target.value)}
         />
       </div>
-      <div className="spot-input-item">
+      <div>
         <input
           placeholder="Address"
           type="text"
@@ -84,7 +89,7 @@ function EditSpotForm() {
           onChange={(e) => setAddress(e.target.value)}
         />
       </div>
-      <div className="spot-input-item">
+      <div>
         <input
           placeholder="City"
           type="text"
@@ -92,7 +97,7 @@ function EditSpotForm() {
           onChange={(e) => setCity(e.target.value)}
         />
       </div>
-      <div className="spot-input-item">
+      <div>
         <input
           placeholder="State"
           type="text"
@@ -100,7 +105,7 @@ function EditSpotForm() {
           onChange={(e) => setState(e.target.value)}
         />
       </div>
-      <div className="spot-input-item">
+      <div>
         <input
           placeholder="Country"
           type="text"
@@ -108,7 +113,7 @@ function EditSpotForm() {
           onChange={(e) => setCountry(e.target.value)}
         />
       </div>
-      <div className="spot-input-item">
+      <div>
         <input
           placeholder="Latitude"
           type="number"
@@ -116,7 +121,7 @@ function EditSpotForm() {
           onChange={(e) => setLat(e.target.value)}
         />
       </div>
-      <div className="spot-input-item">
+      <div>
         <input
           placeholder="Longitude"
           type="number"
@@ -124,19 +129,11 @@ function EditSpotForm() {
           onChange={(e) => setLng(e.target.value)}
         />
       </div>
-      {/* <div className="spot-input-item">
-        <input
-          placeholder="Spot Image"
-          type="text"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-
-        />
-      </div> */}
       <button className="spot-modal-submit" type="submit">
-        Edit Spot
+        Submit
       </button>
     </form>
+    </>
   );
 }
 

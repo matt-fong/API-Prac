@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
+import { deleteSpot } from "../../store/spots";
 
 const UserSpots = () => {
   const user = useSelector(state => state.session.user);
   const spots = useSelector((state) => Object.values(state.spots));
   const userSpots = spots.filter((spot) => spot.ownerId === user.id);
 
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (password === confirmPassword) {
-  //     setErrors([]);
-  //     return dispatch(sessionActions.editSpot({ email, username, password, firstName, lastName }))
-  //   }
-  // };
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const handleDelete = (spotId) => {
+    dispatch(deleteSpot(spotId));
+    history.push("/");
+  };
 
   return (
     <div>
@@ -30,6 +31,7 @@ const UserSpots = () => {
             {spot.city}, {spot.state}, {spot.country}
           </div>
             <NavLink to={`/spots/${spot.id}/edit`}>Edit Spot</NavLink>
+            <button onClick={() => handleDelete(spot.id)}>Delete</button>
         </div>
       ))}
     </div>
