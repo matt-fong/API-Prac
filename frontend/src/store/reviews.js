@@ -46,11 +46,11 @@ export const getReviewsBySpotId = (spotId) => async (dispatch) => {
   }
 };
 
-export const getReviewsByCurrentUser = (spotId) => async (dispatch) => {
+export const getReviewsByCurrentUser = () => async (dispatch) => {
   const res = await csrfFetch(`/api/reviews/current`);
   if (res.ok) {
     const data = await res.json();
-    console.log(data)
+    console.log('THIS IS DATA', data)
     dispatch(loadCurrentReviews(data.Reviews));
   }
 };
@@ -96,7 +96,13 @@ export default function reviewsReducer(state = {}, action) {
       return newState;
     }
     case READ_CURRENT: {
-      console.log(action)
+      console.log('THIS IS STATE', newState)
+      console.log('THIS IS ACTION', action)
+      newState = {};
+      action.reviews.forEach((review) => {
+        newState[review.id] = review
+      })
+      return newState
     }
     case CREATE: {
       newState = { ...state };
