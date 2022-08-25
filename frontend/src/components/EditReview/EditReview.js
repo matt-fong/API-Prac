@@ -18,6 +18,18 @@ const EditReview = () => {
   const [stars, setStars] = useState(reviews[reviewId]?.stars);
   const [errors, setErrors] = useState([]);
 
+  const validations = () => {
+    let errors = []
+    if (!stars || stars > 5 || stars < 1) errors.push("Stars must be an integer from 1 to 5")
+    if (!review || review.length > 255) errors.push("Review text is required or is greater than 255")
+    setErrors(errors)
+  }
+
+  useEffect(() => {
+    validations()
+  }, [ review, stars ])
+
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -25,15 +37,10 @@ const EditReview = () => {
     if (review) data.review = review;
     if (stars) data.stars = stars;
 
-    setErrors([]);
-
-    dispatch(editReview(data, reviews[reviewId].id))
-
-      // .catch(async (res) => {
-      // const data = await res.json();
-      // if (data && data.errors) setErrors(data.errors);});
-
-    history.push('/my-reviews')
+    if(!errors.length) {
+      dispatch(editReview(data, reviews[reviewId].id))
+      history.push('/my-reviews')
+    }
 
   };
 
@@ -42,8 +49,8 @@ const EditReview = () => {
     <div>Edit Form</div>
     <form onSubmit={onSubmit}>
       <ul>
-        {Object.values(errors).map((error, idx) => (
-          <li key={idx}>{error}</li>
+        {(errors).map((error, i) => (
+          <li key={i}>{error}</li>
         ))}
       </ul>
       <div>

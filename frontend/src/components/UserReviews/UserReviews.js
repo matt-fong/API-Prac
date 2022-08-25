@@ -9,10 +9,9 @@ const UserReviews = () => {
   const user = useSelector(state => state.session.user);
   const reviews = useSelector(state => Object.values(state.reviews));
 
-  const spots = useSelector((state) => Object.values(state.spots));
+  const spots = useSelector((state) => (state.spots));
   console.log('THIS IS SPOTS', spots)
-
-  const spot =
+  console.log('THIS IS SINGLE SPOT', spots[2])
 
   // const spot = spots.find((spot) => spot.id == reviews.spotId);
   // console.log('THIS IS SPOT', spot)
@@ -37,6 +36,8 @@ const UserReviews = () => {
     <div>
       {reviews.map((review) => (
         <div key={review.id}>
+          <div>SPOT ID: {review.spotId}</div>
+          <div></div>
           <i className="fa-solid fa-star"></i>{`${review.stars}: `}
           {review.review}
           <br></br>
