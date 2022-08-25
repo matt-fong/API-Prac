@@ -37,10 +37,13 @@ const EditReview = () => {
     if (review) data.review = review;
     if (stars) data.stars = stars;
 
+
     if(!errors.length) {
       dispatch(editReview(data, reviews[reviewId].id))
       history.push('/my-reviews')
+
     }
+
 
   };
 
