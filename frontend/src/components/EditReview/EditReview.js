@@ -1,9 +1,8 @@
-import { useParams, NavLink, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getReviews, createReview, deleteReviewById, editReview } from "../../store/reviews";
-import { getSpotById } from "../../store/spots";
-import { getReviewsBySpotId, getReviewsByCurrentUser } from "../../store/reviews";
+import { editReview } from "../../store/reviews";
+
 
 const EditReview = () => {
   const reviews = useSelector(state => state.reviews);

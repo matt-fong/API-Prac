@@ -1,9 +1,7 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getReviews, createReview } from "../../store/reviews";
-import { getSpotById } from "../../store/spots";
-import { getReviewsBySpotId, createNewReview } from "../../store/reviews";
+import { getReviewsBySpotId } from "../../store/reviews";
 
 const SpotDetails = () => {
   const spots = useSelector((state) => Object.values(state.spots));

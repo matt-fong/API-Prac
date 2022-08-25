@@ -1,12 +1,12 @@
-import { useParams, NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getReviews, createReview, deleteReviewById } from "../../store/reviews";
-import { getAllSpots, getSpotById } from "../../store/spots";
-import { getReviewsBySpotId, getReviewsByCurrentUser } from "../../store/reviews";
+import { deleteReviewById } from "../../store/reviews";
+import { getAllSpots } from "../../store/spots";
+import { getReviewsByCurrentUser } from "../../store/reviews";
 
 const UserReviews = () => {
-  const user = useSelector(state => state.session.user);
+  // const user = useSelector(state => state.session.user);
   const reviews = useSelector(state => Object.values(state.reviews));
 
   const spots = useSelector((state) => (state.spots));
