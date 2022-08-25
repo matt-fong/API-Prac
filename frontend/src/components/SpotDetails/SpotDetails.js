@@ -1,24 +1,35 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getReviews, createReview } from "../../store/reviews";
 import { getSpotById } from "../../store/spots";
-import { getReviewsBySpotId } from "../../store/reviews";
+import { getReviewsBySpotId, createNewReview } from "../../store/reviews";
 
 const SpotDetails = () => {
   const spots = useSelector((state) => Object.values(state.spots));
   const { spotId } = useParams();
   const spot = spots.find((spot) => spot.id == spotId);
 
+  const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
-    // dispatch(getSpotById(spotId));
     dispatch(getReviewsBySpotId(spotId));
   }, []);
 
   const reviews = useSelector((state) => Object.values(state.reviews));
   console.log('THIS IS REVIEWS', reviews)
+
+  const handleCreateReview = (e) => {
+    e.preventDefault();
+    let path = `/spots/${spotId}/create-review`;
+    if (sessionUser) {
+      history.push(path);
+    } else {
+      history.push("/login");
+    }
+  };
 
   return (
     <div className='spotDetailContainer'>
@@ -35,6 +46,9 @@ const SpotDetails = () => {
       <div className='spotDetailBody'>
 
       </div>
+      <button className="createReviewButton" onClick={handleCreateReview}>
+        Create Review
+      </button>
     </div>
   )
 }

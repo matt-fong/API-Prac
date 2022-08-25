@@ -25,12 +25,14 @@ export const loadCurrentReviews = (reviews) => {
 export const clearReviews = () => {
   return { type: CLEAR };
 };
+
 export const createReview = (review) => {
   return {
     type: CREATE,
     review,
   };
 };
+
 export const deleteReview = (reviewId) => {
   return {
     type: DELETE,
@@ -67,20 +69,16 @@ export const deleteReviewById = (reviewId, spotId) => async (dispatch) => {
   return res;
 };
 
-export const createNewReview = (reviewData, spotId) => async (dispatch) => {
+export const createNewReview = (spotId, reviewData) => async (dispatch) => {
   const reqData = {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: {"Content-Type": "application/json"},
     body: JSON.stringify(reviewData),
   };
   const res = await csrfFetch(`/api/spots/${spotId}/reviews`, reqData);
   if (res.ok) {
     const data = await res.json();
     dispatch(createReview(data));
-    dispatch(getSpotById(data.spotId));
-    dispatch(getReviewsBySpotId(data.spotId));
   }
   return res;
 };
