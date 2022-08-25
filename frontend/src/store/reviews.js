@@ -57,14 +57,13 @@ export const getReviewsByCurrentUser = () => async (dispatch) => {
   }
 };
 
-export const deleteReviewById = (reviewId, spotId) => async (dispatch) => {
+export const deleteReviewById = (reviewId) => async (dispatch) => {
   const reqData = {
     method: "DELETE",
   };
   const res = await csrfFetch(`/api/reviews/${reviewId}`, reqData);
   if (res.ok) {
     dispatch(deleteReview(reviewId));
-    dispatch(getSpotById(spotId));
   }
   return res;
 };

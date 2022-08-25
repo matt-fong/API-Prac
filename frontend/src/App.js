@@ -12,6 +12,7 @@ import UserSpots from "./components/UserSpots/UserSpots";
 import EditSpot from "./components/EditSpot/EditSpot"
 import UserReviews from "./components/UserReviews/UserReviews";
 import CreateReview from "./components/CreateReview/CreateReview";
+import EditReview from "./components/EditReview/EditReview";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/spots/:spotId/create-review">
             <CreateReview />
+          </Route>
+          <Route path="/reviews/:reviewId">
+            <EditReview />
           </Route>
           <Route path="/spots/:spotId/edit">
             <EditSpot />

@@ -12,11 +12,6 @@ const CreateReview = () => {
   const [reviewMessage, setReviewMessage] = useState("");
   const [stars, setStars] = useState("");
   const [errors, setErrors] = useState([]);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  if (submitSuccess) {
-    return <Redirect to={`/spots/${spotId}`} />;
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,6 +24,8 @@ const CreateReview = () => {
     };
 
     dispatch(reviewActions.createNewReview(spotId, data))
+
+    history.push(`/spots/${spotId}`)
   };
 
   return (
