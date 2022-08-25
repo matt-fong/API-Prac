@@ -40,6 +40,27 @@ export const deleteReview = (reviewId) => {
   };
 };
 
+export const updateReview = (reviewId) => {
+  return {
+    type: UPDATE,
+    reviewId,
+  };
+};
+
+
+export const editReview = (payload, reviewId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/reviews/${reviewId}`, {
+      method: 'PUT',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+  })
+  if (response.ok){
+      const data = await response.json();
+      dispatch(updateReview(data))
+      return response;
+  }
+}
+
 export const getReviewsBySpotId = (spotId) => async (dispatch) => {
   const res = await csrfFetch(`/api/spots/${spotId}/reviews`);
   if (res.ok) {
@@ -52,7 +73,7 @@ export const getReviewsByCurrentUser = () => async (dispatch) => {
   const res = await csrfFetch(`/api/reviews/current`);
   if (res.ok) {
     const data = await res.json();
-    console.log('THIS IS DATA', data)
+    // console.log('THIS IS DATA', data)
     dispatch(loadCurrentReviews(data.Reviews));
   }
 };
@@ -93,8 +114,8 @@ export default function reviewsReducer(state = {}, action) {
       return newState;
     }
     case READ_CURRENT: {
-      console.log('THIS IS STATE', newState)
-      console.log('THIS IS ACTION', action)
+      // console.log('THIS IS STATE', newState)
+      // console.log('THIS IS ACTION', action)
       newState = {};
       action.reviews.forEach((review) => {
         newState[review.id] = review
@@ -113,6 +134,13 @@ export default function reviewsReducer(state = {}, action) {
     }
     case CLEAR: {
       return {};
+    }
+    case UPDATE: {
+      // newState = { ...state };
+      // newState[action.review.id] = action.review;
+      // return newState;
+      console.log('THIS IS STATE', newState)
+      console.log('THIS IS ACTION', action)
     }
     default:
       return state;

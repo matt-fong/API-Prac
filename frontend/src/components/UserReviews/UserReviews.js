@@ -9,7 +9,7 @@ const UserReviews = () => {
   const user = useSelector(state => state.session.user);
   const reviews = useSelector((state) => Object.values(state.reviews));
 
-  console.log('THIS IS REVIEWS', reviews)
+  // console.log('THIS IS REVIEWS', reviews)
 
   const dispatch = useDispatch();
   const history = useHistory();
