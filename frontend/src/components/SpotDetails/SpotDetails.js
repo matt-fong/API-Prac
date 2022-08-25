@@ -47,7 +47,8 @@ const SpotDetails = () => {
       <div className="spotDetailReviews">
         REVIEWS:
         {reviews.map((review, i) => (
-          <div key={review.id} review={review}>Review {i + 1}: {review.review}</div>
+          <div key={review.id} review={review}>Review {i + 1}: {''}
+          <i className="fa-solid fa-star"></i>{review.stars} {review.review}</div>
         ))}
       </div>
       <button className="createReviewButton" onClick={handleCreateReview}>

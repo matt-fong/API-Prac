@@ -6,15 +6,16 @@ import { getSpotById } from "../../store/spots";
 import { getReviewsBySpotId, getReviewsByCurrentUser } from "../../store/reviews";
 
 const EditReview = () => {
-  const reviews = useSelector((state) => Object.values(state.reviews));
+  const reviews = useSelector(state => state.reviews);
+  const { reviewId } = useParams();
 
-  console.log('THIS IS REVIEWS', reviews[0])
+  console.log('THIS IS REVIEWS', reviews)
 
   const dispatch = useDispatch();
   const history = useHistory()
 
-  const [review, setReview] = useState(reviews[0]?.review);
-  const [stars, setStars] = useState(reviews[0]?.stars);
+  const [review, setReview] = useState(reviews[reviewId]?.review);
+  const [stars, setStars] = useState(reviews[reviewId]?.stars);
   const [errors, setErrors] = useState([]);
 
   const onSubmit = (e) => {
@@ -26,13 +27,13 @@ const EditReview = () => {
 
     setErrors([]);
 
-    dispatch(editReview(data, reviews[0].id))
+    dispatch(editReview(data, reviews[reviewId].id))
 
       // .catch(async (res) => {
       // const data = await res.json();
       // if (data && data.errors) setErrors(data.errors);});
 
-    history.push('/')
+    history.push('/my-reviews')
 
   };
 

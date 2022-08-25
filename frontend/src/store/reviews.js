@@ -1,42 +1,29 @@
 import { csrfFetch } from "./csrf";
-import { getSpotById } from "./spots";
+
+const GET = "reviews/GET";
+const GET_CURRENT = "reviews/current"
 const CREATE = "reviews/CREATE";
-const READ = "reviews/READ";
 const UPDATE = "reviews/UPDATE";
 const DELETE = "reviews/DELETE";
-const READBYID = "reviews/READBYID";
-const CLEAR = "reviews/CLEAR";
-const READ_CURRENT = "reviews/current"
 
-export const loadReviews = (reviews) => {
+export const getReviews = (reviews) => {
   return {
-    type: READ,
+    type: GET,
     reviews,
   };
 };
 
-export const loadCurrentReviews = (reviews) => {
+export const getCurrentReviews = (reviews) => {
   return {
-    type: READ_CURRENT,
+    type: GET_CURRENT,
     reviews,
   };
-};
-
-export const clearReviews = () => {
-  return { type: CLEAR };
 };
 
 export const createReview = (review) => {
   return {
     type: CREATE,
     review,
-  };
-};
-
-export const deleteReview = (reviewId) => {
-  return {
-    type: DELETE,
-    reviewId,
   };
 };
 
@@ -47,6 +34,12 @@ export const updateReview = (reviewId) => {
   };
 };
 
+export const deleteReview = (reviewId) => {
+  return {
+    type: DELETE,
+    reviewId,
+  };
+};
 
 export const editReview = (payload, reviewId) => async (dispatch) => {
   const response = await csrfFetch(`/api/reviews/${reviewId}`, {
@@ -65,7 +58,7 @@ export const getReviewsBySpotId = (spotId) => async (dispatch) => {
   const res = await csrfFetch(`/api/spots/${spotId}/reviews`);
   if (res.ok) {
     const data = await res.json();
-    dispatch(loadReviews(data.Reviews));
+    dispatch(getReviews(data.Reviews));
   }
 };
 
@@ -74,7 +67,7 @@ export const getReviewsByCurrentUser = () => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     // console.log('THIS IS DATA', data)
-    dispatch(loadCurrentReviews(data.Reviews));
+    dispatch(getCurrentReviews(data.Reviews));
   }
 };
 
@@ -106,14 +99,13 @@ export const createNewReview = (spotId, reviewData) => async (dispatch) => {
 export default function reviewsReducer(state = {}, action) {
   let newState;
   switch (action.type) {
-    case READ: {
+    case GET:
       newState = {};
       action.reviews.forEach((review) => {
         newState[review.id] = review;
       });
       return newState;
-    }
-    case READ_CURRENT: {
+    case GET_CURRENT:
       // console.log('THIS IS STATE', newState)
       // console.log('THIS IS ACTION', action)
       newState = {};
@@ -121,27 +113,19 @@ export default function reviewsReducer(state = {}, action) {
         newState[review.id] = review
       })
       return newState
-    }
-    case CREATE: {
+    case CREATE:
       newState = { ...state };
       newState[action.review.id] = action.review;
       return newState;
-    }
-    case DELETE: {
+    case UPDATE:
+      // newState = { ...state };
+      // return newState;
+      // console.log('THIS IS STATE', newState)
+      // console.log('THIS IS ACTION', action)
+    case DELETE:
       newState = { ...state };
       delete newState[action.reviewId];
       return newState;
-    }
-    case CLEAR: {
-      return {};
-    }
-    case UPDATE: {
-      // newState = { ...state };
-      // newState[action.review.id] = action.review;
-      // return newState;
-      console.log('THIS IS STATE', newState)
-      console.log('THIS IS ACTION', action)
-    }
     default:
       return state;
   }
