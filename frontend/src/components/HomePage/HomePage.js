@@ -6,6 +6,8 @@ import SpotCard from "../SpotCard/SpotCard";
 const HomePage = () => {
   const spots = useSelector((state) => Object.values(state.spots));
 
+  console.log(spots)
+
   return (
     <div className="homePageContainer">
       <div className="spotsContainer">

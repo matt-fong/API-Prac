@@ -26,8 +26,6 @@ const SpotDetails = () => {
     let path = `/spots/${spotId}/create-review`;
     if (sessionUser) {
       history.push(path);
-    } else {
-      history.push("/login");
     }
   };
 
@@ -45,6 +43,12 @@ const SpotDetails = () => {
       </div>
       <div className='spotDetailBody'>
 
+      </div>
+      <div className="spotDetailReviews">
+        REVIEWS:
+        {reviews.map((review, i) => (
+          <div key={review.id} review={review}>Review {i + 1}: {review.review}</div>
+        ))}
       </div>
       <button className="createReviewButton" onClick={handleCreateReview}>
         Create Review

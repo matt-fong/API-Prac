@@ -126,6 +126,7 @@ export const spotsReducer = (state = {}, action) => {
         action.payload.forEach((spot) => {
             newState[spot.id] = spot
         })
+        console.log('THIS IS NEW STATE', newState)
         return newState;
     case CREATE_A_SPOT:
         newState = {...state }

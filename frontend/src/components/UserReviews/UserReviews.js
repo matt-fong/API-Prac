@@ -2,20 +2,29 @@ import { useParams, NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getReviews, createReview, deleteReviewById } from "../../store/reviews";
-import { getSpotById } from "../../store/spots";
+import { getAllSpots, getSpotById } from "../../store/spots";
 import { getReviewsBySpotId, getReviewsByCurrentUser } from "../../store/reviews";
 
 const UserReviews = () => {
   const user = useSelector(state => state.session.user);
-  const reviews = useSelector((state) => Object.values(state.reviews));
+  const reviews = useSelector(state => Object.values(state.reviews));
 
-  // console.log('THIS IS REVIEWS', reviews)
+  const spots = useSelector((state) => Object.values(state.spots));
+  console.log('THIS IS SPOTS', spots)
+
+  const spot =
+
+  // const spot = spots.find((spot) => spot.id == reviews.spotId);
+  // console.log('THIS IS SPOT', spot)
+
+  console.log('THIS IS REVIEWS', reviews)
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
     dispatch(getReviewsByCurrentUser())
+    dispatch(getAllSpots())
   }, []);
 
   const handleDeleteReview = (reviewId) => {
@@ -27,7 +36,10 @@ const UserReviews = () => {
   return (
     <div>
       {reviews.map((review) => (
-        <div key={review.id}>{review.review}
+        <div key={review.id}>
+          <i className="fa-solid fa-star"></i>{`${review.stars}: `}
+          {review.review}
+          <br></br>
           <NavLink to={`/reviews/${review.id}`}>Edit Review</NavLink>
           <button onClick={() => handleDeleteReview(review.id)}>
             Delete Review
