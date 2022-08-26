@@ -36,7 +36,7 @@ const CreateSpot = () => {
       name: name,
       description: description,
       price: price,
-      url,
+      url: url,
       previewImage: true
     };
     return dispatch(spotActions.createSpot(data))

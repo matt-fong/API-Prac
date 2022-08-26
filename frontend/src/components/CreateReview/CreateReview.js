@@ -61,7 +61,7 @@ const CreateReview = () => {
         <label>
           <span> Stars: </span>
           <input
-            placeholder="Rating"
+            placeholder="Stars"
             type="number"
             min="1"
             max="5"
