@@ -26,6 +26,7 @@
 .spotDescriptionRight {
   display: flex;
   justify-content: flex-end;
+  margin-right: 10px;
 }
 
 .spotLocation {
@@ -36,4 +37,14 @@
 .spotPrice {
   font-weight: bold;
   text-decoration: none;
+  margin-top: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.spotStar {
+  margin-right: 5px;
 }

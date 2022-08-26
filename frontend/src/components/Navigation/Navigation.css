@@ -2,17 +2,26 @@
   height: 40px
 }
 
+.navContainer {
+  display: flex;
+  margin: auto;
+  position: sticky;
+  height: 65px;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(228, 228, 228);
+  padding-bottom: 20px;
+}
+
 .navBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   width: 75%;
-  padding-left: 80px;
-  padding-right: 80px;
-  height: 38px;
+  padding-left: 75px;
+  padding-right: 75px;
+  height: 20px;
   margin: 0px auto;
-  z-index: 1;
   margin-top: 30px;
 }
 

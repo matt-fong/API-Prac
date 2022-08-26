@@ -12,10 +12,10 @@ const SpotCard = ({ spot }) => {
             <div className='spotPrice'>{`$${spot.price} night`}</div>
           </div>
           <div className='spotDescriptionRight'>
-            <div className='spotRating'>
+            <div className='spotStar'>
               <i className="fa-solid fa-star"></i>
-              <div className='spotRatingNumber'>{spot.avgRating}</div>
             </div>
+            <div className='spotRating'>{spot.avgRating}</div>
           </div>
         </div>
       </div>
