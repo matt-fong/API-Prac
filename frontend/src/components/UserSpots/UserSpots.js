@@ -30,7 +30,8 @@ const UserSpots = () => {
           <div>
             {spot.city}, {spot.state}, {spot.country}
           </div>
-            <NavLink to={`/spots/${spot.id}/edit`}>Edit Spot</NavLink>
+            {/* <NavLink to={`/spots/${spot.id}/edit`}>Edit Spot</NavLink> */}
+            <button onClick={() => history.push(`/spots/${spot.id}/edit`)}>Edit Spot</button>
             <button onClick={() => handleDelete(spot.id)}>Delete</button>
         </div>
       ))}
