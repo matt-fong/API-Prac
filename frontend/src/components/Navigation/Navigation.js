@@ -13,27 +13,27 @@ function Navigation({ isLoaded }){
 
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <div className="session-links">
+        <ProfileButton user={sessionUser} />
+      </div>
     );
   } else {
     sessionLinks = (
-      <>
+      <div className="session-links">
         <LoginModal />
         <SignUpModal />
-      </>
+      </div>
     );
   }
 
   return (
-    <div>
-    <ul>
-      <li>
-        <NavLink exact to="/">
-        <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png' />
-        </NavLink>
+    <div className='navContainer'>
+      <div className='navBar'>
+          <NavLink exact to="/">
+          <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png' />
+          </NavLink>
         {isLoaded && sessionLinks}
-      </li>
-    </ul>
+      </div>
     </div>
   );
 }

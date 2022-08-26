@@ -1,3 +1,82 @@
 .logo {
-  height: 50px
+  height: 40px
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 75%;
+  padding-left: 80px;
+  padding-right: 80px;
+  height: 38px;
+  margin: 0px auto;
+  z-index: 1;
+  margin-top: 30px;
+}
+
+.session-links {
+  display: flex;
+  align-items: center;
+}
+
+.profile-menu {
+  position: relative;
+  border: none;
+  z-index: 0;
+}
+
+.profile-menu > button:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.profile-menu > button {
+  padding: 10px;
+  width: 77px;
+  border: 1px solid #dddddd;
+  background-color: #ffffff;
+  border-radius: 20px;
+  transition: box-shadow 0.2s ease 0s;
+}
+
+.profile-dropdown-container {
+  border: 1px solid gray;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 200px;
+  /* height: 250px; */
+  left: -130px;
+  top: 50px;
+  border-radius: 15px;
+  border: none;
+  z-index: 1;
+  box-shadow: 0 2px 22px 0 hsla(240, 5%, 41%, 0.158);
+}
+
+.profile-email {
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+}
+
+.profile-manage-listings {
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+}
+
+.profile-manage-reviews {
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+}
+
+.profile-host-home {
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+}
+
+.profile-logout {
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
 }

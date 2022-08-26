@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -30,29 +31,43 @@ function ProfileButton({ user }) {
   };
 
   return (
-    <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <NavLink to='/my-spots'>My Spots</NavLink>
-          </li>
-          <li>
-            <NavLink to='/my-reviews'>My Reviews</NavLink>
-          </li>
-          <li>
-            <NavLink to='/create-spot'>Host Your Home</NavLink>
-          </li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
-      )}
-    </>
+    <div className="session-links">
+      <div className="profile-menu">
+        <button onClick={openMenu}>
+          <i className="fas fa-user-circle" />
+        </button>
+        {showMenu && (
+          <div className="profile-dropdown-container">
+          <div className="dropdown-items-container">
+            <div className="profile-email">{`Hello, ${user.firstName}`}</div>
+
+            <div
+                className="profile-manage-listings"
+                onClick={() => history.push("/my-spots")}
+              >
+                Manage Listings
+              </div>
+            <div
+                className="profile-manage-reviews"
+                onClick={() => history.push("/my-reviews")}
+              >
+                Manage Reviews
+              </div>
+              <div
+                className="profile-host-home"
+                onClick={() => history.push("/create-spot")}
+              >
+                Host your home
+              </div>
+
+            <div>
+              <button className="profile-logout"onClick={logout}>Log Out</button>
+            </div>
+            </div>
+          </div>
+        )}
+     </div>
+    </div>
   );
 }
 

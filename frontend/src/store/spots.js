@@ -83,14 +83,27 @@ export const getOwnedSpots = () => async (dispatch) => {
 }
 
 export const createSpot = (payload) => async (dispatch) => {
+    // create initial spot based on data
     const response = await csrfFetch('/api/spots', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(payload)
     })
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(createSpotAction(data))
+    if (response.ok) { // wait for successful creation
+        const data = await response.json(); // If successful, fetch api to create image
+        const imageResponse = await csrfFetch(`/api/spots/${data.id}/images`, {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({
+                url: payload.url,
+                previewImage: payload.previewImage
+            })
+        }) // Creates image for the spot
+        if(imageResponse.ok) { // If the create image for spots is successful
+            const imageData = await imageResponse.json()
+            data.previewImage = imageData.url // Then add it to the data object
+            dispatch(createSpotAction(data))
+        }
     }
 }
 

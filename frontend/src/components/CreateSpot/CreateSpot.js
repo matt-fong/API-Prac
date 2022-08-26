@@ -13,6 +13,7 @@ const CreateSpot = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
+  const [url, setUrl] = useState('');
   const [errors, setErrors] = useState([]);
   const [submit, setSubmit] = useState(false);
 
@@ -35,6 +36,8 @@ const CreateSpot = () => {
       name: name,
       description: description,
       price: price,
+      url,
+      previewImage: true
     };
     return dispatch(spotActions.createSpot(data))
       .then(async (res) => {
@@ -147,6 +150,16 @@ const CreateSpot = () => {
           placeholder="$"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+          required
+        />
+      </label>
+      <label className="createPrice">
+        <span>Image:</span>
+        <input
+          type="text"
+          placeholder="image Url"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
           required
         />
       </label>
