@@ -60,6 +60,7 @@ export const getAllSpots = () => async (dispatch) => {
     })
     if (response.ok) {
         const data = await response.json();
+        console.log('THIS IS DATA', data)
         dispatch(getAllSpotsAction(data.Spots))
     }
 }

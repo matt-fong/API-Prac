@@ -1,25 +1,32 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getReviewsBySpotId } from "../../store/reviews";
 import './SpotDetails.css'
 import { getAllSpots } from "../../store/spots";
 
 const SpotDetails = () => {
-  const spots = useSelector((state) => Object.values(state.spots));
+  // const spots = useSelector((state) => Object.values(state.spots));
+  // const { spotId } = useParams();
+  // const spot = spots.find((spot) => spot.id == spotId);
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const spots = useSelector((state) => (state.spots));
   const { spotId } = useParams();
-  const spot = spots.find((spot) => spot.id == spotId);
+  const spot = spots[spotId]
 
   console.log('THIS IS SPOTS', spots)
   console.log('THIS IS SPOT', spot)
+  console.log('THIS IS SPOTID', spotId)
 
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(getAllSpots())
-    dispatch(getReviewsBySpotId(spotId));
+    dispatch(getAllSpots()).then(() => setIsLoaded(true));
+    dispatch(getReviewsBySpotId(spotId))
   }, []);
 
   const reviews = useSelector((state) => Object.values(state.reviews));
@@ -32,6 +39,10 @@ const SpotDetails = () => {
       history.push(path);
     }
   };
+
+  if (!isLoaded) {
+    return null
+  }
 
   return (
     <div className='spotDetailContainer'>
