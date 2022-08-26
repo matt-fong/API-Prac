@@ -13,13 +13,13 @@ function Navigation({ isLoaded }){
 
   if (sessionUser) {
     sessionLinks = (
-      <div className="session-links">
+      <div className="user-session">
         <ProfileButton user={sessionUser} />
       </div>
     );
   } else {
     sessionLinks = (
-      <div className="session-links">
+      <div className="user-session">
         <LoginModal />
         <SignUpModal />
       </div>

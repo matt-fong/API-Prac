@@ -16,22 +16,22 @@
   margin-top: 30px;
 }
 
-.session-links {
+.user-session {
   display: flex;
   align-items: center;
 }
 
-.profile-menu {
+.userProfileMenu {
   position: relative;
   border: none;
   z-index: 0;
 }
 
-.profile-menu > button:hover {
+.userProfileMenu > button:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 }
 
-.profile-menu > button {
+.userProfileMenu > button {
   padding: 10px;
   width: 77px;
   border: 1px solid #dddddd;
@@ -40,7 +40,7 @@
   transition: box-shadow 0.2s ease 0s;
 }
 
-.profile-dropdown-container {
+.profile-container {
   border: 1px solid gray;
   position: absolute;
   display: flex;
@@ -56,27 +56,56 @@
   box-shadow: 0 2px 22px 0 hsla(240, 5%, 41%, 0.158);
 }
 
-.profile-email {
+.profile-name {
   border-bottom: 1px solid lightgray;
   padding: 10px;
+  font-weight: bold;
 }
 
 .profile-manage-listings {
   border-bottom: 1px solid lightgray;
   padding: 10px;
+  cursor: pointer;
 }
 
 .profile-manage-reviews {
   border-bottom: 1px solid lightgray;
   padding: 10px;
-}
-
-.profile-host-home {
-  border-bottom: 1px solid lightgray;
-  padding: 10px;
+  cursor: pointer;
 }
 
 .profile-logout {
   border-bottom: 1px solid lightgray;
   padding: 10px;
+  cursor: pointer;
+}
+
+.profile-host-home {
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.profile-manage-listings:hover {
+  background-color: #E8E8E8
+}
+
+.profile-manage-reviews:hover {
+  background-color: #E8E8E8
+}
+
+.profile-host-home:hover {
+  background-color: #E8E8E8
+}
+
+.profile-logout:hover {
+  background-color: #E8E8E8
+}
+
+.fa-bars {
+  height: 15px;
+  width: 15px;
+  padding-right: 10px;
+  margin-top: 3px;
+  margin-left: 2px;
 }

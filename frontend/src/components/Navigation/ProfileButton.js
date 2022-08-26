@@ -31,16 +31,16 @@ function ProfileButton({ user }) {
   };
 
   return (
-    <div className="session-links">
-      <div className="profile-menu">
+    <div className="user-session">
+      <div className="userProfileMenu">
         <button onClick={openMenu}>
-          <i className="fas fa-user-circle" />
+          <i className="fa-solid fa-bars"></i>
+          <i className="fas fa-user-circle fa-2xl" />
         </button>
         {showMenu && (
-          <div className="profile-dropdown-container">
-          <div className="dropdown-items-container">
-            <div className="profile-email">{`Hello, ${user.firstName}`}</div>
-
+          <div className="profile-container">
+          <div className="profile-item-container">
+            <div className="profile-name">{`Hello, ${user.firstName}`}</div>
             <div
                 className="profile-manage-listings"
                 onClick={() => history.push("/my-spots")}
@@ -59,9 +59,8 @@ function ProfileButton({ user }) {
               >
                 Host your home
               </div>
-
-            <div>
-              <button className="profile-logout"onClick={logout}>Log Out</button>
+            <div className="profile-logout"onClick={logout}>
+              Log Out
             </div>
             </div>
           </div>

@@ -23,7 +23,7 @@ const CreateSpot = () => {
     return <Redirect to="/" />;
   }
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
     let data = {
@@ -56,7 +56,7 @@ const CreateSpot = () => {
   };
 
   return (
-    <form className="spotsCreate" onSubmit={handleSubmit}>
+    <form className="spotsCreate" onSubmit={onSubmit}>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
