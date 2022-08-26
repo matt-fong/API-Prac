@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams, useHistory } from "react-router-dom";
 import "./EditSpot.css";
@@ -19,6 +18,7 @@ function EditSpotForm() {
   const [city, setCity] = useState(spot?.city);
   const [state, setState] = useState(spot?.state);
   const [country, setCountry] = useState(spot?.country);
+  const [url, setUrl] = useState('');
   const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
@@ -37,6 +37,7 @@ function EditSpotForm() {
     if (city) data.city = city;
     if (state) data.state = state;
     if (country) data.country = country;
+    if (url) data.url = url;
 
     setErrors([]);
     dispatch(editSpot(data, spot.id)).catch(async (res) => {
@@ -127,6 +128,14 @@ function EditSpotForm() {
           type="number"
           value={lng}
           onChange={(e) => setLng(e.target.value)}
+        />
+      </div>
+      <div>
+        <input
+          placeholder="Image Url"
+          type="text"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
         />
       </div>
       <button className="spot-modal-submit" type="submit">

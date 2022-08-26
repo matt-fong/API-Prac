@@ -8,9 +8,11 @@ const CreateReview = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   let { spotId } = useParams();
+
   spotId = Number(spotId);
+
   const [reviewMessage, setReviewMessage] = useState("");
-  const [stars, setStars] = useState("");
+  const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (e) => {
@@ -23,9 +25,18 @@ const CreateReview = () => {
       stars: stars,
     };
 
-    dispatch(reviewActions.createNewReview(spotId, data))
+    if (reviewMessage.length > 255 || reviewMessage.length < 10) {
+      setErrors({ reviewMessage: "Review must be between 10 to 255 Characters!" });
+    }
 
-    history.push(`/spots/${spotId}`)
+    // console.log('THIS IS ERRORS', errors)
+
+    if (reviewMessage.length <= 255 && reviewMessage.length >= 10) {
+      setErrors([]);
+      dispatch(reviewActions.createNewReview(spotId, data))
+      history.push(`/spots/${spotId}`)
+    }
+
   };
 
   return (
@@ -33,8 +44,8 @@ const CreateReview = () => {
       <form onSubmit={handleSubmit}>
         <h1>Review Form</h1>
         <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+          {Object.values(errors).map((error, i) => (
+            <li key={i}>{error}</li>
           ))}
         </ul>
         <label>
@@ -50,8 +61,10 @@ const CreateReview = () => {
         <label>
           <span> Stars: </span>
           <input
-            type="text"
             placeholder="Rating"
+            type="number"
+            min="1"
+            max="5"
             value={stars}
             onChange={(e) => setStars(e.target.value)}
             required

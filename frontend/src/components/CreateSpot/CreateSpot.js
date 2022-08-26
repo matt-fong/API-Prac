@@ -157,7 +157,7 @@ const CreateSpot = () => {
         <span>Image:</span>
         <input
           type="text"
-          placeholder="image Url"
+          placeholder="Image Url"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           required

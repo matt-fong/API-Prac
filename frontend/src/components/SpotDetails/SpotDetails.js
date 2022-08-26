@@ -10,13 +10,16 @@ const SpotDetails = () => {
   const { spotId } = useParams();
   const spot = spots.find((spot) => spot.id == spotId);
 
+  console.log('THIS IS SPOTS', spots)
+  console.log('THIS IS SPOT', spot)
+
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(getReviewsBySpotId(spotId));
     dispatch(getAllSpots())
+    dispatch(getReviewsBySpotId(spotId));
   }, []);
 
   const reviews = useSelector((state) => Object.values(state.reviews));
