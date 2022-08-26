@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams, useHistory } from "react-router-dom";
 import "./EditSpot.css";
 import { editSpot } from "../../store/spots";
+import { getAllSpots } from "../../store/spots";
 
 function EditSpotForm() {
   const spots = useSelector((state) => Object.values(state.spots));
@@ -18,7 +19,7 @@ function EditSpotForm() {
   const [city, setCity] = useState(spot?.city);
   const [state, setState] = useState(spot?.state);
   const [country, setCountry] = useState(spot?.country);
-  const [url, setUrl] = useState('');
+  // const [previewImage, setPreviewImage] = useState(spot.previewImage);
   const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
@@ -37,10 +38,11 @@ function EditSpotForm() {
     if (city) data.city = city;
     if (state) data.state = state;
     if (country) data.country = country;
-    if (url) data.url = url;
+    // if (previewImage) data.previewImage = previewImage;
 
     setErrors([]);
-    dispatch(editSpot(data, spot.id)).catch(async (res) => {
+    dispatch(editSpot(data, spot.id))
+    dispatch(getAllSpots()).catch(async (res) => {
       const data = await res.json();
       if (data && data.errors) setErrors(data.errors);
     });
@@ -130,15 +132,15 @@ function EditSpotForm() {
           onChange={(e) => setLng(e.target.value)}
         />
       </div>
-      <div>
+      {/* <div>
         <input
           placeholder="Image Url"
           type="text"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
+          value={previewImage}
+          onChange={(e) => setPreviewImage(e.target.value)}
         />
-      </div>
-      <button className="spot-modal-submit" type="submit">
+      </div> */}
+      <button className="" type="submit">
         Submit
       </button>
     </form>

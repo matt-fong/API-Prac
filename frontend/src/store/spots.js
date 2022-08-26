@@ -147,6 +147,8 @@ export const spotsReducer = (state = {}, action) => {
         return newState;
     case EDIT_A_SPOT:
         newState = { ...state };
+        // console.log('THIS IS NEWSTATE', newState)
+        // console.log('THIS IS ACTION', action)
         newState[action.spot.id] = action.spot;
         return newState;
     case DELETE_A_SPOT:

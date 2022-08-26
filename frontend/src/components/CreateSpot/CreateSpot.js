@@ -4,16 +4,16 @@ import { Redirect } from "react-router-dom";
 import * as spotActions from "../../store/spots";
 
 const CreateSpot = () => {
+  const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [country, setCountry] = useState("");
-  const [lat, setLat] = useState("");
-  const [lng, setLng] = useState("");
-  const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState();
-  const [url, setUrl] = useState('');
+  const [price, setPrice] = useState(null);
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
+  const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState([]);
   const [submit, setSubmit] = useState(false);
 
@@ -56,14 +56,14 @@ const CreateSpot = () => {
   };
 
   return (
-    <form className="spotsCreate" onSubmit={onSubmit}>
+    <form className="" onSubmit={onSubmit}>
       <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+        {errors.map((error, i) => (
+          <li key={i}>{error}</li>
         ))}
       </ul>
-      <h1 className="createFormTitle">Host Your Home</h1>
-      <label className="createName">
+      <h1 className="">Host Your Home</h1>
+      <label className="">
         <span> Name: </span>
         <input
           type="text"
@@ -103,7 +103,7 @@ const CreateSpot = () => {
           required
         />
       </label>
-      <label className="createCountry">
+      <label className="">
         <span>Country:</span>
         <input
           type="text"
@@ -113,27 +113,27 @@ const CreateSpot = () => {
           required
         />
       </label>
-      <label className="createLat">
+      <label className="">
         <span>Latitude:</span>
         <input
-          type="text"
+          type="number"
           placeholder="Latitude"
           value={lat}
           onChange={(e) => setLat(e.target.value)}
           required
         />
       </label>
-      <label className="createLong">
+      <label className="">
         <span>Longitude:</span>
         <input
-          type="text"
+          type="number"
           placeholder="Longitude"
           value={lng}
           onChange={(e) => setLng(e.target.value)}
           required
         />
       </label>
-      <label className="createDescription">
+      <label className="">
         <span>Description:</span>
         <input
           type="text"
@@ -143,17 +143,17 @@ const CreateSpot = () => {
           required
         />
       </label>
-      <label className="createPrice">
+      <label className="">
         <span>Price per night:</span>
         <input
-          type="text"
+          type="number"
           placeholder="$"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           required
         />
       </label>
-      <label className="createPrice">
+      <label className="">
         <span>Image:</span>
         <input
           type="text"
