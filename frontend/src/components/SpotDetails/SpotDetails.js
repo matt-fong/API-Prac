@@ -18,8 +18,8 @@ const SpotDetails = () => {
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(getReviewsBySpotId(spotId));
     dispatch(getAllSpots())
+    dispatch(getReviewsBySpotId(spotId));
   }, []);
 
   const reviews = useSelector((state) => Object.values(state.reviews));
