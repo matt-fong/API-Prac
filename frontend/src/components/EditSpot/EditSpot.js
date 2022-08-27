@@ -69,6 +69,7 @@ function EditSpotForm() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </div>
             <div className="editSpotInput">
@@ -77,6 +78,7 @@ function EditSpotForm() {
                 type="text"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
+                required
               />
             </div>
             <div className="editSpotInput">
@@ -85,6 +87,7 @@ function EditSpotForm() {
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
+                required
               />
             </div>
             <div className="editSpotInput">
@@ -93,6 +96,7 @@ function EditSpotForm() {
                 type="text"
                 value={state}
                 onChange={(e) => setState(e.target.value)}
+                required
               />
             </div>
             <div className="editSpotInput">
@@ -101,6 +105,7 @@ function EditSpotForm() {
                 type="text"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
+                required
               />
             </div>
             <div className="editSpotInput">
@@ -109,6 +114,7 @@ function EditSpotForm() {
                 type="number"
                 value={lat}
                 onChange={(e) => setLat(e.target.value)}
+                required
               />
             </div>
             <div className="editSpotInput">
@@ -117,6 +123,7 @@ function EditSpotForm() {
                 type="number"
                 value={lng}
                 onChange={(e) => setLng(e.target.value)}
+                required
               />
             </div>
             <div className="editSpotInput">
@@ -125,6 +132,7 @@ function EditSpotForm() {
                 type="text"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                required
               />
             </div>
             <div className="editSpotInput">
@@ -133,6 +141,7 @@ function EditSpotForm() {
                 type="number"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                required
               />
             </div>
             {/* <div>

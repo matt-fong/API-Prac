@@ -25,7 +25,7 @@ const UserSpots = () => {
 
   return (
     <div className="homePageContainer">
-      <h1 className="userSpotsHeader">User Spots</h1>
+      <h1 className="userSpotsHeader">My Listings</h1>
       <div className="spotsContainer">
         <div className="spotLayout">
           {userSpots.map((spot, i) => (
