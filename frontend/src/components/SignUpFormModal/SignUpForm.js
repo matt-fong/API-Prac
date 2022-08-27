@@ -34,7 +34,7 @@ function SignUpForm() {
     <div className>
       <form onSubmit={onSubmit}>
         <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          {errors.map((error, i) => <li key={i}>{error}</li>)}
         </ul>
         <label>
           Email

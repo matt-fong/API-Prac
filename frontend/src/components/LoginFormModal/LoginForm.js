@@ -23,8 +23,8 @@ function LoginForm() {
   return (
     <form onSubmit={handleSubmit}>
       <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
+        {errors.map((error, i) => (
+          <li key={i}>{error}</li>
         ))}
       </ul>
       <label>
