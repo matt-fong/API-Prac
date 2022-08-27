@@ -35,8 +35,8 @@ const UserSpots = () => {
                 <SpotCard key={spot?.id} spot={spot}/>
               </div>
 
-              <button onClick={() => history.push(`/spots/${spot.id}/edit`)}>Edit Spot</button>
-              <button onClick={() => handleDelete(spot.id)}>Delete</button>
+              <button className="userSpotsButton" onClick={() => history.push(`/spots/${spot.id}/edit`)}>Edit Spot</button>
+              <button className="userSpotsButton" onClick={() => handleDelete(spot.id)}>Delete</button>
 
             </div>
           ))}
