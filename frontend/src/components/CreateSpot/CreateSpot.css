@@ -1,0 +1,45 @@
+.createSpotContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.createSpotForm {
+  background-color: #dcdcdc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 720px;
+  padding: 20px;
+  width: 320px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.createSpotInput {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex: 1 1 0%;
+}
+
+.createSpotInput > input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #696969;
+  border-radius: 5px;
+  background-color: transparent !important;
+}
+
+.createSpotButton {
+  color: rgb(119, 119, 119);
+  border:none;
+  border-radius:10px;
+  box-shadow: 0px 0px 2px 2px rgb(64, 64, 64);
+  margin-top: 15px;
+}
+
+.createSpotButton:hover {
+  background-color:#c4c4c4;
+}
