@@ -16,9 +16,9 @@ const SpotDetails = () => {
   const { spotId } = useParams();
   const spot = spots[spotId]
 
-  console.log('THIS IS SPOTS', spots)
+  // console.log('THIS IS SPOTS', spots)
   console.log('THIS IS SPOT', spot)
-  console.log('THIS IS SPOTID', spotId)
+  // console.log('THIS IS SPOTID', spotId)
 
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -35,10 +35,19 @@ const SpotDetails = () => {
   const handleCreateReview = (e) => {
     e.preventDefault();
     let path = `/spots/${spotId}/create-review`;
+
+    // for (let i = 0; i < reviews.length; i++) {
+    //   if (reviews[i].userId === sessionUser.id) {
+    //     console.log("REVIEW MADE ALREADY")
+
+    //   }
+    // }
+
     if (sessionUser) {
       history.push(path);
     }
   };
+
 
   if (!isLoaded) {
     return null

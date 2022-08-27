@@ -25,7 +25,9 @@ const CreateSpot = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
     setErrors([]);
+
     let data = {
       address: address,
       city: city,
@@ -39,6 +41,7 @@ const CreateSpot = () => {
       url: url,
       previewImage: true
     };
+
     return dispatch(spotActions.createSpot(data))
       .then(async (res) => {
         setSubmit(true);
