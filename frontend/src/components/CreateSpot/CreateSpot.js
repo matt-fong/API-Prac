@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as spotActions from "../../store/spots";
 import './CreateSpot.css'
 
@@ -19,10 +19,20 @@ const CreateSpot = () => {
   const [submit, setSubmit] = useState(false);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  if (submit) {
-    return <Redirect to="/" />;
+  // if (submit) {
+  //   return <Redirect to="/" />;
+  // }
+
+  function isImage(url) {
+    return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url)
   }
+
+  // console.log('THIS IS IMAGE?', isImage('https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg'))
+
+  // console.log('THIS IS ERRORS', errors)
+  // console.log('THIS IS ERRORS LENGTH', errors.length)
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -43,20 +53,28 @@ const CreateSpot = () => {
       previewImage: true
     };
 
-    return dispatch(spotActions.createSpot(data))
-      .then(async (res) => {
-        setSubmit(true);
-      })
-      .catch(async (res) => {
-        const data = await res.json();
-        if (data) {
-          if (data.errors) {
-            setErrors(data.errors);
-          } else if (data.message) {
-            setErrors([data.message]);
-          }
-        }
-      });
+    if (!isImage(url)) {
+      setErrors({ error: "Must put valid Image-Url" })
+    }
+
+    if (isImage(url)) {
+      dispatch(spotActions.createSpot(data))
+      history.push('/')
+        // .then(async (res) => {
+        //   setSubmit(true);
+        // })
+        // .catch(async (res) => {
+        //   const data = await res.json();
+        //   if (data) {
+        //     if (data.errors) {
+        //       setErrors(data.errors);
+        //     } else if (data.message) {
+        //       setErrors([data.message]);
+        //     }
+        //   }
+        // });
+    }
+
   };
 
   return (
@@ -66,7 +84,7 @@ const CreateSpot = () => {
       <div className="createSpotForm">
         <form onSubmit={onSubmit}>
           <ul>
-            {errors.map((error, i) => (
+            {Object.values(errors).map((error, i) => (
               <li key={i}>{error}</li>
             ))}
           </ul>
