@@ -3,8 +3,9 @@ import { NavLink, useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { deleteSpot } from "../../store/spots";
-import './UserSpots.css'
 import SpotCard from "../SpotCard/SpotCard";
+import './UserSpots.css'
+import '../HomePage/HomePage.css'
 
 const UserSpots = () => {
   const user = useSelector(state => state.session.user);
@@ -23,26 +24,24 @@ const UserSpots = () => {
   };
 
   return (
-    <div>
-      {userSpots.map((spot, i) => (
-        <div key={i}>
-          <div>
-            {spot.name}
-          </div>
-          <div>
-            {spot.avgRating}
-          </div>
-          <div>
-            {spot.city}, {spot.state}, {spot.country}
-          </div>
-          <div>
-            <SpotCard key={spot?.id} spot={spot}/>
-          </div>
-            {/* <NavLink to={`/spots/${spot.id}/edit`}>Edit Spot</NavLink> */}
-            <button onClick={() => history.push(`/spots/${spot.id}/edit`)}>Edit Spot</button>
-            <button onClick={() => handleDelete(spot.id)}>Delete</button>
+    <div className="homePageContainer">
+      <h1 className="userSpotsHeader">User Spots</h1>
+      <div className="spotsContainer">
+        <div className="spotLayout">
+          {userSpots.map((spot, i) => (
+            <div key={i}>
+
+              <div>
+                <SpotCard key={spot?.id} spot={spot}/>
+              </div>
+
+              <button onClick={() => history.push(`/spots/${spot.id}/edit`)}>Edit Spot</button>
+              <button onClick={() => handleDelete(spot.id)}>Delete</button>
+
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   )
 
