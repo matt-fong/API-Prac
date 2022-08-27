@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import LoginModal from '../LoginFormModal/LoginFormModal';
 import SignUpModal from '../SignUpFormModal/SignUpFormModal';
 import './Navigation.css';
+import logo from '../../assets/airdndlogo.jpg'
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -30,7 +31,8 @@ function Navigation({ isLoaded }){
     <div className='navContainer'>
       <div className='navBar'>
           <NavLink exact to="/">
-          <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png' />
+          {/* <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png' /> */}
+          <img className='logo' src={logo} ></img>
           </NavLink>
         {isLoaded && sessionLinks}
       </div>
