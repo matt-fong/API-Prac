@@ -53,96 +53,102 @@ function EditSpotForm() {
 
   return (
     <>
-    <div>Edit Form</div>
-    <form onSubmit={onSubmit}>
-      <ul>
-        {Object.values(errors).map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
-      <div>
-        <input
-          placeholder="Spot Name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+      <div className="editSpotContainer">
+        <div className="editSpotHeader">
+        <div className="editSpotForm">
+          <form onSubmit={onSubmit}>
+            <ul>
+              {Object.values(errors).map((error, i) => (
+                <li key={i}>{error}</li>
+              ))}
+            </ul>
+            <h1>Edit Your Home</h1>
+            <div className="editSpotInput">
+              <input
+                placeholder="Spot Name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="editSpotInput">
+              <input
+                placeholder="Address"
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+            <div className="editSpotInput">
+              <input
+                placeholder="City"
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </div>
+            <div className="editSpotInput">
+              <input
+                placeholder="State"
+                type="text"
+                value={state}
+                onChange={(e) => setState(e.target.value)}
+              />
+            </div>
+            <div className="editSpotInput">
+              <input
+                placeholder="Country"
+                type="text"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+              />
+            </div>
+            <div className="editSpotInput">
+              <input
+                placeholder="Latitude"
+                type="number"
+                value={lat}
+                onChange={(e) => setLat(e.target.value)}
+              />
+            </div>
+            <div className="editSpotInput">
+              <input
+                placeholder="Longitude"
+                type="number"
+                value={lng}
+                onChange={(e) => setLng(e.target.value)}
+              />
+            </div>
+            <div className="editSpotInput">
+              <input
+                placeholder="Description"
+                type="text"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            <div className="editSpotInput">
+              <input
+                placeholder="$ Price"
+                type="number"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
+            {/* <div>
+              <input
+                placeholder="Image Url"
+                type="text"
+                value={previewImage}
+                onChange={(e) => setPreviewImage(e.target.value)}
+              />
+            </div> */}
+            <button className="editSpotButton" onClick={() =>  history.push('/my-spots')}>Go Back</button>
+            <button className="editSpotButton" type="submit">Submit</button>
+          </form>
+        </div>
+        </div>
       </div>
-      <div>
-        <input
-          placeholder="Description"
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="Price"
-          type="number"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="Address"
-          type="text"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="City"
-          type="text"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="State"
-          type="text"
-          value={state}
-          onChange={(e) => setState(e.target.value)}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="Country"
-          type="text"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="Latitude"
-          type="number"
-          value={lat}
-          onChange={(e) => setLat(e.target.value)}
-        />
-      </div>
-      <div>
-        <input
-          placeholder="Longitude"
-          type="number"
-          value={lng}
-          onChange={(e) => setLng(e.target.value)}
-        />
-      </div>
-      {/* <div>
-        <input
-          placeholder="Image Url"
-          type="text"
-          value={previewImage}
-          onChange={(e) => setPreviewImage(e.target.value)}
-        />
-      </div> */}
-      <button className="" onClick={() =>  history.push('/my-spots')}>Go Back</button>
-      <button className="" type="submit">Submit</button>
-    </form>
     </>
   );
 }
