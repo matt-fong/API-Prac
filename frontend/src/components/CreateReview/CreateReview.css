@@ -1,0 +1,52 @@
+.createReviewContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.createReviewForm {
+  background-color: #dcdcdc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 750px;
+  padding: 20px;
+  width: 350px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.createReviewInput {
+  display: flex;
+  position: relative;
+  width: 300px;
+  flex: 1 1 0%;
+}
+
+.createReviewInput > input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #696969;
+  border-radius: 5px;
+  background-color: transparent !important;
+}
+
+.createReviewButton {
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 100px;
+  background-color: #e51d53;
+  margin-top: 25px
+}
+
+.createReviewButton:hover {
+  background-color:#ff7b80;
+}
+
+.createReviewForm {
+  height: 350px;
+}
