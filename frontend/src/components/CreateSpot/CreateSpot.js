@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import * as spotActions from "../../store/spots";
 import './CreateSpot.css'
@@ -17,6 +17,8 @@ const CreateSpot = () => {
   const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState([]);
   const [submit, setSubmit] = useState(false);
+
+  const user = useSelector(state => state.session.user);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -57,7 +59,11 @@ const CreateSpot = () => {
       setErrors({ error: "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " })
     }
 
-    if (isImage(url)) {
+    if (!user) {
+      setErrors({ error: "User must be logged in." })
+    }
+
+    if (isImage(url) && user) {
       dispatch(spotActions.createSpot(data))
       history.push('/')
         // .then(async (res) => {
@@ -85,7 +91,7 @@ const CreateSpot = () => {
         <form onSubmit={onSubmit}>
           <ul>
             {Object.values(errors).map((error, i) => (
-              <li key={i}>{error}</li>
+              <li className='createSpotErrorLi' key={i}>{error}</li>
             ))}
           </ul>
           <h1>Host Your Home</h1>
