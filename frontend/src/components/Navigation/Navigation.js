@@ -37,8 +37,10 @@ function Navigation({ isLoaded }){
           <img className='logo' src={logo} ></img>
           </NavLink>
           <div className='navBarLeftSide'>
-            <div className='becomeAHost' onClick={() => history.push("/create-spot")}>Become a host</div>
-            {isLoaded && sessionLinks}
+            <div className='navBarButtons'>
+              <div className='becomeAHost' onClick={() => history.push("/create-spot")}>Become a host</div>
+              <div className='navBarLoaded'>{isLoaded && sessionLinks}</div>
+            </div>
           </div>
       </div>
     </div>

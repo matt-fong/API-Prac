@@ -28,7 +28,12 @@
 .navBarLeftSide {
   display: flex;
   justify-content: space-between;
-  width: 220px;
+  /* width: 300px; */
+}
+
+.navBarButtons {
+  display: flex;
+  justify-content: space-between;
 }
 
 .becomeAHost {
@@ -36,6 +41,12 @@
   border-radius: 40px;
   font-size: 17px;
   cursor: pointer;
+  margin-right: 20px;
+}
+
+.navBarLoaded {
+  display: flex;
+  justify-content: center;
 }
 
 .becomeAHost:hover {
