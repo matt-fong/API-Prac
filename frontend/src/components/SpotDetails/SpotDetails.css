@@ -68,13 +68,13 @@
 }
 
 .spotDetailPrice {
-  font-weight: bold;
+  display: flex;
 }
 
 .fa-star {
   margin-right: 3px;
 }
 
-.spotDetailReview {
-  /* font-weight: bold; */
+.spotNight {
+  padding-left: 3px;
 }

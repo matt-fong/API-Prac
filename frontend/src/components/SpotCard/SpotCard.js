@@ -9,7 +9,6 @@ const SpotCard = ({ spot }) => {
         <div className='spotDescription'>
           <div className='spotDescriptionLeft'>
             <div className='spotLocation'>{spot.city}, {spot.state}</div>
-            {/* <div className='spotPrice'>{`$${spot.price} night`}</div> */}
             <div className='spotPrice'>
               <div className='spotPriceAmount'>{`$${spot.price}`}</div>
               <div className='spotNight'>night</div>

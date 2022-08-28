@@ -75,8 +75,12 @@ const SpotDetails = () => {
             {spot.description}
           </div>
           <div className='spotDetailPriceContainer'>
-            <div className="spotDetailPrice">
+            {/* <div className="spotDetailPrice">
               {`$ ${spot.price}`} night
+            </div> */}
+            <div className="spotDetailPrice">
+              <div className='spotPriceAmount'>{`$${spot.price}`}</div>
+              <div className='spotNight'>night</div>
             </div>
             <div className="spotDetailReview">
               <i className="fa-solid fa-star"></i>
