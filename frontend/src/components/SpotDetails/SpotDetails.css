@@ -78,3 +78,30 @@
 .spotNight {
   padding-left: 3px;
 }
+
+.spotDetailReviewName {
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.spotDetailReviewInfo {
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.spotDetailCreateReview {
+  /* padding-bottom: 10px; */
+}
+
+.createReviewButton {
+  color: white;
+  padding: 9px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 100px;
+  background-color: #e51d53;
+}

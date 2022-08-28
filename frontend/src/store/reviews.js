@@ -106,8 +106,6 @@ export default function reviewsReducer(state = {}, action) {
       });
       return newState;
     case GET_CURRENT:
-      // console.log('THIS IS STATE', newState)
-      // console.log('THIS IS ACTION', action)
       newState = {};
       action.reviews.forEach((review) => {
         newState[review.id] = review

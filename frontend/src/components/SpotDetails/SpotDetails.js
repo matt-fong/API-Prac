@@ -4,21 +4,15 @@ import { useEffect, useState } from "react";
 import { getReviewsBySpotId } from "../../store/reviews";
 import './SpotDetails.css'
 import { getAllSpots } from "../../store/spots";
+import ReviewCard from "../ReviewCard/ReviewCard";
 
 const SpotDetails = () => {
-  // const spots = useSelector((state) => Object.values(state.spots));
-  // const { spotId } = useParams();
-  // const spot = spots.find((spot) => spot.id == spotId);
-
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoadedd, setIsLoadedd] = useState(false);
 
   const spots = useSelector((state) => (state.spots));
   const { spotId } = useParams();
   const spot = spots[spotId]
-
-  // console.log('THIS IS SPOTS', spots)
-  console.log('THIS IS SPOT', spot)
-  // console.log('THIS IS SPOTID', spotId)
 
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -26,7 +20,7 @@ const SpotDetails = () => {
 
   useEffect(() => {
     dispatch(getAllSpots()).then(() => setIsLoaded(true));
-    dispatch(getReviewsBySpotId(spotId))
+    dispatch(getReviewsBySpotId(spotId)).then(() => setIsLoadedd(true))
   }, []);
 
   const reviews = useSelector((state) => Object.values(state.reviews));
@@ -41,10 +35,8 @@ const SpotDetails = () => {
     }
   };
 
-
-  if (!isLoaded) {
-    return null
-  }
+  if (!isLoaded) return null
+  if (!isLoadedd) return null
 
   return (
     <div className='spotDetailContainer'>
@@ -88,19 +80,23 @@ const SpotDetails = () => {
 
         <div className="spotDetailReviewContainer">
           <div className="spotDetailReviewHeader">
-            <div className="spotDetailBottomReview"><i className="fa-solid fa-star">{spot.avgRating}</i></div>
-            <div>
-              <button className="createReviewButton" onClick={handleCreateReview}>Create Review</button>
+            <div className="spotDetailReviewInfo">
+              <i className="fa-solid fa-star"></i>
+              {spot.avgRating} {` · `} {reviews.length} {`reviews`}
             </div>
           </div>
 
-          <div className="spotDetailReviews">
-            REVIEWS:
-            {reviews.map((review, i) => (
-              <div key={review.id} review={review}>Review {i + 1}: {''}
-              <i className="fa-solid fa-star"></i>{review.stars} {review.review}</div>
+          <div className="spotDetailReviewName">Reviews</div>
+          <div className='spotDetailCreateReview'>
+              <button className="createReviewButton" onClick={handleCreateReview}>Add a review</button>
+          </div>
+
+          <div>
+            {reviews.map((review) => (
+              <ReviewCard key={review.id} review={review} />
             ))}
           </div>
+
         </div>
 
 

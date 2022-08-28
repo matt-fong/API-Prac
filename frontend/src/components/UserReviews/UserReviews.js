@@ -22,11 +22,11 @@ const UserReviews = () => {
     dispatch(getAllSpots())
   }, []);
 
-  const handleDeleteReview = (reviewId) => {
-    dispatch(deleteReviewById(reviewId));
-    let path = `/my-reviews`;
-    history.push(path);
-  };
+  // const handleDeleteReview = (reviewId) => {
+  //   dispatch(deleteReviewById(reviewId));
+  //   let path = `/my-reviews`;
+  //   history.push(path);
+  // };
 
   const handleDelete = (reviewId, spotId) => {
     dispatch(deleteReviewById(reviewId, spotId));
