@@ -37,9 +37,18 @@
 }
 
 .spotPrice {
-  font-weight: bold;
+  display: flex;
+  width: 70px;
   text-decoration: none;
   margin-top: 5px;
+}
+
+.spotPriceAmount {
+  font-weight: bold;
+}
+
+.spotNight {
+  padding-left: 3px;
 }
 
 a {
@@ -48,5 +57,5 @@ a {
 }
 
 .spotStar {
-  margin-right: 5px;
+  margin-right: 3px;
 }
