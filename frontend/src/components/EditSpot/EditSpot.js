@@ -152,8 +152,10 @@ function EditSpotForm() {
                 onChange={(e) => setPreviewImage(e.target.value)}
               />
             </div> */}
-            <button className="editSpotButton" onClick={() =>  history.push('/my-spots')}>Go Back</button>
-            <button className="editSpotButton" type="submit">Submit</button>
+            <div className="editSpotButtonContainer">
+              <button className="editSpotButton" onClick={() =>  history.push('/my-spots')}>Go Back</button>
+              <button className="editSpotButton" type="submit">Submit</button>
+            </div>
           </form>
         </div>
         </div>

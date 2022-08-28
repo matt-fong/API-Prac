@@ -20,7 +20,7 @@ const UserSpots = () => {
 
   const handleDelete = (spotId) => {
     dispatch(deleteSpot(spotId));
-    history.push("/");
+    // history.push("/");
   };
 
   return (

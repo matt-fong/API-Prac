@@ -11,3 +11,10 @@
   display: flex;
   width: 100%;
 }
+
+.signup-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+}

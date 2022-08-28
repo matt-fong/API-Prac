@@ -21,43 +21,43 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="loginForm" onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, i) => (
           <li key={i}>{error}</li>
         ))}
       </ul>
-      <label>
-        Username or Email
-        <input
-          className="login-form-input"
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          className="login-form-input"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit" className="login-form-submit">Log In</button>
-      <button
-        className="login-form-submit"
-        type="submit"
-        onClick={() => {
-          setCredential("demouser");
-          setPassword("password");
-        }}
-      >
-        Demo User
-      </button>
+      <div className="loginInputContainer">
+        <div className="loginInput">
+          <input
+            placeholder="Username or Email"
+            type="text"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            required
+          />
+        </div>
+        <div className="loginInput">
+          <input
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="loginSubmit">Log In</button>
+        <button
+          className="loginSubmit"
+          type="submit"
+          onClick={() => {
+            setCredential("demouser");
+            setPassword("password");
+          }}
+        >
+          Demo User
+        </button>
+      </div>
     </form>
   );
 }

@@ -8,7 +8,7 @@ function LoginModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Log In</button>
+      <button className='login-button' onClick={() => setShowModal(true)}>Log In</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className='login-modal-container'>
@@ -16,6 +16,7 @@ function LoginModal() {
               Log in
             </div>
             <div className='login-modal-form'>
+              <div className='login-welcome'>Welcome to Airdnd</div>
               <LoginForm />
             </div>
           </div>

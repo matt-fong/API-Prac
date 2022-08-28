@@ -54,7 +54,7 @@ const CreateSpot = () => {
     };
 
     if (!isImage(url)) {
-      setErrors({ error: "Must put valid Image-Url" })
+      setErrors({ error: "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " })
     }
 
     if (isImage(url)) {

@@ -36,13 +36,6 @@ const SpotDetails = () => {
     e.preventDefault();
     let path = `/spots/${spotId}/create-review`;
 
-    // for (let i = 0; i < reviews.length; i++) {
-    //   if (reviews[i].userId === sessionUser.id) {
-    //     console.log("REVIEW MADE ALREADY")
-
-    //   }
-    // }
-
     if (sessionUser) {
       history.push(path);
     }
@@ -62,8 +55,10 @@ const SpotDetails = () => {
           <h1 className='spotDetailName'>{spot.name}</h1>
           <div className='spotDetailContainer'>
             <div className="spotDetailInfo">
-              <i className="fa-solid fa-star">{spot.avgRating} · </i>
-              <div className="spotDetailNumReview">{reviews.length} reviews</div>
+              <i className="fa-solid fa-star"></i>
+              {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+              <div className="spotDetailNumReview"></div>
+              {` · `}
               <div className="spotDetailLocation">{spot.city}, {spot.state}, {spot.country}</div>
             </div>
           </div>
@@ -80,11 +75,12 @@ const SpotDetails = () => {
             {spot.description}
           </div>
           <div className='spotDetailPriceContainer'>
-            <div className="SpotDetailPrice">
-              {spot.price} night
+            <div className="spotDetailPrice">
+              {`$ ${spot.price}`} night
             </div>
             <div className="spotDetailReview">
-              <i className="fa-solid fa-star">{spot.avgRating}</i>
+              <i className="fa-solid fa-star"></i>
+              {spot.avgRating} {` · `} {reviews.length} {`reviews`}
             </div>
           </div>
         </div>
