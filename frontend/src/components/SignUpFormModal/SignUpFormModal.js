@@ -16,6 +16,7 @@ function SignUpFormModal() {
               Sign up
             </div>
             <div className='signup-modal-form'>
+              <div className='signup-welcome'>Become a member of Airdnd</div>
               <SignUpForm />
             </div>
           </div>
