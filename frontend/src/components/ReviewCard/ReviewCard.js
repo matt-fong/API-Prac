@@ -55,19 +55,19 @@ function ReviewCard({ review }) {
         </div>
 
         <div className="reviewCardDataRight">
-          {owner && (
+          {/* {owner && (
           <div>
             <button onClick={() => history.push(`/reviews/${review.id}`)}>Edit Review</button>
           </div>
-          )}
+          )} */}
         </div>
       </div>
       <div className="reviewCardDate">{date}</div>
       <div className="reviewCardReview">
         <div className="review">{review?.review}</div>
-        <div className="reviewCardDataRight">
+        {/* <div className="reviewCardDataRight">
           <button onClick={handleDelete}>Delete</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

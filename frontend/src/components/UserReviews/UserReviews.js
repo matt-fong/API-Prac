@@ -28,34 +28,31 @@ const UserReviews = () => {
     history.push(path);
   };
 
-  // return (
-  //   <div>
-  //     {reviews.map((review) => (
-  //       <div key={review.id}>
-  //         <div>SPOT ID: {review.spotId}</div>
-  //         <div></div>
-  //         <i className="fa-solid fa-star"></i>{`${review.stars}: `}
-  //         {review.review}
-  //         <br></br>
-  //         <NavLink to={`/reviews/${review.id}`}>Edit Review</NavLink>
-  //         <button onClick={() => handleDeleteReview(review.id)}>
-  //           Delete Review
-  //         </button>
-  //       </div>
-  //     ))}
-  //   </div>
-  // )
+  const handleDelete = (reviewId, spotId) => {
+    dispatch(deleteReviewById(reviewId, spotId));
+  };
 
   return (
     <div className="userReviewContainer">
       <div className="userReviewInnerContainer">
         <h1 className="userReviewHeader">User Reviews</h1>
         <div className="userReviewCardContainer">
-          <div className="userReviews">
-            {reviews.map((review) => (
-              <ReviewCard key={review.id} review={review} />
-            ))}
-          </div>
+        <div className="spotLayout">
+          {reviews.map((review, i) => (
+            <div key={i}>
+
+              <div>
+                <ReviewCard key={review?.id} review={review}/>
+              </div>
+
+              <div className="userSpotsButtons">
+                <button className="userSpotsEditButton" onClick={() => history.push(`/reviews/${review.id}`)}>Edit Spot</button>
+                <button className="userSpotsDeleteButton" onClick={() => handleDelete(review.id, review.spotId)}>Delete</button>
+              </div>
+
+            </div>
+          ))}
+        </div>
         </div>
       </div>
     </div>

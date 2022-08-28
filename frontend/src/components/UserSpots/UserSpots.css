@@ -7,14 +7,18 @@
 .userSpotsButtons {
   display: flex;
   justify-content: space-between;
+  padding-top: 10px;
 }
 
 .userSpotsEditButton {
-  background-color: #FF5A5F;
   color: white;
-  border:none;
-  border-radius:10px;
-  box-shadow: 0px 0px 2px 2px rgb(183, 183, 183);
+  padding: px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 100px;
+  background-color: #e51d53;
 }
 
 .userSpotsEditButton:hover {
@@ -22,11 +26,14 @@
 }
 
 .userSpotsDeleteButton {
-  background-color: #FF5A5F;
   color: white;
-  border:none;
-  border-radius:10px;
-  box-shadow: 0px 0px 2px 2px rgb(183, 183, 183);
+  padding: 9px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 100px;
+  background-color: #e51d53;
 }
 
 .userSpotsDeleteButton:hover {
