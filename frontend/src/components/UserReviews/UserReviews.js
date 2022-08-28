@@ -4,17 +4,13 @@ import { useEffect } from "react";
 import { deleteReviewById } from "../../store/reviews";
 import { getAllSpots } from "../../store/spots";
 import { getReviewsByCurrentUser } from "../../store/reviews";
+import ReviewCard from "../ReviewCard/ReviewCard";
+import './UserReviews.css'
 
 const UserReviews = () => {
   // const user = useSelector(state => state.session.user);
   const reviews = useSelector(state => Object.values(state.reviews));
 
-  const spots = useSelector((state) => (state.spots));
-  console.log('THIS IS SPOTS', spots)
-  console.log('THIS IS SINGLE SPOT', spots[2])
-
-  // const spot = spots.find((spot) => spot.id == reviews.spotId);
-  // console.log('THIS IS SPOT', spot)
 
   console.log('THIS IS REVIEWS', reviews)
 
@@ -32,23 +28,38 @@ const UserReviews = () => {
     history.push(path);
   };
 
+  // return (
+  //   <div>
+  //     {reviews.map((review) => (
+  //       <div key={review.id}>
+  //         <div>SPOT ID: {review.spotId}</div>
+  //         <div></div>
+  //         <i className="fa-solid fa-star"></i>{`${review.stars}: `}
+  //         {review.review}
+  //         <br></br>
+  //         <NavLink to={`/reviews/${review.id}`}>Edit Review</NavLink>
+  //         <button onClick={() => handleDeleteReview(review.id)}>
+  //           Delete Review
+  //         </button>
+  //       </div>
+  //     ))}
+  //   </div>
+  // )
+
   return (
-    <div>
-      {reviews.map((review) => (
-        <div key={review.id}>
-          <div>SPOT ID: {review.spotId}</div>
-          <div></div>
-          <i className="fa-solid fa-star"></i>{`${review.stars}: `}
-          {review.review}
-          <br></br>
-          <NavLink to={`/reviews/${review.id}`}>Edit Review</NavLink>
-          <button onClick={() => handleDeleteReview(review.id)}>
-            Delete Review
-          </button>
+    <div className="userReviewContainer">
+      <div className="userReviewInnerContainer">
+        <h1 className="userReviewHeader">User Reviews</h1>
+        <div className="userReviewCardContainer">
+          <div className="userReviews">
+            {reviews.map((review) => (
+              <ReviewCard key={review.id} review={review} />
+            ))}
+          </div>
         </div>
-      ))}
+      </div>
     </div>
-  )
+  );
 }
 
 export default UserReviews;

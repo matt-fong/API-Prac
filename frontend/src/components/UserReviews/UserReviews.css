@@ -1,0 +1,35 @@
+.userReviewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.userReviewInnerContainer {
+  display: flex;
+  flex-direction: column;
+  width: 1000px
+}
+
+.userReviewCardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  width: 100%;
+  width: 800px;
+  max-width: 1200px;
+}
+
+.userReviewHeader {
+  text-align: center;
+}
+
+.userReviews {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  justify-content: space-between;
+}

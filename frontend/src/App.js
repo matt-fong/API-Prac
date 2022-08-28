@@ -13,6 +13,7 @@ import EditSpot from "./components/EditSpot/EditSpot"
 import UserReviews from "./components/UserReviews/UserReviews";
 import CreateReview from "./components/CreateReview/CreateReview";
 import EditReview from "./components/EditReview/EditReview";
+import ReviewCard from "./components/ReviewCard/ReviewCard";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +55,9 @@ function App() {
           </Route>
           <Route path="/my-reviews">
             <UserReviews />
+          </Route>
+          <Route path="/testing">
+            <ReviewCard />
           </Route>
         </Switch>
       )}
