@@ -82,13 +82,9 @@ const CreateReview = () => {
                 required
               />
             </div>
-            {!errors.length ? (
-              <button className="createReviewButton" type="submit">
-                Create Review
-              </button>
-            ) : (
+            <div className="createReviewButtons">
               <button
-                className="backButton"
+                className="createReviewButton"
                 onClick={() => {
                   let path = `/spots/${spotId}`;
                   history.push(path);
@@ -96,7 +92,11 @@ const CreateReview = () => {
               >
                 Go Back
               </button>
-            )}
+
+              <button className="createReviewButton" type="submit">
+                Create Review
+              </button>
+            </div>
           </form>
         </div>
       </div>

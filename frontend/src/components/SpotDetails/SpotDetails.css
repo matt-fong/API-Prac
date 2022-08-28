@@ -24,7 +24,7 @@
 .spotDetailImage {
   object-fit: cover;
   height: 500px;
-  width: 700px;
+  width: 800px;
 }
 
 .spotDetailNumReview {
@@ -92,7 +92,8 @@
 }
 
 .spotDetailCreateReview {
-  /* padding-bottom: 10px; */
+  display: flex;
+  align-items: center;
 }
 
 .createReviewButton {

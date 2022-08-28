@@ -32,6 +32,12 @@
   background-color: transparent !important;
 }
 
+.createReviewButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px
+}
+
 .createReviewButton {
   color: white;
   border: none;
@@ -40,7 +46,6 @@
   border-radius: 16px;
   width: 100px;
   background-color: #e51d53;
-  margin-top: 25px
 }
 
 .createReviewButton:hover {
