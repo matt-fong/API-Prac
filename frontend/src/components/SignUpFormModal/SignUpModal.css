@@ -1,15 +1,62 @@
+.signup-modal-container {}
+
 .signup-modal-header {
   display: flex;
   justify-content: center;
+  font-size: 17px;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(228, 228, 228);
+  align-items: center;
+  padding: 17px
 }
 
 .signup-modal-form {
-  padding: 30px;
+  padding: 24px;
+  width: 400px;
 }
 
-.signup-form-input {
+.signup-welcome {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.signupInput {
   display: flex;
+  position: relative;
+  flex: 1 1 0%;
   width: 100%;
+  justify-content: center;
+}
+
+.signupInput > input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+  background-color: transparent !important;
+}
+
+.signupSubmit {
+  display: block;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 20px;
+  text-align: center;
+  border: none;
+  background: rgba(0, 0, 0, 0)
+    linear-gradient(
+      to right,
+      rgb(230, 30, 77) 0%,
+      rgb(227, 28, 95) 50%,
+      rgb(215, 4, 102) 100%
+    )
+    repeat scroll 0% 0%;
 }
 
 .signup-button {
@@ -17,4 +64,5 @@
   border: none;
   cursor: pointer;
   font-size: 17px;
+  margin-right: 7px
 }
