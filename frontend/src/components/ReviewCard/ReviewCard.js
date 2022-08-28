@@ -35,18 +35,25 @@ function ReviewCard({ review }) {
   return (
     <div className="reviewCardContainer">
       <div className="reviewCardData">
+
         <div className="reviewCardDataLeft">
           <div className="reviewCardUserPic">
             <i className="fas fa-user-circle fa-2xl" />
           </div>
+
           <div className="reviewCardNameStar">
+
             <div className='reviewCardStar'>
               <i className="fa-solid fa-star"></i>
               <div className='reviewCardRating'>{review.stars}</div>
             </div>
+
             <div className="reviewCardName">{review?.User?.firstName}</div>
+
           </div>
+
         </div>
+
         <div className="reviewCardDataRight">
           {owner && (
           <div>
