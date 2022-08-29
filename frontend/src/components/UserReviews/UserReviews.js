@@ -8,11 +8,7 @@ import ReviewCard from "../ReviewCard/ReviewCard";
 import './UserReviews.css'
 
 const UserReviews = () => {
-  // const user = useSelector(state => state.session.user);
   const reviews = useSelector(state => Object.values(state.reviews));
-
-
-  console.log('THIS IS REVIEWS', reviews)
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -21,12 +17,6 @@ const UserReviews = () => {
     dispatch(getReviewsByCurrentUser())
     dispatch(getAllSpots())
   }, []);
-
-  // const handleDeleteReview = (reviewId) => {
-  //   dispatch(deleteReviewById(reviewId));
-  //   let path = `/my-reviews`;
-  //   history.push(path);
-  // };
 
   const handleDelete = (reviewId, spotId) => {
     dispatch(deleteReviewById(reviewId, spotId));

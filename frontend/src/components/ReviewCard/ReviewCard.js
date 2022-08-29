@@ -1,10 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { deleteReviewById } from "../../store/reviews";
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import "./ReviewCard.css";
-import { getAllSpots } from "../../store/spots";
-import { getReviewsByCurrentUser } from "../../store/reviews";
 
 function ReviewCard({ review }) {
   const dispatch = useDispatch();
@@ -14,13 +9,6 @@ function ReviewCard({ review }) {
     month: "long",
     year: "numeric",
   });
-
-  let owner;
-
-  // const sessionUser = useSelector((state) => state.session.user);
-  // if (sessionUser && review) {
-  //   owner = sessionUser.id === review.userId;
-  // }
 
   return (
     <div className="reviewCardContainer">

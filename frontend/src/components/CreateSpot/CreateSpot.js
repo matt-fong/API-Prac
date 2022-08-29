@@ -16,25 +16,15 @@ const CreateSpot = () => {
   const [lng, setLng] = useState(null);
   const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState([]);
-  const [submit, setSubmit] = useState(false);
 
   const user = useSelector(state => state.session.user);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // if (submit) {
-  //   return <Redirect to="/" />;
-  // }
-
   function isImage(url) {
     return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url)
   }
-
-  // console.log('THIS IS IMAGE?', isImage('https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg'))
-
-  // console.log('THIS IS ERRORS', errors)
-  // console.log('THIS IS ERRORS LENGTH', errors.length)
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -66,19 +56,6 @@ const CreateSpot = () => {
     if (isImage(url) && user) {
       dispatch(spotActions.createSpot(data))
       history.push('/')
-        // .then(async (res) => {
-        //   setSubmit(true);
-        // })
-        // .catch(async (res) => {
-        //   const data = await res.json();
-        //   if (data) {
-        //     if (data.errors) {
-        //       setErrors(data.errors);
-        //     } else if (data.message) {
-        //       setErrors([data.message]);
-        //     }
-        //   }
-        // });
     }
 
   };

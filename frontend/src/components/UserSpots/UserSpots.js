@@ -11,16 +11,12 @@ const UserSpots = () => {
   const user = useSelector(state => state.session.user);
   const spots = useSelector((state) => Object.values(state.spots));
   const userSpots = spots.filter((spot) => spot.ownerId === user.id);
-  // console.log('THIS IS USER SPOTS', userSpots)
-
-  // const [isLoaded, setIsLoaded] = useState(false);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleDelete = (spotId) => {
     dispatch(deleteSpot(spotId));
-    // history.push("/");
   };
 
   return (

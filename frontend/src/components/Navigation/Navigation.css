@@ -84,13 +84,13 @@
   flex-direction: column;
   background-color: white;
   width: 200px;
-  /* height: 250px; */
+  /* height: 195px; */
   left: -130px;
   top: 50px;
   border-radius: 15px;
   border: none;
   z-index: 1;
-  box-shadow: 0 2px 22px 0 hsla(240, 5%, 41%, 0.158);
+  box-shadow: 0 2px 22px 0 hsla(0, 0%, 31%, 0.158);
 }
 
 .profile-name {
@@ -136,7 +136,7 @@
 }
 
 .profile-logout:hover {
-  background-color: #E8E8E8
+  background-color: #E8E8E8;
 }
 
 .fa-bars {

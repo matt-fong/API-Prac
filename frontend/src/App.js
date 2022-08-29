@@ -50,14 +50,10 @@ function App() {
             <UserSpots />
           </Route>
           <Route path="/create-spot">
-            {/* {user ? <CreateSpot />: <Redirect to='/signup' /> } */}
             <CreateSpot />
           </Route>
           <Route path="/my-reviews">
             <UserReviews />
-          </Route>
-          <Route path="/testing">
-            <ReviewCard />
           </Route>
         </Switch>
       )}

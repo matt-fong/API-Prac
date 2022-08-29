@@ -24,7 +24,6 @@ const SpotDetails = () => {
   }, []);
 
   const reviews = useSelector((state) => Object.values(state.reviews));
-  console.log('THIS IS REVIEWS', reviews)
 
   const handleCreateReview = (e) => {
     e.preventDefault();
@@ -96,10 +95,7 @@ const SpotDetails = () => {
               <ReviewCard key={review.id} review={review} />
             ))}
           </div>
-
         </div>
-
-
       </div>
     </div>
   )

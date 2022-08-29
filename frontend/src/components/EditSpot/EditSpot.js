@@ -19,7 +19,6 @@ function EditSpotForm() {
   const [city, setCity] = useState(spot?.city);
   const [state, setState] = useState(spot?.state);
   const [country, setCountry] = useState(spot?.country);
-  // const [previewImage, setPreviewImage] = useState(spot.previewImage);
   const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
@@ -38,7 +37,6 @@ function EditSpotForm() {
     if (city) data.city = city;
     if (state) data.state = state;
     if (country) data.country = country;
-    // if (previewImage) data.previewImage = previewImage;
 
     setErrors([]);
     dispatch(editSpot(data, spot.id))
@@ -144,14 +142,6 @@ function EditSpotForm() {
                 required
               />
             </div>
-            {/* <div>
-              <input
-                placeholder="Image Url"
-                type="text"
-                value={previewImage}
-                onChange={(e) => setPreviewImage(e.target.value)}
-              />
-            </div> */}
             <div className="editSpotButtonContainer">
               <button className="editSpotButton" onClick={() =>  history.push('/my-spots')}>Go Back</button>
               <button className="editSpotButton" type="submit">Submit</button>

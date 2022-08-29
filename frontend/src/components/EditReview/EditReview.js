@@ -9,8 +9,6 @@ const EditReview = () => {
   const reviews = useSelector(state => state.reviews);
   const { reviewId } = useParams();
 
-  console.log('THIS IS REVIEWS', reviews)
-
   const dispatch = useDispatch();
   const history = useHistory()
 

@@ -140,7 +140,6 @@ export const spotsReducer = (state = {}, action) => {
         action.payload.forEach((spot) => {
             newState[spot.id] = spot
         })
-        console.log('THIS IS NEW STATE', newState)
         return newState;
     case CREATE_A_SPOT:
         newState = {...state }
@@ -148,25 +147,16 @@ export const spotsReducer = (state = {}, action) => {
         return newState;
     case EDIT_A_SPOT:
         newState = { ...state };
-        // console.log('THIS IS NEWSTATE', newState)
-        // console.log('THIS IS ACTION', action)
         newState[action.spot.id] = action.spot;
         return newState;
     case DELETE_A_SPOT:
         newState = { ...state };
-        // console.log(newState)
-        // console.log(action)
         delete newState[action.spotId];
         return newState;
     case GET_SPOT_BY_ID:
         newState = {...state }
         newState[action.spot.id] = action.spot
         return newState;
-        // newState = {  }
-        // newState[action.spot.id] = action.spot
-        // console.log('THIS IS NEW STATE', newState)
-        // console.log('THIS IS ACTION', action)
-        // return newState
     default:
         return state;
   }

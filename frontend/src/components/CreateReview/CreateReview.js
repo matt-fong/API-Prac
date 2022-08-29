@@ -14,20 +14,14 @@ const CreateReview = () => {
   const sessionUser = useSelector(state => state.session.user);
 
   const reviews = useSelector((state) => Object.values(state.reviews));
-  // console.log('THIS IS REVIEWS', reviews)
   const userReview = reviews.find((review) => review.userId === sessionUser.id)
-  // console.log('THIS IS USER REVIEW', userReview)
 
   const [reviewMessage, setReviewMessage] = useState("");
   const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState([]);
 
-  // console.log('THIS IS ERRORS', errors)
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // setErrors([]);
 
     let data = {
       review: reviewMessage,
@@ -43,7 +37,6 @@ const CreateReview = () => {
     }
 
     if (reviewMessage.length <= 255 && reviewMessage.length >= 10 && !userReview) {
-      // setErrors([]);
       dispatch(reviewActions.createNewReview(spotId, data))
       history.push(`/spots/${spotId}`)
     }
