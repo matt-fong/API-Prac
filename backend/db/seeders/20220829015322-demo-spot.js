@@ -94,7 +94,8 @@ const spots = [
     lat: 70.9445858,
     lng: -380.6730385,
     name: "House 8",
-    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards that are super sunny."
+    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards that are super sunny.",
+    price: 800,
   },
   {
     ownerId: 9,
