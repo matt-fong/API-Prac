@@ -46,7 +46,7 @@ const UserReviews = () => {
               </div>
 
               <div className="userSpotsButtons">
-                <button className="userSpotsEditButton" onClick={() => history.push(`/reviews/${review.id}`)}>Edit Spot</button>
+                <button className="userSpotsEditButton" onClick={() => history.push(`/reviews/${review.id}`)}>Edit Review</button>
                 <button className="userSpotsDeleteButton" onClick={() => handleDelete(review.id, review.spotId)}>Delete</button>
               </div>
 
