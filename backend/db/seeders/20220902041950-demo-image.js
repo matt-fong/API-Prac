@@ -43,6 +43,48 @@ const images = [
     reviewId: null,
     userId: 6
   },
+  {
+    url: 'https://www.build-review.com/wp-content/uploads/2020/07/luxury-real-estate.jpg',
+    previewImage: true,
+    spotId: 7,
+    reviewId: null,
+    userId: 7
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8&w=1000&q=80',
+    previewImage: true,
+    spotId: 8,
+    reviewId: null,
+    userId: 8
+  },
+  {
+    url: 'https://i.pinimg.com/originals/a1/c7/10/a1c710b599e8b83e74fef1371653987b.png',
+    previewImage: true,
+    spotId: 9,
+    reviewId: null,
+    userId: 9
+  },
+  {
+    url: 'https://cdn.decoist.com/wp-content/uploads/2021/06/Modular-black-house-with-balcony-49706.jpg',
+    previewImage: true,
+    spotId: 10,
+    reviewId: null,
+    userId: 10
+  },
+  {
+    url: 'https://assets.architecturaldigest.in/photos/60083e76274aca243711c3a4/4:3/w_1024,h_768,c_limit/ghaziabad-uttar-pradesh-homes-photos-1366x768.jpg',
+    previewImage: true,
+    spotId: 11,
+    reviewId: null,
+    userId: 11
+  },
+  {
+    url: 'https://www.mydomaine.com/thmb/LhwJEsBuRKPcFOhlKbig422LrK4=/2048x1536/filters:fill(auto,1)/SuCasaDesign-Modern-9335be77ca0446c7883c5cf8d974e47c.jpg',
+    previewImage: true,
+    spotId: 12,
+    reviewId: null,
+    userId: 12
+  },
 ]
 
 module.exports = {
@@ -53,7 +95,7 @@ module.exports = {
   async down (queryInterface, Sequelize) {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Images', {
-      spotId: { [Op.in]: [1, 2, 3, 4, 5, 6] }
+      spotId: { [Op.in]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] }
     })
   }
 };

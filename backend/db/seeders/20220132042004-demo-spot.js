@@ -73,6 +73,78 @@ const spots = [
     description: "Stroll to beach, Gayles bakery, parks, schools & churches from this adorable beach home!",
     price: 600,
   },
+  {
+    ownerId: 7,
+    address: "7 Dyker Ave",
+    city: "Brooklyn",
+    state: "New York",
+    country: "United States of America",
+    lat: 57.7657358,
+    lng: -522.4730727,
+    name: "House 7",
+    description: "Adorable home that is move-in ready and waiting for you to put your own personal touches on. Gorgeous and well-maintained landscaped park-like setting with lush green grasses with a community pool and spa to enjoy.",
+    price: 700,
+  },
+  {
+    ownerId: 8,
+    address: "8 Dyker Ave",
+    city: "Brooklyn",
+    state: "New York",
+    country: "United States of America",
+    lat: 70.9445858,
+    lng: -380.6730385,
+    name: "House 8",
+    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards that are super sunny with pathways and perfect for gardening or entertaining!",
+    price: 800,
+  },
+  {
+    ownerId: 9,
+    address: "9 Dyker Ave",
+    city: "Brooklyn",
+    state: "New York",
+    country: "United States of America",
+    lat: 82.7648618,
+    lng: -591.4487927,
+    name: "House 9",
+    description: "The first floor features a lovely, spacious living room with a fireplace. The dining room has wainscoting, natural woodwork and a built in hutch plus a first floor sun room or den. A wonderful gourmet kitchen with all of the amenities including stainless steel appliances and granite.",
+    price: 900,
+  },
+  {
+    ownerId: 10,
+    address: "10 Dyker Ave",
+    city: "Brooklyn",
+    state: "New York",
+    country: "United States of America",
+    lat: 82.76108618,
+    lng: -5101.1010871027,
+    name: "House 10",
+    description: "Fabulous location, walking distance to the prestigious Roxbury Latin School. Easy access to commuter rail, public transportation, and restaurants.",
+    price: 1000,
+  },
+  {
+    ownerId: 11,
+    address: "11 Dyker Ave",
+    city: "Brooklyn",
+    state: "New York",
+    country: "United States of America",
+    lat: 82.7648618,
+    lng: -11111.44871127,
+    name: "House 11",
+    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards that are super sunny with pathways and perfect for gardening or entertaining!",
+    price: 1100,
+  },
+  {
+    ownerId: 12,
+    address: "12 Dyker Ave",
+    city: "Brooklyn",
+    state: "New York",
+    country: "United States of America",
+    lat: 82.712481218,
+    lng: -5121.44871227,
+    name: "House 12",
+    description: "Stroll to beach, Gayles bakery, parks, schools & churches from this adorable beach home!",
+    price: 1200,
+  },
 ]
 
 module.exports = {
@@ -83,7 +155,7 @@ module.exports = {
   async down (queryInterface, Sequelize) {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Spots', {
-      name: { [Op.in]: ['House1', 'House2', 'House3', 'House4', 'House5', 'House6'] }
+      name: { [Op.in]: ['House1', 'House2', 'House3', 'House4', 'House5', 'House6', 'House7', 'House8', 'House9', 'House10', 'House11', 'House12'] }
     })
   }
 };
