@@ -37,6 +37,16 @@ const SpotDetails = () => {
   if (!isLoaded) return null
   if (!isLoadedd) return null
 
+  let sessionLinks;
+
+  if (sessionUser) {
+    sessionLinks = (
+      <div className='spotDetailCreateReview'>
+        <button className="createReviewButton" onClick={handleCreateReview}>Add a review</button>
+      </div>
+    );
+  }
+
   return (
     <div className='spotDetailContainer'>
       <div className="spotDetailInnerContainer">
@@ -86,9 +96,11 @@ const SpotDetails = () => {
           </div>
 
           <div className="spotDetailReviewName">Reviews</div>
-          <div className='spotDetailCreateReview'>
+          {/* <div className='spotDetailCreateReview'>
               <button className="createReviewButton" onClick={handleCreateReview}>Add a review</button>
-          </div>
+          </div> */}
+
+          <div>{sessionLinks}</div>
 
           <div>
             {reviews.map((review) => (
