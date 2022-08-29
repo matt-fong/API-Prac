@@ -10,7 +10,7 @@ const spots = [
     lat: 57.7651358,
     lng: -522.4730121,
     name: "House 1",
-    description: "Adorable home that is move-in ready and waiting for you to put your own personal touches on. Gorgeous and well-maintained landscaped park-like setting with lush green grasses with a community pool and spa to enjoy.",
+    description: "Adorable home that is move-in ready and waiting for you to put your own personal touches on.",
     price: 100,
   },
   {
@@ -22,7 +22,7 @@ const spots = [
     lat: 70.9445258,
     lng: -380.6730325,
     name: "House 2",
-    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards that are super sunny with pathways and perfect for gardening or entertaining!",
+    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards.",
     price: 200,
   },
   {
@@ -34,7 +34,7 @@ const spots = [
     lat: 82.7648618,
     lng: -531.4487327,
     name: "House 3",
-    description: "The first floor features a lovely, spacious living room with a fireplace. The dining room has wainscoting, natural woodwork and a built in hutch plus a first floor sun room or den. A wonderful gourmet kitchen with all of the amenities including stainless steel appliances and granite.",
+    description: "The first floor features a lovely, spacious living room with a fireplace.",
     price: 300,
   },
   {
@@ -46,7 +46,7 @@ const spots = [
     lat: 82.7648618,
     lng: -541.4487427,
     name: "House 4",
-    description: "Fabulous location, walking distance to the prestigious Roxbury Latin School. Easy access to commuter rail, public transportation, and restaurants.",
+    description: "Fabulous location, walking distance to the prestigious Roxbury Latin School.",
     price: 400,
   },
   {
@@ -58,7 +58,7 @@ const spots = [
     lat: 82.7648618,
     lng: -551.4487527,
     name: "House 5",
-    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards that are super sunny with pathways and perfect for gardening or entertaining!",
+    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards!",
     price: 500,
   },
   {
@@ -82,7 +82,7 @@ const spots = [
     lat: 57.7657358,
     lng: -522.4730727,
     name: "House 7",
-    description: "Adorable home that is move-in ready and waiting for you to put your own personal touches on. Gorgeous and well-maintained landscaped park-like setting with lush green grasses with a community pool and spa to enjoy.",
+    description: "Adorable home that is move-in ready and waiting for you to put your own personal touches on.",
     price: 700,
   },
   {
@@ -94,8 +94,7 @@ const spots = [
     lat: 70.9445858,
     lng: -380.6730385,
     name: "House 8",
-    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards that are super sunny with pathways and perfect for gardening or entertaining!",
-    price: 800,
+    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards that are super sunny."
   },
   {
     ownerId: 9,
@@ -106,7 +105,7 @@ const spots = [
     lat: 82.7648618,
     lng: -591.4487927,
     name: "House 9",
-    description: "The first floor features a lovely, spacious living room with a fireplace. The dining room has wainscoting, natural woodwork and a built in hutch plus a first floor sun room or den. A wonderful gourmet kitchen with all of the amenities including stainless steel appliances and granite.",
+    description: "The first floor features a lovely, spacious living room with a fireplace.",
     price: 900,
   },
   {
@@ -118,7 +117,7 @@ const spots = [
     lat: 82.76108618,
     lng: -5101.1010871027,
     name: "House 10",
-    description: "Fabulous location, walking distance to the prestigious Roxbury Latin School. Easy access to commuter rail, public transportation, and restaurants.",
+    description: "Fabulous location, walking distance to the prestigious Roxbury Latin School.",
     price: 1000,
   },
   {
@@ -130,7 +129,7 @@ const spots = [
     lat: 82.7648618,
     lng: -11111.44871127,
     name: "House 11",
-    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards that are super sunny with pathways and perfect for gardening or entertaining!",
+    description: "The indoor/outdoor living is ideal from this sunny locale with front, side and backyards!",
     price: 1100,
   },
   {
