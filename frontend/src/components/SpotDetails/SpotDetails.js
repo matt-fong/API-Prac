@@ -42,7 +42,7 @@ const SpotDetails = () => {
   if (sessionUser) {
     sessionLinks = (
       <div className='spotDetailCreateReview'>
-        <button className="createReviewButton" onClick={handleCreateReview}>Add a review</button>
+        <button className="createReviewButton" onClick={handleCreateReview}>Add review</button>
       </div>
     );
   }
@@ -75,14 +75,17 @@ const SpotDetails = () => {
           <div className='spotDetailDescription'>
             {spot.description}
           </div>
-          <div className='spotDetailPriceContainer'>
-            <div className="spotDetailPrice">
-              <div className='spotPriceAmount'>{`$${spot.price}`}</div>
-              <div className='spotNight'>night</div>
-            </div>
-            <div className="spotDetailReview">
-              <i className="fa-solid fa-star"></i>
-              {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+          <div className="spotDetailBodyRight">
+            <img className='spotDetailOwnerIcon' src='https://www.seekpng.com/png/full/73-730482_existing-user-default-avatar.png'></img>
+            <div className='spotDetailPriceContainer'>
+              <div className="spotDetailPrice">
+                <div className='spotPriceAmount'>{`$${spot.price}`}</div>
+                <div className='spotNight'>night</div>
+              </div>
+              <div className="spotDetailReview">
+                <i className="fa-solid fa-star"></i>
+                {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+              </div>
             </div>
           </div>
         </div>
@@ -96,13 +99,10 @@ const SpotDetails = () => {
           </div>
 
           <div className="spotDetailReviewName">Reviews</div>
-          {/* <div className='spotDetailCreateReview'>
-              <button className="createReviewButton" onClick={handleCreateReview}>Add a review</button>
-          </div> */}
 
           <div>{sessionLinks}</div>
 
-          <div>
+          <div className="spotDetailReviewCards">
             {reviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}

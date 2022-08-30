@@ -22,7 +22,7 @@
   justify-content: space-between;
   font-size: 17px;
   font-weight: bold;
-  border-bottom: 1px solid rgb(228, 228, 228);
+  border-bottom: 1px solid rgb(235, 235, 235);
   align-items: center;
   padding: 24px;
   font-family: 'Montserrat', sans-serif;
@@ -124,7 +124,7 @@ ul {
   margin-right: 20px;
   margin-left: 20px;
   margin-bottom: 9px;
-  border-bottom: 1px solid rgb(228, 228, 228);
+  border-bottom: 1px solid rgb(235, 235, 235);
 }
 
 .orWrapper {

@@ -58,24 +58,34 @@
   margin-top: 20px;
   margin-bottom: 20px;
   justify-content: space-between;
-}
-
-.spotDetailBodyContainer {
-  display: flex;
-  width: 100%;
   padding-top: 20px;
 }
 
 .spotDetailDescription {
-  width: 65%;
+  display: flex;
+  width: 55%;
   word-wrap: break-word;
   font-family: 'Montserrat', sans-serif;
+  border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.spotDetailBodyRight {
+  display: flex;
+  justify-content: space-between;
+  width: 40%
+}
+
+.spotDetailOwnerIcon {
+  display: flex;
+  width: 70px;
+  height: 70px;
 }
 
 .spotDetailPriceContainer {
   display: flex;
-  width: 29%;
+  width: 100%;
   padding: 24px;
+  margin-left: 50px;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   border: 1px solid rgb(221, 221, 221);
@@ -130,4 +140,10 @@
   border-radius: 16px;
   width: 100px;
   background-color: #e51d53;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.spotDetailReviewCards {
+  display: flex;
+  flex-wrap: wrap;
 }

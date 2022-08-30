@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import SignUpForm from './SignUpForm'
 import './SignUpModal.css';
-import img from './xButton.png'
+import img from './xButton.jpg'
 
 function SignUpFormModal() {
   const [showModal, setShowModal] = useState(false);
