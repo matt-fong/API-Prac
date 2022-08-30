@@ -49,8 +49,13 @@ function LoginForm() {
           />
         </div>
         <button type="submit" className="loginSubmit">Log In</button>
+        <div className='orWrapper'>
+          <div className='line'></div>
+          <div className='or'>or</div>
+          <div className='line'></div>
+        </div>
         <button
-          className="loginSubmit"
+          className="loginSubmitDemo"
           type="submit"
           onClick={() => {
             setCredential("demouser");
