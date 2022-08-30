@@ -53,7 +53,7 @@ const SpotDetails = () => {
 
 
         <div className='spotDetailHeaderContainer'>
-          <h1 className='spotDetailName'>{spot.name}</h1>
+          <div className='spotDetailName'>{spot.name}</div>
           <div className='spotDetailContainer'>
             <div className="spotDetailInfo">
               <i className="fa-solid fa-star"></i>

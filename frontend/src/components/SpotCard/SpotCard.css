@@ -32,10 +32,11 @@
 }
 
 .spotLocation {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   text-decoration: none;
   width: 240px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .spotPrice {
@@ -43,6 +44,8 @@
   width: 70px;
   text-decoration: none;
   margin-top: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
 }
 
 .spotPriceAmount {
@@ -62,9 +65,15 @@ a {
   margin-right: 3px;
 }
 
+.spotRating {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .spotCountry {
   width: 200px;
-  padding-top: 2px;
+  padding-top: 3px;
   padding-bottom: 5px;
-  color: rgb(115, 115, 115)
+  color: rgb(115, 115, 115);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
 }

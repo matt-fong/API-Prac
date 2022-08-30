@@ -6,6 +6,19 @@
   justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 20px;
+  justify-content: center;
+}
+
+.spotDetailInnerContainer {
+  width: 1000px;
+}
+
+.spotDetailName {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .spotDetailInfo {
@@ -13,18 +26,25 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .spotDetailPicture {
-  width: 100%;
-  object-fit: fill;
+  /* width: 100%; */
+  /* object-fit: fill;
+  /* width: 1000px; */
   align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
 }
 
 .spotDetailImage {
   object-fit: cover;
   height: 500px;
-  width: 800px;
+  width: 1000px;
+  border-radius: 15px;
 }
 
 .spotDetailNumReview {
@@ -33,7 +53,7 @@
 
 .spotDetailLocation {
   margin-left: 10px;
-  font-weight: bold;
+  font-weight:
 }
 
 .spotDetailBodyContainer {
@@ -51,13 +71,14 @@
 }
 
 .spotDetailDescription {
-  width: 450px;
-  word-wrap: break-word
+  width: 65%;
+  word-wrap: break-word;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .spotDetailPriceContainer {
   display: flex;
-  width: 50%;
+  width: 30%;
   padding: 24px;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
@@ -65,10 +86,16 @@
   border-radius: 12px;
   align-items: center;
   position: relative;
+
 }
 
 .spotDetailPrice {
   display: flex;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.spotDetailReview {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .fa-star {
@@ -83,12 +110,14 @@
   font-weight: bold;
   font-size: 20px;
   padding-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .spotDetailReviewInfo {
   font-weight: bold;
   font-size: 20px;
   padding-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .spotDetailCreateReview {
