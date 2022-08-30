@@ -19,6 +19,7 @@
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .reviewCardNameStar {
@@ -40,6 +41,7 @@
 
 .review {
   width: 100%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .reviewCardDataRight button {
@@ -74,8 +76,10 @@
 }
 
 .reviewCardDate {
-  font-weight: bold;
-  padding-top: 15px
+  font-weight: 700;
+  padding-top: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
 }
 
 .fa-user-circle {

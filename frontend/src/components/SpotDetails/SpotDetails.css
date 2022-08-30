@@ -4,20 +4,20 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   padding-bottom: 20px;
   justify-content: center;
 }
 
 .spotDetailInnerContainer {
-  width: 1000px;
+  width: 1120px;
 }
 
 .spotDetailName {
   font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  font-size: 2em;
-  padding-top: 10px;
+  font-weight: 500;
+  font-size: 30px;
+  padding-top: 20px;
   padding-bottom: 10px;
 }
 
@@ -30,9 +30,6 @@
 }
 
 .spotDetailPicture {
-  /* width: 100%; */
-  /* object-fit: fill;
-  /* width: 1000px; */
   align-items: center;
   display: flex;
   justify-content: center;
@@ -43,7 +40,7 @@
 .spotDetailImage {
   object-fit: cover;
   height: 500px;
-  width: 1000px;
+  width: 100%;
   border-radius: 15px;
 }
 
@@ -53,7 +50,6 @@
 
 .spotDetailLocation {
   margin-left: 10px;
-  font-weight:
 }
 
 .spotDetailBodyContainer {
@@ -67,7 +63,7 @@
 .spotDetailBodyContainer {
   display: flex;
   width: 100%;
-  padding-top: 15px;
+  padding-top: 20px;
 }
 
 .spotDetailDescription {
@@ -78,7 +74,7 @@
 
 .spotDetailPriceContainer {
   display: flex;
-  width: 30%;
+  width: 29%;
   padding: 24px;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
