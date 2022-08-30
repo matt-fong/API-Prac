@@ -95,32 +95,41 @@
 
 .profile-name {
   border-bottom: 1px solid lightgray;
-  padding: 10px;
+  padding: 15px;
   font-weight: bold;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .profile-manage-listings {
   border-bottom: 1px solid lightgray;
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .profile-manage-reviews {
   border-bottom: 1px solid lightgray;
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
-}
-
-.profile-logout {
-  border-bottom: 1px solid lightgray;
-  padding: 10px;
-  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .profile-host-home {
   border-bottom: 1px solid lightgray;
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.profile-logout {
+  padding: 15px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }
 
 .profile-manage-listings:hover {
@@ -137,6 +146,7 @@
 
 .profile-logout:hover {
   background-color: #E8E8E8;
+  border-radius: 0 0 12px 12px;
 }
 
 .fa-bars {
