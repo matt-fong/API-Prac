@@ -19,7 +19,7 @@
 
 .login-modal-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   font-size: 17px;
   font-weight: bold;
   border-bottom: 1px solid rgb(228, 228, 228);
@@ -159,4 +159,13 @@ ul {
       rgb(215, 4, 102) 100%
     )
     repeat scroll 0% 0%;
+}
+
+.loginXButton {
+  width: 15px;
+  cursor: pointer;
+}
+
+.loginLogin {
+  padding-right: 232.54px;
 }

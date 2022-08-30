@@ -19,7 +19,7 @@
 
 .signup-modal-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   font-size: 17px;
   font-weight: bold;
   border-bottom: 1px solid rgb(228, 228, 228);
@@ -115,4 +115,13 @@ ul {
 .signupError {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
+}
+
+.signupXButton {
+  width: 15px;
+  cursor: pointer;
+}
+
+.signupSignup {
+  padding-right: 226.08px;
 }
