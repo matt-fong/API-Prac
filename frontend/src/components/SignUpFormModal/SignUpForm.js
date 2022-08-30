@@ -32,48 +32,15 @@ function SignUpForm() {
 
   return (
     <form className="signupForm" onSubmit={onSubmit}>
-      <ul>
-        {errors.map((error, i) => <li key={i}>{error}</li>)}
-      </ul>
+      <div className="signupErrorContainer">
+        <ul>
+          {errors.map((error, i) =>
+          <li className="signupError" key={i}>{error}</li>)}
+        </ul>
+      </div>
       <div className="signupInputContainer">
         <div className="signupInput">
-          <input
-            placeholder="Email"
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="signupInput">
-          <input
-            placeholder="Username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div className="signupInput">
-          <input
-            placeholder="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div className="signupInput">
-          <input
-            placeholder="Password"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div className="signupInput">
-          <input
+          <input className='signupInputText'
             placeholder="First Name"
             type="text"
             value={firstName}
@@ -82,11 +49,47 @@ function SignUpForm() {
           />
         </div>
         <div className="signupInput">
-          <input
+          <input className='signupInputText'
             placeholder="Last Name"
             type="text"
             value={lastName}
             onChange={(e) => setlastName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="signupInput">
+          <input className='signupInputText'
+            placeholder="Email"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="signupInput">
+          <input className='signupInputText'
+            placeholder="Username"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div className="signupInput">
+          <input className='signupInputText'
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className="signupInput">
+          <input className='signupInputText'
+            placeholder="Confirm Password"
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </div>

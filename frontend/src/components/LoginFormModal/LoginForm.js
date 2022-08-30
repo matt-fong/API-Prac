@@ -22,14 +22,16 @@ function LoginForm() {
 
   return (
     <form className="loginForm" onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, i) => (
-          <li key={i}>{error}</li>
-        ))}
-      </ul>
+      <div className="loginErrorContainer">
+        <ul>
+          {errors.map((error, i) => (
+            <li className="loginError" key={i}>{error}</li>
+          ))}
+        </ul>
+      </div>
       <div className="loginInputContainer">
         <div className="loginInput">
-          <input
+          <input className="loginInputText"
             placeholder="Username or Email"
             type="text"
             value={credential}
@@ -38,7 +40,7 @@ function LoginForm() {
           />
         </div>
         <div className="loginInput">
-          <input
+          <input className="loginInputText"
             placeholder="Password"
             type="password"
             value={password}

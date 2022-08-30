@@ -1,3 +1,22 @@
+#modal {
+  display: flex;
+  justify-content: center;
+}
+
+#modal-background {
+  background-color: rgba(0, 0, 0, .50) !important;
+}
+
+#modal-content {
+  max-width: 568px;
+  width: 100%;
+}
+
+.signup-modal-container {
+  max-width: 568px;
+  width: 100%;
+}
+
 .signup-modal-header {
   display: flex;
   justify-content: center;
@@ -5,21 +24,23 @@
   font-weight: bold;
   border-bottom: 1px solid rgb(228, 228, 228);
   align-items: center;
-  padding: 17px
+  padding: 24px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .signup-modal-form {
   padding: 24px;
-  width: 400px;
 }
 
 .signup-welcome {
-  font-size: 24px;
-  font-weight: bold;
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .signupInputContainer {
-  width: 400px
+  width: 100%
 }
 
 .signupInput {
@@ -32,10 +53,11 @@
 .signupInput > input {
   box-sizing: border-box;
   width: 100%;
-  padding: 12px;
+  padding: 17px;
   border: 1px solid #dadada;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: transparent !important;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .signupSubmit {
@@ -50,6 +72,7 @@
   margin-top: 20px;
   text-align: center;
   border: none;
+  font-family: 'Montserrat', sans-serif;
   background: rgba(0, 0, 0, 0)
     linear-gradient(
       to right,
@@ -73,7 +96,20 @@ ul {
   padding: 0
 }
 
+.signupErrorContainer {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 .signupForm {
   display: flex;
+  justify-content: flex-end;
   flex-direction: column;
+}
+
+.signupError {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
 }
