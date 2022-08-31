@@ -62,6 +62,8 @@
   position: relative;
   border: none;
   z-index: 0;
+  width: 77px;
+  height: 42px;
 }
 
 .userProfileMenu > button:hover {
@@ -149,10 +151,24 @@
   border-radius: 0 0 12px 12px;
 }
 
+.userProfileButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 77px;
+  height: 42px;
+}
+
+
 .fa-bars {
-  height: 15px;
-  width: 15px;
-  padding-right: 10px;
-  margin-top: 3px;
-  margin-left: 2px;
+  /* height: 15px;
+  width: 15px; */
+  /* padding-right: 10px; */
+  /* margin-top: 7px; */
+  /* margin-left: 2px; */
+}
+
+
+.fa-user-circle {
+  /* margin-bottom: 15px; */
 }
