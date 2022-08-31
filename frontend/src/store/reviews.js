@@ -118,9 +118,11 @@ export default function reviewsReducer(state = {}, action) {
       return newState;
     case UPDATE:
       newState = { ...state };
-      return newState;
-      // console.log('THIS IS STATE', newState)
+      newState[action.reviewId.id] = action.reviewId
+      // console.log('THIS IS NEW STATE', newState)
       // console.log('THIS IS ACTION', action)
+      // console.log('THIS IS ACTION PAYLOAD', action.reviewId)
+      return newState;
     case DELETE:
       newState = { ...state };
       delete newState[action.reviewId];

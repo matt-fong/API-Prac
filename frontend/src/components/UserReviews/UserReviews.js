@@ -1,6 +1,6 @@
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { deleteReviewById } from "../../store/reviews";
 import { getAllSpots } from "../../store/spots";
 import { getReviewsByCurrentUser } from "../../store/reviews";
@@ -11,14 +11,20 @@ import { getAllUsers } from "../../store/users";
 const UserReviews = () => {
   const reviews = useSelector(state => Object.values(state.reviews));
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
+  console.log('THIS IS REVIEWS', reviews)
+
   useEffect(() => {
-    dispatch(getReviewsByCurrentUser())
-    dispatch(getAllSpots())
+    dispatch(getReviewsByCurrentUser()).then(() => setIsLoaded(true))
     dispatch(getAllUsers())
+    // dispatch(getAllSpots())
   }, []);
+
+  // if (!isLoaded) return null
 
   const handleDelete = (reviewId, spotId) => {
     dispatch(deleteReviewById(reviewId, spotId));

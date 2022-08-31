@@ -53,7 +53,7 @@ function App() {
             <CreateSpot />
           </Route>
           <Route path="/my-reviews">
-            <UserReviews />
+            <UserReviews isLoaded={isLoaded} />
           </Route>
         </Switch>
       )}
