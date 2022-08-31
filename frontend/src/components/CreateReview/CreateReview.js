@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import * as reviewActions from "../../store/reviews";
 import './CreateReview.css'
+import { getAllSpots } from "../../store/spots";
 
 const CreateReview = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   let { spotId } = useParams();
+  const { ownerId } = useParams()
 
   spotId = Number(spotId);
 
   const sessionUser = useSelector(state => state.session.user);
-
   const reviews = useSelector((state) => Object.values(state.reviews));
   const userReview = reviews.find((review) => review.userId === sessionUser.id)
 
@@ -38,7 +39,7 @@ const CreateReview = () => {
 
     if (reviewMessage.length <= 255 && reviewMessage.length >= 10 && !userReview) {
       dispatch(reviewActions.createNewReview(spotId, data))
-      history.push(`/spots/${spotId}`)
+      history.push(`/spots/${spotId}/${ownerId}`)
     }
 
   };
@@ -79,7 +80,7 @@ const CreateReview = () => {
               <button
                 className="createReviewButton"
                 onClick={() => {
-                  let path = `/spots/${spotId}`;
+                  let path = `/spots/${spotId}/${ownerId}`;
                   history.push(path);
                 }}
               >

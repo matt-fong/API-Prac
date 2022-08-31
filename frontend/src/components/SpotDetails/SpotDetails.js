@@ -39,7 +39,7 @@ const SpotDetails = () => {
 
   const handleCreateReview = (e) => {
     e.preventDefault();
-    let path = `/spots/${spotId}/create-review`;
+    let path = `/spots/${spotId}/${ownerId}/create-review`;
 
     if (sessionUser) {
       history.push(path);
@@ -120,12 +120,12 @@ const SpotDetails = () => {
                 <i class="fa-solid fa-door-open fa-xl spot-detail-icons"></i>
                 <div className="selfCheckout">
                   <div className="spotDetailHighlightUppertext">Self check-in</div>
-                  <div className="spotDetailHighlightUndertext">Check yourself in with the keypad</div>
+                  <div className="spotDetailHighlightUndertext">Check yourself in with the keypad.</div>
                 </div>
               </div>
 
               <div className="spotDetailHighlightTwo">
-                <i class="fa-solid fa-medal fa-xl spot-detail-icons"></i>
+                <i className="fa-solid fa-medal fa-xl spot-detail-icons"></i>
                 <div>
                   <div className="spotDetailHighlightUppertext">{`${spotOwner.firstName} is a Superhost`}</div>
                   <div className="spotDetailHighlightUndertext">Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</div>
@@ -133,7 +133,7 @@ const SpotDetails = () => {
               </div>
 
               <div className="spotDetailHighlightThree">
-                <i class="fa-solid fa-calendar fa-xl spot-detail-icons"></i>
+                <i className="fa-solid fa-calendar fa-xl spot-detail-icons"></i>
                 <div>
                   <div className="spotDetailHighlightUppertext">Free cancellation for 48 hours.</div>
                   {/* <div className="spotDetailHighlightUndertext">undertext</div> */}
