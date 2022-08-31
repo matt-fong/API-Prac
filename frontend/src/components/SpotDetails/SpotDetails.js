@@ -72,11 +72,29 @@ const SpotDetails = () => {
 
 
         <div className='spotDetailBodyContainer'>
-          <div className='spotDetailDescription'>
-            {spot.description}
+          <div className='spotDetailListing'>
+
+            <div className='spotDetailHostContainer'>
+
+              <div className="spotDetailHostLeft">
+                <div className="spotDetailHostedBy">Entire home hosted by {sessionUser.firstName}{' '}{sessionUser.lastName}</div>
+                <div className="spotDetailSpecs">
+                  <div className="spotDetailSpecsGuest">2 guests</div>
+                  <div className="spotDetailSpecsBedroom">{` · `}1 bedroom</div>
+                  <div className="spotDetailSpecsBed">{` · `}1 bed</div>
+                  <div className="spotDetailSpecsBath">{` · `}1 bath</div>
+                </div>
+              </div>
+
+              <div className="spotDetailHostRight">
+                <img className='spotDetailOwnerIcon' src='https://www.seekpng.com/png/full/73-730482_existing-user-default-avatar.png'></img>
+              </div>
+
+            </div>
+
+            <div className="spotDetailDescription">{spot.description}</div>
           </div>
           <div className="spotDetailBodyRight">
-            <img className='spotDetailOwnerIcon' src='https://www.seekpng.com/png/full/73-730482_existing-user-default-avatar.png'></img>
             <div className='spotDetailPriceContainer'>
               <div className="spotDetailPrice">
                 <div className='spotPriceAmount'>{`$${spot.price}`}</div>

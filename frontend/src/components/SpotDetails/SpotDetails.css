@@ -4,8 +4,6 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  /* padding-top: 10px; */
-  padding-bottom: 20px;
   justify-content: center;
 }
 
@@ -41,6 +39,7 @@
   object-fit: cover;
   height: 500px;
   width: 100%;
+  margin-top: 24px;
   border-radius: 15px;
 }
 
@@ -55,15 +54,52 @@
 .spotDetailBodyContainer {
   display: flex;
   width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  padding-top: 48px;
+  padding-bottom: 20px;
   justify-content: space-between;
-  padding-top: 20px;
 }
 
-.spotDetailDescription {
+.spotDetailHostContainer {
   display: flex;
-  width: 55%;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.spotDetailHostLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.spotDetailHostedBy {
+  display: flex;
+  align-items: flex-start;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.spotDetailSpecs {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8px;
+}
+
+.spotDetailSpecsBedroom{
+  margin-left: 5px
+}
+
+.spotDetailSpecsBed{
+  margin-left: 5px
+}
+
+.spotDetailSpecsBath{
+  margin-left: 5px
+}
+
+.spotDetailListing {
+  display: flex;
+  flex-direction: column;
+  width: 58.333036%;
   word-wrap: break-word;
   font-family: 'Montserrat', sans-serif;
   border-bottom: 1px solid rgb(228, 228, 228);
@@ -72,32 +108,49 @@
 .spotDetailBodyRight {
   display: flex;
   justify-content: space-between;
-  width: 40%
+  width: 41.666964%
 }
 
 .spotDetailOwnerIcon {
   display: flex;
-  width: 70px;
-  height: 70px;
+  width: 56px;
+  height: 56px;
+}
+
+.spotDetailDescription {
+  padding-top: 24px;
 }
 
 .spotDetailPriceContainer {
   display: flex;
-  width: 100%;
+  box-sizing: border-box;
+  margin-left: auto;
+  height: 496px;
+  width: 372.33;
   padding: 24px;
-  margin-left: 50px;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 12px;
-  align-items: center;
   position: relative;
+  /* align-items: center; */
 
 }
 
 .spotDetailPrice {
   display: flex;
+  align-items: column;
   font-family: 'Montserrat', sans-serif;
+}
+
+.spotPriceAmount {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.spotNight {
+  padding-top: 3.5px;
+  padding-left: 3px;
 }
 
 .spotDetailReview {
@@ -106,10 +159,6 @@
 
 .fa-star {
   margin-right: 3px;
-}
-
-.spotNight {
-  padding-left: 3px;
 }
 
 .spotDetailReviewName {
