@@ -11,8 +11,8 @@ const SpotCard = ({ spot }) => {
             <div className='spotLocation'>{spot.city}, {spot.state}</div>
             <div className='spotCountry'>{spot.country}</div>
             <div className='spotPrice'>
-              <div className='spotPriceAmount'>{`$${spot.price}`}</div>
-              <div className='spotNight'>night</div>
+              <div className='spotCardPriceAmount'>{`$${spot.price}`}</div>
+              <div className='spotCardNight'>night</div>
             </div>
           </div>
           <div className='spotDescriptionRight'>

@@ -48,12 +48,14 @@
   font-size: 15px;
 }
 
-.spotPriceAmount {
-  font-weight: bold;
+.spotCardPriceAmount {
+  font-weight: 600;
+  font-size: 16px;
 }
 
-.spotNight {
+.spotCardNight {
   padding-left: 3px;
+  /* padding-bottom: 1px; */
 }
 
 a {

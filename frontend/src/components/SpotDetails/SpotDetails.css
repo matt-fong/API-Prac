@@ -37,10 +37,10 @@
 
 .spotDetailImage {
   object-fit: cover;
-  height: 500px;
+  height: 498.19px;
   width: 100%;
   margin-top: 24px;
-  border-radius: 15px;
+  border-radius: 12px;
 }
 
 .spotDetailNumReview {
@@ -74,14 +74,15 @@
 .spotDetailHostedBy {
   display: flex;
   align-items: flex-start;
-  font-weight: 500;
-  font-size: 24px;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 .spotDetailSpecs {
   display: flex;
   flex-direction: row;
   margin-top: 8px;
+  font-size: 15.5px;
 }
 
 .spotDetailSpecsBedroom{
@@ -105,6 +106,46 @@
   border-bottom: 1px solid rgb(228, 228, 228);
 }
 
+.spotDetailHighlightContainer {
+  box-sizing: border-box;
+  height: 244px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.spotDetailHighlightOne {
+  display: flex;
+  padding-bottom: 24px;
+}
+
+.spotDetailHighlightTwo {
+  display: flex;
+  padding-bottom: 24px;
+}
+
+.spotDetailHighlightThree {
+  display: flex;
+}
+
+.spotDetailHighlightUppertext {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.spotDetailHighlightUndertext {
+  font-size: 14px;
+  color: rgb(113, 113, 113);
+}
+
+.spot-detail-icons {
+  width: 24px;
+  height: 24px;
+  padding-right: 16px;
+  padding-top: 12.5px;
+}
+
 .spotDetailBodyRight {
   display: flex;
   justify-content: space-between;
@@ -126,15 +167,14 @@
   box-sizing: border-box;
   margin-left: auto;
   height: 496px;
-  width: 372.33;
+  width: 371.33;
   padding: 24px;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 12px;
   position: relative;
-  /* align-items: center; */
-
+  margin-right: 2px;
 }
 
 .spotDetailPrice {
