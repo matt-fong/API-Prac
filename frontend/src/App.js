@@ -14,6 +14,7 @@ import UserReviews from "./components/UserReviews/UserReviews";
 import CreateReview from "./components/CreateReview/CreateReview";
 import EditReview from "./components/EditReview/EditReview";
 import ReviewCard from "./components/ReviewCard/ReviewCard";
+import UserBookings from "./components/UserBookings/UserBookings";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +55,9 @@ function App() {
           </Route>
           <Route path="/my-reviews">
             <UserReviews isLoaded={isLoaded} />
+          </Route>
+          <Route path="/my-bookings">
+            <UserBookings />
           </Route>
         </Switch>
       )}
