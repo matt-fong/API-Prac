@@ -8,6 +8,9 @@ import { getReviewsByCurrentUser } from "../../store/reviews";
 const EditReview = () => {
   const reviews = useSelector(state => state.reviews);
   const { reviewId } = useParams();
+  const { spotId } = useParams();
+
+  const spot = reviews[reviewId]
 
   const dispatch = useDispatch();
   const history = useHistory()
@@ -36,8 +39,8 @@ const EditReview = () => {
     }
 
     if(review.length <= 255 && review.length >= 10) {
-      dispatch(editReview(data, reviews[reviewId].id))
-      history.push('/my-reviews')
+      dispatch(editReview(data, reviewId))
+      history.push(`/spots/${spotId}/${spot?.Spot.ownerId}`)
     }
   };
 

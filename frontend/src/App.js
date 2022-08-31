@@ -34,7 +34,7 @@ function App() {
           <Route path="/spots/:spotId/:ownerId/create-review">
             <CreateReview/>
           </Route>
-          <Route path="/reviews/:reviewId">
+          <Route path="/reviews/:reviewId/:spotId">
             <EditReview />
           </Route>
           <Route path="/spots/:spotId/edit">
