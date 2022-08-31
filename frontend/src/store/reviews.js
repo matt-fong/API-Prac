@@ -49,6 +49,7 @@ export const editReview = (payload, reviewId) => async (dispatch) => {
   })
   if (response.ok){
       const data = await response.json();
+      // console.log('THIS IS DATAAA', data)
       dispatch(updateReview(data))
       return response;
   }
@@ -116,8 +117,8 @@ export default function reviewsReducer(state = {}, action) {
       newState[action.review.id] = action.review;
       return newState;
     case UPDATE:
-      // newState = { ...state };
-      // return newState;
+      newState = { ...state };
+      return newState;
       // console.log('THIS IS STATE', newState)
       // console.log('THIS IS ACTION', action)
     case DELETE:

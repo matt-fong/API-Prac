@@ -142,7 +142,7 @@ export const spotsReducer = (state = {}, action) => {
         })
         return newState;
     case CREATE_A_SPOT:
-        newState = {...state }
+        newState = { ...state }
         newState[action.payload.id] = action.payload
         return newState;
     case EDIT_A_SPOT:
@@ -154,7 +154,7 @@ export const spotsReducer = (state = {}, action) => {
         delete newState[action.spotId];
         return newState;
     case GET_SPOT_BY_ID:
-        newState = {...state }
+        newState = { ...state }
         newState[action.spot.id] = action.spot
         return newState;
     default:
