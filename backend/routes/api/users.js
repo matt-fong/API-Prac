@@ -44,4 +44,14 @@ router.post(
   }
 );
 
+// Get all Users
+router.get('/', async (req, res, next) => {
+  const users = await User.findAll({
+    order: [[ 'firstName', 'DESC' ]]
+  });
+
+  res.json({ Users: users })
+
+})
+
 module.exports = router;

@@ -3,7 +3,7 @@ import './SpotCard.css'
 
 const SpotCard = ({ spot }) => {
   return (
-    <Link className='spotCardContainer' to={`/spots/${spot.id}`}>
+    <Link className='spotCardContainer' to={`/spots/${spot.id}/${spot.ownerId}`}>
       <div className='spotCardContainer'>
         <img className='spotImage' src={spot.previewImage} />
         <div className='spotDescription'>

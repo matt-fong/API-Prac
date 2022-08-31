@@ -6,6 +6,7 @@ import { getAllSpots } from "../../store/spots";
 import { getReviewsByCurrentUser } from "../../store/reviews";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import './UserReviews.css'
+import { getAllUsers } from "../../store/users";
 
 const UserReviews = () => {
   const reviews = useSelector(state => Object.values(state.reviews));
@@ -16,6 +17,7 @@ const UserReviews = () => {
   useEffect(() => {
     dispatch(getReviewsByCurrentUser())
     dispatch(getAllSpots())
+    dispatch(getAllUsers())
   }, []);
 
   const handleDelete = (reviewId, spotId) => {

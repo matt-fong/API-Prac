@@ -40,7 +40,7 @@ function App() {
           <Route path="/spots/:spotId/edit">
             <EditSpot />
           </Route>
-          <Route path="/spots/:spotId">
+          <Route path="/spots/:spotId/:ownerId">
             <SpotDetails isLoaded={isLoaded} />
           </Route>
           <Route path="/signup">

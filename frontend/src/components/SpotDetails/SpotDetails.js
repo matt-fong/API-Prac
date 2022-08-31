@@ -5,22 +5,34 @@ import { getReviewsBySpotId } from "../../store/reviews";
 import './SpotDetails.css'
 import { getAllSpots } from "../../store/spots";
 import ReviewCard from "../ReviewCard/ReviewCard";
+import { getAllUsers } from "../../store/users";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoadedd, setIsLoadedd] = useState(false);
 
-  const spots = useSelector((state) => (state.spots));
   const { spotId } = useParams();
+  const spots = useSelector((state) => (state.spots));
   const spot = spots[spotId]
 
+  console.log('THIS IS SPOTS', spots)
+
   const sessionUser = useSelector(state => state.session.user);
+  const users = useSelector(state => (state.users));
+
+  const { ownerId } = useParams()
+  // console.log('THIS IS OWNERID', ownerId)
+
+  const spotOwner = users[ownerId]
+  console.log('THIS IS SPOT OWNER', spotOwner)
+
   const dispatch = useDispatch();
   const history = useHistory();
 
   useEffect(() => {
     dispatch(getAllSpots()).then(() => setIsLoaded(true));
     dispatch(getReviewsBySpotId(spotId)).then(() => setIsLoadedd(true))
+    dispatch(getAllUsers())
   }, []);
 
   const reviews = useSelector((state) => Object.values(state.reviews));
@@ -77,7 +89,7 @@ const SpotDetails = () => {
             <div className='spotDetailHostContainer'>
 
               <div className="spotDetailHostLeft">
-                <div className="spotDetailHostedBy">Entire home hosted by {sessionUser.firstName}{' '}{sessionUser.lastName}</div>
+                <div className="spotDetailHostedBy">Entire home hosted by {spotOwner.firstName}{' '}{spotOwner.lastName}</div>
                 <div className="spotDetailSpecs">
                   <div className="spotDetailSpecsGuest">2 guests</div>
                   <div className="spotDetailSpecsBedroom">{` · `}1 bedroom</div>
