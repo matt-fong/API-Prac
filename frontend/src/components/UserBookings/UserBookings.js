@@ -49,7 +49,7 @@ const UserBookings = () => {
         <form className='userbookingform' onSubmit={handleSubmit}>
 
           <div className="userBookingDiv">
-            <input className="userBookingInputCheckout"
+            <input className="userBookingInputCheckin"
               type="date"
               placeholder="mm/dd/yyyy"
               // value={startDate}
@@ -59,7 +59,7 @@ const UserBookings = () => {
               max={"9999-12-31"}
               />
 
-            <input className="userBookingInputCheckin"
+            <input className="userBookingInputCheckout"
               type="date"
               placeholder="mm/dd/yyyy"
               // value={endDate}
