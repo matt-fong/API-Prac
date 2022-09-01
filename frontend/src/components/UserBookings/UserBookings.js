@@ -9,18 +9,21 @@ import './UserBookings.css'
 import { getAllUsers } from "../../store/users";
 import { getBookingsByCurrentUser } from "../../store/bookings"
 import { createNewBooking } from "../../store/bookings";
+import { getBookingsBySpotId } from "../../store/bookings";
+import { deleteBookingById } from "../../store/bookings";
 
 const UserBookings = () => {
   const todayString = (new Date()).toISOString().slice(0,10);
   const [startDate, setStartDate] = useState(todayString);
   const [endDate, setEndDate] = useState(todayString);
+  const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   const bookings = useSelector(state => (state.bookings));
 
-  console.log('THIS IS BOOKINGSDFSDFSDFS', bookings)
+  console.log('THIS IS CURRENT USER BOOKINGS', bookings)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,19 +32,20 @@ const UserBookings = () => {
       startDate,
       endDate,
     };
-
-    dispatch(createNewBooking(1, data))
-
+    setErrors([]);
+    // dispatch(createNewBooking(2, data))
+    dispatch(deleteBookingById(20))
   };
-
 
   useEffect(() => {
     dispatch(getBookingsByCurrentUser())
+    // dispatch(getBookingsBySpotId(1))
   }, []);
 
   return(
     <div>
       <form onSubmit={handleSubmit}>
+
           <h2></h2>
             <label>
                 Start Date:</label>
