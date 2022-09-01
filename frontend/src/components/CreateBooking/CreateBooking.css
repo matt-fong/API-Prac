@@ -94,7 +94,7 @@
 .CreateBookingInputCheckout {
   box-sizing: border-box;
   /* width: 12%; */
-  padding: 17px;
+  padding: 12px;
   /* border: 1px solid #dadada; */
   border-top: 1px solid #dadada;
   border-bottom: 1px solid #dadada;
@@ -125,7 +125,7 @@ input.CreateBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator
 .CreateBookingInputCheckin {
   box-sizing: border-box;
   /* width: 12%; */
-  padding: 17px;
+  padding: 12px;
   /* border: 1px solid #dadada; */
   border-top: 1px solid #dadada;
   border-bottom: 1px solid #dadada;

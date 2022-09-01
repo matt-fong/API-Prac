@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation/Navigation";
@@ -13,8 +13,6 @@ import EditSpot from "./components/EditSpot/EditSpot"
 import UserReviews from "./components/UserReviews/UserReviews";
 import CreateReview from "./components/CreateReview/CreateReview";
 import EditReview from "./components/EditReview/EditReview";
-// import ReviewCard from "./components/ReviewCard/ReviewCard";
-// import CreateBooking from "./components/CreateBooking/CreateBooking";
 import UserBookings from "./components/UserBookings/UserBookings";
 
 function App() {
