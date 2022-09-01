@@ -2,17 +2,19 @@
   display: flex;
   justify-content: center;
   align-self: center;
-  height: 700px;
+  height: 176px;
 }
 
 .userBookingFormContainer {
   display: flex;
   justify-content: center;
   align-self: center;
+  height: 176px;
 }
 
 .userbookingform {
   width: 322.33px;
+  height: 176px;
   /* display: flex; */
 }
 
@@ -20,16 +22,18 @@
   display: flex;
   width: 322.33px;
   /* border-radius: 8px 8px 0 0; */
+  height: 56;
 }
 
 .userBookingContainer {
   display: flex;
   justify-content: center;
+  align-self: center;
 }
 
 .userBookingSubmit {
-  /* display: flex;
-  justify-content: center; */
+  /* display: flex; */
+  /* justify-content: center; */
   display: block;
   border-radius: 8px;
   width: 100%;
@@ -38,19 +42,28 @@
   padding: 14px 24px;
   font-size: 16px;
   font-weight: 500;
-  margin-top: 20px;
-  margin-bottom: 15px;
   text-align: center;
   border: none;
   font-family: 'Montserrat', sans-serif;
   background: rgba(0, 0, 0, 0)
-    linear-gradient(
+  linear-gradient(
       to right,
       rgb(230, 30, 77) 0%,
       rgb(227, 28, 95) 50%,
       rgb(215, 4, 102) 100%
     )
     repeat scroll 0% 0%;
+  }
+
+.userBookingSubmit {
+  box-sizing: border-box;
+  /* width: 100%; */
+  /* padding: 17px; */
+  border-radius: 8px;
+  background-color: transparent !important;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  height: 48px;
 }
 
 .userBookingGuest {
@@ -62,7 +75,7 @@
   border-left: 1px solid #dadada;
   border-right: 1px solid #dadada;
   border-radius: 0 0 8px 8px;
-  height: 56px;
+  height: 55px;
   padding-left: 12px;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 16px;
@@ -129,15 +142,4 @@ input.userBookingInputCheckin[type="date"]::-webkit-calendar-picker-indicator {
   padding: 0;
   color: transparent;
   background: transparent;
-}
-
-.userBookingSubmit {
-  box-sizing: border-box;
-  /* width: 100%; */
-  padding: 17px;
-  border: 1px solid #dadada;
-  border-radius: 8px;
-  background-color: transparent !important;
-  font-family: 'Montserrat', sans-serif;
-  cursor: pointer;
 }

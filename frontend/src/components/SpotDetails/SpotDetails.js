@@ -163,8 +163,7 @@ const SpotDetails = () => {
               </div>
 
               <div className="spotDetailBoxTwo">
-                Bookings
-                  {/* <div>{<UserBookings />}</div> */}
+                  <UserBookings />
               </div>
 
               <div className="spotDetailBoxThree">
