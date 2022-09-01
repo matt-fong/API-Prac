@@ -13,7 +13,8 @@ import EditSpot from "./components/EditSpot/EditSpot"
 import UserReviews from "./components/UserReviews/UserReviews";
 import CreateReview from "./components/CreateReview/CreateReview";
 import EditReview from "./components/EditReview/EditReview";
-import ReviewCard from "./components/ReviewCard/ReviewCard";
+// import ReviewCard from "./components/ReviewCard/ReviewCard";
+// import CreateBooking from "./components/CreateBooking/CreateBooking";
 import UserBookings from "./components/UserBookings/UserBookings";
 
 function App() {

@@ -1,37 +1,37 @@
-.userBookingFormOutside {
+.CreateBookingFormOutside {
   display: flex;
   justify-content: center;
   align-self: center;
   height: 176px;
 }
 
-.userBookingFormContainer {
+.CreateBookingFormContainer {
   display: flex;
   justify-content: center;
   align-self: center;
   height: 176px;
 }
 
-.userbookingform {
+.CreateBookingform {
   width: 322.33px;
   height: 176px;
   /* display: flex; */
 }
 
-.userBookingDiv {
+.CreateBookingDiv {
   display: flex;
   width: 322.33px;
   /* border-radius: 8px 8px 0 0; */
   height: 56px;
 }
 
-.userBookingContainer {
+.CreateBookingContainer {
   display: flex;
   justify-content: center;
   align-self: center;
 }
 
-.userBookingSubmit {
+.createBookingSubmit {
   /* display: flex; */
   /* justify-content: center; */
   display: block;
@@ -55,7 +55,7 @@
     repeat scroll 0% 0%;
   }
 
-.userBookingSubmit {
+.createBookingSubmit {
   box-sizing: border-box;
   /* width: 100%; */
   /* padding: 17px; */
@@ -66,7 +66,7 @@
   height: 48px;
 }
 
-.userBookingGuest {
+.CreateBookingGuest {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,17 +81,17 @@
   margin-bottom: 16px;
 }
 
-.userBookingGuestOne {
+.CreateBookingGuestOne {
   font-weight: 500;
   font-size: 12px;
 }
 
-.userBookingGuestTwo {
+.CreateBookingGuestTwo {
   /* font-weight: 500; */
   font-size: 13px;
 }
 
-.userBookingInputCheckout {
+.CreateBookingInputCheckout {
   box-sizing: border-box;
   /* width: 12%; */
   padding: 17px;
@@ -107,11 +107,11 @@
   width: 50%
 }
 
-input.userBookingInputCheckout[type="date"] {
+input.CreateBookingInputCheckout[type="date"] {
   position: relative;
 }
 
-input.userBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator {
+input.CreateBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator {
   position: absolute;
   top: 0;
   right: 0;
@@ -122,7 +122,7 @@ input.userBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
 }
 
-.userBookingInputCheckin {
+.CreateBookingInputCheckin {
   box-sizing: border-box;
   /* width: 12%; */
   padding: 17px;
@@ -137,11 +137,11 @@ input.userBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator {
   width: 50%
 }
 
-input.userBookingInputCheckin[type="date"] {
+input.CreateBookingInputCheckin[type="date"] {
   position: relative;
 }
 
-input.userBookingInputCheckin[type="date"]::-webkit-calendar-picker-indicator {
+input.CreateBookingInputCheckin[type="date"]::-webkit-calendar-picker-indicator {
   position: absolute;
   top: 0;
   right: 0;

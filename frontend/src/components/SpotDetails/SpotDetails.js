@@ -6,7 +6,7 @@ import './SpotDetails.css'
 import { getAllSpots } from "../../store/spots";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import { getAllUsers } from "../../store/users";
-import UserBookings from "../UserBookings/UserBookings";
+import CreateBooking from "../CreateBooking/CreateBooking";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -118,7 +118,7 @@ const SpotDetails = () => {
             <div className='spotDetailHighlightContainer'>
 
               <div className="spotDetailHighlightOne">
-                <i class="fa-solid fa-door-open fa-xl spot-detail-icons"></i>
+                <i className="fa-solid fa-door-open fa-xl spot-detail-icons"></i>
                 <div className="selfCheckout">
                   <div className="spotDetailHighlightUppertext">Self check-in</div>
                   <div className="spotDetailHighlightUndertext">Check yourself in with the keypad.</div>
@@ -163,7 +163,7 @@ const SpotDetails = () => {
               </div>
 
               <div className="spotDetailBoxTwo">
-                  <UserBookings />
+                  <CreateBooking />
               </div>
 
               <div className="spotDetailBoxThree">
