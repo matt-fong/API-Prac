@@ -155,7 +155,6 @@ const SpotDetails = () => {
                 <div className="spotDetailPrice">
                   <div className='spotPriceAmount'>{`$${spot.price}`}</div>
                   <div className='spotNight'>night</div>
-                  {/* <div>{<UserBookings />}</div> */}
                 </div>
                 <div className="spotDetailReview">
                   <i className="fa-solid fa-star"></i>
@@ -165,6 +164,7 @@ const SpotDetails = () => {
 
               <div className="spotDetailBoxTwo">
                 Bookings
+                  {/* <div>{<UserBookings />}</div> */}
               </div>
 
               <div className="spotDetailBoxThree">
@@ -173,8 +173,8 @@ const SpotDetails = () => {
 
               <div className="spotDetailBoxFour">
                 <div className="spotDetailFeeOne">
-                  <div className="spotDetailFeeDescription">100x6nights</div>
-                  <div className="spotDetailFeeNumber">$510</div>
+                  <div className="spotDetailFeeDescription">$100 x 7 nights</div>
+                  <div className="spotDetailFeeNumber">$700</div>
                 </div>
                 <div className="spotDetailFeeTwo">
                   <div className="spotDetailFeeDescription">Cleaning fee</div>
@@ -187,7 +187,8 @@ const SpotDetails = () => {
               </div>
 
               <div className="spotDetailBoxFive">
-                Total before taxes
+                <div className='spotDetailTotalDescription'>Total before taxes</div>
+                <div className='spotDetailTotalPrice'>$700</div>
               </div>
 
             </div>

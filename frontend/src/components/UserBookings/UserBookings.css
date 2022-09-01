@@ -1,13 +1,67 @@
-.userbookingform {
+.userBookingFormOutside {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  height: 700px;
+}
 
+.userBookingFormContainer {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.userbookingform {
+  width: 260px;
+  /* display: flex; */
+}
+
+.userBookingDiv {
+  display: flex;
+  width: 260px;
+  /* border-radius: 8px 8px 0 0; */
+}
+
+.userBookingContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.userBookingSubmit {
+  display: flex;
+  justify-content: center;
+}
+
+.userBookingGuest {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  border-bottom: 1px solid #dadada;
+  border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  border-radius: 0 0 8px 8px;
+  height: 56px;
+  padding-left: 12px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.userBookingGuestOne {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.userBookingGuestTwo {
+  /* font-weight: 500; */
+  font-size: 13px;
 }
 
 .userBookingInputCheckout {
   box-sizing: border-box;
-  width: 7%;
+  /* width: 12%; */
   padding: 17px;
   border: 1px solid #dadada;
-  border-radius: 8px;
+  border-radius: 8px 0 0 0;
   background-color: transparent !important;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
@@ -30,10 +84,10 @@ input.userBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator {
 
 .userBookingInputCheckin {
   box-sizing: border-box;
-  /* width: 100%; */
+  /* width: 12%; */
   padding: 17px;
   border: 1px solid #dadada;
-  border-radius: 8px;
+  border-radius: 0 8px 0 0;
   background-color: transparent !important;
   font-family: 'Montserrat', sans-serif;
 }
@@ -51,4 +105,15 @@ input.userBookingInputCheckin[type="date"]::-webkit-calendar-picker-indicator {
   padding: 0;
   color: transparent;
   background: transparent;
+}
+
+.userBookingSubmit {
+  box-sizing: border-box;
+  /* width: 100%; */
+  padding: 17px;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  background-color: transparent !important;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
 }

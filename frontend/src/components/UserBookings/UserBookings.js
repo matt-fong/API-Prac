@@ -32,7 +32,7 @@ const UserBookings = () => {
       startDate,
       endDate,
     };
-    
+
     setErrors([]);
     // dispatch(createNewBooking(2, data))
     dispatch(deleteBookingById(20))
@@ -44,30 +44,43 @@ const UserBookings = () => {
   }, []);
 
   return (
-    <div>
-      <form className='userbookingform' onSubmit={handleSubmit}>
+    <div className="userBookingFormOutside">
+      <div className='userBookingFormContainer'>
+        <form className='userbookingform' onSubmit={handleSubmit}>
 
-        <input className="userBookingInputCheckout"
-          type="date"
-          placeholder="mm/dd/yyyy"
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)}
-          required
-          min={todayString}
-          max={"9999-12-31"}
-          />
+          <div className="userBookingDiv">
+            <input className="userBookingInputCheckout"
+              type="date"
+              placeholder="mm/dd/yyyy"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              required
+              min={todayString}
+              max={"9999-12-31"}
+              />
 
-        <input className="userBookingInputCheckin"
-          type="date"
-          placeholder="mm/dd/yyyy"
-          value={endDate}
-          onChange={(e) => setEndDate(e.target.value)}
-          required
-          min={todayString}
-          max="9999-12-31"
-          />
-        <input type="Submit" />
-      </form>
+            <input className="userBookingInputCheckin"
+              type="date"
+              placeholder="mm/dd/yyyy"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              required
+              min={todayString}
+              max="9999-12-31"
+              />
+          </div>
+
+          <div className="userBookingGuest">
+            <div className="userBookingGuestOne">Guests</div>
+            <div className="userBookingGuestTwo">2 guests</div>
+          </div>
+
+          <div className="userBookingContainer">
+            <input className="userBookingSubmit" type="Submit" />
+          </div>
+
+        </form>
+      </div>
     </div>
   );
 }
