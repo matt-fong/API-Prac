@@ -1,0 +1,54 @@
+.userbookingform {
+
+}
+
+.userBookingInputCheckout {
+  box-sizing: border-box;
+  width: 7%;
+  padding: 17px;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  background-color: transparent !important;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+input.userBookingInputCheckout[type="date"] {
+  position: relative;
+}
+
+input.userBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  color: transparent;
+  background: transparent;
+}
+
+.userBookingInputCheckin {
+  box-sizing: border-box;
+  /* width: 100%; */
+  padding: 17px;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  background-color: transparent !important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input.userBookingInputCheckin[type="date"] {
+  position: relative;
+}
+
+input.userBookingInputCheckin[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  color: transparent;
+  background: transparent;
+}

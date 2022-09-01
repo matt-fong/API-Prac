@@ -6,6 +6,7 @@ import './SpotDetails.css'
 import { getAllSpots } from "../../store/spots";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import { getAllUsers } from "../../store/users";
+import UserBookings from "../UserBookings/UserBookings";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -147,16 +148,50 @@ const SpotDetails = () => {
 
 
           <div className="spotDetailBodyRight">
+
             <div className='spotDetailPriceContainer'>
-              <div className="spotDetailPrice">
-                <div className='spotPriceAmount'>{`$${spot.price}`}</div>
-                <div className='spotNight'>night</div>
+
+              <div className="spotDetailBoxOne">
+                <div className="spotDetailPrice">
+                  <div className='spotPriceAmount'>{`$${spot.price}`}</div>
+                  <div className='spotNight'>night</div>
+                  {/* <div>{<UserBookings />}</div> */}
+                </div>
+                <div className="spotDetailReview">
+                  <i className="fa-solid fa-star"></i>
+                  {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+                </div>
               </div>
-              <div className="spotDetailReview">
-                <i className="fa-solid fa-star"></i>
-                {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+
+              <div className="spotDetailBoxTwo">
+                Bookings
               </div>
+
+              <div className="spotDetailBoxThree">
+                You won't be charged yet
+              </div>
+
+              <div className="spotDetailBoxFour">
+                <div className="spotDetailFeeOne">
+                  <div className="spotDetailFeeDescription">100x6nights</div>
+                  <div className="spotDetailFeeNumber">$510</div>
+                </div>
+                <div className="spotDetailFeeTwo">
+                  <div className="spotDetailFeeDescription">Cleaning fee</div>
+                  <div className="spotDetailFeeNumber">Free</div>
+                </div>
+                <div className="spotDetailFeeThree">
+                  <div className="spotDetailFeeDescription">Service fee</div>
+                  <div className="spotDetailFeeNumber">Free</div>
+                </div>
+              </div>
+
+              <div className="spotDetailBoxFive">
+                Total before taxes
+              </div>
+
             </div>
+
           </div>
         </div>
 

@@ -169,12 +169,78 @@
   height: 496px;
   width: 371.33;
   padding: 24px;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   border: 1px solid rgb(221, 221, 221);
   border-radius: 12px;
   position: relative;
   margin-right: 2px;
+  flex-direction: column;
+}
+
+.spotDetailBoxOne {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.spotDetailBoxTwo {
+  display: flex;
+  justify-content: center;
+  /* margin-bottom: 16px; */
+  height: 227px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 8px;
+}
+
+.spotDetailBoxThree {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 8px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 26px;
+  font-size: 14px;
+}
+
+.spotDetailBoxFour {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.spotDetailFeeOne {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.spotDetailFeeTwo {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.spotDetailFeeThree {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.spotDetailBoxFive {
+  padding-top: 24px;
+  margin-top: 24px;
+  border-top: 1px solid rgb(221, 221, 221) !important;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .spotDetailPrice {
@@ -195,6 +261,8 @@
 
 .spotDetailReview {
   font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 .fa-star {

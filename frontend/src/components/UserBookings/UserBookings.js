@@ -32,6 +32,7 @@ const UserBookings = () => {
       startDate,
       endDate,
     };
+    
     setErrors([]);
     // dispatch(createNewBooking(2, data))
     dispatch(deleteBookingById(20))
@@ -42,38 +43,33 @@ const UserBookings = () => {
     // dispatch(getBookingsBySpotId(1))
   }, []);
 
-  return(
+  return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className='userbookingform' onSubmit={handleSubmit}>
 
-          <h2></h2>
-            <label>
-                Start Date:</label>
-                <input
-                type="date"
-                placeholder="mm/dd/yyyy"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                required
-                min={todayString}
-                max={"9999-12-31"}
-                />
+        <input className="userBookingInputCheckout"
+          type="date"
+          placeholder="mm/dd/yyyy"
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
+          required
+          min={todayString}
+          max={"9999-12-31"}
+          />
 
-            <label>
-                End Date:</label>
-                <input
-                type="date"
-                placeholder="mm/dd/yyyy"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                required
-                min={todayString}
-                max="9999-12-31"
-                />
-            <input type="Submit" />
-        </form>
+        <input className="userBookingInputCheckin"
+          type="date"
+          placeholder="mm/dd/yyyy"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+          required
+          min={todayString}
+          max="9999-12-31"
+          />
+        <input type="Submit" />
+      </form>
     </div>
-);
+  );
 }
 
 export default UserBookings;
