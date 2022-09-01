@@ -52,7 +52,7 @@ const UserBookings = () => {
             <input className="userBookingInputCheckout"
               type="date"
               placeholder="mm/dd/yyyy"
-              value={startDate}
+              // value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               required
               min={todayString}
@@ -62,7 +62,7 @@ const UserBookings = () => {
             <input className="userBookingInputCheckin"
               type="date"
               placeholder="mm/dd/yyyy"
-              value={endDate}
+              // value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               required
               min={todayString}
@@ -76,7 +76,7 @@ const UserBookings = () => {
           </div>
 
           <div className="userBookingContainer">
-            <input className="userBookingSubmit" type="Submit" />
+            <input className="userBookingSubmit" type="Submit" value='Reserve' />
           </div>
 
         </form>

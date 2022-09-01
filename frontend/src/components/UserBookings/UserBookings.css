@@ -12,13 +12,13 @@
 }
 
 .userbookingform {
-  width: 260px;
+  width: 322.33px;
   /* display: flex; */
 }
 
 .userBookingDiv {
   display: flex;
-  width: 260px;
+  width: 322.33px;
   /* border-radius: 8px 8px 0 0; */
 }
 
@@ -28,8 +28,29 @@
 }
 
 .userBookingSubmit {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
+  display: block;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0, 0, 0, 0)
+    linear-gradient(
+      to right,
+      rgb(230, 30, 77) 0%,
+      rgb(227, 28, 95) 50%,
+      rgb(215, 4, 102) 100%
+    )
+    repeat scroll 0% 0%;
 }
 
 .userBookingGuest {
@@ -44,6 +65,7 @@
   height: 56px;
   padding-left: 12px;
   font-family: 'Montserrat', sans-serif;
+  margin-bottom: 16px;
 }
 
 .userBookingGuestOne {
@@ -65,6 +87,7 @@
   background-color: transparent !important;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
+  width: 50%
 }
 
 input.userBookingInputCheckout[type="date"] {
@@ -90,6 +113,7 @@ input.userBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 0 8px 0 0;
   background-color: transparent !important;
   font-family: 'Montserrat', sans-serif;
+  width: 50%
 }
 
 input.userBookingInputCheckin[type="date"] {
