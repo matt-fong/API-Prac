@@ -43,27 +43,33 @@ function ProfileButton({ user }) {
           <div className="profile-container">
           <div className="profile-item-container">
             <div className="profile-name">{`Hello, ${user.firstName}`}</div>
-            <div
-                className="profile-manage-listings"
-                onClick={() => history.push("/my-spots")}
-              >
-                Manage Listings
-              </div>
-            <div
-                className="profile-manage-reviews"
-                onClick={() => history.push("/my-reviews")}
-              >
-                Manage Reviews
+              <div
+                  className="profile-manage-listings"
+                  onClick={() => history.push("/my-spots")}
+                >
+                  Manage Listings
               </div>
               <div
-                className="profile-host-home"
-                onClick={() => history.push("/create-spot")}
-              >
-                Host your home
+                  className="profile-manage-reviews"
+                  onClick={() => history.push("/my-reviews")}
+                >
+                  Manage Reviews
               </div>
-            <div className="profile-logout"onClick={logout}>
-              Log Out
-            </div>
+              <div
+                  className="profile-manage-bookings"
+                  onClick={() => history.push("/my-bookings")}
+                >
+                  Manage Bookings
+              </div>
+              <div
+                  className="profile-host-home"
+                  onClick={() => history.push("/create-spot")}
+                >
+                  Host your home
+              </div>
+              <div className="profile-logout"onClick={logout}>
+                Log Out
+              </div>
             </div>
           </div>
         )}

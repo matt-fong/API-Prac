@@ -11,7 +11,7 @@ import { getBookingsByCurrentUser } from "../../store/bookings"
 
 const UserBookings = () => {
   const bookings = useSelector(state => Object.values(state.bookings));
-  // console.log('THIS IS USERS BOOKINGS', bookings)
+  console.log('THIS IS USERS BOOKINGS', bookings)
 
   // console.log('THIS IS BOOOOOOOOKINGS', new Date(bookings[0]?.endDate).toISOString().split('T')[0])
 
@@ -41,7 +41,7 @@ const UserBookings = () => {
           {bookings.map((booking, i) => (
             <div key={i}>
 
-              <div>SPOT ID {booking.spotId}, START DATE: {booking.startDate}, END DATE: {booking.endDate}</div>
+              <div>SPOT ID:{booking.spotId}, SPOT NAME:{booking.Spot.name}, START DATE: {booking.startDate}, END DATE: {booking.endDate}</div>
 
               {/* <div>
                 <ReviewCard key={review?.id} review={review}/>
