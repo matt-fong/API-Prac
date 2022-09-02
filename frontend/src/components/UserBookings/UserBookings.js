@@ -8,10 +8,11 @@ import ReviewCard from "../ReviewCard/ReviewCard";
 import './UserBookings.css'
 import { getAllUsers } from "../../store/users";
 import { getBookingsByCurrentUser } from "../../store/bookings"
+import { deleteBookingById } from "../../store/bookings";
 
 const UserBookings = () => {
-  const bookings = useSelector(state => Object.values(state.bookings));
-  console.log('THIS IS USERS BOOKINGS', bookings)
+  const bookings = useSelector(state => (state.bookings));
+  console.log('THIS IS USERS BOOKINGS123123', bookings)
 
   // console.log('THIS IS BOOOOOOOOKINGS', new Date(bookings[0]?.endDate).toISOString().split('T')[0])
 
@@ -29,7 +30,7 @@ const UserBookings = () => {
   if (!isLoaded) return null
 
   const handleDelete = (reviewId, spotId) => {
-    dispatch(deleteReviewById(reviewId, spotId));
+    dispatch(deleteBookingById(reviewId, spotId));
   };
 
   return (
@@ -38,10 +39,10 @@ const UserBookings = () => {
         <h1 className="userReviewHeader">User Bookings</h1>
         <div className="userReviewCardContainer">
         <div className="spotLayout">
-          {bookings.map((booking, i) => (
+          {Object.values(bookings).map((booking, i) => (
             <div key={i}>
 
-              <div>SPOT ID:{booking.spotId}, SPOT NAME:{booking.Spot.name}, START DATE: {booking.startDate}, END DATE: {booking.endDate}</div>
+              <div>BOOKING ID: {booking.id}, SPOT ID: {booking.spotId}, SPOT NAME: {booking.Spot.name}, START DATE: {booking.startDate}, END DATE: {booking.endDate}</div>
 
               {/* <div>
                 <ReviewCard key={review?.id} review={review}/>
@@ -51,6 +52,8 @@ const UserBookings = () => {
                 <button className="userSpotsEditButton" onClick={() => history.push(`/reviews/${review.id}/${review.spotId}`)}>Edit Review</button>
                 <button className="userSpotsDeleteButton" onClick={() => handleDelete(review.id, review.spotId)}>Delete</button>
               </div> */}
+
+              <button onClick={() => handleDelete(booking.id)}>Delete Booking</button>
 
             </div>
           ))}

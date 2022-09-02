@@ -39,6 +39,8 @@ const CreateBooking = () => {
     setErrors([]);
     dispatch(createNewBooking(spotId, data))
     // dispatch(deleteBookingById(20))
+
+    history.push('/my-bookings')
   };
 
   useEffect(() => {
