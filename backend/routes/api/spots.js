@@ -142,7 +142,16 @@ router.get('/', async (req, res, next) => {
       raw: true
     });
 
-    spot.avgRating = parseFloat(parseFloat(avgRating.avgRating).toFixed(1))
+    // To have 5 as avgRating
+    // spot.avgRating = parseFloat(parseFloat(avgRating.avgRating).toFixed(1))
+
+    // To have 5.00 as avgRating
+    spot.avgRating = parseFloat(avgRating.avgRating).toFixed(2)
+
+    // Only time there is NaN rating is if there is no rating. In that case, it should be 0.00
+    if (isNaN(spot.avgRating)) {
+      spot.avgRating = '0.00'
+    }
 
     if (spot.previewImage = previewImage !== null) {
       spot.previewImage = previewImage.url
