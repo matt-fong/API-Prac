@@ -56,7 +56,7 @@ function App() {
             <UserReviews isLoaded={isLoaded} />
           </Route>
           <Route path="/my-bookings">
-            <UserBookings />
+            <UserBookings isLoaded={isLoaded} />
           </Route>
         </Switch>
       )}
