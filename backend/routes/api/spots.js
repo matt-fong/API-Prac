@@ -413,7 +413,7 @@ router.get('/:spotId/reviews', async (req, res, next) => {
 // Create a Booking for a Spot based on the Spot's id
 router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
   const spotId = req.params.spotId
-  const { startDate, endDate } = req.body
+  let { startDate, endDate } = req.body
   let spot = await Spot.findByPk(spotId)
 
   if (!spot) {

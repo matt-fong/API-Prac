@@ -42,8 +42,10 @@ router.get('/current', requireAuth, async (req, res, next) => {
       spotId: booking.spotId,
       Spot: spot,
       userId: booking.userId,
-      startDate: booking.startDate,
-      endDate: booking.endDate,
+      startDate: new Date(booking.startDate).toISOString().split('T')[0],
+      endDate: new Date(booking.endDate).toISOString().split('T')[0],
+      // startDate: booking.startDate,
+      // endDate: booking.endDate,
       createdAt: booking.createdAt,
       updatedAt: booking.updatedAt
     }
