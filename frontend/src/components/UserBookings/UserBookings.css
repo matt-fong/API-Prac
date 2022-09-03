@@ -4,24 +4,27 @@
 }
 
 .user-booking-inner-container {
-  width: 1120px;
+  width: 1440px;
 }
 
 .user-booking-header {
   display: flex;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
-  padding: 12px
+  padding-top: 36px;
+  padding-bottom: 48px;
+  line-height: 36px;
+  font-size: 32px;
 }
 
 .user-booking-table-container {
-  width: 1120px;
+  width: 1440px;
   display: flex;
   justify-content: center;
 }
 
 .user-booking-table {
-  width: 1120px;
+  width: 1440px;
 }
 
 .user-booking-table-header {
@@ -63,4 +66,73 @@
   border-radius: 16px;
   width: 100px;
   background-color: #e51d53;
+}
+
+.user-booking-notrip-container {
+  width: 100%;
+}
+
+.user-booking-notrip-inner-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 286.05px;
+  border: 1px solid lightgray;
+  border-radius: 12px;
+}
+
+.user-booking-notrip-left {
+  width: 32.545833%;
+  box-sizing: border-box;
+  padding: 32px;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-booking-notrip-hand {
+  height: 48px;
+  width: 48px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.user-booking-notrip-header {
+  margin-bottom: 8px;
+  font-weight: 600;
+  line-height: 23px;
+  font-size: 18px;
+}
+
+.user-booking-notrip-undertext {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #717171;;
+}
+
+.user-booking-notrip-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  height: 48px;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100px;
+  background-color: #e51d53;
+  width: 162.63px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.user-booking-notrip-right {
+  object-fit: cover;
+  object-position: center center;
+  vertical-align: bottom;
+  width: 66.204167%;
+  border-radius: 0 12px 12px 0;
 }
