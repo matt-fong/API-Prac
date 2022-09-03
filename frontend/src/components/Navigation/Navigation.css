@@ -126,14 +126,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.profile-host-home {
-  border-bottom: 1px solid lightgray;
-  padding: 15px;
-  cursor: pointer;
-  font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
-}
-
 .profile-logout {
   padding: 15px;
   cursor: pointer;
@@ -150,10 +142,6 @@
 }
 
 .profile-manage-bookings:hover {
-  background-color: #E8E8E8
-}
-
-.profile-host-home:hover {
   background-color: #E8E8E8
 }
 

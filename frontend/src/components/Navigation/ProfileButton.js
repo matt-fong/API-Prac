@@ -61,12 +61,6 @@ function ProfileButton({ user }) {
                 >
                   Manage Bookings
               </div>
-              <div
-                  className="profile-host-home"
-                  onClick={() => history.push("/create-spot")}
-                >
-                  Host your home
-              </div>
               <div className="profile-logout"onClick={logout}>
                 Log Out
               </div>

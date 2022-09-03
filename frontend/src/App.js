@@ -50,9 +50,6 @@ function App() {
           <Route path="/my-spots">
             <UserSpots />
           </Route>
-          <Route path="/create-spot">
-            <CreateSpot />
-          </Route>
           <Route path="/my-reviews">
             <UserReviews isLoaded={isLoaded} />
           </Route>
