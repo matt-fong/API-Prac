@@ -5,6 +5,13 @@
   width: 100%;
 }
 
+.userReviewHeader {
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  padding: 12px
+}
+
 .userReviewInnerContainer {
   display: flex;
   flex-direction: column;

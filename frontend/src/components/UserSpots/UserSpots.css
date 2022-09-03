@@ -1,7 +1,8 @@
 .userSpotsHeader {
   display: flex;
   justify-content: center;
-  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 12px
 }
 
 .userSpotsButtons {
@@ -39,4 +40,3 @@
 .userSpotsDeleteButton:hover {
   background-color:#ff7b80;
 }
-
