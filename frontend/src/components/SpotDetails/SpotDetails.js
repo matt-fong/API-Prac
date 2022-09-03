@@ -16,7 +16,7 @@ const SpotDetails = () => {
   const spots = useSelector((state) => (state.spots));
   const spot = spots[spotId]
 
-  console.log('THIS IS SPOTS', spots)
+  // console.log('THIS IS SPOTS', spots)
 
   const sessionUser = useSelector(state => state.session.user);
   const users = useSelector(state => (state.users));
@@ -25,7 +25,7 @@ const SpotDetails = () => {
   // console.log('THIS IS OWNERID', ownerId)
 
   const spotOwner = users[ownerId]
-  console.log('THIS IS SPOT OWNER', spotOwner)
+  // console.log('THIS IS SPOT OWNER', spotOwner)
 
   const dispatch = useDispatch();
   const history = useHistory();

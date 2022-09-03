@@ -24,7 +24,7 @@ const CreateBooking = () => {
 
   const bookings = useSelector(state => (state.bookings));
 
-  console.log('THIS IS CURRENT USER BOOKINGS', bookings)
+  console.log('THIS IS BOOKINGS', bookings)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,25 +34,35 @@ const CreateBooking = () => {
       endDate,
     };
 
-    console.log('THIS IS THE SPOT ID', spotId)
+    // console.log('THIS IS THE SPOT ID', spotId)
 
     setErrors([]);
-    dispatch(createNewBooking(spotId, data))
+    dispatch(createNewBooking(spotId, data)).catch(
+      async (res) => {
+        const data = await res.json();
+        console.log('THIS IS CAUGHT DATA', data)
+        if (data && data.errors) setErrors(data.errors);
+      }
+    )
     // dispatch(deleteBookingById(20))
 
     history.push('/my-bookings')
   };
 
   useEffect(() => {
-    dispatch(getBookingsByCurrentUser())
-    // dispatch(getBookingsBySpotId(1))
+    // dispatch(getBookingsByCurrentUser())
+    dispatch(getBookingsBySpotId(spotId))
   }, []);
 
   return (
     <div className="CreateBookingFormOutside">
       <div className='CreateBookingFormContainer'>
         <form className='CreateBookingform' onSubmit={handleSubmit}>
-
+          {/* <ul>
+            {errors.map((error, i) => (
+              <li className="loginError" key={i}>{error}</li>
+            ))}
+          </ul> */}
           <div className="CreateBookingDiv">
             <input className="CreateBookingInputCheckin"
               type="date"

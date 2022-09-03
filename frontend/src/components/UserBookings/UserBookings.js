@@ -22,8 +22,8 @@ const UserBookings = () => {
   const history = useHistory();
 
   useEffect(() => {
-    dispatch(getAllSpots()).then(() => setIsLoaded(true));
-    dispatch(getBookingsByCurrentUser())
+    dispatch(getBookingsByCurrentUser()).then(() => setIsLoaded(true))
+    // dispatch(getAllSpots()).then(() => setIsLoaded(true));
     // dispatch(getBookingsBySpotId(1))
   }, []);
 
@@ -34,30 +34,42 @@ const UserBookings = () => {
   };
 
   return (
-    <div className="userReviewContainer">
-      <div className="userReviewInnerContainer">
-        <h1 className="userReviewHeader">User Bookings</h1>
-        <div className="userReviewCardContainer">
-        <div className="spotLayout">
-          {Object.values(bookings).map((booking, i) => (
-            <div key={i}>
+    <div className="user-booking-container">
+      <div className="user-booking-inner-container">
+        <h1 className="user-booking-header">User Bookings</h1>
+        <div className="user-booking-table-container">
+          <table className="user-booking-table" cellSpacing="0">
+            <tbody>
+              <tr className="user-booking-table-header">
+                <td className="user-booking-table-column">House Name</td>
+                <td className="user-booking-table-column">Address</td>
+                <td className="user-booking-table-column">Location</td>
+                <td className="user-booking-table-column">Start Date</td>
+                <td className="user-booking-table-column">End Date</td>
+                <td className="user-booking-table-column">Edit</td>
+                <td className="user-booking-table-column">Delete</td>
+              </tr>
+            </tbody>
+            {Object.values(bookings).map((booking, i) => (
 
-              <div>BOOKING ID: {booking.id}, SPOT ID: {booking.spotId}, SPOT NAME: {booking.Spot.name}, START DATE: {booking.startDate}, END DATE: {booking.endDate}</div>
-
-              {/* <div>
-                <ReviewCard key={review?.id} review={review}/>
-              </div> */}
-
-              {/* <div className="userSpotsButtons">
-                <button className="userSpotsEditButton" onClick={() => history.push(`/reviews/${review.id}/${review.spotId}`)}>Edit Review</button>
-                <button className="userSpotsDeleteButton" onClick={() => handleDelete(review.id, review.spotId)}>Delete</button>
-              </div> */}
-
-              <button onClick={() => handleDelete(booking.id)}>Delete Booking</button>
-
-            </div>
-          ))}
-        </div>
+            <tbody key={i}>
+              <tr className="user-booking-content">
+                <td className="user-booking-content-column">
+                  <NavLink to={`/spots/${booking.Spot.id}/${booking.Spot.ownerId}`}>{booking.Spot.name}</NavLink>
+                </td>
+                <td className="user-booking-content-column">{booking.Spot.address}</td>
+                <td className="user-booking-content-column">{booking.Spot.city}, {booking.Spot.state}</td>
+                <td className="user-booking-content-column">{booking.startDate}</td>
+                <td className="user-booking-content-column">{booking.endDate}</td>
+                <td className="user-booking-content-column">Edit</td>
+                <td className="user-booking-content-column">
+                  <button onClick={() => handleDelete(booking.id)}>Delete Booking</button>
+                </td>
+              </tr>
+            </tbody>
+            
+            ))}
+          </table>
         </div>
       </div>
     </div>

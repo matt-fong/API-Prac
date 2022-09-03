@@ -1,0 +1,48 @@
+.user-booking-container {
+  display: flex;
+  justify-content: center;
+}
+
+.user-booking-inner-container {
+  width: 1120px;
+}
+
+.user-booking-header {
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  padding: 12px
+}
+
+.user-booking-table-container {
+  width: 1120px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-booking-table {
+  width: 1120px;
+}
+
+.user-booking-table-header {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.user-booking-table-column {
+  padding-bottom: 12px;
+  border-bottom: 1px solid black;
+}
+
+.user-booking-content {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.user-booking-content-column {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid black;
+}
