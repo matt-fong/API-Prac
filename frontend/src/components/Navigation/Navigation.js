@@ -6,6 +6,7 @@ import LoginModal from '../LoginFormModal/LoginFormModal';
 import SignUpModal from '../SignUpFormModal/SignUpFormModal';
 import './Navigation.css';
 import logo from '../../assets/airdndlogo.jpg'
+import CreateSpotModal from '../CreateSpot/CreateSpotModal';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -37,7 +38,8 @@ function Navigation({ isLoaded }){
           </NavLink>
           <div className='navBarLeftSide'>
             <div className='navBarButtons'>
-              <div className='becomeAHost' onClick={() => history.push("/create-spot")}>Become a host</div>
+              {/* <div className='becomeAHost' onClick={() => history.push("/create-spot")}>Become a host</div> */}
+              <div className='becomeAHost'><CreateSpotModal /></div>
               <div className='navBarLoaded'>{isLoaded && sessionLinks}</div>
             </div>
           </div>

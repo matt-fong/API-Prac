@@ -79,6 +79,7 @@
   height: 286.05px;
   border: 1px solid lightgray;
   border-radius: 12px;
+  box-sizing: border-box;
 }
 
 .user-booking-notrip-left {

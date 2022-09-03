@@ -12,12 +12,12 @@
   width: 100%;
 }
 
-.login-modal-container {
+.createSpot-modal-container {
   max-width: 568px;
   width: 100%;
 }
 
-.login-modal-header {
+.createSpot-modal-header {
   display: flex;
   justify-content: space-between;
   font-size: 17px;
@@ -28,32 +28,32 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.login-modal-form {
+.createSpot-modal-form {
   padding-top: 24px;
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 14px
 }
 
-.login-welcome {
+.createSpot-welcome {
   display: flex;
   font-size: 20px;
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
 }
 
-.loginInputContainer {
+.createSpotInputContainer {
   width: 100%;
 }
 
-.loginInput {
+.createSpotInput {
   display: flex;
   position: relative;
   flex: 1 1 0%;
   width: 100%;
 }
 
-.loginInput > input {
+.createSpotInput > input {
   box-sizing: border-box;
   width: 100%;
   padding: 17px;
@@ -63,7 +63,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.loginSubmit {
+.createSpotSubmit {
   display: block;
   border-radius: 8px;
   width: 100%;
@@ -87,7 +87,7 @@
     repeat scroll 0% 0%;
 }
 
-.login-button {
+.createSpot-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -100,20 +100,20 @@ ul {
   padding: 0
 }
 
-.loginErrorContainer {
+.createSpotErrorContainer {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 24px;
   padding-right: 24px;
 }
 
-.loginForm {
+.createSpotForm {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
 }
 
-.loginError {
+.createSpotError {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
 }
@@ -138,7 +138,7 @@ ul {
   font-family: 'Montserrat', sans-serif;
 }
 
-.loginSubmitDemo {
+.createSpotSubmitDemo {
   display: block;
   border-radius: 8px;
   width: 100%;
@@ -161,11 +161,11 @@ ul {
     repeat scroll 0% 0%;
 }
 
-.loginXButton {
+.createSpotXButton {
   width: 15px;
   cursor: pointer;
 }
 
-.loginLogin {
-  padding-right: 232.54px;
+.createSpotcreateSpot {
+  padding-right: 193.539px;
 }

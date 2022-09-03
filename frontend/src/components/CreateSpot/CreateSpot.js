@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import * as spotActions from "../../store/spots";
-import './CreateSpot.css'
+import './CreateSpotModal.css'
 
-const CreateSpot = () => {
+const CreateSpot = ({ onX }) => {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
@@ -45,6 +45,9 @@ const CreateSpot = () => {
       previewImage: true
     };
 
+    // const newSpot = dispatch(spotActions.createSpot(data))
+    // console.log('THIS IS NEW SPOT', newSpot)
+
     if (!isImage(url)) {
       setErrors({ error: "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " })
     }
@@ -54,121 +57,121 @@ const CreateSpot = () => {
     }
 
     if (isImage(url) && user) {
+      // dispatch(spotActions.createSpot(data))
       dispatch(spotActions.createSpot(data))
+      onX()
       history.push('/')
     }
+
+    // history.push(`/spots/${newSpot.id}/${user.id}`)
 
   };
 
   return (
-    <>
-    <div className="createSpotContainer">
-      <div className="createSpotHeader"></div>
-      <div className="createSpotForm">
-        <form onSubmit={onSubmit}>
-          <ul>
-            {Object.values(errors).map((error, i) => (
-              <li className='createSpotErrorLi' key={i}>{error}</li>
-            ))}
-          </ul>
-          <h1>Host Your Home</h1>
-          <div className="createSpotInput">
-            <input
-              type="text"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="createSpotInput">
-            <input
-              type="text"
-              placeholder="Address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              required
-            />
-          </div>
-          <div className="createSpotInput">
-            <input
-              type="text"
-              placeholder="City"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              required
-            />
-          </div>
-          <div className="createSpotInput">
-            <input
-              type="text"
-              placeholder="State"
-              value={state}
-              onChange={(e) => setState(e.target.value)}
-              required
-            />
-          </div>
-          <div className="createSpotInput">
-            <input
-              type="text"
-              placeholder="Country"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-              required
-            />
-          </div>
-          <div className="createSpotInput">
-            <input
-              type="number"
-              placeholder="Latitude"
-              value={lat}
-              onChange={(e) => setLat(e.target.value)}
-              required
-            />
-          </div>
-          <div className="createSpotInput">
-            <input
-              type="number"
-              placeholder="Longitude"
-              value={lng}
-              onChange={(e) => setLng(e.target.value)}
-              required
-            />
-          </div>
-          <div className="createSpotInput">
-            <input
-              type="text"
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-          </div>
-          <div className="createSpotInput">
-            <input
-              type="number"
-              placeholder="$ Price"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              required
-            />
-          </div>
-          <div className="createSpotInput">
-            <input
-              type="text"
-              placeholder="Image-Url"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              required
-            />
-          </div>
-          <button className="createSpotButton" type="submit">
-            Create New Spot
-          </button>
-        </form>
+    <form className="createSpotForm" onSubmit={onSubmit}>
+      <div className="createSpotErrorContainer">
+        <ul>
+          {Object.values(errors).map((error, i) => (
+            <li className="createSpotError" key={i}>{error}</li>
+          ))}
+        </ul>
       </div>
+      <div className="createSpotInputContainer">
+        <div className="createSpotInput">
+          <input className="createSpotInputText"
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="createSpotInput">
+          <input className="createSpotInputText"
+            type="text"
+            placeholder="Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            required
+          />
+        </div>
+        <div className="createSpotInput">
+          <input className="createSpotInputText"
+            type="text"
+            placeholder="City"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            required
+          />
+        </div>
+        <div className="createSpotInput">
+          <input className="createSpotInputText"
+            type="text"
+            placeholder="State"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+            required
+          />
+        </div>
+        <div className="createSpotInput">
+          <input className="createSpotInputText"
+            type="text"
+            placeholder="Country"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            required
+          />
+        </div>
+        <div className="createSpotInput">
+          <input className="createSpotInputText"
+            type="number"
+            placeholder="Latitude"
+            value={lat}
+            onChange={(e) => setLat(e.target.value)}
+            required
+          />
+        </div>
+        <div className="createSpotInput">
+          <input className="createSpotInputText"
+            type="number"
+            placeholder="Longitude"
+            value={lng}
+            onChange={(e) => setLng(e.target.value)}
+            required
+          />
+        </div>
+        <div className="createSpotInput">
+          <input className="createSpotInputText"
+            type="text"
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          />
+        </div>
+        <div className="createSpotInput">
+          <input className="createSpotInputText"
+            type="number"
+            placeholder="$ Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+          />
+        </div>
+        <div className="createSpotInput">
+          <input className="createSpotInputText"
+            type="text"
+            placeholder="Image-Url"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            required
+          />
+        </div>
+        <button className="createSpotSubmit" type="submit">
+          Create New Spot
+        </button>
       </div>
-    </>
+    </form>
   )
 }
 
