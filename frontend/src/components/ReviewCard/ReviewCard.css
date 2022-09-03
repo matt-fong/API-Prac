@@ -1,14 +1,18 @@
 .reviewCardContainer {
   display: flex;
   flex-direction: column;
-  width: 42%;
+  /* width: 42%; */
   /* border: solid rgb(227, 227, 227); */
   border-radius: 12px;
-  padding: 10px;
-  width: 450px;
+  width: 457.33px;
+  height: 168px;
+  /* padding: 10px;
   margin-top: 10px;
   margin-right: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; */
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 94.656px;
 }
 
 .reviewCardDataTop {
@@ -52,7 +56,7 @@
 .reviewCardReview {
   font-family: 'Montserrat', sans-serif;
   padding-left: 10px;
-  width: 420px;
+  width: 410px;
   word-wrap: break-word;
 }
 
@@ -60,6 +64,6 @@
   display: flex;
   padding-top: 15px;
   padding-bottom: 5px;
-  width: 450px;
+  width: 457.33px;
   word-wrap: break-word;
 }

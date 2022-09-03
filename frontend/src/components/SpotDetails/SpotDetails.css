@@ -8,7 +8,7 @@
 }
 
 .spotDetailInnerContainer {
-  width: 1120px;
+  width: 1280px;
 }
 
 .spotDetailName {
@@ -316,6 +316,11 @@
 
 .spotDetailReviewCards {
   display: flex;
+  margin-top: 24px;
+}
+
+.testing {
+  width: 1280px;
+  display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
 }

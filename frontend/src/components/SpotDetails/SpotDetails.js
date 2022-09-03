@@ -217,9 +217,11 @@ const SpotDetails = () => {
           <div>{sessionLinks}</div>
 
           <div className="spotDetailReviewCards">
-            {reviews.map((review) => (
-              <ReviewCard key={review.id} review={review} />
-            ))}
+            <div className="testing">
+              {reviews.map((review) => (
+                <ReviewCard key={review.id} review={review} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
