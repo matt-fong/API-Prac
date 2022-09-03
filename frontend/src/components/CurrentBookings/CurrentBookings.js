@@ -12,7 +12,7 @@ import { deleteBookingById } from "../../store/bookings";
 import { getBookingsBySpotId } from "../../store/bookings";
 
 const CurrentBookings = () => {
-  const bookings = useSelector(state => (state.bookings));
+  const bookings = useSelector(state => Object.values(state.bookings));
   console.log('THIS IS USERS BOOKINGS123123', bookings)
 
   // console.log('THIS IS BOOOOOOOOKINGS', new Date(bookings[0]?.endDate).toISOString().split('T')[0])
@@ -50,13 +50,13 @@ const CurrentBookings = () => {
                 <td className="current-booking-table-column">End Date</td>
               </tr>
             </tbody>
-            {Object.values(bookings).map((booking, i) => (
+            {bookings?.map((booking, i) => (
 
             <tbody key={i}>
               <tr className="current-booking-content">
                 <td className="current-booking-content-column">{booking.spotId}</td>
-                <td className="current-booking-content-column">{booking.startDate}</td>
-                <td className="current-booking-content-column">{booking.endDate}</td>
+                <td className="current-booking-content-column">{new Date(booking.startDate).toISOString().split('T')[0]}</td>
+                <td className="current-booking-content-column">{new Date(booking.endDate).toISOString().split('T')[0]}</td>
               </tr>
             </tbody>
 
