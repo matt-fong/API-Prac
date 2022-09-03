@@ -12,8 +12,8 @@ const CreateSpot = ({ onX }) => {
   const [country, setCountry] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(null);
-  const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
+  // const [lat, setLat] = useState(null);
+  // const [lng, setLng] = useState(null);
   const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState([]);
 
@@ -25,6 +25,8 @@ const CreateSpot = ({ onX }) => {
   function isImage(url) {
     return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url)
   }
+  const LAT = 123.121212;
+  const LNG = -321.121212;
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -36,8 +38,8 @@ const CreateSpot = ({ onX }) => {
       city: city,
       state: state,
       country: country,
-      lat: lat,
-      lng: lng,
+      lat: LAT,
+      lng: LNG,
       name: name,
       description: description,
       price: price,
@@ -60,7 +62,7 @@ const CreateSpot = ({ onX }) => {
       // dispatch(spotActions.createSpot(data))
       dispatch(spotActions.createSpot(data))
       onX()
-      history.push('/')
+      history.push('/my-spots')
     }
 
     // history.push(`/spots/${newSpot.id}/${user.id}`)
@@ -122,7 +124,7 @@ const CreateSpot = ({ onX }) => {
             required
           />
         </div>
-        <div className="createSpotInput">
+        {/* <div className="createSpotInput">
           <input className="createSpotInputText"
             type="number"
             placeholder="Latitude"
@@ -139,7 +141,7 @@ const CreateSpot = ({ onX }) => {
             onChange={(e) => setLng(e.target.value)}
             required
           />
-        </div>
+        </div> */}
         <div className="createSpotInput">
           <input className="createSpotInputText"
             type="text"
