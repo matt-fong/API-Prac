@@ -1,61 +1,56 @@
-.user-booking-container {
+.current-booking-container {
   display: flex;
   justify-content: center;
 }
 
-.user-booking-inner-container {
+.current-booking-inner-container {
   width: 1120px;
 }
 
-.user-booking-header {
+.current-booking-header {
   display: flex;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
   padding: 12px
 }
 
-.user-booking-table-container {
+.current-booking-table-container {
   width: 1120px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
-.user-booking-table {
+.current-booking-table {
   width: 1120px;
 }
 
-.user-booking-table-header {
+.current-booking-table-header {
   font-size: 16px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
 }
 
-.user-booking-table-column {
+.current-booking-table-column {
   padding-bottom: 12px;
   border-bottom: 1px solid black;
 }
 
-.user-booking-content {
+.current-booking-content {
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   border-bottom: 1px solid rgb(228, 228, 228);
 }
 
-.user-booking-content-column {
+.current-booking-content-column {
   padding-top: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid black;
 }
 
-.user-booking-content-column-name {
-  padding-top: 24px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid black;
-  text-decoration: underline;
-}
-
-.user-booking-delete {
+.current-booking-go-back {
   color: white;
+  margin-top: 24px;
   padding: 10px;
   border: none;
   font-size: 14px;
@@ -64,3 +59,4 @@
   width: 100px;
   background-color: #e51d53;
 }
+

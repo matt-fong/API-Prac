@@ -14,6 +14,7 @@ import UserReviews from "./components/UserReviews/UserReviews";
 import CreateReview from "./components/CreateReview/CreateReview";
 import EditReview from "./components/EditReview/EditReview";
 import UserBookings from "./components/UserBookings/UserBookings";
+import CurrentBookings from "./components/CurrentBookings/CurrentBookings";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,6 +58,9 @@ function App() {
           </Route>
           <Route path="/my-bookings">
             <UserBookings isLoaded={isLoaded} />
+          </Route>
+          <Route path="/current-bookings/:spotId">
+            <CurrentBookings />
           </Route>
         </Switch>
       )}

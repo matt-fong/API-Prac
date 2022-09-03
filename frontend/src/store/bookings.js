@@ -120,9 +120,6 @@ export default function bookingsReducer(state = {}, action) {
   switch (action.type) {
     case GET_BY_SPOT_ID:
       newState = { ...action.bookings };
-      // action.bookings.forEach(booking => {
-      //   newState[booking.id] = booking
-      // })
       // console.log('THIS IS ACTION', action)
       // console.log('THIS IS NEW STATE', newState)
       return newState;

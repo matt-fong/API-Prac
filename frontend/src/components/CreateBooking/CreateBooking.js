@@ -24,7 +24,7 @@ const CreateBooking = () => {
 
   const bookings = useSelector(state => (state.bookings));
 
-  console.log('THIS IS BOOKINGS', bookings)
+  // console.log('THIS IS BOOKINGS', bookings)
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,4 +1,4 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getReviewsBySpotId } from "../../store/reviews";
@@ -7,6 +7,7 @@ import { getAllSpots } from "../../store/spots";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import { getAllUsers } from "../../store/users";
 import CreateBooking from "../CreateBooking/CreateBooking";
+import { getBookingsBySpotId } from "../../store/bookings";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,6 +28,9 @@ const SpotDetails = () => {
   const spotOwner = users[ownerId]
   // console.log('THIS IS SPOT OWNER', spotOwner)
 
+  const bookings = useSelector(state => (state.bookings));
+  console.log('THIS IS BOOKINGS', bookings)
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -34,6 +38,7 @@ const SpotDetails = () => {
     dispatch(getAllSpots()).then(() => setIsLoaded(true));
     dispatch(getReviewsBySpotId(spotId)).then(() => setIsLoadedd(true))
     dispatch(getAllUsers())
+    dispatch(getBookingsBySpotId(spotId))
   }, []);
 
   const reviews = useSelector((state) => Object.values(state.reviews));
@@ -190,6 +195,10 @@ const SpotDetails = () => {
                 <div className='spotDetailTotalPrice'>$700</div>
               </div>
 
+            </div>
+
+            <div className="spotDetailCheckBookings">
+              <NavLink to={`/current-bookings/${spotId}`}>Check current bookings</NavLink>
             </div>
 
           </div>

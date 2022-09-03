@@ -149,7 +149,18 @@
 .spotDetailBodyRight {
   display: flex;
   justify-content: space-between;
-  width: 41.666964%
+  width: 41.666964%;
+  flex-direction: column;
+}
+
+.spotDetailCheckBookings {
+  display: flex;
+  justify-content: center;
+  margin-left: 93.328px;
+  margin-right: 2px;
+  padding-top: 16px;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: underline;
 }
 
 .spotDetailOwnerIcon {
