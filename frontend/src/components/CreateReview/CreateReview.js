@@ -30,7 +30,7 @@ const CreateReview = () => {
     };
 
     if (userReview) {
-      setErrors({ error: "User has already created a review" })
+      setErrors({ error: "User has already created a review." })
     }
 
     if (reviewMessage.length > 255 || reviewMessage.length < 10) {

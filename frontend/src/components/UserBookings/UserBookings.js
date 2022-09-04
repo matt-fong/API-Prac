@@ -12,9 +12,9 @@ import { deleteBookingById } from "../../store/bookings";
 
 const UserBookings = () => {
   const bookings = useSelector(state => (state.bookings));
-  console.log('THIS IS USERS BOOKINGS123123', bookings)
+  // console.log('THIS IS USERS BOOKINGS123123', bookings)
 
-  console.log('BOOLEAN', Object.keys(bookings).length === 0)
+  // console.log('BOOLEAN', Object.keys(bookings).length === 0)
 
   // console.log('THIS IS BOOOOOOOOKINGS', new Date(bookings[0]?.endDate).toISOString().split('T')[0])
 
