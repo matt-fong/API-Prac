@@ -8,6 +8,7 @@ import ReviewCard from "../ReviewCard/ReviewCard";
 import { getAllUsers } from "../../store/users";
 import CreateBooking from "../CreateBooking/CreateBooking";
 import { getBookingsBySpotId } from "../../store/bookings";
+import EditSpotModal from "../EditSpot/EditSpotModal";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -65,10 +66,10 @@ const SpotDetails = () => {
   if (!isLoaded) return null
   if (!isLoadedd) return null
 
-  let sessionLinks;
+  let createReview;
 
   if (sessionUser) {
-    sessionLinks = (
+    createReview = (
       <div className='spotDetailCreateReview'>
         <button className="createReviewButton" onClick={handleCreateReview}>Add review</button>
       </div>
@@ -214,7 +215,8 @@ const SpotDetails = () => {
 
           <div className="spotDetailReviewName">Reviews</div>
 
-          <div>{sessionLinks}</div>
+          <div>{createReview}</div>
+          <div><EditSpotModal /></div>
 
           <div className="spotDetailReviewCards">
             <div className="testing">
