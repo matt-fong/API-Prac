@@ -48,11 +48,6 @@ function EditSpotForm({ onX }) {
 
     setErrors([]);
     dispatch(editSpot(data, spot.id)).then(() => dispatch(getAllSpots()))
-    // dispatch(getAllSpots())
-    // .catch(async (res) => {
-    //   const data = await res.json();
-    //   if (data && data.errors) setErrors(data.errors);
-    // });
 
     onX()
   };

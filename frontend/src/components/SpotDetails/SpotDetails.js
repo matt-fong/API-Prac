@@ -75,7 +75,7 @@ const SpotDetails = () => {
   let createReview;
   let editdeleteSpot;
 
-  if (sessionUser) {
+  if (sessionUser && !(spot.ownerId === sessionUser.id)) {
     createReview = (
       <div className='spotDetailCreateReview'>
         <button className="createReviewButton" onClick={handleCreateReview}>Add review</button>
