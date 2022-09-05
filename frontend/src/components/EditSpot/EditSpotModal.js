@@ -13,16 +13,16 @@ function EditSpotModal() {
 
   return (
     <>
-      <button className='createSpot-button' onClick={() => setShowModal(true)}>Become a host</button>
+      <button className='editSpot-button' onClick={() => setShowModal(true)}>Edit Spot</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <div className='createSpot-modal-container'>
-            <div className='createSpot-modal-header'>
-              <img className='createSpotXButton' onClick={onX} src={img}></img>
-              <div className='createSpotcreateSpot'>Become a host</div>
+          <div className='editSpot-modal-container'>
+            <div className='editSpot-modal-header'>
+              <img className='editSpotXButton' onClick={onX} src={img}></img>
+              <div className='editSpoteditSpot'>Edit Spot</div>
             </div>
-            <div className='createSpot-modal-form'>
-              <div className='createSpot-welcome'>Host your home</div>
+            <div className='editSpot-modal-form'>
+              <div className='editSpot-welcome'>Edit your home</div>
               <EditSpot onX={ onX }/>
             </div>
           </div>

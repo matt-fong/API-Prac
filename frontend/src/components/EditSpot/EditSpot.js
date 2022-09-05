@@ -5,7 +5,7 @@ import "./EditSpotModal.css";
 import { editSpot } from "../../store/spots";
 import { getAllSpots } from "../../store/spots";
 
-function EditSpotForm() {
+function EditSpotForm({ onX }) {
   const spots = useSelector((state) => Object.values(state.spots));
   const { spotId } = useParams();
   const spot = spots.find((spot) => spot.id == spotId);
@@ -24,6 +24,14 @@ function EditSpotForm() {
   const dispatch = useDispatch();
   const history = useHistory()
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    dispatch(getAllSpots()).then(() => setIsLoaded(true));
+  }, []);
+
+  if (!isLoaded) return null
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -40,130 +48,28 @@ function EditSpotForm() {
 
     setErrors([]);
     dispatch(editSpot(data, spot.id))
-    dispatch(getAllSpots()).catch(async (res) => {
-      const data = await res.json();
-      if (data && data.errors) setErrors(data.errors);
-    });
+    dispatch(getAllSpots())
+    // .catch(async (res) => {
+    //   const data = await res.json();
+    //   if (data && data.errors) setErrors(data.errors);
+    // });
 
-    history.push('/')
-
+    onX()
   };
 
-  // return (
-  //   <>
-  //     <div className="editSpotContainer">
-  //       <div className="editSpotHeader">
-  //       <div className="editSpotForm">
-  //         <form onSubmit={onSubmit}>
-  //           <ul>
-  //             {Object.values(errors).map((error, i) => (
-  //               <li key={i}>{error}</li>
-  //             ))}
-  //           </ul>
-  //           <h1>Edit Your Home</h1>
-  //           <div className="editSpotInput">
-  //             <input
-  //               placeholder="Spot Name"
-  //               type="text"
-  //               value={name}
-  //               onChange={(e) => setName(e.target.value)}
-  //               required
-  //             />
-  //           </div>
-  //           <div className="editSpotInput">
-  //             <input
-  //               placeholder="Address"
-  //               type="text"
-  //               value={address}
-  //               onChange={(e) => setAddress(e.target.value)}
-  //               required
-  //             />
-  //           </div>
-  //           <div className="editSpotInput">
-  //             <input
-  //               placeholder="City"
-  //               type="text"
-  //               value={city}
-  //               onChange={(e) => setCity(e.target.value)}
-  //               required
-  //             />
-  //           </div>
-  //           <div className="editSpotInput">
-  //             <input
-  //               placeholder="State"
-  //               type="text"
-  //               value={state}
-  //               onChange={(e) => setState(e.target.value)}
-  //               required
-  //             />
-  //           </div>
-  //           <div className="editSpotInput">
-  //             <input
-  //               placeholder="Country"
-  //               type="text"
-  //               value={country}
-  //               onChange={(e) => setCountry(e.target.value)}
-  //               required
-  //             />
-  //           </div>
-  //           <div className="editSpotInput">
-  //             <input
-  //               placeholder="Latitude"
-  //               type="number"
-  //               value={lat}
-  //               onChange={(e) => setLat(e.target.value)}
-  //               required
-  //             />
-  //           </div>
-  //           <div className="editSpotInput">
-  //             <input
-  //               placeholder="Longitude"
-  //               type="number"
-  //               value={lng}
-  //               onChange={(e) => setLng(e.target.value)}
-  //               required
-  //             />
-  //           </div>
-  //           <div className="editSpotInput">
-  //             <input
-  //               placeholder="Description"
-  //               type="text"
-  //               value={description}
-  //               onChange={(e) => setDescription(e.target.value)}
-  //               required
-  //             />
-  //           </div>
-  //           <div className="editSpotInput">
-  //             <input
-  //               placeholder="$ Price"
-  //               type="number"
-  //               value={price}
-  //               onChange={(e) => setPrice(e.target.value)}
-  //               required
-  //             />
-  //           </div>
-  //           <div className="editSpotButtonContainer">
-  //             <button className="editSpotButton" onClick={() =>  history.push('/my-spots')}>Go Back</button>
-  //             <button className="editSpotButton" type="submit">Submit</button>
-  //           </div>
-  //         </form>
-  //       </div>
-  //       </div>
-  //     </div>
-  //   </>
-  // );
+
   return (
-    <form className="createSpotForm" onSubmit={onSubmit}>
-      <div className="createSpotErrorContainer">
+    <form className="editSpotForm" onSubmit={onSubmit}>
+      <div className="editSpotErrorContainer">
         <ul>
           {Object.values(errors).map((error, i) => (
-            <li className="createSpotError" key={i}>{error}</li>
+            <li className="editSpotError" key={i}>{error}</li>
           ))}
         </ul>
       </div>
-      <div className="createSpotInputContainer">
-        <div className="createSpotInput">
-          <input className="createSpotInputText"
+      <div className="editSpotInputContainer">
+        <div className="editSpotInput">
+          <input className="editSpotInputText"
             type="text"
             placeholder="Name"
             value={name}
@@ -171,8 +77,8 @@ function EditSpotForm() {
             required
           />
         </div>
-        <div className="createSpotInput">
-          <input className="createSpotInputText"
+        <div className="editSpotInput">
+          <input className="editSpotInputText"
             type="text"
             placeholder="Address"
             value={address}
@@ -180,8 +86,8 @@ function EditSpotForm() {
             required
           />
         </div>
-        <div className="createSpotInput">
-          <input className="createSpotInputText"
+        <div className="editSpotInput">
+          <input className="editSpotInputText"
             type="text"
             placeholder="City"
             value={city}
@@ -189,8 +95,8 @@ function EditSpotForm() {
             required
           />
         </div>
-        <div className="createSpotInput">
-          <input className="createSpotInputText"
+        <div className="editSpotInput">
+          <input className="editSpotInputText"
             type="text"
             placeholder="State"
             value={state}
@@ -198,8 +104,8 @@ function EditSpotForm() {
             required
           />
         </div>
-        <div className="createSpotInput">
-          <input className="createSpotInputText"
+        <div className="editSpotInput">
+          <input className="editSpotInputText"
             type="text"
             placeholder="Country"
             value={country}
@@ -207,8 +113,8 @@ function EditSpotForm() {
             required
           />
         </div>
-        {/* <div className="createSpotInput">
-          <input className="createSpotInputText"
+        {/* <div className="editSpotInput">
+          <input className="editSpotInputText"
             type="number"
             placeholder="Latitude"
             value={lat}
@@ -216,8 +122,8 @@ function EditSpotForm() {
             required
           />
         </div>
-        <div className="createSpotInput">
-          <input className="createSpotInputText"
+        <div className="editSpotInput">
+          <input className="editSpotInputText"
             type="number"
             placeholder="Longitude"
             value={lng}
@@ -225,8 +131,8 @@ function EditSpotForm() {
             required
           />
         </div> */}
-        <div className="createSpotInput">
-          <input className="createSpotInputText"
+        <div className="editSpotInput">
+          <input className="editSpotInputText"
             type="text"
             placeholder="Description"
             value={description}
@@ -234,8 +140,8 @@ function EditSpotForm() {
             required
           />
         </div>
-        <div className="createSpotInput">
-          <input className="createSpotInputText"
+        <div className="editSpotInput">
+          <input className="editSpotInputText"
             type="number"
             placeholder="$ Price"
             value={price}
@@ -243,8 +149,8 @@ function EditSpotForm() {
             required
           />
         </div>
-        <button className="createSpotSubmit" type="submit">
-          Create New Spot
+        <button className="editSpotSubmit" type="submit">
+          Edit Spot
         </button>
       </div>
     </form>

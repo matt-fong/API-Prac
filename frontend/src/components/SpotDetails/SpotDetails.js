@@ -9,6 +9,7 @@ import { getAllUsers } from "../../store/users";
 import CreateBooking from "../CreateBooking/CreateBooking";
 import { getBookingsBySpotId } from "../../store/bookings";
 import EditSpotModal from "../EditSpot/EditSpotModal";
+import { deleteSpot } from "../../store/spots";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -63,6 +64,11 @@ const SpotDetails = () => {
 
   // console.log(date)
 
+  const handleDelete = (spotId) => {
+    dispatch(deleteSpot(spotId));
+    history.push('/my-spots')
+  };
+
   if (!isLoaded) return null
   if (!isLoadedd) return null
 
@@ -91,6 +97,8 @@ const SpotDetails = () => {
               {` · `}
               <div className="spotDetailLocation">{spot.city}, {spot.state}, {spot.country}</div>
             </div>
+            <div className="spotDetailEditReview"><EditSpotModal /></div>
+            <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button>
           </div>
         </div>
 
@@ -216,7 +224,6 @@ const SpotDetails = () => {
           <div className="spotDetailReviewName">Reviews</div>
 
           <div>{createReview}</div>
-          <div><EditSpotModal /></div>
 
           <div className="spotDetailReviewCards">
             <div className="testing">

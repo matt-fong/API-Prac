@@ -12,12 +12,12 @@
   width: 100%;
 }
 
-.createSpot-modal-container {
+.editSpot-modal-container {
   max-width: 568px;
   width: 100%;
 }
 
-.createSpot-modal-header {
+.editSpot-modal-header {
   display: flex;
   justify-content: space-between;
   font-size: 17px;
@@ -28,32 +28,32 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.createSpot-modal-form {
+.editSpot-modal-form {
   padding-top: 24px;
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 14px
 }
 
-.createSpot-welcome {
+.editSpot-welcome {
   display: flex;
   font-size: 20px;
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
 }
 
-.createSpotInputContainer {
+.editSpotInputContainer {
   width: 100%;
 }
 
-.createSpotInput {
+.editSpotInput {
   display: flex;
   position: relative;
   flex: 1 1 0%;
   width: 100%;
 }
 
-.createSpotInput > input {
+.editSpotInput > input {
   box-sizing: border-box;
   width: 100%;
   padding: 17px;
@@ -63,7 +63,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.createSpotSubmit {
+.editSpotSubmit {
   display: block;
   border-radius: 8px;
   width: 100%;
@@ -87,12 +87,21 @@
     repeat scroll 0% 0%;
 }
 
-.createSpot-button {
-  background-color: transparent;
+.editSpot-button {
+  /* background-color: transparent;
   border: none;
   cursor: pointer;
   font-size: 17px;
   margin-right: 7px;
+  font-family: 'Montserrat', sans-serif; */
+  color: white;
+  padding: 9px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 100px;
+  background-color: #e51d53;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -100,20 +109,20 @@ ul {
   padding: 0
 }
 
-.createSpotErrorContainer {
+.editSpotErrorContainer {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 24px;
   padding-right: 24px;
 }
 
-.createSpotForm {
+.editSpotForm {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
 }
 
-.createSpotError {
+.editSpotError {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
 }
@@ -138,7 +147,7 @@ ul {
   font-family: 'Montserrat', sans-serif;
 }
 
-.createSpotSubmitDemo {
+.editSpotSubmitDemo {
   display: block;
   border-radius: 8px;
   width: 100%;
@@ -161,11 +170,11 @@ ul {
     repeat scroll 0% 0%;
 }
 
-.createSpotXButton {
+.editSpotXButton {
   width: 15px;
   cursor: pointer;
 }
 
-.createSpotcreateSpot {
-  padding-right: 193.539px;
+.editSpoteditSpot {
+  padding-right: 219.2265px;
 }
