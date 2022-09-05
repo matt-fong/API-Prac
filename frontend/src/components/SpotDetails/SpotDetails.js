@@ -73,6 +73,7 @@ const SpotDetails = () => {
   if (!isLoadedd) return null
 
   let createReview;
+  let editdeleteSpot;
 
   if (sessionUser) {
     createReview = (
@@ -80,6 +81,15 @@ const SpotDetails = () => {
         <button className="createReviewButton" onClick={handleCreateReview}>Add review</button>
       </div>
     );
+  }
+
+  if (sessionUser && spot.ownerId === sessionUser.id) {
+    editdeleteSpot = (
+      <>
+      <div className="spotDetailEditReview"><EditSpotModal /></div>
+      <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button>
+      </>
+    )
   }
 
   return (
@@ -97,8 +107,9 @@ const SpotDetails = () => {
               {` · `}
               <div className="spotDetailLocation">{spot.city}, {spot.state}, {spot.country}</div>
             </div>
-            <div className="spotDetailEditReview"><EditSpotModal /></div>
-            <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button>
+            {/* <div className="spotDetailEditReview"><EditSpotModal /></div>
+            <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button> */}
+            {editdeleteSpot}
           </div>
         </div>
 
