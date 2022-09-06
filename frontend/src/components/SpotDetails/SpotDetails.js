@@ -16,8 +16,8 @@ const SpotDetails = () => {
   const [isLoadedd, setIsLoadedd] = useState(false);
 
   const todayDate = (new Date()).toISOString().slice(0,10);
-  const [startDate, setStartDate] = useState(todayDate);
-  const [endDate, setEndDate] = useState(todayDate);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
 
   const { spotId } = useParams();
   const { ownerId } = useParams()
@@ -28,8 +28,16 @@ const SpotDetails = () => {
   const sessionUser = useSelector(state => state.session.user);
   const users = useSelector(state => (state.users));
 
-  const dateDiff = (new Date(endDate) - new Date(startDate))
-  const dateDiffInt = (dateDiff / 86400000)
+  let dateDiffInt;
+
+  if (isNaN((new Date(endDate) - new Date(startDate)) / 86400000) || ((new Date(endDate) - new Date(startDate)) / 86400000) < 0) {
+    dateDiffInt = 0;
+  } else {
+    dateDiffInt = (new Date(endDate) - new Date(startDate)) / 86400000
+  }
+
+  // const dateDiff = (new Date(endDate) - new Date(startDate))
+  // const dateDiffInt = (dateDiff / 86400000)
 
   // console.log('THIS IS DATE DIFF', dateDiff)
 
