@@ -10,6 +10,7 @@ import CreateBooking from "../CreateBooking/CreateBooking";
 import { getBookingsBySpotId } from "../../store/bookings";
 import EditSpotModal from "../EditSpot/EditSpotModal";
 import { deleteSpot } from "../../store/spots";
+import CreateReviewModal from "../CreateReview/CreateReviewModal";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -90,7 +91,8 @@ const SpotDetails = () => {
   if (sessionUser && !(spot.ownerId === sessionUser.id)) {
     createReview = (
       <div className='spotDetailCreateReview'>
-        <button className="createReviewButton" onClick={handleCreateReview}>Add review</button>
+        {/* <button className="createReviewButton" onClick={handleCreateReview}>Add review</button> */}
+        {<CreateReviewModal />}
       </div>
     );
   }

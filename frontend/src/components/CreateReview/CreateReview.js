@@ -5,7 +5,7 @@ import * as reviewActions from "../../store/reviews";
 import './CreateReview.css'
 import { getAllSpots } from "../../store/spots";
 
-const CreateReview = () => {
+const CreateReview = ({ onX }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   let { spotId } = useParams();
@@ -39,61 +39,47 @@ const CreateReview = () => {
 
     if (reviewMessage.length <= 255 && reviewMessage.length >= 10 && !userReview) {
       dispatch(reviewActions.createNewReview(spotId, data))
-      history.push(`/spots/${spotId}/${ownerId}`)
+      // history.push(`/spots/${spotId}/${ownerId}`)
+      onX()
     }
 
   };
 
   return (
     <>
-      <div className="createReviewContainer">
-        <div className="createReviewHeader"></div>
-        <div className="createReviewForm">
-          <form onSubmit={handleSubmit}>
-            <ul>
-              {Object.values(errors).map((error, i) => (
-                <li key={i}>{error}</li>
-              ))}
-            </ul>
-            <h1>Create a review</h1>
-            <div className="createReviewInput">
-              <input
-                type="text"
-                placeholder="Review Message"
-                value={reviewMessage}
-                onChange={(e) => setReviewMessage(e.target.value)}
-                required
-              />
-            </div>
-            <div className="createReviewInput">
-              <input
-                placeholder="Stars"
-                type="number"
-                min="1"
-                max="5"
-                value={stars}
-                onChange={(e) => setStars(e.target.value)}
-                required
-              />
-            </div>
-            <div className="createReviewButtons">
-              <button
-                className="createReviewButton"
-                onClick={() => {
-                  let path = `/spots/${spotId}/${ownerId}`;
-                  history.push(path);
-                }}
-              >
-                Go Back
-              </button>
-
-              <button className="createReviewButton" type="submit">
-                Create Review
-              </button>
-            </div>
-          </form>
+      <form onSubmit={handleSubmit}>
+        <div className="createReviewErrorContainer">
+          <ul>
+            {Object.values(errors).map((error, i) => (
+              <li className="createReviewError" key={i}>{error}</li>
+            ))}
+          </ul>
         </div>
-      </div>
+        <div className="createReviewInputContainer">
+          <div className="createReviewInput">
+            <input className="createReviewInputText"
+              type="text"
+              placeholder="Review Message"
+              value={reviewMessage}
+              onChange={(e) => setReviewMessage(e.target.value)}
+              required
+            />
+          </div>
+          <div className="createReviewInput">
+            <input className="createReviewInputText"
+              placeholder="Stars"
+              type="number"
+              min="1"
+              max="5"
+              value={stars}
+              onChange={(e) => setStars(e.target.value)}
+              required
+            />
+          </div>
+          <button className="createReviewSubmit" type="submit">Create Review</button>
+          <button className="createReviewSubmit" onClick={() => { onX() }}>Go Back</button>
+        </div>
+      </form>
     </>
   );
 };
