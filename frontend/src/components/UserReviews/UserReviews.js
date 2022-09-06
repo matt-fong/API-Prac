@@ -44,12 +44,13 @@ const UserReviews = () => {
                 <ReviewCard key={review?.id} review={review}/>
               </div>
 
-              {/* <div className="userSpotsButtons">
-                <button className="userSpotsEditButton" onClick={() => history.push(`/reviews/${review.id}/${review.spotId}`)}>Edit Review</button>
+              <div className="userSpotsButtons">
+                {/* <button className="userSpotsEditButton" onClick={() => history.push(`/reviews/${review.id}/${review.spotId}`)}>Edit Review</button> */}
+                <div><EditReviewModal reviewId={review.id}/></div>
                 <button className="userSpotsDeleteButton" onClick={() => handleDelete(review.id, review.spotId)}>Delete</button>
-              </div> */}
+              </div>
 
-              {<EditReviewModal />}
+              {/* {<EditReviewModal />} */}
 
             </div>
           ))}

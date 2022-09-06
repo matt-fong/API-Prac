@@ -4,7 +4,7 @@ import './EditReview'
 import img from './xButton.jpg'
 import EditReview from './EditReview';
 
-function EditReviewModal() {
+function EditReviewModal({ reviewId }) {
   const [showModal, setShowModal] = useState(false);
 
   const onX = () => {
@@ -13,17 +13,17 @@ function EditReviewModal() {
 
   return (
     <>
-      <button className='editReview-button' onClick={() => setShowModal(true)}>New Review</button>
+      <button className='editReview-button' onClick={() => setShowModal(true)}>Edit Review</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className='editReview-modal-container'>
             <div className='editReview-modal-header'>
               <img className='editReviewXButton' onClick={onX} src={img}></img>
-              <div className='editRevieweditReview'>New Review</div>
+              <div className='editRevieweditReview'>Edit Review</div>
             </div>
             <div className='editReview-modal-form'>
-              <div className='editReview-welcome'>Add a review</div>
-              <EditReview onX={ onX }/>
+              <div className='editReview-welcome'>Edit your review</div>
+              <EditReview onX={ onX } reviewId={reviewId}/>
             </div>
           </div>
       </Modal>
