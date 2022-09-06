@@ -11,7 +11,6 @@ import { getBookingsBySpotId } from "../../store/bookings";
 import EditSpotModal from "../EditSpot/EditSpotModal";
 import { deleteSpot } from "../../store/spots";
 import CreateReviewModal from "../CreateReview/CreateReviewModal";
-import EditReviewModal from "../EditReview/EditReviewModal";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -58,7 +57,7 @@ const SpotDetails = () => {
   }, []);
 
   const reviews = useSelector((state) => Object.values(state.reviews));
-  // console.log('THIS IS REVIEWS', reviews)
+  console.log('THIS IS REVIEWS', reviews)
   const userReview = reviews.filter((review) => review.userId === sessionUser.id)
   // console.log('THIS IS USER REVIEW', userReview[0].id)
 

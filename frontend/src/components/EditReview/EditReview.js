@@ -13,21 +13,19 @@ const EditReview = ({ onX, reviewId }) => {
 
   // console.log('THIS IS REVIEW IDDDDDDDDDDDDD', reviewId)
 
-  const spot = reviews[reviewId]
-
   const dispatch = useDispatch();
   const history = useHistory()
 
-  const [reviewMessage, setReviewMessage] = useState(reviews[reviewId]?.review);
+  const [review, setreview] = useState(reviews[reviewId]?.review);
   const [stars, setStars] = useState(reviews[reviewId]?.stars);
   const [errors, setErrors] = useState([]);
 
-  // console.log('THIS IS REVIEW MESSAGE', reviewMessage)
+  // console.log('THIS IS REVIEW MESSAGE', review)
 
   // might not need this
   useEffect(() => {
     dispatch(getReviewsByCurrentUser())
-    dispatch(getAllSpots())
+    // dispatch(getAllSpots())
   }, []);
 
   const onSubmit = (e) => {
@@ -36,14 +34,14 @@ const EditReview = ({ onX, reviewId }) => {
     setErrors([]);
 
     const data = {};
-    if (reviewMessage) data.reviewMessage = reviewMessage;
+    if (review) data.review = review;
     if (stars) data.stars = stars;
 
-    if (reviewMessage.length > 255 || reviewMessage.length < 10) {
-      setErrors({ reviewMessage: "ReviewMessage must be between 10 to 255 Characters!" });
+    if (review.length > 255 || review.length < 10) {
+      setErrors({ review: "review must be between 10 to 255 Characters!" });
     }
 
-    if(reviewMessage.length <= 255 && reviewMessage.length >= 10) {
+    if(review.length <= 255 && review.length >= 10) {
       dispatch(editReview(data, reviewId))
       // history.push(`/spots/${spotId}/${spot?.Spot.ownerId}`)
       onX()
@@ -65,8 +63,8 @@ const EditReview = ({ onX, reviewId }) => {
             <input className="createReviewInputText"
               type="text"
               placeholder="Review Message"
-              value={reviewMessage}
-              onChange={(e) => setReviewMessage(e.target.value)}
+              value={review}
+              onChange={(e) => setreview(e.target.value)}
               required
             />
           </div>

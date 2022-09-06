@@ -4,6 +4,7 @@ import { Redirect, useHistory, useParams } from "react-router-dom";
 import * as reviewActions from "../../store/reviews";
 import './CreateReview.css'
 import { getAllSpots } from "../../store/spots";
+import { getReviewsBySpotId } from "../../store/reviews";
 
 const CreateReview = ({ onX }) => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const CreateReview = ({ onX }) => {
     }
 
     if (reviewMessage.length <= 255 && reviewMessage.length >= 10 && !userReview) {
-      dispatch(reviewActions.createNewReview(spotId, data))
+      dispatch(reviewActions.createNewReview(spotId, data)).then(() => dispatch(getReviewsBySpotId(spotId)))
       // history.push(`/spots/${spotId}/${ownerId}`)
       onX()
     }
