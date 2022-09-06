@@ -15,23 +15,27 @@ const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoadedd, setIsLoadedd] = useState(false);
 
+  const todayDate = (new Date()).toISOString().slice(0,10);
+  const [startDate, setStartDate] = useState(todayDate);
+  const [endDate, setEndDate] = useState(todayDate);
+
   const { spotId } = useParams();
+  const { ownerId } = useParams()
+
   const spots = useSelector((state) => (state.spots));
   const spot = spots[spotId]
-
-  // console.log('THIS IS SPOTS', spots)
 
   const sessionUser = useSelector(state => state.session.user);
   const users = useSelector(state => (state.users));
 
-  const { ownerId } = useParams()
-  // console.log('THIS IS OWNERID', ownerId)
+  const dateDiff = (new Date(endDate) - new Date(startDate))
+  const dateDiffInt = (dateDiff / 86400000)
+
+  // console.log('THIS IS DATE DIFF', dateDiff)
 
   const spotOwner = users[ownerId]
-  // console.log('THIS IS SPOT OWNER', spotOwner)
 
   const bookings = useSelector(state => (state.bookings));
-  console.log('THIS IS BOOKINGS', bookings)
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -92,6 +96,7 @@ const SpotDetails = () => {
     )
   }
 
+
   return (
     <div className='spotDetailContainer'>
       <div className="spotDetailInnerContainer">
@@ -107,8 +112,6 @@ const SpotDetails = () => {
               {` · `}
               <div className="spotDetailLocation">{spot.city}, {spot.state}, {spot.country}</div>
             </div>
-            {/* <div className="spotDetailEditReview"><EditSpotModal /></div>
-            <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button> */}
             {editdeleteSpot}
           </div>
         </div>
@@ -188,7 +191,7 @@ const SpotDetails = () => {
               </div>
 
               <div className="spotDetailBoxTwo">
-                  <CreateBooking />
+                  <CreateBooking setStartDate={setStartDate} setEndDate={setEndDate} todayDate={todayDate} startDate={startDate} endDate={endDate}/>
               </div>
 
               <div className="spotDetailBoxThree">
@@ -197,8 +200,8 @@ const SpotDetails = () => {
 
               <div className="spotDetailBoxFour">
                 <div className="spotDetailFeeOne">
-                  <div className="spotDetailFeeDescription">$100 x 7 nights</div>
-                  <div className="spotDetailFeeNumber">$700</div>
+                  <div className="spotDetailFeeDescription">{`$100 x ${dateDiffInt} nights`}</div>
+                  <div className="spotDetailFeeNumber">${dateDiffInt * spot.price}</div>
                 </div>
                 <div className="spotDetailFeeTwo">
                   <div className="spotDetailFeeDescription">Cleaning fee</div>
@@ -212,7 +215,7 @@ const SpotDetails = () => {
 
               <div className="spotDetailBoxFive">
                 <div className='spotDetailTotalDescription'>Total before taxes</div>
-                <div className='spotDetailTotalPrice'>$700</div>
+                <div className='spotDetailTotalPrice'>${dateDiffInt * spot.price}</div>
               </div>
 
             </div>

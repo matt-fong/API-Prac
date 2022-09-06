@@ -12,10 +12,10 @@ import { createNewBooking } from "../../store/bookings";
 import { getBookingsBySpotId } from "../../store/bookings";
 import { deleteBookingById } from "../../store/bookings";
 
-const CreateBooking = () => {
-  const todayDate = (new Date()).toISOString().slice(0,10);
-  const [startDate, setStartDate] = useState(todayDate);
-  const [endDate, setEndDate] = useState(todayDate);
+const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate }) => {
+  // const todayDate = (new Date()).toISOString().slice(0,10);
+  // const [startDate, setStartDate] = useState(todayDate);
+  // const [endDate, setEndDate] = useState(todayDate);
   const [errors, setErrors] = useState([]);
   const { spotId } = useParams();
 
@@ -43,14 +43,16 @@ const CreateBooking = () => {
 
     // setErrors([]);
 
-    // bookings.map((booking) => {
-    //   const bookedStartDate = new Date(booking.startDate).toISOString().split('T')[0]
-    //   const bookedEndDate = new Date(booking.endDate).toISOString().split('T')[0]
+    bookings.map((booking) => {
+      const bookedStartDate = new Date(booking.startDate).toISOString().split('T')[0]
+      const bookedEndDate = new Date(booking.endDate).toISOString().split('T')[0]
 
-    //   console.log('THIS IS THE BOOKED START DATE', bookedStartDate)
-    //   console.log('THIS IS THE REGULAR START DATE', startDate)
-    //   console.log('THIS IS THE BOOKED END DATE', bookedEndDate)
-    //   console.log('THIS IS THE REGULAR END DATE', endDate)
+    console.log('THIS IS THE BOOKED START DATE', bookedStartDate)
+      // console.log('THIS IS THE REGULAR START DATE', startDate)
+    console.log('THIS IS THE BOOKED END DATE', bookedEndDate)
+      // console.log('THIS IS THE REGULAR END DATE', endDate)
+
+    console.log('THIS IS THE DIFFERENCE BETWEEN DATES', (new Date(endDate) - new Date(startDate)))
 
     //   if (startDate >= bookedStartDate || startDate < bookedEndDate) {
     //     console.log('FIRST LINE OF DEFENSE')
@@ -79,10 +81,10 @@ const CreateBooking = () => {
 
     //   console.log('TRUE OR FALSE?', startDate >= todayDate && startDate !== bookedEndDate && endDate !==bookedEndDate)
 
-    // })
+    })
 
-    dispatch(createNewBooking(spotId, data))
-    history.push('/my-bookings')
+    // dispatch(createNewBooking(spotId, data))
+    // history.push('/my-bookings')
   };
 
   useEffect(() => {
