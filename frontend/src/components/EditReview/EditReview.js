@@ -25,7 +25,7 @@ const EditReview = ({ onX, reviewId }) => {
   // might not need this
   useEffect(() => {
     dispatch(getReviewsByCurrentUser())
-    // dispatch(getAllSpots())
+    dispatch(getAllSpots())
   }, []);
 
   const onSubmit = (e) => {
@@ -42,7 +42,7 @@ const EditReview = ({ onX, reviewId }) => {
     }
 
     if(review.length <= 255 && review.length >= 10) {
-      dispatch(editReview(data, reviewId))
+      dispatch(editReview(data, reviewId)).then(() => dispatch(getReviewsByCurrentUser()))
       // history.push(`/spots/${spotId}/${spot?.Spot.ownerId}`)
       onX()
     }

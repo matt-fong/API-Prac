@@ -22,6 +22,10 @@ const CreateReview = ({ onX }) => {
   const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState([]);
 
+  // useEffect(() => {
+  //   dispatch(getAllSpots())
+  // }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -39,7 +43,7 @@ const CreateReview = ({ onX }) => {
     }
 
     if (reviewMessage.length <= 255 && reviewMessage.length >= 10 && !userReview) {
-      dispatch(reviewActions.createNewReview(spotId, data)).then(() => dispatch(getReviewsBySpotId(spotId)))
+      dispatch(reviewActions.createNewReview(spotId, data)).then(() => dispatch(getReviewsBySpotId(spotId))).then(() => dispatch(getAllSpots()))
       // history.push(`/spots/${spotId}/${ownerId}`)
       onX()
     }
