@@ -87,6 +87,7 @@ const SpotDetails = () => {
 
   let createReview;
   let editdeleteSpot;
+  let currentBooking;
 
   if (sessionUser && !(spot.ownerId === sessionUser.id)) {
     createReview = (
@@ -103,6 +104,14 @@ const SpotDetails = () => {
       <div className="spotDetailEditReview"><EditSpotModal /></div>
       <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button>
       </>
+    )
+  }
+
+  if (sessionUser) {
+    currentBooking = (
+      <div className="spotDetailCheckBookings">
+        <NavLink to={`/current-bookings/${spotId}`}>Check current bookings</NavLink>
+      </div>
     )
   }
 
@@ -230,9 +239,7 @@ const SpotDetails = () => {
 
             </div>
 
-            <div className="spotDetailCheckBookings">
-              <NavLink to={`/current-bookings/${spotId}`}>Check current bookings</NavLink>
-            </div>
+            {currentBooking}
 
           </div>
         </div>

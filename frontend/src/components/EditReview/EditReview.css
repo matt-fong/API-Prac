@@ -12,12 +12,12 @@
   width: 100%;
 }
 
-.createReview-modal-container {
+.editReview-modal-container {
   max-width: 568px;
   width: 100%;
 }
 
-.createReview-modal-header {
+.editReview-modal-header {
   display: flex;
   justify-content: space-between;
   font-size: 17px;
@@ -28,32 +28,32 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.createReview-modal-form {
+.editReview-modal-form {
   padding-top: 24px;
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 14px
 }
 
-.createReview-welcome {
+.editReview-welcome {
   display: flex;
   font-size: 20px;
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
 }
 
-.createReviewInputContainer {
+.editReviewInputContainer {
   width: 100%;
 }
 
-.createReviewInput {
+.editReviewInput {
   display: flex;
   position: relative;
   flex: 1 1 0%;
   width: 100%;
 }
 
-.createReviewInput > input {
+.editReviewInput > input {
   box-sizing: border-box;
   width: 100%;
   padding: 17px;
@@ -63,7 +63,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.createReviewSubmit {
+.editReviewSubmit {
   display: block;
   border-radius: 8px;
   width: 100%;
@@ -87,7 +87,7 @@
     repeat scroll 0% 0%;
 }
 
-.createReview-button {
+.editReview-button {
   /* background-color: transparent;
   border: none;
   cursor: pointer;
@@ -109,20 +109,20 @@ ul {
   padding: 0
 }
 
-.createReviewErrorContainer {
+.editReviewErrorContainer {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 24px;
   padding-right: 24px;
 }
 
-.createReviewForm {
+.editReviewForm {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
 }
 
-.createReviewError {
+.editReviewError {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
 }
@@ -147,7 +147,7 @@ ul {
   font-family: 'Montserrat', sans-serif;
 }
 
-.createReviewSubmitDemo {
+.editReviewSubmitDemo {
   display: block;
   border-radius: 8px;
   width: 100%;
@@ -170,11 +170,11 @@ ul {
     repeat scroll 0% 0%;
 }
 
-.createReviewXButton {
+.editReviewXButton {
   width: 15px;
   cursor: pointer;
 }
 
-.createReviewcreateReview {
+.editRevieweditReview {
   padding-right: 205.0705px;
 }

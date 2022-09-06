@@ -19,10 +19,10 @@ function CreateReviewModal() {
           <div className='createReview-modal-container'>
             <div className='createReview-modal-header'>
               <img className='createReviewXButton' onClick={onX} src={img}></img>
-              <div className='createReviewcreateReview'>Edit Spot</div>
+              <div className='createReviewcreateReview'>New Review</div>
             </div>
             <div className='createReview-modal-form'>
-              <div className='createReview-welcome'>Edit your home</div>
+              <div className='createReview-welcome'>Add a review</div>
               <CreateReview onX={ onX }/>
             </div>
           </div>

@@ -7,6 +7,7 @@ import { getReviewsByCurrentUser } from "../../store/reviews";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import './UserReviews.css'
 import { getAllUsers } from "../../store/users";
+import EditReviewModal from "../EditReview/EditReviewModal";
 
 const UserReviews = () => {
   const reviews = useSelector(state => Object.values(state.reviews));
@@ -43,10 +44,12 @@ const UserReviews = () => {
                 <ReviewCard key={review?.id} review={review}/>
               </div>
 
-              <div className="userSpotsButtons">
+              {/* <div className="userSpotsButtons">
                 <button className="userSpotsEditButton" onClick={() => history.push(`/reviews/${review.id}/${review.spotId}`)}>Edit Review</button>
                 <button className="userSpotsDeleteButton" onClick={() => handleDelete(review.id, review.spotId)}>Delete</button>
-              </div>
+              </div> */}
+
+              {<EditReviewModal />}
 
             </div>
           ))}
