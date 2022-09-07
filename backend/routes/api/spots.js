@@ -21,7 +21,7 @@ router.get('/', async (req, res, next) => {
 
   if (page > 0) {
     pagination.offset = size * (page - 1)
-}
+  }
 
   if (size >= 0) {
     pagination.limit = size;
@@ -158,6 +158,13 @@ router.get('/', async (req, res, next) => {
     } else {
       spot.previewImage = null
     }
+
+    let images = await Image.findAll({
+      where: { spotId: spot.id },
+      attributes: ["id", ["spotId", "imageableId"], "url"],
+    });
+
+    spot.Images = images
   }
 
   res.json({ Spots: spots, page, size });

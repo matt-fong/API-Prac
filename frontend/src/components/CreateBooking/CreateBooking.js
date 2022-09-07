@@ -83,7 +83,10 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
 
     // })
 
-    dispatch(createNewBooking(spotId, data))
+    dispatch(createNewBooking(spotId, data)).catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });
     history.push('/my-bookings')
   };
 
@@ -97,11 +100,11 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
       <div className='CreateBookingFormContainer'>
         <form className='CreateBookingform' onSubmit={handleSubmit}>
           <div className="CreateBookingErrorsContainer">
-            {/* <ul>
-              {(errors).map((error, i) => (
+            <ul>
+              {Object.values(errors).map((error, i) => (
                 <li className="loginError" key={i}>{error}</li>
               ))}
-            </ul> */}
+            </ul>
           </div>
           <div className="CreateBookingDiv">
             <input className="CreateBookingInputCheckin"

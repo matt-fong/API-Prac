@@ -26,6 +26,8 @@ const SpotDetails = () => {
   const spots = useSelector((state) => (state.spots));
   const spot = spots[spotId]
 
+  console.log('THIS IS SPOT', spot)
+
   const sessionUser = useSelector(state => state.session.user);
   const users = useSelector(state => (state.users));
 
