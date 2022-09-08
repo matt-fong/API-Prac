@@ -15,6 +15,7 @@ import CreateReview from "./components/CreateReview/CreateReview";
 import EditReview from "./components/EditReview/EditReview";
 import UserBookings from "./components/UserBookings/UserBookings";
 import CurrentBookings from "./components/CurrentBookings/CurrentBookings";
+import CreateImage from "./components/CreateImage/CreateImage";
 
 function App() {
   const dispatch = useDispatch();
@@ -60,6 +61,9 @@ function App() {
           </Route>
           <Route path="/current-bookings/:spotId">
             <CurrentBookings />
+          </Route>
+          <Route path="/createImage">
+            <CreateImage />
           </Route>
         </Switch>
       )}

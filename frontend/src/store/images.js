@@ -48,11 +48,13 @@ export default function imagesReducer(state = {}, action) {
   switch (action.type) {
     case CREATE:
       newState = { ...state };
-      newState[action.review.id] = action.review;
+      // newState[action.review.id] = action.review;
       return newState;
     case DELETE:
       newState = { ...state };
-      delete newState[action.reviewId];
+      delete newState[action.imageId];
+      console.log('THIS IS ACTION', action)
+      console.log('THIS IS NEW STATE', newState)
       return newState;
     default:
       return state;
