@@ -40,7 +40,11 @@ const SpotDetails = () => {
     dispatch(getAllUsers())
   }, []);
 
-  // console.log('THIS IS SPOT IMAGES', spot.Images[0])
+  console.log('THIS IS SPOT', spot)
+  // console.log('THIS IS SPOT IMAGE', spot.Images)
+  // spot.Images.map((image) => {
+  //   console.log(image.url)
+  // })
 
   const handleDelete = (spotId) => {
     dispatch(deleteSpot(spotId));
