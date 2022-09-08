@@ -40,3 +40,19 @@
   width: 1200px;
   justify-content: space-between;
 }
+
+.userSpotsButtons {
+  display: flex;
+}
+
+.userSpotsDeleteButton {
+  color: white;
+  padding: 9px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 100px;
+  background-color: #e51d53;
+  font-family: 'Montserrat', sans-serif;
+}
