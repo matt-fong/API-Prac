@@ -212,7 +212,7 @@
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  margin-top: 8px;
+  /* margin-top: 8px; */
   font-family: 'Montserrat', sans-serif;
   line-height: 26px;
   font-size: 14px;
@@ -317,15 +317,19 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.spotDetailReviewCards {
+.spotDetailReviewCardsContainer {
   display: flex;
   margin-top: 24px;
+  width: 1120px;
 }
 
-.testing {
-  width: 1280px;
+.spotDetailReviewCards {
+  width: 1120px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .spotDetailDeleteButton {

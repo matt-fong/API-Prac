@@ -226,8 +226,8 @@ const SpotDetails = () => {
 
           <div>{createReview}</div>
 
-          <div className="spotDetailReviewCards">
-            <div className="testing">
+          <div className="spotDetailReviewCardsContainer">
+            <div className="spotDetailReviewCards">
               {reviews.map((review) => (
                 <ReviewCard key={review.id} review={review} />
               ))}
