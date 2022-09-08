@@ -7,7 +7,6 @@ import { getAllSpots } from "../../store/spots";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import { getAllUsers } from "../../store/users";
 import CreateBooking from "../CreateBooking/CreateBooking";
-import { getBookingsBySpotId } from "../../store/bookings";
 import EditSpotModal from "../EditSpot/EditSpotModal";
 import { deleteSpot } from "../../store/spots";
 import CreateReviewModal from "../CreateReview/CreateReviewModal";
@@ -23,30 +22,14 @@ const SpotDetails = () => {
   const { spotId } = useParams();
   const { ownerId } = useParams()
 
-  const spots = useSelector((state) => (state.spots));
-  const spot = spots[spotId]
-
-  console.log('THIS IS SPOT', spot)
-
-  const sessionUser = useSelector(state => state.session.user);
   const users = useSelector(state => (state.users));
+  const spots = useSelector((state) => (state.spots));
 
-  let dateDiffInt;
-
-  if (isNaN((new Date(endDate) - new Date(startDate)) / 86400000) || ((new Date(endDate) - new Date(startDate)) / 86400000) < 0) {
-    dateDiffInt = 0;
-  } else {
-    dateDiffInt = (new Date(endDate) - new Date(startDate)) / 86400000
-  }
-
-  // const dateDiff = (new Date(endDate) - new Date(startDate))
-  // const dateDiffInt = (dateDiff / 86400000)
-
-  // console.log('THIS IS DATE DIFF', dateDiff)
-
+  const spot = spots[spotId]
   const spotOwner = users[ownerId]
 
-  const bookings = useSelector(state => (state.bookings));
+  const sessionUser = useSelector(state => state.session.user);
+  const reviews = useSelector((state) => Object.values(state.reviews));
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -55,23 +38,9 @@ const SpotDetails = () => {
     dispatch(getAllSpots()).then(() => setIsLoaded(true));
     dispatch(getReviewsBySpotId(spotId)).then(() => setIsLoadedd(true))
     dispatch(getAllUsers())
-    dispatch(getBookingsBySpotId(spotId))
   }, []);
 
-  const reviews = useSelector((state) => Object.values(state.reviews));
-  console.log('THIS IS REVIEWS', reviews)
-  const userReview = reviews.filter((review) => review.userId === sessionUser.id)
-  // console.log('THIS IS USER REVIEW', userReview[0].id)
-
-  // const date = new Date().toLocaleDateString(undefined, {
-  //   month: "short",
-  //   // year: "numeric",
-  //   day: 'numeric'
-  // });
-
-  // date.setDate(20)
-
-  // console.log(date)
+  // console.log('THIS IS SPOT IMAGES', spot.Images[0])
 
   const handleDelete = (spotId) => {
     dispatch(deleteSpot(spotId));
@@ -84,6 +53,7 @@ const SpotDetails = () => {
   let createReview;
   let editdeleteSpot;
   let currentBooking;
+  let dateDiffInt;
 
   if (sessionUser && !(spot.ownerId === sessionUser.id)) {
     createReview = (
@@ -110,6 +80,11 @@ const SpotDetails = () => {
     )
   }
 
+  if (isNaN((new Date(endDate) - new Date(startDate)) / 86400000) || ((new Date(endDate) - new Date(startDate)) / 86400000) < 0) {
+    dateDiffInt = 0;
+  } else {
+    dateDiffInt = (new Date(endDate) - new Date(startDate)) / 86400000
+  }
 
   return (
     <div className='spotDetailContainer'>

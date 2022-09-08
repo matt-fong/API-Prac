@@ -19,14 +19,16 @@ import CurrentBookings from "./components/CurrentBookings/CurrentBookings";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoadedd, setIsLoadedd] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-    dispatch(spotsActions.getAllSpots())
+    dispatch(spotsActions.getAllSpots()).then(() => setIsLoadedd(true));
   }, [dispatch]);
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      <Navigation isLoaded={isLoaded} isLoadedd={isLoadedd}/>
       {isLoaded && (
         <Switch>
           <Route exact path="/">
@@ -42,7 +44,7 @@ function App() {
             <EditSpot />
           </Route>
           <Route path="/spots/:spotId/:ownerId">
-            <SpotDetails isLoaded={isLoaded} />
+            <SpotDetails isLoaded={isLoaded} isLoadedd={isLoadedd}/>
           </Route>
           <Route path="/signup">
             <SignupFormPage />
