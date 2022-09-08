@@ -63,31 +63,31 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
       }
 
       if (startDateNum === bookedStartDate) {
-        setErrors({ error : 'Must have different start date' })
+        setErrors({ error : "Start date conflicts with an existing booking" })
       }
 
       if (startDateNum === bookedEndDate) {
-        setErrors({ error : 'Must have different start date boyyyyy' })
+        setErrors({ error : "Start date conflicts with an existing booking" })
       }
 
       if (endDateNum === bookedStartDate) {
-        setErrors({ error : 'Must have different start date boyyyyy' })
+        setErrors({ error : "End date conflicts with an existing booking" })
       }
 
       if (endDateNum === bookedEndDate) {
-        setErrors({ error : 'Must have different start date boyyyyy' })
+        setErrors({ error : "End date conflicts with an existing booking" })
       }
 
       if ((startDateNum > bookedStartDate) && (startDateNum < bookedEndDate)) {
-        setErrors({ error : 'Cannot book during someone else booking' })
+        setErrors({ error : 'Chosen dates conflicts with an existing booking' })
       }
 
       if ((startDateNum < bookedStartDate) && (endDateNum > bookedStartDate) && (endDateNum < bookedEndDate)) {
-        setErrors({ error : 'Cannot book during someone else booking' })
+        setErrors({ error : 'Chosen dates conflicts with an existing booking' })
       }
 
       if ((startDateNum < bookedStartDate) && (endDateNum > bookedEndDate)) {
-        setErrors({ error : 'Cannot book during someone else booking' })
+        setErrors({ error : 'Chosen dates conflicts with an existing booking' })
       }
 
       // if ((startDateNum < endDateNum) && (startDateNum !== bookedStartDate) && (startDateNum !== bookedEndDate) && (endDateNum !== bookedStartDate) && (endDateNum !== bookedEndDate) &&
@@ -120,7 +120,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
           <div className="CreateBookingErrorsContainer">
             <ul>
               {Object.values(errors).map((error, i) => (
-                <li className="loginError" key={i}>{error}</li>
+                <li className="createBookingError" key={i}>{error}</li>
               ))}
             </ul>
           </div>

@@ -2,24 +2,36 @@
   display: flex;
   justify-content: center;
   align-self: center;
-  height: 176px;
+  /* height: 176px; */
 }
 
 .CreateBookingFormContainer {
   display: flex;
   justify-content: center;
   align-self: center;
-  height: 176px;
+  /* height: 176px; */
 }
 
 .CreateBookingform {
   width: 322.33px;
-  height: 176px;
+  /* height: 176px; */
   /* display: flex; */
 }
 
 .CreateBookingErrorsContainer {
-  
+  /* padding-top: 5px; */
+  /* padding-bottom: 5px; */
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+ul {
+  padding: 0
+}
+
+.createBookingError {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
 }
 
 .CreateBookingDiv {
@@ -75,9 +87,9 @@
   flex-direction: column;
   justify-content: center;
   /* align-items: center; */
-  border-bottom: 1px solid #dadada;
-  border-left: 1px solid #dadada;
-  border-right: 1px solid #dadada;
+  border-bottom: 1px solid #a1a1a1;
+  border-left: 1px solid #a1a1a1;
+  border-right: 1px solid #a1a1a1;
   border-radius: 0 0 8px 8px;
   height: 55px;
   padding-left: 12px;
@@ -99,11 +111,11 @@
   box-sizing: border-box;
   /* width: 12%; */
   padding: 12px;
-  /* border: 1px solid #dadada; */
-  border-top: 1px solid #dadada;
-  border-bottom: 1px solid #dadada;
-  border-right: 1px solid #dadada;
-  border-left: .5px solid #dadada;
+  /* border: 1px solid #a1a1a1; */
+  border-top: 1px solid #a1a1a1;
+  border-bottom: 1px solid #a1a1a1;
+  border-right: 1px solid #a1a1a1;
+  border-left: .5px solid #a1a1a1;
   border-radius: 0 8px 0 0;
   background-color: transparent !important;
   font-family: 'Montserrat', sans-serif;
@@ -130,11 +142,11 @@ input.CreateBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator
   box-sizing: border-box;
   /* width: 12%; */
   padding: 12px;
-  /* border: 1px solid #dadada; */
-  border-top: 1px solid #dadada;
-  border-bottom: 1px solid #dadada;
-  border-right: .5px solid #dadada;
-  border-left: 1px solid #dadada;
+  /* border: 1px solid #a1a1a1; */
+  border-top: 1px solid #a1a1a1;
+  border-bottom: 1px solid #a1a1a1;
+  border-right: .5px solid #a1a1a1;
+  border-left: 1px solid #a1a1a1;
   border-radius: 8px 0 0 0;
   background-color: transparent !important;
   font-family: 'Montserrat', sans-serif;
