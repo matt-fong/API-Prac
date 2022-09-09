@@ -26,6 +26,10 @@ const CreateImage = ({ onX }) => {
   //   dispatch(getAllSpots())
   // }, []);
 
+  function isImage(url) {
+    return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -33,10 +37,18 @@ const CreateImage = ({ onX }) => {
       url: url,
     };
 
-    // dispatch(deleteImageById(44))
+    if (!isImage(url)) {
+      setErrors({ error: "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " })
+    }
 
-    dispatch(createImageBySpotId(spotId, data))
-    onX()
+    if (!sessionUser) {
+      setErrors({ error: "User must be logged in." })
+    }
+
+    if (isImage(url) && sessionUser) {
+      dispatch(createImageBySpotId(spotId, data))
+      onX()
+    }
 
   };
 
@@ -54,7 +66,7 @@ const CreateImage = ({ onX }) => {
           <div className="createImageInput">
             <input className="createImageInputText"
               type="text"
-              placeholder="Url"
+              placeholder="Image-URL"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               // required
@@ -62,7 +74,7 @@ const CreateImage = ({ onX }) => {
           </div>
 
           <button className="createImageSubmit" type="submit">Create Image</button>
-          <button className="createImageSubmit" onClick={() => { onX() }}>Go Back</button>
+          {/* <button className="createImageSubmit" onClick={() => { onX() }}>Go Back</button> */}
         </div>
       </form>
     </>
