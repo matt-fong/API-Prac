@@ -79,6 +79,36 @@ const SpotDetails = () => {
     )
   }
 
+  let spotDetailHeaderInfo;
+  if (sessionUser && spot.ownerId === sessionUser.id) {
+    spotDetailHeaderInfo = (
+      <div className='spotDetailContainer'>
+        <div className="spotDetailInfo">
+          <i className="fa-solid fa-star"></i>
+          {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+          <div className="spotDetailNumReview"></div>
+          {` · `}
+          <div className="spotDetailLocation">{spot.city}, {spot.state}, {spot.country}</div>
+        </div>
+        <div><CreateImageModal /></div>
+        <div className="spotDetailEditReview"><EditSpotModal /></div>
+        <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button>
+      </div>
+    )
+  } else {
+    spotDetailHeaderInfo = (
+      <div className='spotDetailContainer'>
+        <div className="spotDetailInfoPartTwo">
+          <i className="fa-solid fa-star"></i>
+          {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+          <div className="spotDetailNumReview"></div>
+          {` · `}
+          <div className="spotDetailLocation">{spot.city}, {spot.state}, {spot.country}</div>
+        </div>
+      </div>
+    )
+  }
+
   if (sessionUser) {
     currentBooking = (
       <div className="spotDetailCheckBookings">
@@ -135,7 +165,7 @@ const SpotDetails = () => {
 
         <div className='spotDetailHeaderContainer'>
           <div className='spotDetailName'>{spot.name}</div>
-          <div className='spotDetailContainer'>
+          {/* <div className='spotDetailContainer'>
             <div className="spotDetailInfo">
               <i className="fa-solid fa-star"></i>
               {spot.avgRating} {` · `} {reviews.length} {`reviews`}
@@ -144,7 +174,8 @@ const SpotDetails = () => {
               <div className="spotDetailLocation">{spot.city}, {spot.state}, {spot.country}</div>
             </div>
             {editdeleteSpot}
-          </div>
+          </div> */}
+          {spotDetailHeaderInfo}
         </div>
 
         {testtest}

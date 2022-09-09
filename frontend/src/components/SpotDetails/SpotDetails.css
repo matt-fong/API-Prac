@@ -28,6 +28,17 @@
   width: 100%;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
+  /* margin-top: 9px */
+}
+
+.spotDetailInfoPartTwo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  margin-top: 9px
 }
 
 .spotDetailPictureContainer {
@@ -423,6 +434,6 @@
   object-fit: cover;
   height: 498.19px;
   width: 100%;
-  margin-top: 16px;
+  margin-top: 24px;
   border-radius: 12px;
 }
