@@ -1,14 +1,15 @@
 .spotDetailContainer {
   display: flex;
   flex-wrap: nowrap;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
   justify-content: center;
+  width: 100%;
 }
 
 .spotDetailInnerContainer {
-  width: 1120px;
+  max-width: 1120px;
+  width: 80%
 }
 
 .spotDetailName {
@@ -343,3 +344,7 @@
   background-color: #e51d53;
   font-family: 'Montserrat', sans-serif;
 }
+
+/* @media screen and (max-width: 1120px) {
+  .spotDetailInnerContainer {width: 750px}
+} */

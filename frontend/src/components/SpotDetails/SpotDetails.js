@@ -39,10 +39,10 @@ const SpotDetails = () => {
     dispatch(getAllSpots()).then(() => setIsLoaded(true));
     dispatch(getReviewsBySpotId(spotId)).then(() => setIsLoadedd(true))
     dispatch(getAllUsers())
-  }, []);
+  }, [ dispatch, spotId ]);
 
-  console.log('THIS IS SPOT', spot)
-  // console.log('THIS IS SPOT IMAGE', spot.Images)
+  console.log('THIS IS SPOT', spot?.Images[0])
+  // console.log('THIS IS SPOT IMAGE', spot.previewImage)
   // spot.Images.map((image) => {
   //   console.log(image.url)
   // })
@@ -92,7 +92,7 @@ const SpotDetails = () => {
     dateDiffInt = (new Date(endDate) - new Date(startDate)) / 86400000
   }
 
-  return (
+  return isLoaded && (
     <div className='spotDetailContainer'>
       <div className="spotDetailInnerContainer">
 
