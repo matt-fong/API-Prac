@@ -42,7 +42,8 @@ const SpotDetails = () => {
   }, [ dispatch, spotId ]);
 
   // console.log('THIS IS SPOT', spot)
-  console.log('THIS IS SPOT IMAGES', spot?.Images?.[1])
+  // console.log('THIS IS SPOT IMAGES', spot?.Images?.[1])
+  console.log('THIS IS SPOT IMAGES', spot?.Images)
   // spot.Images.map((image) => {
   //   console.log(image.url)
   // })
@@ -112,8 +113,30 @@ const SpotDetails = () => {
         </div>
 
 
-        <div className='spotDetailPicture'>
-          <img className='spotDetailImage' src={spot.previewImage} alt='Spot Detail'/>
+        {/* <div className='spotDetailPictureContainer'>
+          <div>
+            <img className='spotDetailImage' src={spot.previewImage} alt='Spot Detail'/>
+          </div>
+          <img src={spot?.Images?.[1]?.url} />
+        </div> */}
+
+        <div className='spotDetailPictureContainer'>
+
+          <div className="spotDetailPictureLeft">
+            <img className='spotDetailMainImage' src={spot.previewImage} alt='Spot Detail'/>
+          </div>
+
+          <div className="spotDetailPictureRight">
+            <div className='spotDetailPictureColumnOne'>
+              <img className='testing1' src={spot?.Images?.[1]?.url} />
+              <img className='testing2' src={spot?.Images?.[2]?.url} />
+            </div>
+            <div className='spotDetailPictureColumnTwo'>
+              <img className='testing3' src={spot?.Images?.[3]?.url} />
+              <img className='testing4' src={spot?.Images?.[4]?.url} />
+            </div>
+          </div>
+
         </div>
 
 
