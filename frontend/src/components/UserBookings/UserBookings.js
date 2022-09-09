@@ -1,14 +1,9 @@
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { deleteReviewById } from "../../store/reviews";
-import { getAllSpots } from "../../store/spots";
-import { getReviewsByCurrentUser } from "../../store/reviews";
-import ReviewCard from "../ReviewCard/ReviewCard";
-import './UserBookings.css'
-import { getAllUsers } from "../../store/users";
 import { getBookingsByCurrentUser } from "../../store/bookings"
 import { deleteBookingById } from "../../store/bookings";
+import './UserBookings.css'
 
 const UserBookings = () => {
   const bookings = useSelector(state => (state.bookings));

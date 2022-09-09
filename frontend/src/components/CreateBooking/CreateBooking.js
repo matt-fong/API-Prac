@@ -1,16 +1,9 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { deleteReviewById } from "../../store/reviews";
-import { getAllSpots } from "../../store/spots";
-import { getReviewsByCurrentUser } from "../../store/reviews";
-import ReviewCard from "../ReviewCard/ReviewCard";
-import './CreateBooking.css'
-import { getAllUsers } from "../../store/users";
-import { getBookingsByCurrentUser } from "../../store/bookings"
 import { createNewBooking } from "../../store/bookings";
 import { getBookingsBySpotId } from "../../store/bookings";
-import { deleteBookingById } from "../../store/bookings";
+import './CreateBooking.css'
 
 const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate }) => {
   // const todayDate = (new Date()).toISOString().slice(0,10);

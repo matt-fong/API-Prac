@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import './CreateImage.css'
 import { getAllSpots } from "../../store/spots";
 import { createImageBySpotId } from "../../store/images";
-import { deleteImageById } from "../../store/images";
 
 const CreateImage = ({ onX }) => {
   const dispatch = useDispatch();

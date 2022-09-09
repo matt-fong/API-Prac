@@ -57,7 +57,7 @@ const SpotDetails = () => {
   if (!isLoadedd) return null
 
   let createReview;
-  let editdeleteSpot;
+  // let editdeleteSpot;
   let currentBooking;
   let dateDiffInt;
 
@@ -69,15 +69,15 @@ const SpotDetails = () => {
     );
   }
 
-  if (sessionUser && spot.ownerId === sessionUser.id) {
-    editdeleteSpot = (
-      <>
-      <div><CreateImageModal /></div>
-      <div className="spotDetailEditReview"><EditSpotModal /></div>
-      <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button>
-      </>
-    )
-  }
+  // if (sessionUser && spot.ownerId === sessionUser.id) {
+  //   editdeleteSpot = (
+  //     <>
+  //     <div><CreateImageModal /></div>
+  //     <div className="spotDetailEditReview"><EditSpotModal /></div>
+  //     <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button>
+  //     </>
+  //   )
+  // }
 
   let spotDetailHeaderInfo;
   if (sessionUser && spot.ownerId === sessionUser.id) {
@@ -139,12 +139,12 @@ const SpotDetails = () => {
 
           <div className="spotDetailPictureRight">
             <div className='spotDetailPictureColumnOne'>
-              <img className='spotDetailPictureOne' src={image1} />
-              <img className='spotDetailPictureTwo' src={image2} />
+              <img className='spotDetailPictureOne' src={image1} alt='firstpic'/>
+              <img className='spotDetailPictureTwo' src={image2} alt='secondpic'/>
             </div>
             <div className='spotDetailPictureColumnTwo'>
-              <img className='spotDetailPictureThree' src={image3} />
-              <img className='spotDetailPictureFour' src={image4} />
+              <img className='spotDetailPictureThree' src={image3} alt='thirdpic'/>
+              <img className='spotDetailPictureFour' src={image4} alt='fourthpic'/>
             </div>
           </div>
 
@@ -153,7 +153,7 @@ const SpotDetails = () => {
   } else {
     testtest = (
       <div className='spotDetailOnePicture'>
-        <img className='spotDetailOneImage' src={spot.previewImage} />
+        <img className='spotDetailOneImage' src={spot.previewImage} alt='mainpic'/>
       </div>
     )
   }

@@ -1,4 +1,4 @@
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { deleteReviewById } from "../../store/reviews";
@@ -45,12 +45,9 @@ const UserReviews = () => {
               </div>
 
               <div className="userSpotsButtons">
-                {/* <button className="userSpotsEditButton" onClick={() => history.push(`/reviews/${review.id}/${review.spotId}`)}>Edit Review</button> */}
                 <div><EditReviewModal reviewId={review.id}/></div>
                 <button className="userSpotsDeleteButton" onClick={() => handleDelete(review.id, review.spotId)}>Delete</button>
               </div>
-
-              {/* {<EditReviewModal />} */}
 
             </div>
           ))}

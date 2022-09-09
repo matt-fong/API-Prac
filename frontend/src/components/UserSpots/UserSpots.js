@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useParams, useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import * as sessionActions from "../../store/session";
-import { deleteSpot } from "../../store/spots";
+import React from "react";
+import { useSelector } from "react-redux";
 import SpotCard from "../SpotCard/SpotCard";
 import './UserSpots.css'
 import '../HomePage/HomePage.css'
@@ -11,13 +8,6 @@ const UserSpots = () => {
   const user = useSelector(state => state.session.user);
   const spots = useSelector((state) => Object.values(state.spots));
   const userSpots = spots.filter((spot) => spot.ownerId === user.id);
-
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const handleDelete = (spotId) => {
-    dispatch(deleteSpot(spotId));
-  };
 
   return (
     <div className="userSpotsContainer">
@@ -37,7 +27,6 @@ const UserSpots = () => {
       </div>
     </div>
   )
-
 }
 
 export default UserSpots;
