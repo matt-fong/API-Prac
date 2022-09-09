@@ -41,8 +41,8 @@ const SpotDetails = () => {
     dispatch(getAllUsers())
   }, [ dispatch, spotId ]);
 
-  console.log('THIS IS SPOT', spot?.Images[0])
-  // console.log('THIS IS SPOT IMAGE', spot.previewImage)
+  // console.log('THIS IS SPOT', spot)
+  console.log('THIS IS SPOT IMAGES', spot?.Images?.[1])
   // spot.Images.map((image) => {
   //   console.log(image.url)
   // })
@@ -113,7 +113,7 @@ const SpotDetails = () => {
 
 
         <div className='spotDetailPicture'>
-          <img className='spotDetailImage' src={spot.previewImage} />
+          <img className='spotDetailImage' src={spot.previewImage} alt='Spot Detail'/>
         </div>
 
 
@@ -133,7 +133,7 @@ const SpotDetails = () => {
               </div>
 
               <div className="spotDetailHostRight">
-                <img className='spotDetailOwnerIcon' src='https://www.seekpng.com/png/full/73-730482_existing-user-default-avatar.png'></img>
+                <img className='spotDetailOwnerIcon' src='https://www.seekpng.com/png/full/73-730482_existing-user-default-avatar.png' alt='Owner Icon'></img>
               </div>
 
             </div>
