@@ -10,6 +10,7 @@ import CreateBooking from "../CreateBooking/CreateBooking";
 import EditSpotModal from "../EditSpot/EditSpotModal";
 import { deleteSpot } from "../../store/spots";
 import CreateReviewModal from "../CreateReview/CreateReviewModal";
+import CreateImageModal from "../CreateImage/CreateImageModal";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -70,6 +71,7 @@ const SpotDetails = () => {
   if (sessionUser && spot.ownerId === sessionUser.id) {
     editdeleteSpot = (
       <>
+      <div><CreateImageModal /></div>
       <div className="spotDetailEditReview"><EditSpotModal /></div>
       <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button>
       </>

@@ -1,0 +1,180 @@
+#modal {
+  display: flex;
+  justify-content: center;
+}
+
+#modal-background {
+  background-color: rgba(0, 0, 0, .50) !important;
+}
+
+#modal-content {
+  max-width: 568px;
+  width: 100%;
+}
+
+.createImage-modal-container {
+  max-width: 568px;
+  width: 100%;
+}
+
+.createImage-modal-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  align-items: center;
+  padding: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.createImage-modal-form {
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 14px
+}
+
+.createImage-welcome {
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.createImageInputContainer {
+  width: 100%;
+}
+
+.createImageInput {
+  display: flex;
+  position: relative;
+  flex: 1 1 0%;
+  width: 100%;
+}
+
+.createImageInput > input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 17px;
+  border: 1px solid #dadada;
+  border-radius: 8px;
+  background-color: transparent !important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.createImageSubmit {
+  display: block;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0, 0, 0, 0)
+    linear-gradient(
+      to right,
+      rgb(230, 30, 77) 0%,
+      rgb(227, 28, 95) 50%,
+      rgb(215, 4, 102) 100%
+    )
+    repeat scroll 0% 0%;
+}
+
+.createImage-button {
+  /* background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  margin-right: 7px;
+  font-family: 'Montserrat', sans-serif; */
+  color: white;
+  padding: 9px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 110px;
+  background-color: #e51d53;
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul {
+  padding: 0
+}
+
+.createImageErrorContainer {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.createImageForm {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.createImageError {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+.line {
+  padding-left: 105px;
+  padding-right: 105px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 9px;
+  border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.orWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.or {
+  display: flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.createImageSubmitDemo {
+  display: block;
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 14px 24px;
+  font-size: 16px;
+  margin-top: 15px;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  background: rgba(0, 0, 0, 0)
+    linear-gradient(
+      to right,
+      rgb(230, 30, 77) 0%,
+      rgb(227, 28, 95) 50%,
+      rgb(215, 4, 102) 100%
+    )
+    repeat scroll 0% 0%;
+}
+
+.createImageXButton {
+  width: 15px;
+  cursor: pointer;
+}
+
+.createImagecreateImage {
+  padding-right: 205.0705px;
+}

@@ -13,17 +13,17 @@ function CreateImageModal() {
 
   return (
     <>
-      <button className='createReview-button' onClick={() => setShowModal(true)}>New Review</button>
+      <button className='CreateImage-button' onClick={() => setShowModal(true)}>New Image</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <div className='createReview-modal-container'>
-            <div className='createReview-modal-header'>
-              <img className='createReviewXButton' onClick={onX} src={img}></img>
-              <div className='createReviewcreateReview'>New Review</div>
+          <div className='CreateImage-modal-container'>
+            <div className='CreateImage-modal-header'>
+              <img className='CreateImageXButton' onClick={onX} src={img}></img>
+              <div className='CreateImageCreateImage'>New Image</div>
             </div>
-            <div className='createReview-modal-form'>
-              <div className='createReview-welcome'>Add a review</div>
-              <CreateReview onX={ onX }/>
+            <div className='CreateImage-modal-form'>
+              <div className='CreateImage-welcome'>Add an image</div>
+              <CreateImage onX={ onX }/>
             </div>
           </div>
       </Modal>

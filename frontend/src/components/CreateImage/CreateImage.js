@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, useParams } from "react-router-dom";
-import * as reviewActions from "../../store/reviews";
 import './CreateImage.css'
 import { getAllSpots } from "../../store/spots";
-import { getReviewsBySpotId } from "../../store/reviews";
 import { createImageBySpotId } from "../../store/images";
 import { deleteImageById } from "../../store/images";
 
@@ -33,32 +31,28 @@ const CreateImage = ({ onX }) => {
 
     let data = {
       url: url,
-      // stars: stars,
     };
 
-    dispatch(deleteImageById(44))
+    // dispatch(deleteImageById(44))
 
-    // dispatch(createImageBySpotId(1, data))
-
-    // history.push(`/spots/${spotId}/${ownerId}`)
-    // onX()
-
+    dispatch(createImageBySpotId(spotId, data))
+    onX()
 
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className="createReviewErrorContainer">
+        <div className="createImageErrorContainer">
           <ul>
             {Object.values(errors).map((error, i) => (
-              <li className="createReviewError" key={i}>{error}</li>
+              <li className="createImageError" key={i}>{error}</li>
             ))}
           </ul>
         </div>
-        <div className="createReviewInputContainer">
-          <div className="createReviewInput">
-            <input className="createReviewInputText"
+        <div className="createImageInputContainer">
+          <div className="createImageInput">
+            <input className="createImageInputText"
               type="text"
               placeholder="Url"
               value={url}
@@ -66,20 +60,9 @@ const CreateImage = ({ onX }) => {
               // required
             />
           </div>
-          {/* <div className="createReviewInput">
-            <input className="createReviewInputText"
-              placeholder="Stars"
-              type="number"
-              min="1"
-              max="5"
-              value={stars}
-              onChange={(e) => setStars(e.target.value)}
-              required
-            />
-          </div> */}
-          <button className="createReviewSubmit" type="submit">Create Image</button>
-          {/* <button className="createReviewSubmit" onClick={() => { dispatch(deleteImageById(44)) }}>Delete Image</button> */}
-          <button className="createReviewSubmit" onClick={() => { onX() }}>Go Back</button>
+
+          <button className="createImageSubmit" type="submit">Create Image</button>
+          <button className="createImageSubmit" onClick={() => { onX() }}>Go Back</button>
         </div>
       </form>
     </>
