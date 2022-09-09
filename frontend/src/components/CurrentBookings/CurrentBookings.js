@@ -34,7 +34,7 @@ const CurrentBookings = () => {
   return (
     <div className="current-booking-container">
       <div className="current-booking-inner-container">
-        <h1 className="current-booking-header">Current Bookings</h1>
+        <div className="current-booking-header">Current Bookings</div>
         <div className="current-booking-table-container">
           <table className="current-booking-table" cellSpacing="0">
             <tbody>
@@ -56,6 +56,8 @@ const CurrentBookings = () => {
 
             ))}
           </table>
+        </div>
+        <div className="current-booking-bottom">
           <button className='current-booking-go-back' onClick={() => history.goBack()}>Go Back</button>
         </div>
       </div>

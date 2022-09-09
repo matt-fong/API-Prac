@@ -393,7 +393,8 @@
 .spotDetailReviewCardsContainer {
   display: flex;
   margin-top: 24px;
-  width: 1120px;
+  max-width: 1120px;
+  width: 100%;
 }
 
 .spotDetailReviewCards {

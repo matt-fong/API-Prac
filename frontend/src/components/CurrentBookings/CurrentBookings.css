@@ -4,25 +4,29 @@
 }
 
 .current-booking-inner-container {
-  width: 1120px;
+  width: 1440px;
 }
 
 .current-booking-header {
   display: flex;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
-  padding: 12px
+  padding-top: 36px;
+  padding-bottom: 48px;
+  line-height: 36px;
+  font-size: 32px;
 }
 
 .current-booking-table-container {
-  width: 1120px;
+  max-width: 1440px;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .current-booking-table {
-  width: 1120px;
+  max-width: 1440px;
+  width: 90%;
 }
 
 .current-booking-table-header {
@@ -60,3 +64,7 @@
   background-color: #e51d53;
 }
 
+.current-booking-bottom {
+  display: flex;
+  justify-content: center;
+}

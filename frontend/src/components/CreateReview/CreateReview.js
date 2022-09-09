@@ -82,7 +82,7 @@ const CreateReview = ({ onX }) => {
             />
           </div>
           <button className="createReviewSubmit" type="submit">Create Review</button>
-          <button className="createReviewSubmit" onClick={() => { onX() }}>Go Back</button>
+          {/* <button className="createReviewSubmit" onClick={() => { onX() }}>Go Back</button> */}
         </div>
       </form>
     </>
