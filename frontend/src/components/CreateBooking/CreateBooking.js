@@ -110,6 +110,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
     // }
 
     dispatch(createNewBooking(spotId, data))
+    // console.log('THIS IS RUNNING AFTER DISPATCH')
     // history.push('/my-bookings')
   };
 

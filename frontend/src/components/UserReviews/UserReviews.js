@@ -34,7 +34,7 @@ const UserReviews = () => {
   return (
     <div className="userReviewContainer">
       <div className="userReviewInnerContainer">
-        <h1 className="userReviewHeader">User Reviews</h1>
+        <div className="userReviewHeader">User Reviews</div>
         <div className="userReviewCardContainer">
         <div className="spotLayout">
           {reviews.map((review, i) => (

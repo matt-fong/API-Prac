@@ -20,8 +20,8 @@ const UserSpots = () => {
   };
 
   return (
-    <div className="homePageContainer">
-      <h1 className="userSpotsHeader">My Listings</h1>
+    <div className="userSpotsContainer">
+      <div className="userSpotsHeader">My Listings</div>
       <div className="spotsContainer">
         <div className="spotLayout">
           {userSpots.map((spot, i) => (

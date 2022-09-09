@@ -9,7 +9,10 @@
   display: flex;
   justify-content: center;
   font-family: 'Montserrat', sans-serif;
-  padding: 12px
+  padding-top: 36px;
+  padding-bottom: 48px;
+  line-height: 36px;
+  font-size: 32px;
 }
 
 .userReviewInnerContainer {
