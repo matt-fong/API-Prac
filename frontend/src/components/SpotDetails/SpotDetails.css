@@ -74,13 +74,13 @@
   margin-top: 16px;
 }
 
-.testing1 {
+.spotDetailPictureOne {
   object-fit: cover;
   width: 100%;
   height: 50%;
 }
 
-.testing2 {
+.spotDetailPictureTwo {
   object-fit: cover;
   width: 100%;
   padding-top: 8px;
@@ -88,14 +88,14 @@
   height: 48.39418695678356%
 }
 
-.testing3 {
+.spotDetailPictureThree {
   object-fit: cover;
   width: 100%;
   height: 50%;
   border-radius: 0 12px 0 0;
 }
 
-.testing4 {
+.spotDetailPictureFour {
   object-fit: cover;
   width: 100%;
   padding-top: 8px;
@@ -409,3 +409,20 @@
 /* @media screen and (max-width: 1120px) {
   .spotDetailInnerContainer {width: 750px}
 } */
+
+
+.spotDetailOnePicture {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+.spotDetailOneImage {
+  object-fit: cover;
+  height: 498.19px;
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 12px;
+}

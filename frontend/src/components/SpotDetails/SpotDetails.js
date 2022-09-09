@@ -93,6 +93,41 @@ const SpotDetails = () => {
     dateDiffInt = (new Date(endDate) - new Date(startDate)) / 86400000
   }
 
+  const image1 = (spot?.Images?.[1]?.url) || 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
+  const image2 = (spot?.Images?.[2]?.url) || 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
+  const image3 = (spot?.Images?.[3]?.url) || 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
+  const image4 = (spot?.Images?.[4]?.url) || 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
+
+  let testtest;
+  if ((spot?.Images?.[1]?.url)) {
+    testtest = (
+      <div className='spotDetailPictureContainer'>
+
+          <div className="spotDetailPictureLeft">
+            <img className='spotDetailMainImage' src={spot.previewImage} alt='Spot Detail'/>
+          </div>
+
+          <div className="spotDetailPictureRight">
+            <div className='spotDetailPictureColumnOne'>
+              <img className='spotDetailPictureOne' src={image1} />
+              <img className='spotDetailPictureTwo' src={image2} />
+            </div>
+            <div className='spotDetailPictureColumnTwo'>
+              <img className='spotDetailPictureThree' src={image3} />
+              <img className='spotDetailPictureFour' src={image4} />
+            </div>
+          </div>
+
+        </div>
+    )
+  } else {
+    testtest = (
+      <div className='spotDetailOnePicture'>
+        <img className='spotDetailOneImage' src={spot.previewImage} />
+      </div>
+    )
+  }
+
   return isLoaded && (
     <div className='spotDetailContainer'>
       <div className="spotDetailInnerContainer">
@@ -112,15 +147,9 @@ const SpotDetails = () => {
           </div>
         </div>
 
+        {testtest}
 
         {/* <div className='spotDetailPictureContainer'>
-          <div>
-            <img className='spotDetailImage' src={spot.previewImage} alt='Spot Detail'/>
-          </div>
-          <img src={spot?.Images?.[1]?.url} />
-        </div> */}
-
-        <div className='spotDetailPictureContainer'>
 
           <div className="spotDetailPictureLeft">
             <img className='spotDetailMainImage' src={spot.previewImage} alt='Spot Detail'/>
@@ -128,16 +157,16 @@ const SpotDetails = () => {
 
           <div className="spotDetailPictureRight">
             <div className='spotDetailPictureColumnOne'>
-              <img className='testing1' src={spot?.Images?.[1]?.url} />
-              <img className='testing2' src={spot?.Images?.[2]?.url} />
+              <img className='spotDetailPictureOne' src={spot?.Images?.[1]?.url} />
+              <img className='spotDetailPictureTwo' src={spot?.Images?.[2]?.url} />
             </div>
             <div className='spotDetailPictureColumnTwo'>
-              <img className='testing3' src={spot?.Images?.[3]?.url} />
-              <img className='testing4' src={spot?.Images?.[4]?.url} />
+              <img className='spotDetailPictureThree' src={spot?.Images?.[3]?.url} />
+              <img className='spotDetailPictureFour' src={spot?.Images?.[4]?.url} />
             </div>
           </div>
 
-        </div>
+        </div> */}
 
 
         <div className='spotDetailBodyContainer'>

@@ -46,7 +46,7 @@ const CreateImage = ({ onX }) => {
     }
 
     if (isImage(url) && sessionUser) {
-      dispatch(createImageBySpotId(spotId, data))
+      dispatch(createImageBySpotId(spotId, data)).then(() => dispatch(getAllSpots()))
       onX()
     }
 
