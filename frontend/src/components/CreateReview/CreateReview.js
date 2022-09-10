@@ -8,9 +8,7 @@ import { getReviewsBySpotId } from "../../store/reviews";
 
 const CreateReview = ({ onX }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   let { spotId } = useParams();
-  const { ownerId } = useParams()
 
   spotId = Number(spotId);
 

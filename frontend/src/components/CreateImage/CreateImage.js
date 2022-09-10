@@ -1,24 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import './CreateImage.css'
 import { getAllSpots } from "../../store/spots";
 import { createImageBySpotId } from "../../store/images";
 
 const CreateImage = ({ onX }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   let { spotId } = useParams();
-  const { ownerId } = useParams()
 
   spotId = Number(spotId);
 
   const sessionUser = useSelector(state => state.session.user);
-  const reviews = useSelector((state) => Object.values(state.reviews));
-  const userReview = reviews.find((review) => review.userId === sessionUser.id)
 
   const [url, setUrl] = useState("");
-  const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState([]);
 
   // useEffect(() => {
@@ -68,7 +63,7 @@ const CreateImage = ({ onX }) => {
               placeholder="Image-URL"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
-              // required
+              required
             />
           </div>
 

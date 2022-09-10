@@ -41,13 +41,6 @@ const SpotDetails = () => {
     dispatch(getAllUsers())
   }, [ dispatch, spotId ]);
 
-  // console.log('THIS IS SPOT', spot)
-  // console.log('THIS IS SPOT IMAGES', spot?.Images?.[1])
-  console.log('THIS IS SPOT IMAGES', spot?.Images)
-  // spot.Images.map((image) => {
-  //   console.log(image.url)
-  // })
-
   const handleDelete = (spotId) => {
     dispatch(deleteSpot(spotId));
     history.push('/my-spots')
@@ -57,9 +50,6 @@ const SpotDetails = () => {
   if (!isLoadedd) return null
 
   let createReview;
-  // let editdeleteSpot;
-  let currentBooking;
-  let dateDiffInt;
 
   if (sessionUser && !(spot.ownerId === sessionUser.id)) {
     createReview = (
@@ -69,17 +59,8 @@ const SpotDetails = () => {
     );
   }
 
-  // if (sessionUser && spot.ownerId === sessionUser.id) {
-  //   editdeleteSpot = (
-  //     <>
-  //     <div><CreateImageModal /></div>
-  //     <div className="spotDetailEditReview"><EditSpotModal /></div>
-  //     <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button>
-  //     </>
-  //   )
-  // }
-
   let spotDetailHeaderInfo;
+
   if (sessionUser && spot.ownerId === sessionUser.id) {
     spotDetailHeaderInfo = (
       <div className='spotDetailContainer'>
@@ -109,6 +90,8 @@ const SpotDetails = () => {
     )
   }
 
+  let currentBooking;
+
   if (sessionUser) {
     currentBooking = (
       <div className="spotDetailCheckBookings">
@@ -116,6 +99,8 @@ const SpotDetails = () => {
       </div>
     )
   }
+
+  let dateDiffInt;
 
   if (isNaN((new Date(endDate) - new Date(startDate)) / 86400000) || ((new Date(endDate) - new Date(startDate)) / 86400000) < 0) {
     dateDiffInt = 0;
@@ -128,9 +113,9 @@ const SpotDetails = () => {
   const image3 = (spot?.Images?.[3]?.url) || 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
   const image4 = (spot?.Images?.[4]?.url) || 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
 
-  let testtest;
+  let spotPicture;
   if ((spot?.Images?.[1]?.url)) {
-    testtest = (
+    spotPicture = (
       <div className='spotDetailPictureContainer'>
 
           <div className="spotDetailPictureLeft">
@@ -151,7 +136,7 @@ const SpotDetails = () => {
         </div>
     )
   } else {
-    testtest = (
+    spotPicture = (
       <div className='spotDetailOnePicture'>
         <img className='spotDetailOneImage' src={spot.previewImage} alt='mainpic'/>
       </div>
@@ -165,39 +150,10 @@ const SpotDetails = () => {
 
         <div className='spotDetailHeaderContainer'>
           <div className='spotDetailName'>{spot.name}</div>
-          {/* <div className='spotDetailContainer'>
-            <div className="spotDetailInfo">
-              <i className="fa-solid fa-star"></i>
-              {spot.avgRating} {` · `} {reviews.length} {`reviews`}
-              <div className="spotDetailNumReview"></div>
-              {` · `}
-              <div className="spotDetailLocation">{spot.city}, {spot.state}, {spot.country}</div>
-            </div>
-            {editdeleteSpot}
-          </div> */}
           {spotDetailHeaderInfo}
         </div>
 
-        {testtest}
-
-        {/* <div className='spotDetailPictureContainer'>
-
-          <div className="spotDetailPictureLeft">
-            <img className='spotDetailMainImage' src={spot.previewImage} alt='Spot Detail'/>
-          </div>
-
-          <div className="spotDetailPictureRight">
-            <div className='spotDetailPictureColumnOne'>
-              <img className='spotDetailPictureOne' src={spot?.Images?.[1]?.url} />
-              <img className='spotDetailPictureTwo' src={spot?.Images?.[2]?.url} />
-            </div>
-            <div className='spotDetailPictureColumnTwo'>
-              <img className='spotDetailPictureThree' src={spot?.Images?.[3]?.url} />
-              <img className='spotDetailPictureFour' src={spot?.Images?.[4]?.url} />
-            </div>
-          </div>
-
-        </div> */}
+        {spotPicture}
 
 
         <div className='spotDetailBodyContainer'>

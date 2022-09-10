@@ -13,13 +13,13 @@ function CreateImageModal() {
 
   return (
     <>
-      <button className='CreateImage-button' onClick={() => setShowModal(true)}>New Image</button>
+      <button className='CreateImage-button' onClick={() => setShowModal(true)}>Add Image</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className='CreateImage-modal-container'>
             <div className='CreateImage-modal-header'>
               <img className='CreateImageXButton' onClick={onX} src={img}></img>
-              <div className='CreateImageCreateImage'>New Image</div>
+              <div className='CreateImageCreateImage'>Add Image</div>
             </div>
             <div className='CreateImage-modal-form'>
               <div className='CreateImage-welcome'>Add an image</div>

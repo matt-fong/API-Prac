@@ -57,7 +57,7 @@ const UserBookings = () => {
             <td className="user-booking-table-column">Location</td>
             <td className="user-booking-table-column">Start Date</td>
             <td className="user-booking-table-column">End Date</td>
-            <td className="user-booking-table-column">Edit</td>
+            {/* <td className="user-booking-table-column">Edit</td> */}
             <td className="user-booking-table-column">Delete</td>
           </tr>
         </tbody>
@@ -72,9 +72,9 @@ const UserBookings = () => {
             <td className="user-booking-content-column">{booking.Spot.city}, {booking.Spot.state}</td>
             <td className="user-booking-content-column">{booking.startDate}</td>
             <td className="user-booking-content-column">{booking.endDate}</td>
-            <td className="user-booking-content-column">Edit</td>
+            {/* <td className="user-booking-content-column">Edit</td> */}
             <td className="user-booking-content-column">
-              <button className='user-booking-delete' onClick={() => handleDelete(booking.id)}>Delete Booking</button>
+              <button className='user-booking-delete' onClick={() => handleDelete(booking.id)}>Delete</button>
             </td>
           </tr>
         </tbody>

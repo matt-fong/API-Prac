@@ -6,9 +6,6 @@ import { getBookingsBySpotId } from "../../store/bookings";
 import './CreateBooking.css'
 
 const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate }) => {
-  // const todayDate = (new Date()).toISOString().slice(0,10);
-  // const [startDate, setStartDate] = useState(todayDate);
-  // const [endDate, setEndDate] = useState(todayDate);
   const [errors, setErrors] = useState([]);
   const { spotId } = useParams();
 
@@ -35,52 +32,32 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
   useEffect(() => {
     // dispatch(getBookingsByCurrentUser())
     dispatch(getBookingsBySpotId(spotId))
-  }, []);
+    validations()
+  }, [ errors ]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    let data = {
-      startDate,
-      endDate,
-    };
-
-    // setErrors([]);
-
-    bookings.map((booking) => {
+  let validations = () => {
+    bookings?.map((booking) => {
       let bookedStartDate = (new Date(booking?.startDate) - 0)
       let bookedEndDate = (new Date(booking?.endDate) - 0)
 
       if (startDateNum >= endDateNum) {
-        setErrors({ error : 'endDate cannot be on or before startDate' })
+        setErrors({ error : 'endDate cannot be on or before startDate1' })
       }
 
-      if (startDateNum === bookedStartDate) {
-        setErrors({ error : "Start date conflicts with an existing booking" })
-      }
-
-      if (startDateNum === bookedEndDate) {
-        setErrors({ error : "Start date conflicts with an existing booking" })
-      }
-
-      if (endDateNum === bookedStartDate) {
-        setErrors({ error : "End date conflicts with an existing booking" })
-      }
-
-      if (endDateNum === bookedEndDate) {
-        setErrors({ error : "End date conflicts with an existing booking" })
+      if ((startDateNum === bookedStartDate) || (startDateNum === bookedEndDate) || (endDateNum === bookedStartDate) || (endDateNum === bookedEndDate)) {
+        setErrors({ error : "Start date conflicts with an existing booking2" })
       }
 
       if ((startDateNum > bookedStartDate) && (startDateNum < bookedEndDate)) {
-        setErrors({ error : 'Chosen dates conflicts with an existing booking' })
+        setErrors({ error : 'Chosen dates conflicts with an existing booking3' })
       }
 
       if ((startDateNum < bookedStartDate) && (endDateNum > bookedStartDate) && (endDateNum < bookedEndDate)) {
-        setErrors({ error : 'Chosen dates conflicts with an existing booking' })
+        setErrors({ error : 'Chosen dates conflicts with an existing booking4' })
       }
 
       if ((startDateNum < bookedStartDate) && (endDateNum > bookedEndDate)) {
-        setErrors({ error : 'Chosen dates conflicts with an existing booking' })
+        setErrors({ error : 'Chosen dates conflicts with an existing booking5' })
       }
 
       // if ((startDateNum < endDateNum) && (startDateNum !== bookedStartDate) && (startDateNum !== bookedEndDate) && (endDateNum !== bookedStartDate) && (endDateNum !== bookedEndDate) &&
@@ -96,13 +73,23 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
       // }
 
     })
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    // if (errors.length === 0) {
-    //   dispatch(createNewBooking(spotId, data))
-    //   history.push('/my-bookings')
-    // }
+    let data = {
+      startDate,
+      endDate,
+    };
 
-    dispatch(createNewBooking(spotId, data))
+    // setErrors([]);
+
+    if (errors?.length === 0) {
+      dispatch(createNewBooking(spotId, data))
+      history.push('/my-bookings')
+    }
+
+    // dispatch(createNewBooking(spotId, data))
     // console.log('THIS IS RUNNING AFTER DISPATCH')
     // history.push('/my-bookings')
   };
