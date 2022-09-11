@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { createNewBooking } from "../../store/bookings";
 import { getBookingsBySpotId } from "../../store/bookings";
+import { getBookingsByCurrentUser } from "../../store/bookings"
 import './CreateBooking.css'
 
 const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate }) => {
@@ -68,7 +69,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
     };
 
     if (errors.length === 0) {
-      dispatch(createNewBooking(spotId, data))
+      dispatch(createNewBooking(spotId, data)).then(() => dispatch(getBookingsByCurrentUser()))
       history.push('/my-bookings')
     }
 
