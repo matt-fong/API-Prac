@@ -10,6 +10,7 @@ import UserSpots from "./components/UserSpots/UserSpots";
 import UserReviews from "./components/UserReviews/UserReviews";
 import CurrentBookings from "./components/CurrentBookings/CurrentBookings";
 import UserBookings from "./components/UserBookings/UserBookings";
+import UserPastBookings from "./components/UserBookings/UserPastBookings";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path="/my-reviews">
             <UserReviews isLoaded={isLoaded} />
+          </Route>
+          <Route path="/my-bookings/past">
+            <UserPastBookings />
           </Route>
           <Route path="/my-bookings">
             <UserBookings isLoaded={isLoaded} />

@@ -5,7 +5,7 @@ import { getBookingsByCurrentUser } from "../../store/bookings"
 import { deleteBookingById } from "../../store/bookings";
 import './UserBookings.css'
 
-const UserBookings = () => {
+const UserPastBookings = () => {
   // const bookings = useSelector(state => (state.bookings));
   const bookings = useSelector(state => Object.values(state.bookings));
   // console.log('THIS IS USERS BOOKINGS123123', bookings)
@@ -23,8 +23,10 @@ const UserBookings = () => {
 
   // Filtering bookings so that it does not show past bookings
   const filteredBookings = bookings.filter(function(booking) {
-    return booking.startDate >= todayDate
+    return booking.startDate < todayDate
   })
+
+  console.log('THIS IS PAST BOOKINGS', filteredBookings)
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -72,7 +74,7 @@ const UserBookings = () => {
               <td className="user-booking-table-column">Start Date</td>
               <td className="user-booking-table-column">End Date</td>
               {/* <td className="user-booking-table-column">Edit</td> */}
-              <td className="user-booking-table-column">Delete</td>
+              {/* <td className="user-booking-table-column">Delete</td> */}
             </tr>
           </tbody>
           {Object.values(filteredBookings).map((booking, i) => (
@@ -88,7 +90,7 @@ const UserBookings = () => {
               <td className="user-booking-content-column">{booking.endDate}</td>
               {/* <td className="user-booking-content-column">Edit</td> */}
               <td className="user-booking-content-column">
-                <button className='user-booking-delete' onClick={() => handleDelete(booking.id)}>Delete</button>
+                {/* <button className='user-booking-delete' onClick={() => handleDelete(booking.id)}>Delete</button> */}
               </td>
             </tr>
           </tbody>
@@ -97,7 +99,7 @@ const UserBookings = () => {
         </table>
       </div>
       <div className="user-booking-past-bookings">
-        <NavLink to={`/my-bookings/past`}>Check past bookings</NavLink>
+        <NavLink to={`/my-bookings`}>Check current bookings</NavLink>
       </div>
     </div>
     )
@@ -108,11 +110,11 @@ const UserBookings = () => {
   return (
     <div className="user-booking-container">
       <div className="user-booking-inner-container">
-        <div className="user-booking-header">User Bookings</div>
+        <div className="user-booking-header">User Past Bookings</div>
         {userBookings}
       </div>
     </div>
   );
 }
 
-export default UserBookings;
+export default UserPastBookings;

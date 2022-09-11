@@ -5,6 +5,9 @@
 
 .user-booking-inner-container {
   width: 1440px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .user-booking-header {
@@ -19,13 +22,18 @@
 
 .user-booking-table-container {
   max-width: 1440px;
+  flex-direction: column;
+}
+
+.user-booking-table-inner-container {
   display: flex;
   justify-content: center;
 }
 
+
 .user-booking-table {
   max-width: 1440px;
-  width: 90%;
+  width: 85%;
 }
 
 .user-booking-table-header {
@@ -138,4 +146,13 @@
   vertical-align: bottom;
   width: 66.204167%;
   border-radius: 0 12px 12px 0;
+}
+
+.user-booking-past-bookings {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  font-family: 'Montserrat', sans-serif;
 }

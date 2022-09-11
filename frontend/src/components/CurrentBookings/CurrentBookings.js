@@ -13,9 +13,9 @@ const CurrentBookings = () => {
 
   const todayDate = (new Date()).toISOString().slice(0,10);
 
-  // Sorts current bookings from most recent to furthest away by endDate
+  // Sorts current bookings from most recent to furthest away by startDate
   bookings.sort(function(a, b) {
-    return new Date(a.endDate) - new Date(b.endDate)
+    return new Date(a.startDate) - new Date(b.startDate)
   })
 
   // Filtering bookings so that it does not show past bookings
@@ -57,26 +57,28 @@ const CurrentBookings = () => {
       <div className="current-booking-inner-container">
         <div className="current-booking-header">Current Bookings for {spot?.name}</div>
         <div className="current-booking-table-container">
-          <table className="current-booking-table" cellSpacing="0">
-            <tbody>
-              <tr className="current-booking-table-header">
-                {/* <td className="current-booking-table-column">Name</td> */}
-                <td className="current-booking-table-column">Start Date</td>
-                <td className="current-booking-table-column">End Date</td>
-              </tr>
-            </tbody>
-            {filteredBookings?.map((booking, i) => (
+          <div className="current-booking-table-inner-container">
+            <table className="current-booking-table" cellSpacing="0">
+              <tbody>
+                <tr className="current-booking-table-header">
+                  {/* <td className="current-booking-table-column">Name</td> */}
+                  <td className="current-booking-table-column">Start Date</td>
+                  <td className="current-booking-table-column">End Date</td>
+                </tr>
+              </tbody>
+              {filteredBookings?.map((booking, i) => (
 
-            <tbody key={i}>
-              <tr className="current-booking-content">
-                {/* <td className="current-booking-content-column">{spot.name}</td> */}
-                <td className="current-booking-content-column">{new Date(booking.startDate).toISOString().split('T')[0]}</td>
-                <td className="current-booking-content-column">{new Date(booking.endDate).toISOString().split('T')[0]}</td>
-              </tr>
-            </tbody>
+              <tbody key={i}>
+                <tr className="current-booking-content">
+                  {/* <td className="current-booking-content-column">{spot.name}</td> */}
+                  <td className="current-booking-content-column">{new Date(booking.startDate).toISOString().split('T')[0]}</td>
+                  <td className="current-booking-content-column">{new Date(booking.endDate).toISOString().split('T')[0]}</td>
+                </tr>
+              </tbody>
 
-            ))}
-          </table>
+              ))}
+            </table>
+          </div>
         </div>
         <div className="current-booking-bottom">
           <button className='current-booking-go-back' onClick={() => history.goBack()}>Go Back</button>
