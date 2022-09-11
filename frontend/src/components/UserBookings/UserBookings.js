@@ -80,15 +80,15 @@ const UserBookings = () => {
           <tbody key={i}>
             <tr className="user-booking-content">
               <td className="user-booking-content-column-name">
-                <NavLink to={`/spots/${booking.Spot.id}/${booking.Spot.ownerId}`}>{booking.Spot.name}</NavLink>
+                <NavLink to={`/spots/${booking?.Spot?.id}/${booking?.Spot?.ownerId}`}>{booking?.Spot?.name}</NavLink>
               </td>
-              <td className="user-booking-content-column">{booking.Spot.address}</td>
-              <td className="user-booking-content-column">{booking.Spot.city}, {booking.Spot.state}</td>
-              <td className="user-booking-content-column">{booking.startDate}</td>
-              <td className="user-booking-content-column">{booking.endDate}</td>
+              <td className="user-booking-content-column">{booking?.Spot?.address}</td>
+              <td className="user-booking-content-column">{booking?.Spot?.city}, {booking?.Spot?.state}</td>
+              <td className="user-booking-content-column">{booking?.startDate}</td>
+              <td className="user-booking-content-column">{booking?.endDate}</td>
               {/* <td className="user-booking-content-column">Edit</td> */}
               <td className="user-booking-content-column">
-                <button className='user-booking-delete' onClick={() => handleDelete(booking.id)}>Delete</button>
+                <button className='user-booking-delete' onClick={() => handleDelete(booking?.id)}>Delete</button>
               </td>
             </tr>
           </tbody>
