@@ -11,6 +11,20 @@ const CurrentBookings = () => {
   // console.log('THIS IS USERS BOOKINGS', bookings)
   // console.log('THIS IS BOOOOOOOOKINGS', new Date(bookings[0]?.endDate).toISOString().split('T')[0])
 
+  const todayDate = (new Date()).toISOString().slice(0,10);
+
+  // Sorts current bookings from most recent to furthest away by endDate
+  bookings.sort(function(a, b) {
+    return new Date(a.endDate) - new Date(b.endDate)
+  })
+
+  // Filtering bookings so that it does not show past bookings
+  const filteredBookings = bookings.filter(function(booking) {
+    return booking.startDate >= todayDate
+  })
+
+  // console.log('THIS IS FILTERED BOOKINGS', filteredBookings)
+
   const spots = useSelector((state) => (state.spots));
   // console.log('THIS IS SPOTS', spots)
 
@@ -41,7 +55,7 @@ const CurrentBookings = () => {
   return (
     <div className="current-booking-container">
       <div className="current-booking-inner-container">
-        <div className="current-booking-header">Current Bookings for {spot.name}</div>
+        <div className="current-booking-header">Current Bookings for {spot?.name}</div>
         <div className="current-booking-table-container">
           <table className="current-booking-table" cellSpacing="0">
             <tbody>
@@ -51,7 +65,7 @@ const CurrentBookings = () => {
                 <td className="current-booking-table-column">End Date</td>
               </tr>
             </tbody>
-            {bookings?.map((booking, i) => (
+            {filteredBookings?.map((booking, i) => (
 
             <tbody key={i}>
               <tr className="current-booking-content">
