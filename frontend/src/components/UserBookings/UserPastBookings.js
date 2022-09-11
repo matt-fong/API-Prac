@@ -16,14 +16,14 @@ const UserPastBookings = () => {
 
   const todayDate = (new Date()).toISOString().slice(0,10);
 
-  // Sorts current bookings from most recent to furthest away by startDate
+  // Sorts current bookings from most recent to furthest away by endDate
   bookings.sort(function(a, b) {
-    return new Date(a.startDate) - new Date(b.startDate)
+    return new Date(a.endDate) - new Date(b.endDate)
   })
 
   // Filtering bookings so that it does not show past bookings
   const filteredBookings = bookings.filter(function(booking) {
-    return booking.startDate < todayDate
+    return booking.endDate < todayDate
   })
 
   console.log('THIS IS PAST BOOKINGS', filteredBookings)

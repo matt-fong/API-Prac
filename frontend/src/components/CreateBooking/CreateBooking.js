@@ -14,6 +14,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
   const history = useHistory();
 
   const bookings = useSelector(state => Object.values(state.bookings));
+  console.log('THIS IS BOOKINGS', bookings)
 
   const startDateNum = new Date(startDate) - 0
   const endDateNum = new Date(endDate) - 0
