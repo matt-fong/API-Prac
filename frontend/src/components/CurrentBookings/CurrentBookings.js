@@ -3,24 +3,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { deleteBookingById } from "../../store/bookings";
 import { getBookingsBySpotId } from "../../store/bookings";
+import { getAllSpots } from "../../store/spots";
 import './CurrentBookings.css'
 
 const CurrentBookings = () => {
   const bookings = useSelector(state => Object.values(state.bookings));
-  console.log('THIS IS USERS BOOKINGS123123', bookings)
-
+  // console.log('THIS IS USERS BOOKINGS', bookings)
   // console.log('THIS IS BOOOOOOOOKINGS', new Date(bookings[0]?.endDate).toISOString().split('T')[0])
+
+  const spots = useSelector((state) => (state.spots));
+  // console.log('THIS IS SPOTS', spots)
+
+  const { spotId } = useParams()
+
+  const spot = spots[spotId]
+  // console.log('THIS IS SINGLE SPOT', spot)
 
   const [isLoaded, setIsLoaded] = useState(false);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { spotId } = useParams()
 
   useEffect(() => {
     // dispatch(getBookingsByCurrentUser()).then(() => setIsLoaded(true))
-    // dispatch(getAllSpots()).then(() => setIsLoaded(true));
+    dispatch(getAllSpots()).then(() => setIsLoaded(true));
     // dispatch(getBookingsBySpotId(1))
     dispatch(getBookingsBySpotId(spotId)).then(() => setIsLoaded(true))
   }, []);
@@ -34,12 +41,12 @@ const CurrentBookings = () => {
   return (
     <div className="current-booking-container">
       <div className="current-booking-inner-container">
-        <div className="current-booking-header">Current Bookings</div>
+        <div className="current-booking-header">Current Bookings for {spot.name}</div>
         <div className="current-booking-table-container">
           <table className="current-booking-table" cellSpacing="0">
             <tbody>
               <tr className="current-booking-table-header">
-                <td className="current-booking-table-column">Spot ID</td>
+                {/* <td className="current-booking-table-column">Name</td> */}
                 <td className="current-booking-table-column">Start Date</td>
                 <td className="current-booking-table-column">End Date</td>
               </tr>
@@ -48,7 +55,7 @@ const CurrentBookings = () => {
 
             <tbody key={i}>
               <tr className="current-booking-content">
-                <td className="current-booking-content-column">{booking.spotId}</td>
+                {/* <td className="current-booking-content-column">{spot.name}</td> */}
                 <td className="current-booking-content-column">{new Date(booking.startDate).toISOString().split('T')[0]}</td>
                 <td className="current-booking-content-column">{new Date(booking.endDate).toISOString().split('T')[0]}</td>
               </tr>

@@ -162,7 +162,7 @@ const SpotDetails = () => {
             <div className='spotDetailHostContainer'>
 
               <div className="spotDetailHostLeft">
-                <div className="spotDetailHostedBy">Entire home hosted by {spotOwner.firstName}{' '}{spotOwner.lastName}</div>
+                <div className="spotDetailHostedBy">Entire home hosted by {spotOwner?.firstName}{' '}{spotOwner.lastName}</div>
                 <div className="spotDetailSpecs">
                   <div className="spotDetailSpecsGuest">2 guests</div>
                   <div className="spotDetailSpecsBedroom">{` · `}1 bedroom</div>
@@ -190,7 +190,7 @@ const SpotDetails = () => {
               <div className="spotDetailHighlightTwo">
                 <i className="fa-solid fa-medal fa-xl spot-detail-icons"></i>
                 <div>
-                  <div className="spotDetailHighlightUppertext">{`${spotOwner.firstName} is a Superhost`}</div>
+                  <div className="spotDetailHighlightUppertext">{`${spotOwner?.firstName} is a Superhost`}</div>
                   <div className="spotDetailHighlightUndertext">Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.</div>
                 </div>
               </div>
