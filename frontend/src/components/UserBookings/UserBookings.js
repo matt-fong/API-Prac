@@ -108,7 +108,7 @@ const UserBookings = () => {
   return (
     <div className="user-booking-container">
       <div className="user-booking-inner-container">
-        <div className="user-booking-header">User Bookings</div>
+        <div className="user-booking-header">Current Bookings</div>
         {userBookings}
       </div>
     </div>

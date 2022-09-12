@@ -110,7 +110,7 @@ const UserPastBookings = () => {
   return (
     <div className="user-booking-container">
       <div className="user-booking-inner-container">
-        <div className="user-booking-header">User Past Bookings</div>
+        <div className="user-booking-header">Past Bookings</div>
         {userBookings}
       </div>
     </div>
