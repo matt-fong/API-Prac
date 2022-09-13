@@ -128,6 +128,17 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
               max="9999-12-31"
               />
           </div>
+          {/* <div>
+          <select name="pets" className="CreateBookingGuest">
+            <option className='CreateBookingGuestDropdown' value="">Guests</option>
+            <option className='CreateBookingGuestDropdown' value="dog">1</option>
+            <option className='CreateBookingGuestDropdown' value="cat">2</option>
+            <option className='CreateBookingGuestDropdown' value="hamster">3</option>
+            <option className='CreateBookingGuestDropdown' value="parrot">4</option>
+            <option className='CreateBookingGuestDropdown' value="spider">5</option>
+            <option className='CreateBookingGuestDropdown' value="goldfish">6</option>
+            </select>
+          </div> */}
 
           <div className="CreateBookingGuest">
             <div className="CreateBookingGuestOne">Guests</div>

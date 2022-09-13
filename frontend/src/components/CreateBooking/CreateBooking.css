@@ -86,7 +86,6 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   border-bottom: 1px solid #bbbbbb;
   border-left: 1px solid #bbbbbb;
   border-right: 1px solid #bbbbbb;
@@ -95,7 +94,16 @@ ul {
   padding-left: 12px;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 16px;
+
+  /* width: 100%; */
+  /* border-top: 0 solid #bbbbbb; */
+  /* padding:12px */
+  /* align-items: center; */
 }
+
+/* .CreateBookingGuestDropdown {
+  display: flex;
+} */
 
 .CreateBookingGuestOne {
   font-weight: 500;
