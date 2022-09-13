@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { createNewBooking } from "../../store/bookings";
 import { getBookingsBySpotId } from "../../store/bookings";
 import { getBookingsByCurrentUser } from "../../store/bookings"
-import { getAllSpots } from "../../store/spots";
 import './CreateBooking.css'
 
 const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate }) => {
@@ -55,7 +54,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
         errors.push('Chosen dates conflicts with an existing booking')
       }
 
-      setErrors(errors)
+      return setErrors(errors)
     })
   }
 
@@ -85,17 +84,18 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
 
     // console.log('THIS IS LAST BOOKING ID INSIDE', lastBook?.id)
 
+    if (spot.ownerId === sessionUser.id) {
+      let errors = []
+      errors.push('User cannot book their own spot')
+      setErrors(errors)
+    }
+
     if (errors.length === 0 && spot.ownerId !== sessionUser.id) {
       dispatch(createNewBooking(spotId, data)).then(() => dispatch(getBookingsByCurrentUser()))
       history.push('/my-bookings')
       // console.log('THIS IS THE LAST BOOKING', bookings[bookings.length - 1])
       // console.log('THIS IS LAST BOOKING INSIDE', lastBook)
       // console.log('THIS IS LAST BOOKING ID INSIDE', lastBook?.id)
-      // history.push(`/confirmed/${spot.id}/${lastBook?.id + 1}`)
-    } else {
-      let errors = []
-      errors.push('User cannot book their own spot')
-      setErrors(errors)
     }
 
   };

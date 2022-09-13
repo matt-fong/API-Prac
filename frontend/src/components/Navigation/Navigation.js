@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginModal from '../LoginFormModal/LoginFormModal';
@@ -12,8 +12,6 @@ function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
-
-  const history = useHistory();
 
   if (sessionUser) {
     sessionLinks = (
@@ -34,11 +32,10 @@ function Navigation({ isLoaded }){
     <div className='navContainer'>
       <div className='navBar'>
           <NavLink exact to="/">
-          <img className='logo' src={logo} ></img>
+          <img className='logo' src={logo} alt=''></img>
           </NavLink>
           <div className='navBarLeftSide'>
             <div className='navBarButtons'>
-              {/* <div className='becomeAHost' onClick={() => history.push("/create-spot")}>Become a host</div> */}
               <div className='becomeAHost'><CreateSpotModal /></div>
               <div className='navBarLoaded'>{isLoaded && sessionLinks}</div>
             </div>

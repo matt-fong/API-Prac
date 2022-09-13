@@ -18,7 +18,7 @@ function LoginModal() {
         <Modal onClose={() => setShowModal(false)}>
           <div className='login-modal-container'>
             <div className='login-modal-header'>
-              <img className='loginXButton' onClick={onX} src={img}></img>
+              <img className='loginXButton' onClick={onX} src={img} alt=''></img>
               <div className='loginLogin'>Log in</div>
             </div>
             <div className='login-modal-form'>

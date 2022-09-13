@@ -18,7 +18,7 @@ function SignUpFormModal() {
         <Modal onClose={() => setShowModal(false)}>
           <div className='signup-modal-container'>
             <div className='signup-modal-header'>
-            <img className='signupXButton' onClick={onX} src={img}></img>
+            <img className='signupXButton' onClick={onX} src={img} alt=''></img>
               <div className='signupSignup'>Sign up</div>
             </div>
             <div className='signup-modal-form'>

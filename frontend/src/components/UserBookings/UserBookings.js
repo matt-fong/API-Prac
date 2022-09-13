@@ -8,7 +8,7 @@ import './UserBookings.css'
 const UserBookings = () => {
   // const bookings = useSelector(state => (state.bookings));
   const bookings = useSelector(state => Object.values(state.bookings));
-  console.log('THIS IS USERS BOOKINGS123123', bookings)
+  // console.log('THIS IS USERS BOOKINGS123123', bookings)
 
   // console.log('BOOLEAN', Object.keys(bookings).length === 0)
 
@@ -35,7 +35,7 @@ const UserBookings = () => {
     dispatch(getBookingsByCurrentUser()).then(() => setIsLoaded(true))
     // dispatch(getAllSpots()).then(() => setIsLoaded(true));
     // dispatch(getBookingsBySpotId(1))
-  }, []);
+  }, [ dispatch ]);
 
   if (!isLoaded) return null
 
@@ -50,12 +50,12 @@ const UserBookings = () => {
       <div className="user-booking-notrip-container">
         <div className="user-booking-notrip-inner-container">
           <div className="user-booking-notrip-left">
-            <img className="user-booking-notrip-hand" src='https://images.emojiterra.com/google/android-10/512px/1f44b.png' ></img>
+            <img className="user-booking-notrip-hand" src='https://images.emojiterra.com/google/android-10/512px/1f44b.png' alt=''></img>
             <div className="user-booking-notrip-header">No trips booked...yet!</div>
             <div className="user-booking-notrip-undertext">Time to dust off your bags and start planning your next adventure</div>
             <button className="user-booking-notrip-search" onClick={() => history.push('/')}>Start searching</button>
           </div>
-          <img className="user-booking-notrip-right" src='https://a0.muscache.com/im/pictures/d727f355-3f10-44b5-9750-d1efca2438fc.jpg?im_w=720'></img>
+          <img className="user-booking-notrip-right" src='https://a0.muscache.com/im/pictures/d727f355-3f10-44b5-9750-d1efca2438fc.jpg?im_w=720' alt=''></img>
         </div>
       </div>
     )
