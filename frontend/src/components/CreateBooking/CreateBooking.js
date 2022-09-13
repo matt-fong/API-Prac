@@ -14,17 +14,19 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
   const spots = useSelector((state) => (state.spots));
 
   const spot = spots[spotId]
+  console.log('THIS IS SPOT', spot)
 
   const sessionUser = useSelector(state => state.session.user);
+  console.log('THIS IS USER', sessionUser)
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   const bookings = useSelector(state => Object.values(state.bookings));
-  console.log('THIS IS BOOKINGS OUTSIDE', bookings)
+  // console.log('THIS IS BOOKINGS OUTSIDE', bookings)
 
   const lastBook = bookings[bookings.length - 1]
-  console.log('THIS IS LAST BOOKING OUTSIDE', lastBook)
+  // console.log('THIS IS LAST BOOKING OUTSIDE', lastBook)
   // console.log('THIS IS LAST BOOKING ID', lastBook?.id)
   // console.log('THIS IS THE LAST BOOKING', bookings[bookings.length - 1])
 
@@ -83,13 +85,17 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
 
     // console.log('THIS IS LAST BOOKING ID INSIDE', lastBook?.id)
 
-    if (errors.length === 0 && lastBook) {
+    if (errors.length === 0 && spot.ownerId !== sessionUser.id) {
       dispatch(createNewBooking(spotId, data)).then(() => dispatch(getBookingsByCurrentUser()))
-      // history.push('/my-bookings')
+      history.push('/my-bookings')
       // console.log('THIS IS THE LAST BOOKING', bookings[bookings.length - 1])
       // console.log('THIS IS LAST BOOKING INSIDE', lastBook)
-      console.log('THIS IS LAST BOOKING ID INSIDE', lastBook?.id)
+      // console.log('THIS IS LAST BOOKING ID INSIDE', lastBook?.id)
       // history.push(`/confirmed/${spot.id}/${lastBook?.id + 1}`)
+    } else {
+      let errors = []
+      errors.push('User cannot book their own spot')
+      setErrors(errors)
     }
 
   };
