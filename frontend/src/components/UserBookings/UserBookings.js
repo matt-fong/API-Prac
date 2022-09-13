@@ -8,7 +8,7 @@ import './UserBookings.css'
 const UserBookings = () => {
   // const bookings = useSelector(state => (state.bookings));
   const bookings = useSelector(state => Object.values(state.bookings));
-  // console.log('THIS IS USERS BOOKINGS123123', bookings)
+  console.log('THIS IS USERS BOOKINGS123123', bookings)
 
   // console.log('BOOLEAN', Object.keys(bookings).length === 0)
 

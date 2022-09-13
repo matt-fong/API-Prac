@@ -162,7 +162,7 @@ const SpotDetails = () => {
             <div className='spotDetailHostContainer'>
 
               <div className="spotDetailHostLeft">
-                <div className="spotDetailHostedBy">Entire home hosted by {spotOwner?.firstName}{' '}{spotOwner.lastName}</div>
+                <div className="spotDetailHostedBy">Entire home hosted by {spotOwner?.firstName}{' '}{spotOwner?.lastName}</div>
                 <div className="spotDetailSpecs">
                   <div className="spotDetailSpecsGuest">2 guests</div>
                   <div className="spotDetailSpecsBedroom">{` · `}1 bedroom</div>

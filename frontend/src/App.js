@@ -11,6 +11,7 @@ import UserReviews from "./components/UserReviews/UserReviews";
 import CurrentBookings from "./components/CurrentBookings/CurrentBookings";
 import UserBookings from "./components/UserBookings/UserBookings";
 import UserPastBookings from "./components/UserBookings/UserPastBookings";
+import BookingConfirmed from "./components/BookingConfirmed/BookingConfirmed";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route path="/current-bookings/:spotId">
             <CurrentBookings />
+          </Route>
+          <Route path="/confirmed/:spotId/:bookingId">
+            <BookingConfirmed />
           </Route>
         </Switch>
       )}

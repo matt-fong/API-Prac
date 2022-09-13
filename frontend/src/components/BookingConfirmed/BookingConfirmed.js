@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { createNewBooking } from "../../store/bookings";
 import { getBookingsBySpotId } from "../../store/bookings";
 import { getBookingsByCurrentUser } from "../../store/bookings"
-import { getAllSpots } from "../../store/spots";
-import './CreateBooking.css'
+import './BookingConfirmed.css'
 
-const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate }) => {
+const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endDate }) => {
   const [errors, setErrors] = useState([]);
   const { spotId } = useParams();
+  const { bookingId } = useParams();
 
   const spots = useSelector((state) => (state.spots));
 
@@ -20,47 +20,49 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const bookings = useSelector(state => Object.values(state.bookings));
-  console.log('THIS IS BOOKINGS OUTSIDE', bookings)
+  const bookings = useSelector(state => (state.bookings));
+  console.log('THIS IS BOOKINGS', bookings)
+  const confirmedBooking = bookings[bookingId]
 
-  const lastBook = bookings[bookings.length - 1]
-  console.log('THIS IS LAST BOOKING OUTSIDE', lastBook)
-  // console.log('THIS IS LAST BOOKING ID', lastBook?.id)
+  console.log('THIS IS CONFIRMED BOOKING', confirmedBooking)
+
+  // const lastBook = bookings[bookings.length - 1]
+  // console.log('THIS IS LAST BOOKING ID', lastBook.id)
   // console.log('THIS IS THE LAST BOOKING', bookings[bookings.length - 1])
 
   const startDateNum = new Date(startDate) - 0
   const endDateNum = new Date(endDate) - 0
 
-  const validations = () => {
-    let errors = []
-    bookings?.map((booking) => {
-      let bookedStartDate = (new Date(booking?.startDate) - 0)
-      let bookedEndDate = (new Date(booking?.endDate) - 0)
+  // const validations = () => {
+  //   let errors = []
+  //   bookings?.map((booking) => {
+  //     let bookedStartDate = (new Date(booking?.startDate) - 0)
+  //     let bookedEndDate = (new Date(booking?.endDate) - 0)
 
-      if (startDateNum >= endDateNum) {
-        errors.push('Checkout cannot be the same as or before Check-in')
-      }
-      if ((startDateNum === bookedStartDate) || (startDateNum === bookedEndDate) || (endDateNum === bookedStartDate) || (endDateNum === bookedEndDate)) {
-        errors.push("Chosen dates conflicts with an existing booking")
-      }
-      if ((startDateNum > bookedStartDate) && (startDateNum < bookedEndDate)) {
-        errors.push('Chosen dates conflicts with an existing booking')
-      }
-      if ((startDateNum < bookedStartDate) && (endDateNum > bookedStartDate) && (endDateNum < bookedEndDate)) {
-        errors.push('Chosen dates conflicts with an existing booking')
-      }
-      if ((startDateNum < bookedStartDate) && (endDateNum > bookedEndDate)) {
-        errors.push('Chosen dates conflicts with an existing booking')
-      }
+  //     if (startDateNum >= endDateNum) {
+  //       errors.push('Checkout cannot be the same as or before Check-in')
+  //     }
+  //     if ((startDateNum === bookedStartDate) || (startDateNum === bookedEndDate) || (endDateNum === bookedStartDate) || (endDateNum === bookedEndDate)) {
+  //       errors.push("Chosen dates conflicts with an existing booking")
+  //     }
+  //     if ((startDateNum > bookedStartDate) && (startDateNum < bookedEndDate)) {
+  //       errors.push('Chosen dates conflicts with an existing booking')
+  //     }
+  //     if ((startDateNum < bookedStartDate) && (endDateNum > bookedStartDate) && (endDateNum < bookedEndDate)) {
+  //       errors.push('Chosen dates conflicts with an existing booking')
+  //     }
+  //     if ((startDateNum < bookedStartDate) && (endDateNum > bookedEndDate)) {
+  //       errors.push('Chosen dates conflicts with an existing booking')
+  //     }
 
-      setErrors(errors)
-    })
-  }
+  //     setErrors(errors)
+  //   })
+  // }
 
   useEffect(() => {
-    // dispatch(getBookingsByCurrentUser())
-    dispatch(getBookingsBySpotId(spotId))
-    validations()
+    dispatch(getBookingsByCurrentUser())
+    // dispatch(getBookingsBySpotId(spotId))
+    // validations()
   }, [ startDateNum, endDateNum ]);
 
   let errorsli;
@@ -81,15 +83,11 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
       endDate,
     };
 
-    // console.log('THIS IS LAST BOOKING ID INSIDE', lastBook?.id)
-
-    if (errors.length === 0 && lastBook) {
+    if (errors.length === 0) {
       dispatch(createNewBooking(spotId, data)).then(() => dispatch(getBookingsByCurrentUser()))
       // history.push('/my-bookings')
       // console.log('THIS IS THE LAST BOOKING', bookings[bookings.length - 1])
-      // console.log('THIS IS LAST BOOKING INSIDE', lastBook)
-      console.log('THIS IS LAST BOOKING ID INSIDE', lastBook?.id)
-      // history.push(`/confirmed/${spot.id}/${lastBook?.id + 1}`)
+      // history.push(`/confirmed/${spot.id}/${lastBook.id}`)
     }
 
   };
@@ -138,4 +136,4 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
   );
 }
 
-export default CreateBooking;
+export default BookingConfirmed;
