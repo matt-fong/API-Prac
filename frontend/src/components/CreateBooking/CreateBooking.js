@@ -90,6 +90,9 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
       // history.push('/my-bookings')
 
       const lastBook = bookings[bookings.length - 1]
+
+      history.push(`/confirmed/${spotId}/${lastBook?.id}`)
+
       console.log('THIS IS LAST BOOKING', lastBook)
       console.log('THIS IS LAST BOOKING ID', lastBook?.id)
     }

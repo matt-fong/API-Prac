@@ -21,10 +21,10 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
   const history = useHistory();
 
   const bookings = useSelector(state => (state.bookings));
-  console.log('THIS IS BOOKINGS', bookings)
-  const confirmedBooking = bookings[bookingId]
+  // console.log('THIS IS BOOKINGS', bookings)
+  // const confirmedBooking = bookings[bookingId]
 
-  console.log('THIS IS CONFIRMED BOOKING', confirmedBooking)
+  // console.log('THIS IS CONFIRMED BOOKING', confirmedBooking)
 
   // const lastBook = bookings[bookings.length - 1]
   // console.log('THIS IS LAST BOOKING ID', lastBook.id)
