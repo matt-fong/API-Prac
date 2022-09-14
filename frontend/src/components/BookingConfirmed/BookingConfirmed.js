@@ -7,9 +7,10 @@ import { getBookingsByCurrentUser } from "../../store/bookings"
 import './BookingConfirmed.css'
 
 const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endDate }) => {
-  const [errors, setErrors] = useState([]);
   const { spotId } = useParams();
   const { bookingId } = useParams();
+  console.log('THIS IS SPOTID', spotId)
+  console.log('THIS IS BOOKINGID', bookingId)
 
   const spots = useSelector((state) => (state.spots));
 
@@ -21,43 +22,12 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
   const history = useHistory();
 
   const bookings = useSelector(state => (state.bookings));
-  // console.log('THIS IS BOOKINGS', bookings)
-  // const confirmedBooking = bookings[bookingId]
-
-  // console.log('THIS IS CONFIRMED BOOKING', confirmedBooking)
-
-  // const lastBook = bookings[bookings.length - 1]
-  // console.log('THIS IS LAST BOOKING ID', lastBook.id)
-  // console.log('THIS IS THE LAST BOOKING', bookings[bookings.length - 1])
+  console.log('THIS IS BOOKINGS', bookings)
+  const currentBooked = bookings[bookingId]
+  console.log('THIS IS CURRENT BOOKED', currentBooked)
 
   const startDateNum = new Date(startDate) - 0
   const endDateNum = new Date(endDate) - 0
-
-  // const validations = () => {
-  //   let errors = []
-  //   bookings?.map((booking) => {
-  //     let bookedStartDate = (new Date(booking?.startDate) - 0)
-  //     let bookedEndDate = (new Date(booking?.endDate) - 0)
-
-  //     if (startDateNum >= endDateNum) {
-  //       errors.push('Checkout cannot be the same as or before Check-in')
-  //     }
-  //     if ((startDateNum === bookedStartDate) || (startDateNum === bookedEndDate) || (endDateNum === bookedStartDate) || (endDateNum === bookedEndDate)) {
-  //       errors.push("Chosen dates conflicts with an existing booking")
-  //     }
-  //     if ((startDateNum > bookedStartDate) && (startDateNum < bookedEndDate)) {
-  //       errors.push('Chosen dates conflicts with an existing booking')
-  //     }
-  //     if ((startDateNum < bookedStartDate) && (endDateNum > bookedStartDate) && (endDateNum < bookedEndDate)) {
-  //       errors.push('Chosen dates conflicts with an existing booking')
-  //     }
-  //     if ((startDateNum < bookedStartDate) && (endDateNum > bookedEndDate)) {
-  //       errors.push('Chosen dates conflicts with an existing booking')
-  //     }
-
-  //     setErrors(errors)
-  //   })
-  // }
 
   useEffect(() => {
     dispatch(getBookingsByCurrentUser())
@@ -65,72 +35,16 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
     // validations()
   }, [ startDateNum, endDateNum ]);
 
-  let errorsli;
-
-  if (errors.length > 0) {
-    errorsli = (
-      <ul>
-        <li>{errors[0]}</li>
-      </ul>
-    )
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    let data = {
-      startDate,
-      endDate,
-    };
-
-    if (errors.length === 0) {
-      dispatch(createNewBooking(spotId, data)).then(() => dispatch(getBookingsByCurrentUser()))
-      // history.push('/my-bookings')
-      // console.log('THIS IS THE LAST BOOKING', bookings[bookings.length - 1])
-      // history.push(`/confirmed/${spot.id}/${lastBook.id}`)
-    }
-
-  };
-
   return (
-    <div className="CreateBookingFormOutside">
-      <div className='CreateBookingFormContainer'>
-        <form className='CreateBookingform' onSubmit={handleSubmit}>
-          <div className="CreateBookingErrorsContainer">
-            {errorsli}
+    <div className="booking-confirmed-container">
+      <div className="booking-confirmed-inner-container">
+        <div className="booking-confirmed-image">IMAGE</div>
+        <div className="booking-confirmed-detail-container">
+          <div className="booking-confirmed-check-container">
+            <div className="booking-confirmed-checkin">CHECK IN</div>
+            <div className="booking-confirmed-checkout">CHECKOUT</div>
           </div>
-          <div className="CreateBookingDiv">
-            <input className="CreateBookingInputCheckin"
-              type="date"
-              placeholder="mm/dd/yyyy"
-              // value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              required
-              min={todayDate}
-              max={"9999-12-31"}
-              />
-
-            <input className="CreateBookingInputCheckout"
-              type="date"
-              placeholder="mm/dd/yyyy"
-              // value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              required
-              min={todayDate}
-              max="9999-12-31"
-              />
-          </div>
-
-          <div className="CreateBookingGuest">
-            <div className="CreateBookingGuestOne">Guests</div>
-            <div className="CreateBookingGuestTwo">2 guests</div>
-          </div>
-
-          <div className="CreateBookingContainer">
-            <input className="CreateBookingSubmit" type="Submit" defaultValue='Reserve' />
-          </div>
-
-        </form>
+        </div>
       </div>
     </div>
   );

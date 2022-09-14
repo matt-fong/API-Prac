@@ -22,7 +22,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
   const history = useHistory();
 
   const bookings = useSelector(state => Object.values(state.bookings));
-  console.log('THIS IS ALL BOOKINGS', bookings)
+  // console.log('THIS IS ALL BOOKINGS', bookings)
 
   const startDateNum = new Date(startDate) - 0
   const endDateNum = new Date(endDate) - 0
@@ -77,8 +77,6 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
       endDate,
     };
 
-    // console.log('THIS IS LAST BOOKING ID INSIDE', lastBook?.id)
-
     if (spot.ownerId === sessionUser.id) {
       let errors = []
       errors.push('User cannot book their own spot')
@@ -89,14 +87,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
       // dispatch(createNewBooking(spotId, data)).then(() => dispatch(getBookingsByCurrentUser()))
       // history.push('/my-bookings')
 
-      // dispatch(createNewBooking(spotId, data)).then((res) => console.log('THIS IS RESPONSE ID', res.booking.id))
       dispatch(createNewBooking(spotId, data)).then((res) => history.push(`/confirmed/${spotId}/${res.booking.id}`))
-      const lastBook = bookings[bookings.length - 1]
-
-      // history.push(`/confirmed/${spotId}/${res.booking.id}`)
-
-      console.log('THIS IS LAST BOOKING', lastBook)
-      console.log('THIS IS LAST BOOKING ID', lastBook?.id)
     }
 
   };

@@ -1,0 +1,33 @@
+.booking-confirmed-container {
+  width: 620px;
+  border: 1px solid black;
+}
+
+.booking-confirmed-inner-container {
+  padding: 12px 12px 0
+}
+
+.booking-confirmed-image {
+  margin-bottom: 8px;
+}
+
+.booking-confirmed-detail-container {
+  padding-left: 24px;
+  padding-right: 24px
+}
+
+.booking-confirmed-check-container {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+}
+
+.booking-confirmed-checkin {
+  width: 50%;
+  padding-right: 24px
+}
+
+.booking-confirmed-checkout {
+  width: 50%;
+  padding-left: 24px
+}
