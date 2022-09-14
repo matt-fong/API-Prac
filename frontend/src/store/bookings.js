@@ -56,8 +56,9 @@ export const createNewBooking = (spotId, bookingData) => async (dispatch) => {
     const data = await res.json();
     // console.log('THIS IS THE CREATE BOOKING DATA', data)
     dispatch(createBookings(data));
+    return data
   }
-  return res;
+  // return res;
 };
 
 export const getBookings = (bookings) => {
