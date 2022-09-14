@@ -13,21 +13,16 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
   const spots = useSelector((state) => (state.spots));
 
   const spot = spots[spotId]
-  console.log('THIS IS SPOT', spot)
+  // console.log('THIS IS SPOT', spot)
 
   const sessionUser = useSelector(state => state.session.user);
-  console.log('THIS IS USER', sessionUser)
+  // console.log('THIS IS USER', sessionUser)
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   const bookings = useSelector(state => Object.values(state.bookings));
-  // console.log('THIS IS BOOKINGS OUTSIDE', bookings)
-
-  const lastBook = bookings[bookings.length - 1]
-  // console.log('THIS IS LAST BOOKING OUTSIDE', lastBook)
-  // console.log('THIS IS LAST BOOKING ID', lastBook?.id)
-  // console.log('THIS IS THE LAST BOOKING', bookings[bookings.length - 1])
+  console.log('THIS IS ALL BOOKINGS', bookings)
 
   const startDateNum = new Date(startDate) - 0
   const endDateNum = new Date(endDate) - 0
@@ -92,10 +87,11 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
 
     if (errors.length === 0 && spot.ownerId !== sessionUser.id) {
       dispatch(createNewBooking(spotId, data)).then(() => dispatch(getBookingsByCurrentUser()))
-      history.push('/my-bookings')
-      // console.log('THIS IS THE LAST BOOKING', bookings[bookings.length - 1])
-      // console.log('THIS IS LAST BOOKING INSIDE', lastBook)
-      // console.log('THIS IS LAST BOOKING ID INSIDE', lastBook?.id)
+      // history.push('/my-bookings')
+
+      const lastBook = bookings[bookings.length - 1]
+      console.log('THIS IS LAST BOOKING', lastBook)
+      console.log('THIS IS LAST BOOKING ID', lastBook?.id)
     }
 
   };
