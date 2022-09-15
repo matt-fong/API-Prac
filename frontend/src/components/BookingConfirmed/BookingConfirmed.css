@@ -4,16 +4,23 @@
 }
 
 .booking-confirmed-inner-container {
-  padding: 12px 12px 0
+  margin: 12px 12px 0;
+  border: 1px solid black;
 }
 
 .booking-confirmed-image {
   margin-bottom: 8px;
 }
 
-.booking-confirmed-detail-container {
+.booking-confirmed-information-container {
   padding-left: 24px;
-  padding-right: 24px
+  padding-right: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.booking-confirmed-checkin-checkout-container {
+  /* padding-left: 24px; */
+  /* padding-right: 24px */
 }
 
 .booking-confirmed-check-container {
@@ -22,12 +29,51 @@
   display: flex;
 }
 
-.booking-confirmed-checkin {
+.booking-confirmed-checkin-container {
   width: 50%;
-  padding-right: 24px
+  padding-right: 24px;
+  height: 72px;
+  border-right: 1px solid rgb(221, 221, 221);
+}
+
+.booking-confirmed-checkin {
+  font-weight: 700;
+}
+
+.booking-confirmed-checkin-date {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.booking-confirmed-checkout-container {
+  width: 50%;
+  padding-left: 24px;
+  height: 72px;
 }
 
 .booking-confirmed-checkout {
-  width: 50%;
-  padding-left: 24px
+  font-weight: 700;
+}
+
+.booking-confirmed-checkout-date {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.booking-confirmed-reservation-details {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.booking-confirmed-who-coming-container {
+  padding: 24px 0
+}
+
+.booking-confirmed-who-coming {
+  font-weight: 700;
+}
+
+.booking-confirmed-guests {
+  margin-top: 8px;
+  margin-bottom: 8px
 }

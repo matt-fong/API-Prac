@@ -32,19 +32,47 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
   useEffect(() => {
     dispatch(getBookingsByCurrentUser())
     // dispatch(getBookingsBySpotId(spotId))
-    // validations()
   }, [ startDateNum, endDateNum ]);
 
   return (
     <div className="booking-confirmed-container">
       <div className="booking-confirmed-inner-container">
+
         <div className="booking-confirmed-image">IMAGE</div>
-        <div className="booking-confirmed-detail-container">
-          <div className="booking-confirmed-check-container">
-            <div className="booking-confirmed-checkin">CHECK IN</div>
-            <div className="booking-confirmed-checkout">CHECKOUT</div>
+
+        <div className="booking-confirmed-information-container">
+
+          <div className="booking-confirmed-checkin-checkout-container">
+            <div className="booking-confirmed-check-container">
+
+              <div className="booking-confirmed-checkin-container">
+                <div className="booking-confirmed-checkin">Check-in</div>
+                <div className="booking-confirmed-checkin-date">{currentBooked?.startDate}</div>
+                <div className="booking-confirmed-checkin-time">4:00PM</div>
+              </div>
+
+              <div className="booking-confirmed-checkout-container">
+                <div className="booking-confirmed-checkout">Checkout</div>
+                <div className="booking-confirmed-checkout-date">{currentBooked?.endDate}</div>
+                <div className="booking-confirmed-checkout-time">11:00AM</div>
+              </div>
+
+            </div>
           </div>
+
+          <div className="booking-confirmed-details-container">
+            <div className="booking-confirmed-reservation-details">Reservation Details</div>
+            <div className="booking-confirmed-who-coming-container">
+              <div className="booking-confirmed-who-coming">Who's coming</div>
+              <div className="booking-confirmed-guests">2 guests</div>
+            </div>
+          </div>
+
+          
+
         </div>
+
+
       </div>
     </div>
   );
