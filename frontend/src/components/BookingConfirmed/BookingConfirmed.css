@@ -1,6 +1,7 @@
 .booking-confirmed-container {
   width: 620px;
-  border: 1px solid black;
+  border: 1px solid rgb(221, 221, 221);
+  box-sizing: border-box;
 }
 
 .booking-confirmed-inner-container {
@@ -15,18 +16,15 @@
 
 .booking-confirmed-image {
   object-fit: cover;
-  width: 596px
+  width: 596px;
+  height: 416px;
+  border-radius: 6px;
 }
 
 .booking-confirmed-information-container {
   padding-left: 24px;
   padding-right: 24px;
   font-family: 'Montserrat', sans-serif;
-}
-
-.booking-confirmed-checkin-checkout-container {
-  /* padding-left: 24px; */
-  /* padding-right: 24px */
 }
 
 .booking-confirmed-check-container {
@@ -39,7 +37,7 @@
   width: 50%;
   padding-right: 24px;
   height: 72px;
-  border-right: 1px solid rgb(221, 221, 221);
+  /* border-right: 1px solid rgb(221, 221, 221); */
 }
 
 .booking-confirmed-checkin {
@@ -68,7 +66,7 @@
 
 .booking-confirmed-reservation-details-container {
   padding: 24px 0;
-  border-bottom: 1px solid rgb(221, 221, 221);
+  /* border-bottom: 1px solid rgb(221, 221, 221); */
 }
 
 .booking-confirmed-reservation-details {
@@ -88,7 +86,7 @@
 
 .booking-confirmed-getting-there-container {
   padding: 24px 0;
-  border-bottom: 1px solid rgb(221, 221, 221);
+  /* border-bottom: 1px solid rgb(221, 221, 221); */
 }
 
 .booking-confirmed-getting-there {
@@ -111,7 +109,7 @@
 
 .booking-confirmed-staying-container {
   padding: 24px 0;
-  border-bottom: 1px solid rgb(221, 221, 221);
+  /* border-bottom: 1px solid rgb(221, 221, 221); */
 }
 
 .booking-confirmed-where-staying {
@@ -131,7 +129,7 @@
 
 .booking-confirmed-hosted-by-container {
   padding: 24px 0;
-  border-bottom: 1px solid rgb(221, 221, 221);
+  /* border-bottom: 1px solid rgb(221, 221, 221); */
 }
 
 .booking-confirmed-hosted-by {
@@ -155,11 +153,27 @@
 
 .booking-confirmed-payment-info-container {
   padding: 24px 0;
-  border-bottom: 1px solid rgb(221, 221, 221);
+  /* border-bottom: 1px solid rgb(221, 221, 221); */
+}
+
+.booking-confirmed-payment-info {
+  font-weight: 700;
+  font-size: 22px;
+  padding-bottom: 32px;
 }
 
 .booking-confirmed-payment-details {
   font-weight: 700;
-  font-size: 22px;
-  padding-bottom: 32px;
+}
+
+.booking-confirmed-total-cost {
+  margin-top: 8px;
+  margin-bottom: 8px
+}
+
+.test {
+  margin-left: -24px;
+  margin-right: -24px;
+  height: 8px;
+  background-color: rgb(235, 235, 235);
 }

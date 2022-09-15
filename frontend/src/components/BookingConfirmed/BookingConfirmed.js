@@ -53,6 +53,14 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
   const monthIntstart = new Date(currentBooked?.startDate).getMonth()
   console.log('THIS IS monthIntstart', monthIntstart )
 
+  let dateDiffInt;
+
+  if (isNaN((new Date(currentBooked?.endDate) - new Date(currentBooked?.startDate)) / 86400000) || ((new Date(currentBooked?.endDate) - new Date(currentBooked?.startDate)) / 86400000) < 0) {
+    dateDiffInt = 0;
+  } else {
+    dateDiffInt = (new Date(currentBooked?.endDate) - new Date(currentBooked?.startDate)) / 86400000
+  }
+
   const weekday = (day) => {
     if (day === 6) return 'Sun'
     if (day === 0) return 'Mon'
@@ -68,7 +76,7 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
       <div className="booking-confirmed-inner-container">
 
         <div className="booking-confirmed-image-container">
-          <img className="booking-confirmed-image" src={spot.previewImage}></img>
+          <img className="booking-confirmed-image" src={spot?.previewImage}></img>
         </div>
 
         <div className="booking-confirmed-information-container">
@@ -99,6 +107,8 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
               <div className="booking-confirmed-guests">2 guests</div>
             </div>
 
+            <div className="test"></div>
+
             <div className="booking-confirmed-getting-there-container">
               <div className="booking-confirmed-getting-there">Getting there</div>
               <div className="booking-confirmed-address">Address</div>
@@ -106,11 +116,15 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
               <div className="booking-confirmed-address-info-bottom">{spot?.city}, {spot?.state}</div>
             </div>
 
+            <div className="test"></div>
+
             <div className="booking-confirmed-staying-container">
               <div className="booking-confirmed-where-staying">Where you're staying</div>
               <div className="booking-confirmed-house-rules">House Rules</div>
               <div className="booking-confirmed-house-rules-info">No smoking, no drugs, no parties allowed. Do not disturb your neighbors. Do not break anything. If there are any issues, please reach out to me directly.</div>
             </div>
+
+            <div className="test"></div>
 
             <div className="booking-confirmed-hosted-by-container">
               <div className="booking-confirmed-hosted-by">Hosted by {spotOwner?.firstName}</div>
@@ -119,9 +133,12 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
               <div className="booking-confirmed-host-profile">Show Profile</div>
             </div>
 
+            <div className="test"></div>
+
             <div className="booking-confirmed-payment-info-container">
+            <div className="booking-confirmed-payment-info">Payment info </div>
               <div className="booking-confirmed-payment-details">Payment details </div>
-              <div className="booking-confirmed-total-cost">Total cost: USD</div>
+              <div className="booking-confirmed-total-cost">{`Total cost: $${dateDiffInt * spot?.price} USD`}</div>
             </div>
 
           </div>
