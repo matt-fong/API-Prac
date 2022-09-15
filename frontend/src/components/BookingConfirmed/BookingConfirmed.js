@@ -1,20 +1,18 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getBookingsByCurrentUser } from "../../store/bookings"
 import { getAllUsers } from "../../store/users";
 import './BookingConfirmed.css'
 
-const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endDate }) => {
+const BookingConfirmed = () => {
   const { spotId } = useParams();
   const { bookingId } = useParams();
-  console.log('THIS IS SPOTID', spotId)
-  console.log('THIS IS BOOKINGID', bookingId)
 
   const spots = useSelector((state) => (state.spots));
 
   const spot = spots[spotId]
-  console.log('THIS IS SPOT', spot)
+  // console.log('THIS IS SPOT', spot)
 
   const users = useSelector(state => (state.users));
   // console.log('THIS IS USERS', users)
@@ -22,24 +20,17 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
   const spotOwner = users[spot?.ownerId]
   // console.log('THIS IS SPOTOWNER', spotOwner)
 
-  const sessionUser = useSelector(state => state.session.user);
-
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const bookings = useSelector(state => (state.bookings));
   // console.log('THIS IS BOOKINGS', bookings)
   const currentBooked = bookings[bookingId]
   // console.log('THIS IS CURRENT BOOKED', currentBooked)
 
-  const startDateNum = new Date(startDate) - 0
-  const endDateNum = new Date(endDate) - 0
-
   useEffect(() => {
     dispatch(getBookingsByCurrentUser())
     dispatch(getAllUsers())
-    // dispatch(getBookingsBySpotId(spotId))
-  }, [ startDateNum, endDateNum ]);
+  }, [ dispatch ]);
 
   const startInt = new Date(currentBooked?.startDate).getDay()
   // console.log('THIS IS startInt', startInt )
@@ -47,11 +38,11 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
   const endInt = new Date(currentBooked?.endDate).getDay()
   // console.log('THIS IS endInt', endInt )
 
-  const monthIntend = new Date(currentBooked?.endDate).getMonth()
-  console.log('THIS IS monthIntend', monthIntend )
+  // const monthIntend = new Date(currentBooked?.endDate).getMonth()
+  // console.log('THIS IS monthIntend', monthIntend )
 
-  const monthIntstart = new Date(currentBooked?.startDate).getMonth()
-  console.log('THIS IS monthIntstart', monthIntstart )
+  // const monthIntstart = new Date(currentBooked?.startDate).getMonth()
+  // console.log('THIS IS monthIntstart', monthIntstart )
 
   let dateDiffInt;
 
@@ -76,7 +67,7 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
       <div className="booking-confirmed-inner-container">
 
         <div className="booking-confirmed-image-container">
-          <img className="booking-confirmed-image" src={spot?.previewImage}></img>
+          <img className="booking-confirmed-image" src={spot?.previewImage} alt=''></img>
         </div>
 
         <div className="booking-confirmed-information-container">
@@ -143,10 +134,7 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
 
           </div>
 
-
-
         </div>
-
 
       </div>
     </div>
