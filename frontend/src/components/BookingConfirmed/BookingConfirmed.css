@@ -5,11 +5,17 @@
 
 .booking-confirmed-inner-container {
   margin: 12px 12px 0;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+}
+
+.booking-confirmed-image-container {
+  margin-bottom: 8px;
+  width: 100%
 }
 
 .booking-confirmed-image {
-  margin-bottom: 8px;
+  object-fit: cover;
+  width: 596px
 }
 
 .booking-confirmed-information-container {

@@ -14,6 +14,7 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
   const spots = useSelector((state) => (state.spots));
 
   const spot = spots[spotId]
+  console.log('THIS IS SPOT', spot)
 
   const users = useSelector(state => (state.users));
   // console.log('THIS IS USERS', users)
@@ -46,6 +47,12 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
   const endInt = new Date(currentBooked?.endDate).getDay()
   // console.log('THIS IS endInt', endInt )
 
+  const monthIntend = new Date(currentBooked?.endDate).getMonth()
+  console.log('THIS IS monthIntend', monthIntend )
+
+  const monthIntstart = new Date(currentBooked?.startDate).getMonth()
+  console.log('THIS IS monthIntstart', monthIntstart )
+
   const weekday = (day) => {
     if (day === 6) return 'Sun'
     if (day === 0) return 'Mon'
@@ -60,7 +67,9 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
     <div className="booking-confirmed-container">
       <div className="booking-confirmed-inner-container">
 
-        <div className="booking-confirmed-image">IMAGE</div>
+        <div className="booking-confirmed-image-container">
+          <img className="booking-confirmed-image" src={spot.previewImage}></img>
+        </div>
 
         <div className="booking-confirmed-information-container">
 
@@ -104,9 +113,9 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
             </div>
 
             <div className="booking-confirmed-hosted-by-container">
-              <div className="booking-confirmed-hosted-by">Hosted by {spotOwner.firstName}</div>
+              <div className="booking-confirmed-hosted-by">Hosted by {spotOwner?.firstName}</div>
               <div className="booking-confirmed-host-about">About your host</div>
-              <div className="booking-confirmed-host-about-info">I love traveling a lot on Airdnd. Being a traveler that used Airdnd has made me more interested in becoming a host. I hope you enjoy your Airdnd stay!</div>
+              <div className="booking-confirmed-host-about-info">I love traveling a lot on Airdnd. Being a traveler that has used Airdnd has made me more interested in becoming a host. I hope you enjoy your Airdnd stay!</div>
               <div className="booking-confirmed-host-profile">Show Profile</div>
             </div>
 
