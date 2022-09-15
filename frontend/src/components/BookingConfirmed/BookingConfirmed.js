@@ -107,7 +107,7 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
               <div className="booking-confirmed-guests">2 guests</div>
             </div>
 
-            <div className="test"></div>
+            <div className="booking-confirmed-divider"></div>
 
             <div className="booking-confirmed-getting-there-container">
               <div className="booking-confirmed-getting-there">Getting there</div>
@@ -116,7 +116,7 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
               <div className="booking-confirmed-address-info-bottom">{spot?.city}, {spot?.state}</div>
             </div>
 
-            <div className="test"></div>
+            <div className="booking-confirmed-divider"></div>
 
             <div className="booking-confirmed-staying-container">
               <div className="booking-confirmed-where-staying">Where you're staying</div>
@@ -124,7 +124,7 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
               <div className="booking-confirmed-house-rules-info">No smoking, no drugs, no parties allowed. Do not disturb your neighbors. Do not break anything. If there are any issues, please reach out to me directly.</div>
             </div>
 
-            <div className="test"></div>
+            <div className="booking-confirmed-divider"></div>
 
             <div className="booking-confirmed-hosted-by-container">
               <div className="booking-confirmed-hosted-by">Hosted by {spotOwner?.firstName}</div>
@@ -133,7 +133,7 @@ const BookingConfirmed = ({ setStartDate, setEndDate, todayDate, startDate, endD
               <div className="booking-confirmed-host-profile">Show Profile</div>
             </div>
 
-            <div className="test"></div>
+            <div className="booking-confirmed-divider"></div>
 
             <div className="booking-confirmed-payment-info-container">
             <div className="booking-confirmed-payment-info">Payment info </div>
