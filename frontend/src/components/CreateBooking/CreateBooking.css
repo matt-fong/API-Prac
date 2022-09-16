@@ -13,7 +13,7 @@
 }
 
 .CreateBookingform {
-  width: 322.33px;
+  max-width: 322.33px;
   /* height: 176px; */
   /* display: flex; */
 }

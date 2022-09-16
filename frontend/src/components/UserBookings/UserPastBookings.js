@@ -6,14 +6,7 @@ import { deleteBookingById } from "../../store/bookings";
 import './UserBookings.css'
 
 const UserPastBookings = () => {
-  // const bookings = useSelector(state => (state.bookings));
   const bookings = useSelector(state => Object.values(state.bookings));
-  // console.log('THIS IS USERS BOOKINGS123123', bookings)
-
-  // console.log('BOOLEAN', Object.keys(bookings).length === 0)
-
-  // console.log('THIS IS BOOOOOOOOKINGS', new Date(bookings[0]?.endDate).toISOString().split('T')[0])
-
   const todayDate = (new Date()).toISOString().slice(0,10);
 
   // Sorts current bookings from most recent to furthest away by endDate
@@ -35,8 +28,6 @@ const UserPastBookings = () => {
 
   useEffect(() => {
     dispatch(getBookingsByCurrentUser()).then(() => setIsLoaded(true))
-    // dispatch(getAllSpots()).then(() => setIsLoaded(true));
-    // dispatch(getBookingsBySpotId(1))
   }, []);
 
   if (!isLoaded) return null
@@ -53,7 +44,7 @@ const UserPastBookings = () => {
         <div className="user-booking-notrip-inner-container">
           <div className="user-booking-notrip-left">
             <img className="user-booking-notrip-hand" src='https://images.emojiterra.com/google/android-10/512px/1f44b.png' ></img>
-            <div className="user-booking-notrip-header">No trips booked...yet!</div>
+            <div className="user-booking-notrip-header">No past bookings...yet!</div>
             <div className="user-booking-notrip-undertext">Time to dust off your bags and start planning your next adventure</div>
             <button className="user-booking-notrip-search" onClick={() => history.push('/')}>Start searching</button>
           </div>
