@@ -47,9 +47,6 @@ const CreateSpot = ({ onX }) => {
       previewImage: true
     };
 
-    // const newSpot = dispatch(spotActions.createSpot(data))
-    // console.log('THIS IS NEW SPOT', newSpot)
-
     if (!isImage(url)) {
       setErrors({ error: "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " })
     }
@@ -59,13 +56,10 @@ const CreateSpot = ({ onX }) => {
     }
 
     if (isImage(url) && user) {
-      // dispatch(spotActions.createSpot(data))
       dispatch(spotActions.createSpot(data))
       onX()
       history.push('/my-spots')
     }
-
-    // history.push(`/spots/${newSpot.id}/${user.id}`)
 
   };
 
