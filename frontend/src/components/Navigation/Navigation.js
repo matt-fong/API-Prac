@@ -7,6 +7,7 @@ import SignUpModal from '../SignUpFormModal/SignUpFormModal';
 import './Navigation.css';
 import logo from '../../assets/airdndlogo.jpg'
 import CreateSpotModal from '../CreateSpot/CreateSpotModal';
+import NoUser from './NoUser';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -24,6 +25,7 @@ function Navigation({ isLoaded }){
       <div className="user-session">
         <LoginModal />
         <SignUpModal />
+        {/* <NoUser /> */}
       </div>
     );
   }
