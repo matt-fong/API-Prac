@@ -1,16 +1,3 @@
-/*
-
-Get all current user's bookings
-
-Get all bookings for a spot by id
-
-Create a bookinng based on spot id
-
-Edit a booking
-
-Delete a booking
-*/
-
 import { csrfFetch } from "./csrf";
 
 const GET_BY_SPOT_ID = "bookings/GET";
@@ -56,7 +43,7 @@ export const createNewBooking = (spotId, bookingData) => async (dispatch) => {
     const data = await res.json();
     // console.log('THIS IS THE CREATE BOOKING DATA', data)
     dispatch(createBookings(data));
-    return data
+    return data;
   }
   // return res;
 };

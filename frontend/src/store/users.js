@@ -1,6 +1,6 @@
 import { csrfFetch } from "./csrf";
 
-export const GET_ALL_USERS = 'users/getAllUsers/get'
+const GET_ALL_USERS = 'users/getAllUsers/get'
 
 // Actions
 const getAllUsersAction = (payload) => {

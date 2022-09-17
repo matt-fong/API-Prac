@@ -19,6 +19,7 @@
   line-height: 30px;
   padding-top: 24px;
   padding-bottom: 4px;
+  word-wrap: break-word;
 }
 
 .spotDetailInfo {

@@ -31,15 +31,15 @@ function Navigation({ isLoaded }){
   return (
     <div className='navContainer'>
       <div className='navBar'>
-          <NavLink exact to="/">
+        <NavLink exact to="/">
           <img className='logo' src={logo} alt=''></img>
-          </NavLink>
-          <div className='navBarLeftSide'>
-            <div className='navBarButtons'>
-              <div className='becomeAHost'><CreateSpotModal /></div>
-              <div className='navBarLoaded'>{isLoaded && sessionLinks}</div>
-            </div>
+        </NavLink>
+        <div className='navBarRightSide'>
+          <div className='navBarButtons'>
+            <div className='becomeAHost'><CreateSpotModal /></div>
+            <div className='navBarLoaded'>{isLoaded && sessionLinks}</div>
           </div>
+        </div>
       </div>
     </div>
   );

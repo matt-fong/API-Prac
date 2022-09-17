@@ -1,12 +1,11 @@
 import { csrfFetch } from "./csrf";
 
-
-export const GET_ALL_SPOTS = 'spots/getAllSpots/get'
-export const GET_SPOT_BY_ID = 'spots/getSpotById/get'
-export const GET_OWNED_SPOTS = 'spots/getOwnedSpots/get'
-export const CREATE_A_SPOT = 'spots/createSpot/post'
-export const EDIT_A_SPOT = 'spots/editSpot/update'
-export const DELETE_A_SPOT = 'spots/delete'
+const GET_ALL_SPOTS = 'spots/getAllSpots/get'
+const GET_SPOT_BY_ID = 'spots/getSpotById/get'
+const GET_OWNED_SPOTS = 'spots/getOwnedSpots/get'
+const CREATE_A_SPOT = 'spots/createSpot/post'
+const EDIT_A_SPOT = 'spots/editSpot/update'
+const DELETE_A_SPOT = 'spots/delete'
 
 // Actions
 const getAllSpotsAction = (payload) => {
@@ -104,6 +103,7 @@ export const createSpot = (payload) => async (dispatch) => {
             const imageData = await imageResponse.json()
             data.previewImage = imageData.url // Then add it to the data object
             dispatch(createSpotAction(data))
+            return imageData;
         }
     }
 }

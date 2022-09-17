@@ -56,9 +56,9 @@ const CreateSpot = ({ onX }) => {
     }
 
     if (isImage(url) && user) {
-      dispatch(spotActions.createSpot(data))
+      dispatch(spotActions.createSpot(data)).then((res) => history.push(`/spots/${res.id}/${user.id}`))
       onX()
-      history.push('/my-spots')
+      // history.push('/my-spots')
     }
 
   };
