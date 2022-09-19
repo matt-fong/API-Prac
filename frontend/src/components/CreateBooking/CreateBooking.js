@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { createNewBooking } from "../../store/bookings";
 import { getBookingsBySpotId } from "../../store/bookings";
-import { getBookingsByCurrentUser } from "../../store/bookings"
 import './CreateBooking.css'
 
 const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate }) => {
@@ -84,9 +83,6 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
     }
 
     if (errors.length === 0 && spot.ownerId !== sessionUser.id) {
-      // dispatch(createNewBooking(spotId, data)).then(() => dispatch(getBookingsByCurrentUser()))
-      // history.push('/my-bookings')
-
       dispatch(createNewBooking(spotId, data)).then((res) => history.push(`/confirmed/${spotId}/${res.booking.id}`))
     }
 
@@ -102,7 +98,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
           <div className="CreateBookingDiv">
             <input className="CreateBookingInputCheckin"
               type="date"
-              placeholder="mm/dd/yyyy"
+              // placeholder="mm/dd/yyyy"
               // value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               required
@@ -112,7 +108,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
 
             <input className="CreateBookingInputCheckout"
               type="date"
-              placeholder="mm/dd/yyyy"
+              // placeholder="mm/dd/yyyy"
               // value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               required

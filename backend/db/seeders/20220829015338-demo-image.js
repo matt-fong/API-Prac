@@ -85,6 +85,63 @@ const images = [
     reviewId: null,
     userId: 12
   },
+  {
+    url: 'https://www.designyourway.net/diverse/luxurioushouses/Armada-House1.jpg',
+    previewImage: true,
+    spotId: 13,
+    reviewId: null,
+    userId: 13
+  },
+  {
+    url: 'https://miro.medium.com/max/1400/1*dXqlLsZjfFwfAW-jyWGmxw.jpeg',
+    previewImage: true,
+    spotId: 14,
+    reviewId: null,
+    userId: 14
+  },
+  {
+    url: 'https://wallpaperaccess.com/full/1218437.jpg',
+    previewImage: true,
+    spotId: 15,
+    reviewId: null,
+    userId: 15
+  },
+  {
+    url: 'https://luxury-houses.net/wp-content/uploads/2021/03/Excellent-Design-Concept-of-Ukraine-Ocean-House-by-Alexander-Zhidkov-6-768x544.jpg',
+    previewImage: true,
+    spotId: 16,
+    reviewId: null,
+    userId: 16
+  },
+  {
+    url: 'https://www.idesignarch.com/wp-content/uploads/Contemporary-Luxury-Home-Curved-Facade-Brazil_1.jpg',
+    previewImage: true,
+    spotId: 17,
+    reviewId: null,
+    userId: 17
+  },
+  {
+    url: 'https://www.homes.com/blog/wp-content/uploads/2018/06/luxury-mansion-e1530042991426.jpg',
+    previewImage: true,
+    spotId: 18,
+    reviewId: null,
+    userId: 18
+  },
+  {
+    url: 'https://www.skyarchitectstudio.com.au/wp-content/uploads/2021/04/DEEPDENE-MODERN-HOUSE-1.jpg',
+    previewImage: true,
+    spotId: 19,
+    reviewId: null,
+    userId: 19
+  },
+  {
+    url: 'https://thearchitecturedesigns.com/wp-content/uploads/2020/01/Modern-house-design-8-759x500.jpg',
+    previewImage: true,
+    spotId: 20,
+    reviewId: null,
+    userId: 20
+  },
+
 ]
 
 module.exports = {
@@ -95,7 +152,7 @@ module.exports = {
   async down (queryInterface, Sequelize) {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Images', {
-      spotId: { [Op.in]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] }
+      spotId: { [Op.in]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] }
     })
   }
 };

@@ -73,6 +73,54 @@ const bookings = [
  startDate: new Date('2022-03-03'),
  endDate: new Date('2022-04-04'),
 },
+{
+  spotId: 13,
+  userId: 13,
+  startDate: new Date('2022-03-03'),
+  endDate: new Date('2022-04-04'),
+ },
+ {
+  spotId: 14,
+  userId: 14,
+  startDate: new Date('2022-03-03'),
+  endDate: new Date('2022-04-04'),
+ },
+ {
+  spotId: 15,
+  userId: 15,
+  startDate: new Date('2022-03-03'),
+  endDate: new Date('2022-04-04'),
+ },
+ {
+  spotId: 16,
+  userId: 16,
+  startDate: new Date('2022-03-03'),
+  endDate: new Date('2022-04-04'),
+ },
+ {
+  spotId: 17,
+  userId: 17,
+  startDate: new Date('2022-03-03'),
+  endDate: new Date('2022-04-04'),
+ },
+ {
+  spotId: 18,
+  userId: 18,
+  startDate: new Date('2022-03-03'),
+  endDate: new Date('2022-04-04'),
+ },
+ {
+  spotId: 19,
+  userId: 19,
+  startDate: new Date('2022-03-03'),
+  endDate: new Date('2022-04-04'),
+ },
+ {
+  spotId: 20,
+  userId: 20,
+  startDate: new Date('2022-03-03'),
+  endDate: new Date('2022-04-04'),
+ },
 ]
 
 module.exports = {
@@ -83,7 +131,7 @@ module.exports = {
   async down (queryInterface, Sequelize) {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Bookings', {
-      spotId: { [Op.in]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] }
+      spotId: { [Op.in]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] }
     })
   }
 };

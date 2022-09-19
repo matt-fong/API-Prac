@@ -88,13 +88,69 @@ module.exports = {
         email: 'lameloball@user.io',
         hashedPassword: bcrypt.hashSync('password')
       },
+      {
+        firstName: 'Jayson',
+        lastName: 'Tatum',
+        username: 'jaysontatum',
+        email: 'jaysontatum@user.io',
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        firstName: 'Luka',
+        lastName: 'Doncic',
+        username: 'lukadoncic',
+        email: 'lukadoncic@user.io',
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        firstName: 'Klay',
+        lastName: 'Thompson',
+        username: 'klaythompson',
+        email: 'klaythompson@user.io',
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        firstName: 'DeMar',
+        lastName: 'DeRozan',
+        username: 'demarderozan',
+        email: 'demarderozan@user.io',
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        firstName: 'Devin',
+        lastName: 'Booker',
+        username: 'devinbooker',
+        email: 'devinbooker@user.io',
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        firstName: 'Joel',
+        lastName: 'Embiid',
+        username: 'joelembiid',
+        email: 'joelembiid@user.io',
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        firstName: 'Jaylen',
+        lastName: 'Brown',
+        username: 'jaylenbrown',
+        email: 'jaylenbrown@user.io',
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        firstName: 'Andrew',
+        lastName: 'Wiggins',
+        username: 'andrewwiggins',
+        email: 'andrewwiggins@user.io',
+        hashedPassword: bcrypt.hashSync('password')
+      },
     ], {});
   },
 
   async down (queryInterface, Sequelize) {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Users', {
-      username: { [Op.in]: ['lebronjames', 'kevindurant', 'kyrieirving', 'michaeljordan', 'stephcurry', 'kobebryant', 'chrispaul', 'traeyoung', 'jamorant', 'jamesharden', 'jimmybutler', 'lameloball'] }
+      username: { [Op.in]: ['lebronjames', 'kevindurant', 'kyrieirving', 'michaeljordan', 'stephcurry', 'kobebryant', 'chrispaul', 'traeyoung', 'jamorant', 'jamesharden', 'jimmybutler', 'lameloball', 'jaysontatum', 'lukadoncic', 'klaythompson', 'demarderozan', 'devinbooker', 'joelembiid', 'jaylenbrown', 'andrewwiggins'] }
     }, {});
   }
 };
