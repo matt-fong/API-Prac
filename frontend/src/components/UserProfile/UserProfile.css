@@ -28,7 +28,7 @@
   box-sizing: border-box;
   width: 66.666666666666666666%;
   height: 700px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* padding-left: 8px; */
   padding-right: 8px;
   margin-left: 48px;
@@ -120,4 +120,18 @@
 
 .account-page-user-info-detail {
   margin-left: 10px
+}
+
+.account-page-right-side-header {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 36px;
+  margin-bottom: 8px;
+}
+
+.account-page-right-side-text {
+  font-size: 14px;
+  line-height: 18px;
+  color: #717171;
+  margin-bottom: 16px;
 }

@@ -12,7 +12,7 @@ import CurrentBookings from "./components/CurrentBookings/CurrentBookings";
 import UserBookings from "./components/UserBookings/UserBookings";
 import UserPastBookings from "./components/UserBookings/UserPastBookings";
 import BookingConfirmed from "./components/BookingConfirmed/BookingConfirmed";
-import AccountPage from "./components/AccountPage/AccountPage";
+import UserProfile from "./components/UserProfile/UserProfile";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ function App() {
             <BookingConfirmed />
           </Route>
           <Route path="/users/account/:userId">
-            <AccountPage />
+            <UserProfile />
           </Route>
         </Switch>
       )}

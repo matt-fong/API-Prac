@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getReviewsByCurrentUser } from "../../store/reviews";
 import { getAllUsers } from "../../store/users";
-import './AccountPage.css'
+import './UserProfile.css'
 
-const AccountPage = () => {
+const UserProfile = () => {
   const { spotId } = useParams();
   const { bookingId } = useParams();
   const { userId } = useParams()
@@ -82,11 +82,15 @@ const AccountPage = () => {
           </div>
         </div>
 
-        <div className="account-page-right-side-container">Hi, I'm Matthew</div>
+        <div className="account-page-right-side-container">
+          <div className="account-page-right-side-header">{`Hi, I'm ${currentUser?.firstName}`}</div>
+          <div className="account-page-right-side-text">Random text</div>
+          <div className="account-page-right-side-etc">Random text</div>
+        </div>
 
       </div>
     </div>
   );
 }
 
-export default AccountPage;
+export default UserProfile;
