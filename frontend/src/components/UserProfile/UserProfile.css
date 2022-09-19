@@ -122,6 +122,10 @@
   margin-left: 10px
 }
 
+.account-page-right-side-top {
+  margin-bottom: 48px;
+}
+
 .account-page-right-side-header {
   font-size: 32px;
   font-weight: 600;
@@ -134,4 +138,19 @@
   line-height: 18px;
   color: #717171;
   margin-bottom: 16px;
+}
+
+.account-page-right-side-bottom {
+  display: flex;
+  line-height: 26px;
+}
+
+.account-page-star-bottom {
+  margin-top: 5px;
+}
+
+.account-page-right-bottom-review {
+  font-size: 20px;
+  margin-left: 4px;
+  font-weight: 500;
 }

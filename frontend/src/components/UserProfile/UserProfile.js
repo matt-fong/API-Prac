@@ -56,7 +56,7 @@ const UserProfile = () => {
             </div>
 
             <div className="account-page-user-info-three">
-              <i class="fa-solid fa-square-check fa-xl account-page-check"></i>
+              <i class="fa-regular fa-circle-check fa-xl account-page-check"></i>
               <div className="account-page-user-info-identity">Identity Verified</div>
             </div>
 
@@ -67,12 +67,12 @@ const UserProfile = () => {
               <div className="account-page-user-info-bottom-header">{`${currentUser?.firstName} confirmed`}</div>
 
               <div className="account-page-user-info-bottom">
-                <i class="fa-solid fa-check fa-lg account-page-bottom-check"></i>
+                <i className="fa-solid fa-check fa-lg account-page-bottom-check"></i>
                 <div className="account-page-user-info-detail">Identity</div>
               </div>
 
               <div className="account-page-user-info-bottom">
-                <i class="fa-solid fa-check fa-lg account-page-bottom-check"></i>
+                <i className="fa-solid fa-check fa-lg account-page-bottom-check"></i>
                 <div className="account-page-user-info-detail">Phone Number</div>
 
               </div>
@@ -83,9 +83,18 @@ const UserProfile = () => {
         </div>
 
         <div className="account-page-right-side-container">
-          <div className="account-page-right-side-header">{`Hi, I'm ${currentUser?.firstName}`}</div>
-          <div className="account-page-right-side-text">Random text</div>
-          <div className="account-page-right-side-etc">Random text</div>
+
+          <div className="account-page-right-side-top">
+            <div className="account-page-right-side-header">{`Hi, I'm ${currentUser?.firstName}`}</div>
+            <div className="account-page-right-side-text">Random text</div>
+            <div className="account-page-right-side-etc">Random text</div>
+          </div>
+
+          <div className="account-page-right-side-bottom">
+            <i className="fa-solid fa-star account-page-star-bottom"></i>
+            <div className="account-page-right-bottom-review">{`${reviews?.length} reviews`}</div>
+          </div>
+
         </div>
 
       </div>
