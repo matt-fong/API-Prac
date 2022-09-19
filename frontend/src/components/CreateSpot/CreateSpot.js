@@ -34,16 +34,16 @@ const CreateSpot = ({ onX }) => {
     setErrors([]);
 
     let data = {
+      name: name,
       address: address,
       city: city,
       state: state,
       country: country,
-      lat: LAT,
-      lng: LNG,
-      name: name,
       description: description,
       price: price,
       url: url,
+      lat: LAT,
+      lng: LNG,
       previewImage: true
     };
 

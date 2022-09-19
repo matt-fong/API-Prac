@@ -42,28 +42,34 @@ function ProfileButton({ user }) {
         {showMenu && (
           <div className="profile-container">
           <div className="profile-item-container">
-            <div className="profile-name">{`Hello, ${user.firstName}`}</div>
-              <div
-                  className="profile-manage-listings"
-                  onClick={() => history.push("/my-spots")}
-                >
-                  Manage Listings
-              </div>
-              <div
-                  className="profile-manage-reviews"
-                  onClick={() => history.push("/my-reviews")}
-                >
-                  Manage Reviews
-              </div>
-              <div
-                  className="profile-manage-bookings"
-                  onClick={() => history.push("/my-bookings")}
-                >
-                  Manage Bookings
-              </div>
-              <div className="profile-logout"onClick={logout}>
-                Log Out
-              </div>
+            {/* <div className="profile-name">{`Hello, ${user.firstName}`}</div> */}
+            <div
+                className="profile-manage-listings"
+                onClick={() => history.push(`/users/account/${user.id}`)}
+              >
+                Account
+            </div>
+            <div
+                className="profile-manage-listings"
+                onClick={() => history.push("/my-spots")}
+              >
+                Manage Listings
+            </div>
+            <div
+                className="profile-manage-reviews"
+                onClick={() => history.push("/my-reviews")}
+              >
+                Manage Reviews
+            </div>
+            <div
+                className="profile-manage-bookings"
+                onClick={() => history.push("/my-bookings")}
+              >
+                Manage Bookings
+            </div>
+            <div className="profile-logout"onClick={logout}>
+              Log Out
+            </div>
             </div>
           </div>
         )}
