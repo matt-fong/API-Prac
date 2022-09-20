@@ -25,6 +25,7 @@ const CreateSpot = ({ onX }) => {
   function isImage(url) {
     return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url)
   }
+
   const LAT = 123.121212;
   const LNG = -321.121212;
 
@@ -55,10 +56,42 @@ const CreateSpot = ({ onX }) => {
       setErrors({ error: "User must be logged in." })
     }
 
-    if (isImage(url) && user) {
+    if (name.length < 5 || name.length > 255) {
+      setErrors({ error: "Name must be between 5 to 255 characters." })
+    }
+
+    if (address.length < 5 || address.length > 255) {
+      setErrors({ error: "Address must be between 5 to 255 characters." })
+    }
+
+    if (city.length < 5 || city.length > 255) {
+      setErrors({ error: "City must be between 5 to 255 characters." })
+    }
+
+    if (state.length < 5 || state.length > 255) {
+      setErrors({ error: "State must be between 5 to 255 characters." })
+    }
+
+    if (country.length < 5 || country.length > 255) {
+      setErrors({ error: "Country must be between 5 to 255 characters." })
+    }
+
+    if (description.length < 5 || description.length > 255) {
+      setErrors({ error: "Description must be between 5 to 255 characters." })
+    }
+
+    if (isImage(url)
+      && user
+      && (name.length >= 5 && name.length <= 255)
+      && (address.length >= 5 && address.length <= 255)
+      && (city.length >= 5 && city.length <= 255)
+      && (state.length >= 5 && state.length <= 255)
+      && (country.length >= 5 && country.length <= 255)
+      && (description.length >= 5 && description.length <= 255)
+      ) {
+
       dispatch(spotActions.createSpot(data)).then((res) => history.push(`/spots/${res.id}/${user.id}`))
       onX()
-      // history.push('/my-spots')
     }
 
   };
@@ -150,6 +183,8 @@ const CreateSpot = ({ onX }) => {
             type="number"
             placeholder="$ Price"
             value={price}
+            min={1}
+            max={9999}
             onChange={(e) => setPrice(e.target.value)}
             required
           />

@@ -19,6 +19,7 @@ function EditSpotForm({ onX }) {
   const [city, setCity] = useState(spot?.city);
   const [state, setState] = useState(spot?.state);
   const [country, setCountry] = useState(spot?.country);
+  const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState([]);
 
   const dispatch = useDispatch();
@@ -31,6 +32,10 @@ function EditSpotForm({ onX }) {
   }, []);
 
   if (!isLoaded) return null
+
+  function isImage(url) {
+    return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url)
+  }
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -46,10 +51,50 @@ function EditSpotForm({ onX }) {
     if (state) data.state = state;
     if (country) data.country = country;
 
-    setErrors([]);
-    dispatch(editSpot(data, spot.id)).then(() => dispatch(getAllSpots()))
+    // setErrors([]);
+    // dispatch(editSpot(data, spot.id)).then(() => dispatch(getAllSpots()))
 
-    onX()
+    // onX()
+
+    if (!isImage(url)) {
+      setErrors({ error: "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " })
+    }
+
+    if (name.length < 5 || name.length > 255) {
+      setErrors({ error: "Name must be between 5 to 255 characters." })
+    }
+
+    if (address.length < 5 || address.length > 255) {
+      setErrors({ error: "Address must be between 5 to 255 characters." })
+    }
+
+    if (city.length < 5 || city.length > 255) {
+      setErrors({ error: "City must be between 5 to 255 characters." })
+    }
+
+    if (state.length < 5 || state.length > 255) {
+      setErrors({ error: "State must be between 5 to 255 characters." })
+    }
+
+    if (country.length < 5 || country.length > 255) {
+      setErrors({ error: "Country must be between 5 to 255 characters." })
+    }
+
+    if (description.length < 5 || description.length > 255) {
+      setErrors({ error: "Description must be between 5 to 255 characters." })
+    }
+
+    if ((name.length >= 5 && name.length <= 255)
+      && (address.length >= 5 && address.length <= 255)
+      && (city.length >= 5 && city.length <= 255)
+      && (state.length >= 5 && state.length <= 255)
+      && (country.length >= 5 && country.length <= 255)
+      && (description.length >= 5 && description.length <= 255)
+      ) {
+
+      dispatch(editSpot(data, spot.id)).then(() => dispatch(getAllSpots()))
+      onX()
+    }
   };
 
 
@@ -140,6 +185,8 @@ function EditSpotForm({ onX }) {
             type="number"
             placeholder="$ Price"
             value={price}
+            min={1}
+            max={9999}
             onChange={(e) => setPrice(e.target.value)}
             required
           />

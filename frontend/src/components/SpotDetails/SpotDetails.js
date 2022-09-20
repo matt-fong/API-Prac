@@ -23,10 +23,15 @@ const SpotDetails = () => {
   const { spotId } = useParams();
   const { ownerId } = useParams()
 
+  console.log('THIS IS SPOTID', spotId)
+
   const users = useSelector(state => (state.users));
   const spots = useSelector((state) => (state.spots));
 
+  console.log('THIS IS ALL SPOTS', spots)
+
   const spot = spots[spotId]
+  console.log('THIS IS SPOT', spot)
   const spotOwner = users[ownerId]
 
   const sessionUser = useSelector(state => state.session.user);
