@@ -15,7 +15,8 @@ router.get('/', async (req, res, next) => {
   size = parseInt(size);
 
   if (Number.isNaN(page) || page > 10) page = 0;
-  if (Number.isNaN(size) || size > 20) size = 20;
+  // if (Number.isNaN(size) || size > 20) size = 20;
+  if (Number.isNaN(size) || size > 20) size = 50;
 
   const pagination = {};
 
