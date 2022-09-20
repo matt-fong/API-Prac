@@ -56,7 +56,7 @@ const SpotDetails = () => {
 
   let createReview;
 
-  if (sessionUser && !(spot.ownerId === sessionUser.id)) {
+  if (sessionUser && !(spot?.ownerId === sessionUser.id)) {
     createReview = (
       <div className='spotDetailCreateReview'>
         {<CreateReviewModal />}
@@ -66,19 +66,19 @@ const SpotDetails = () => {
 
   let spotDetailHeaderInfo;
 
-  if (sessionUser && spot.ownerId === sessionUser.id) {
+  if (sessionUser && spot?.ownerId === sessionUser.id) {
     spotDetailHeaderInfo = (
       <div className='spotDetailContainer'>
         <div className="spotDetailInfo">
           <i className="fa-solid fa-star"></i>
-          {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+          {spot?.avgRating} {` · `} {reviews?.length} {`reviews`}
           <div className="spotDetailNumReview"></div>
           {` · `}
-          <div className="spotDetailLocation">{spot.city}, {spot.state}, {spot.country}</div>
+          <div className="spotDetailLocation">{spot?.city}, {spot?.state}, {spot?.country}</div>
         </div>
         <div><CreateImageModal /></div>
         <div className="spotDetailEditReview"><EditSpotModal /></div>
-        <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot.id)}>Delete</button>
+        <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot?.id)}>Delete</button>
       </div>
     )
   } else {
@@ -86,10 +86,10 @@ const SpotDetails = () => {
       <div className='spotDetailContainer'>
         <div className="spotDetailInfoPartTwo">
           <i className="fa-solid fa-star"></i>
-          {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+          {spot?.avgRating} {` · `} {reviews?.length} {`reviews`}
           <div className="spotDetailNumReview"></div>
           {` · `}
-          <div className="spotDetailLocation">{spot.city}, {spot.state}, {spot.country}</div>
+          <div className="spotDetailLocation">{spot?.city}, {spot?.state}, {spot?.country}</div>
         </div>
       </div>
     )
@@ -124,7 +124,7 @@ const SpotDetails = () => {
       <div className='spotDetailPictureContainer'>
 
           <div className="spotDetailPictureLeft">
-            <img className='spotDetailMainImage' src={spot.previewImage} alt='Spot Detail'/>
+            <img className='spotDetailMainImage' src={spot?.previewImage} alt='Spot Detail'/>
           </div>
 
           <div className="spotDetailPictureRight">
@@ -143,7 +143,7 @@ const SpotDetails = () => {
   } else {
     spotPicture = (
       <div className='spotDetailOnePicture'>
-        <img className='spotDetailOneImage' src={spot.previewImage} alt='mainpic'/>
+        <img className='spotDetailOneImage' src={spot?.previewImage} alt='mainpic'/>
       </div>
     )
   }
@@ -154,7 +154,7 @@ const SpotDetails = () => {
 
 
         <div className='spotDetailHeaderContainer'>
-          <div className='spotDetailName'>{spot.name}</div>
+          <div className='spotDetailName'>{spot?.name}</div>
           {spotDetailHeaderInfo}
         </div>
 
@@ -210,7 +210,7 @@ const SpotDetails = () => {
 
             </div>
 
-            <div className="spotDetailDescription">{spot.description}</div>
+            <div className="spotDetailDescription">{spot?.description}</div>
           </div>
 
 
@@ -220,12 +220,12 @@ const SpotDetails = () => {
 
               <div className="spotDetailBoxOne">
                 <div className="spotDetailPrice">
-                  <div className='spotPriceAmount'>{`$${spot.price}`}</div>
+                  <div className='spotPriceAmount'>{`$${spot?.price}`}</div>
                   <div className='spotNight'>night</div>
                 </div>
                 <div className="spotDetailReview">
                   <i className="fa-solid fa-star"></i>
-                  {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+                  {spot?.avgRating} {` · `} {reviews?.length} {`reviews`}
                 </div>
               </div>
 
@@ -240,7 +240,7 @@ const SpotDetails = () => {
               <div className="spotDetailBoxFour">
                 <div className="spotDetailFeeOne">
                   <div className="spotDetailFeeDescription">{`$100 x ${dateDiffInt} nights`}</div>
-                  <div className="spotDetailFeeNumber">${dateDiffInt * spot.price}</div>
+                  <div className="spotDetailFeeNumber">${dateDiffInt * spot?.price}</div>
                 </div>
                 <div className="spotDetailFeeTwo">
                   <div className="spotDetailFeeDescription">Cleaning fee</div>
@@ -254,7 +254,7 @@ const SpotDetails = () => {
 
               <div className="spotDetailBoxFive">
                 <div className='spotDetailTotalDescription'>Total before taxes</div>
-                <div className='spotDetailTotalPrice'>${dateDiffInt * spot.price}</div>
+                <div className='spotDetailTotalPrice'>${dateDiffInt * spot?.price}</div>
               </div>
 
             </div>
@@ -268,7 +268,7 @@ const SpotDetails = () => {
           <div className="spotDetailReviewHeader">
             <div className="spotDetailReviewInfo">
               <i className="fa-solid fa-star"></i>
-              {spot.avgRating} {` · `} {reviews.length} {`reviews`}
+              {spot?.avgRating} {` · `} {reviews?.length} {`reviews`}
             </div>
           </div>
 
