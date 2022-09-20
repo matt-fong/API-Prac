@@ -71,7 +71,7 @@ const SpotDetails = () => {
       <div className='spotDetailContainer'>
         <div className="spotDetailInfo">
           <i className="fa-solid fa-star"></i>
-          {spot?.avgRating} {` · `} {reviews?.length} {`reviews`}
+          {spot?.avgRating} {` · `} {reviews.length} {`reviews`}
           <div className="spotDetailNumReview"></div>
           {` · `}
           <div className="spotDetailLocation">{spot?.city}, {spot?.state}, {spot?.country}</div>
@@ -86,7 +86,7 @@ const SpotDetails = () => {
       <div className='spotDetailContainer'>
         <div className="spotDetailInfoPartTwo">
           <i className="fa-solid fa-star"></i>
-          {spot?.avgRating} {` · `} {reviews?.length} {`reviews`}
+          {spot?.avgRating} {` · `} {reviews.length} {`reviews`}
           <div className="spotDetailNumReview"></div>
           {` · `}
           <div className="spotDetailLocation">{spot?.city}, {spot?.state}, {spot?.country}</div>
@@ -225,7 +225,7 @@ const SpotDetails = () => {
                 </div>
                 <div className="spotDetailReview">
                   <i className="fa-solid fa-star"></i>
-                  {spot?.avgRating} {` · `} {reviews?.length} {`reviews`}
+                  {spot?.avgRating} {` · `} {reviews.length} {`reviews`}
                 </div>
               </div>
 
@@ -268,7 +268,7 @@ const SpotDetails = () => {
           <div className="spotDetailReviewHeader">
             <div className="spotDetailReviewInfo">
               <i className="fa-solid fa-star"></i>
-              {spot?.avgRating} {` · `} {reviews?.length} {`reviews`}
+              {spot?.avgRating} {` · `} {reviews.length} {`reviews`}
             </div>
           </div>
 
