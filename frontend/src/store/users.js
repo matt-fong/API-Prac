@@ -17,7 +17,7 @@ export const getAllUsers = () => async (dispatch) => {
     })
     if (response.ok) {
         const data = await response.json();
-        console.log('THIS IS DATA USERS', data)
+        // console.log('THIS IS DATA USERS', data)
         dispatch(getAllUsersAction(data.Users))
     }
 }
