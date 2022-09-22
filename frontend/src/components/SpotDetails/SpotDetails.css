@@ -9,7 +9,8 @@
 
 .spotDetailInnerContainer {
   max-width: 1120px;
-  width: 80%
+  width: 80%;
+  margin-bottom: 50px;
 }
 
 .spotDetailName {
@@ -30,6 +31,14 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   /* margin-top: 9px */
+}
+
+.testing {
+  margin-right: 7px;
+}
+
+.spotDetailEditReview {
+  margin-right: 7px;
 }
 
 .spotDetailInfoPartTwo {

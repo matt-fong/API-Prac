@@ -7,3 +7,22 @@
   line-height: 36px;
   font-size: 32px;
 }
+
+.user-booking-notrip-search-spots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  height: 48px;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100px;
+  /* background-color: #e51d53; */
+  width: 162.63px;
+  font-family: 'Montserrat', sans-serif;
+}

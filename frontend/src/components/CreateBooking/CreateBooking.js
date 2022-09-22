@@ -104,8 +104,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
               required
               min={todayDate}
               max={"9999-12-31"}
-              />
-
+            />
             <input className="CreateBookingInputCheckout"
               type="date"
               // placeholder="mm/dd/yyyy"

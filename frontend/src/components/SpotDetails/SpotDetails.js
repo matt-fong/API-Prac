@@ -76,7 +76,7 @@ const SpotDetails = () => {
           {` · `}
           <div className="spotDetailLocation">{spot?.city}, {spot?.state}, {spot?.country}</div>
         </div>
-        <div><CreateImageModal /></div>
+        <div className="testing"><CreateImageModal /></div>
         <div className="spotDetailEditReview"><EditSpotModal /></div>
         <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot?.id)}>Delete</button>
       </div>
