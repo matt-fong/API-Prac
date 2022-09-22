@@ -90,8 +90,8 @@ export const createSpot = (payload) => async (dispatch) => {
         body: JSON.stringify(payload)
     })
     if (response.ok) { // wait for successful creation
-        const data = await response.json(); // If successful, fetch api to create image
-        const imageResponse = await csrfFetch(`/api/spots/${data.id}/images`, {
+        const spotData = await response.json(); // If successful, fetch api to create image
+        const imageResponse = await csrfFetch(`/api/spots/${spotData.id}/images`, {
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({
@@ -101,9 +101,9 @@ export const createSpot = (payload) => async (dispatch) => {
         }) // Creates image for the spot
         if(imageResponse.ok) { // If the create image for spots is successful
             const imageData = await imageResponse.json()
-            data.previewImage = imageData.url // Then add it to the data object
-            dispatch(createSpotAction(data))
-            return imageData;
+            spotData.previewImage = imageData.url // Then add it to the spotData object
+            dispatch(createSpotAction(spotData))
+            return spotData
         }
     }
 }
