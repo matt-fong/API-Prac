@@ -229,6 +229,11 @@ const SpotDetails = () => {
                 </div>
               </div>
 
+              <div className="spotDetailCheckinCheckoutContainer">
+                <div className="spotDetailCheckin">CHECK-IN</div>
+                <div className="spotDetailCheckout">CHECKOUT</div>
+              </div>
+
               <div className="spotDetailBoxTwo">
                   <CreateBooking setStartDate={setStartDate} setEndDate={setEndDate} todayDate={todayDate} startDate={startDate} endDate={endDate}/>
               </div>

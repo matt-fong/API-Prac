@@ -30,6 +30,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
+            {/* <Navigation isLoaded={isLoaded} isLoadedd={isLoadedd}/> */}
             <HomePage />
           </Route>
           <Route path="/spots/:spotId/:ownerId">
