@@ -31,15 +31,15 @@ const CreateImage = ({ onX }) => {
       url: url,
     };
 
+    let errors = [];
+
     if (!isImage(url)) {
-      setErrors({ error: "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " })
+      errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg" )
     }
 
-    if (!sessionUser) {
-      setErrors({ error: "User must be logged in." })
-    }
+    setErrors(errors)
 
-    if (isImage(url) && sessionUser) {
+    if (isImage(url)) {
       dispatch(createImageBySpotId(spotId, data)).then(() => dispatch(getAllSpots()))
       onX()
     }
@@ -50,9 +50,12 @@ const CreateImage = ({ onX }) => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="createImageErrorContainer">
-          <div>
-            {Object.values(errors).map((error, i) => (
-              <div className="createImageError" key={i}>{error}</div>
+          <div className="createImageError">
+            {(errors).map((error, i) => (
+              <div className="errorMessageContainer" key={i}>
+                <i class="fa-solid fa-exclamation exclamation-point"></i>
+                <div className="errorMessage">{error}</div>
+              </div>
             ))}
           </div>
         </div>

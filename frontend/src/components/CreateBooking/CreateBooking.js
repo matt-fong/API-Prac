@@ -28,6 +28,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
 
   const validations = () => {
     let errors = []
+
     bookings?.map((booking) => {
       let bookedStartDate = (new Date(booking?.startDate) - 0)
       let bookedEndDate = (new Date(booking?.endDate) - 0)
@@ -62,8 +63,13 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
 
   if (errors.length > 0) {
     errorsli = (
-      <div>
-        <div className="createBookingError">{errors[0]}</div>
+      <div className="createBookingError">
+        {(errors).map((error, i) => (
+          <div className="errorMessageContainer" key={i}>
+            <i class="fa-solid fa-exclamation exclamation-point"></i>
+            <div className="errorMessage">{error}</div>
+          </div>
+        ))}
       </div>
     )
   }
@@ -92,7 +98,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
     <div className="CreateBookingFormOutside">
       <div className='CreateBookingFormContainer'>
         <form className='CreateBookingform' onSubmit={handleSubmit}>
-          <div className="CreateBookingErrorsContainer">
+          <div className="CreateBookingErrorContainer">
             {errorsli}
           </div>
           <div className="createSpotCheckinCheckoutContainer">

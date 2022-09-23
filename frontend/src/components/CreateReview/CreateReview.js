@@ -56,7 +56,7 @@ const CreateReview = ({ onX }) => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="createReviewErrorContainer">
-          <div className="createSpotError">
+          <div className="createReviewError">
             {(errors).map((error, i) => (
               <div className="errorMessageContainer" key={i}>
                 <i class="fa-solid fa-exclamation exclamation-point"></i>

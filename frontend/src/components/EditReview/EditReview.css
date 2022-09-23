@@ -109,23 +109,37 @@ ul {
   padding: 0
 }
 
-.editReviewErrorContainer {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 24px;
-  padding-right: 24px;
+.createReviewErrorContainer {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  /* padding-left: 24px; */
+  /* padding-right: 24px; */
   color: red;
+}
+
+.createReviewError {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  /* padding-top: 7px; */
+  /* padding-bottom: 11px; */
+}
+
+.errorMessageContainer {
+  display: flex;
+}
+
+.exclamation-point {
+  margin-top: 2.5px
+}
+
+.errorMessage {
+  padding-left: 12px;
 }
 
 .editReviewForm {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-}
-
-.editReviewError {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
 }
 
 .line {

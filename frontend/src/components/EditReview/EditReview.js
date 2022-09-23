@@ -37,9 +37,13 @@ const EditReview = ({ onX, reviewId }) => {
     if (review) data.review = review;
     if (stars) data.stars = stars;
 
+    let errors = [];
+
     if (review.length > 255 || review.length < 10) {
-      setErrors({ review: "Review must be between 10 to 255 Characters!" });
+      errors.push( "Review must be between 10 to 255 Characters!" );
     }
+
+    setErrors(errors)
 
     if(review.length <= 255 && review.length >= 10) {
       dispatch(editReview(data, reviewId)).then(() => dispatch(getReviewsByCurrentUser()))
@@ -52,11 +56,14 @@ const EditReview = ({ onX, reviewId }) => {
     <>
       <form onSubmit={onSubmit}>
         <div className="createReviewErrorContainer">
-            <div>
-              {Object.values(errors).map((error, i) => (
-                <div className="createReviewError" key={i}>{error}</div>
-              ))}
-            </div>
+          <div className="createReviewError">
+            {(errors).map((error, i) => (
+              <div className="errorMessageContainer" key={i}>
+                <i class="fa-solid fa-exclamation exclamation-point"></i>
+                <div className="errorMessage">{error}</div>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="createReviewInputContainer">
           <div className="createReviewInput">

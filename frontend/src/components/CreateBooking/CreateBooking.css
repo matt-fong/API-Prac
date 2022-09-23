@@ -18,9 +18,9 @@
   /* display: flex; */
 }
 
-.CreateBookingErrorsContainer {
-  /* padding-top: 13px; */
-  padding-bottom: 12px;
+.createBookingErrorContainer {
+  padding-top: 13px;
+  padding-bottom: 13px;
   /* padding-left: 24px; */
   /* padding-right: 24px; */
   color: red;
@@ -29,8 +29,20 @@
 .createBookingError {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  /* padding-top: 7px; */
+  /* padding-bottom: 11px; */
+}
+
+.errorMessageContainer {
+  display: flex;
+}
+
+.exclamation-point {
+  margin-top: 2.5px
+}
+
+.errorMessage {
+  padding-left: 12px;
 }
 
 ul {
