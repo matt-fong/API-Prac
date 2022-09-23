@@ -33,10 +33,6 @@ function EditSpotForm({ onX }) {
 
   if (!isLoaded) return null
 
-  function isImage(url) {
-    return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url)
-  }
-
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -50,15 +46,6 @@ function EditSpotForm({ onX }) {
     if (city) data.city = city;
     if (state) data.state = state;
     if (country) data.country = country;
-
-    // setErrors([]);
-    // dispatch(editSpot(data, spot.id)).then(() => dispatch(getAllSpots()))
-
-    // onX()
-
-    if (!isImage(url)) {
-      setErrors({ error: "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " })
-    }
 
     if (name.length < 5 || name.length > 255) {
       setErrors({ error: "Name must be between 5 to 255 characters." })
@@ -92,8 +79,12 @@ function EditSpotForm({ onX }) {
       && (description.length >= 5 && description.length <= 255)
       ) {
 
-      dispatch(editSpot(data, spot.id)).then(() => dispatch(getAllSpots()))
-      onX()
+      return dispatch(editSpot(data, spot.id)).then(() => dispatch(getAllSpots())).then(() => onX()).catch(
+        async (res) => {
+          const data = await res.json();
+          if (data && data.errors) setErrors(data.errors);
+        }
+      );
     }
   };
 
