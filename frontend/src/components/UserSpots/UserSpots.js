@@ -5,6 +5,7 @@ import './UserSpots.css'
 import '../HomePage/HomePage.css'
 import { NavLink, useHistory } from "react-router-dom";
 import CreateSpotModal from '../CreateSpot/CreateSpotModal';
+import CreateSpotModalTwo from "../CreateSpot/CreateSpotModalTwo";
 
 const UserSpots = () => {
   const user = useSelector(state => state.session.user);
@@ -13,17 +14,18 @@ const UserSpots = () => {
 
   const history = useHistory();
 
-  let userSpotss;
+  let userNoSpots;
 
   if (Object.keys(userSpots).length === 0) {
-    userSpotss = (
+    userNoSpots = (
       <div className="user-booking-notrip-container">
         <div className="user-booking-notrip-inner-container">
           <div className="user-booking-notrip-left">
             <img className="user-booking-notrip-hand" src='https://images.emojiterra.com/google/android-10/512px/1f44b.png' alt=''></img>
             <div className="user-booking-notrip-header">No spots listed...yet!</div>
             <div className="user-booking-notrip-undertext">Time to dust off your spot and start sharing your home</div>
-            <button className="user-booking-notrip-search-spots"><CreateSpotModal /></button>
+            {/* <button className="user-booking-notrip-search-spots"><CreateSpotModal /></button> */}
+            <CreateSpotModalTwo />
             {/* <div><CreateSpotModal /></div> */}
           </div>
           <img className="user-booking-notrip-right" src='https://a0.muscache.com/im/pictures/d727f355-3f10-44b5-9750-d1efca2438fc.jpg?im_w=720' alt=''></img>
@@ -46,7 +48,7 @@ const UserSpots = () => {
 
             </div>
           ))}
-          {userSpotss}
+          {userNoSpots}
         </div>
       </div>
     </div>
