@@ -36,7 +36,10 @@ function EditSpotForm({ onX }) {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    let errors= [];
+
     const data = {};
+
     if (name) data.name = name;
     if (price) data.price = price;
     if (lat) data.lat = lat;
@@ -48,28 +51,30 @@ function EditSpotForm({ onX }) {
     if (country) data.country = country;
 
     if (name.length < 5 || name.length > 255) {
-      setErrors({ error: "Name must be between 5 to 255 characters." })
+      errors.push( "Name must be between 5 to 255 characters." )
     }
 
     if (address.length < 5 || address.length > 255) {
-      setErrors({ error: "Address must be between 5 to 255 characters." })
+      errors.push( "Address must be between 5 to 255 characters." )
     }
 
     if (city.length < 5 || city.length > 255) {
-      setErrors({ error: "City must be between 5 to 255 characters." })
+      errors.push( "City must be between 5 to 255 characters." )
     }
 
     if (state.length < 5 || state.length > 255) {
-      setErrors({ error: "State must be between 5 to 255 characters." })
+      errors.push( "State must be between 5 to 255 characters." )
     }
 
     if (country.length < 5 || country.length > 255) {
-      setErrors({ error: "Country must be between 5 to 255 characters." })
+      errors.push( "Country must be between 5 to 255 characters." )
     }
 
     if (description.length < 5 || description.length > 255) {
-      setErrors({ error: "Description must be between 5 to 255 characters." })
+      errors.push( "Description must be between 5 to 255 characters." )
     }
+
+    setErrors(errors)
 
     if ((name.length >= 5 && name.length <= 255)
       && (address.length >= 5 && address.length <= 255)
@@ -88,13 +93,15 @@ function EditSpotForm({ onX }) {
     }
   };
 
-
   return (
     <form className="editSpotForm" onSubmit={onSubmit}>
       <div className="editSpotErrorContainer">
-        <div>
-          {Object.values(errors).map((error, i) => (
-            <div className="editSpotError" key={i}>{error}</div>
+        <div className="editSpotError">
+          {(errors).map((error, i) => (
+            <div className="errorMessageContainer" key={i}>
+              <i class="fa-solid fa-exclamation exclamation-point"></i>
+              <div className="errorMessage">{error}</div>
+            </div>
           ))}
         </div>
       </div>
