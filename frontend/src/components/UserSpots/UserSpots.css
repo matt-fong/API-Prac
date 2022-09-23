@@ -26,3 +26,27 @@
   width: 162.63px;
   font-family: 'Montserrat', sans-serif;
 }
+
+.userSpotsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.userSpotsInnerContainer {
+  width: 1440px;
+}
+
+.spotsContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.UserSpotsLayout {
+  display: flex;
+  flex-wrap: wrap;
+  place-items: center;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+}
