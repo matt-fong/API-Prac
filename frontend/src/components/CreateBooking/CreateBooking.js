@@ -62,9 +62,9 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
 
   if (errors.length > 0) {
     errorsli = (
-      <ul>
-        <li>{errors[0]}</li>
-      </ul>
+      <div>
+        <div className="createBookingError">{errors[0]}</div>
+      </div>
     )
   }
 
@@ -94,6 +94,10 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
         <form className='CreateBookingform' onSubmit={handleSubmit}>
           <div className="CreateBookingErrorsContainer">
             {errorsli}
+          </div>
+          <div className="createSpotCheckinCheckoutContainer">
+            <div className="createSpotCheckin">CHECK-IN</div>
+            <div className="createSpotCheckout">CHECKOUT</div>
           </div>
           <div className="CreateBookingDiv">
             <input className="CreateBookingInputCheckin"

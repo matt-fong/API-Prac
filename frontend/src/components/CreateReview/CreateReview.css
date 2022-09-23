@@ -110,22 +110,24 @@ ul {
 }
 
 .createReviewErrorContainer {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  /* padding-left: 24px; */
+  /* padding-right: 24px; */
   color: red;
+}
+
+.createReviewError {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  padding-top: 7px;
+  padding-bottom: 11px;
 }
 
 .createReviewForm {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-}
-
-.createReviewError {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
 }
 
 .line {

@@ -92,11 +92,11 @@ function EditSpotForm({ onX }) {
   return (
     <form className="editSpotForm" onSubmit={onSubmit}>
       <div className="editSpotErrorContainer">
-        <ul>
+        <div>
           {Object.values(errors).map((error, i) => (
-            <li className="editSpotError" key={i}>{error}</li>
+            <div className="editSpotError" key={i}>{error}</div>
           ))}
-        </ul>
+        </div>
       </div>
       <div className="editSpotInputContainer">
         <div className="editSpotInput">

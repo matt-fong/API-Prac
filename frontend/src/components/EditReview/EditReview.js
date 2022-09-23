@@ -38,7 +38,7 @@ const EditReview = ({ onX, reviewId }) => {
     if (stars) data.stars = stars;
 
     if (review.length > 255 || review.length < 10) {
-      setErrors({ review: "review must be between 10 to 255 Characters!" });
+      setErrors({ review: "Review must be between 10 to 255 Characters!" });
     }
 
     if(review.length <= 255 && review.length >= 10) {
@@ -52,11 +52,11 @@ const EditReview = ({ onX, reviewId }) => {
     <>
       <form onSubmit={onSubmit}>
         <div className="createReviewErrorContainer">
-            <ul>
+            <div>
               {Object.values(errors).map((error, i) => (
-                <li className="createReviewError" key={i}>{error}</li>
+                <div className="createReviewError" key={i}>{error}</div>
               ))}
-            </ul>
+            </div>
         </div>
         <div className="createReviewInputContainer">
           <div className="createReviewInput">

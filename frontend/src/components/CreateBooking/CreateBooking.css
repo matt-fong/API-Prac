@@ -19,19 +19,30 @@
 }
 
 .CreateBookingErrorsContainer {
-  /* padding-top: 5px; */
-  /* padding-bottom: 5px; */
-  padding-left: 24px;
-  padding-right: 24px;
+  /* padding-top: 13px; */
+  padding-bottom: 12px;
+  /* padding-left: 24px; */
+  /* padding-right: 24px; */
+  color: red;
+}
+
+.createBookingError {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 ul {
   padding: 0
 }
 
-.createBookingError {
+.createSpotCheckinCheckoutContainer {
   font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
+  display: flex;
+  font-size: 11px;
+  font-weight: 600;
+  justify-content: space-around;
 }
 
 .CreateBookingDiv {

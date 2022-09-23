@@ -52,11 +52,11 @@ const CreateReview = ({ onX }) => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="createReviewErrorContainer">
-          <ul>
+          <div>
             {Object.values(errors).map((error, i) => (
-              <li className="createReviewError" key={i}>{error}</li>
+              <div className="createReviewError" key={i}>{error}</div>
             ))}
-          </ul>
+          </div>
         </div>
         <div className="createReviewInputContainer">
           <div className="createReviewInput">

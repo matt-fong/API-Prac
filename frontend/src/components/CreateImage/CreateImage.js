@@ -50,11 +50,11 @@ const CreateImage = ({ onX }) => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="createImageErrorContainer">
-          <ul>
+          <div>
             {Object.values(errors).map((error, i) => (
-              <li className="createImageError" key={i}>{error}</li>
+              <div className="createImageError" key={i}>{error}</div>
             ))}
-          </ul>
+          </div>
         </div>
         <div className="createImageInputContainer">
           <div className="createImageInput">

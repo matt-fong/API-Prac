@@ -103,11 +103,11 @@ const CreateSpot = ({ onX }) => {
   return (
     <form className="createSpotForm" onSubmit={onSubmit}>
       <div className="createSpotErrorContainer">
-        <ul>
+        <div>
           {Object.values(errors).map((error, i) => (
-            <li className="createSpotError" key={i}>{error}</li>
+            <div className="createSpotError" key={i}>{error}</div>
           ))}
-        </ul>
+        </div>
       </div>
       <div className="createSpotInputContainer">
         <div className="createSpotInput">

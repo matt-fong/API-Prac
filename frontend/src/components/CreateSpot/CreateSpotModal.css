@@ -101,22 +101,24 @@ ul {
 }
 
 .createSpotErrorContainer {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  /* padding-left: 24px; */
+  /* padding-right: 24px; */
   color: red;
+}
+
+.createSpotError {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  padding-top: 7px;
+  padding-bottom: 11px;
 }
 
 .createSpotForm {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-}
-
-.createSpotError {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
 }
 
 .line {

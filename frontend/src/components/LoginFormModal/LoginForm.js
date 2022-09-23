@@ -23,11 +23,11 @@ function LoginForm() {
   return (
     <form className="loginForm" onSubmit={handleSubmit}>
       <div className="loginErrorContainer">
-        <ul>
+        <div>
           {errors.map((error, i) => (
-            <li className="loginError" key={i}>{error}</li>
+            <div className="loginError" key={i}>{error}</div>
           ))}
-        </ul>
+        </div>
       </div>
       <div className="loginInputContainer">
         <div className="loginInput">
