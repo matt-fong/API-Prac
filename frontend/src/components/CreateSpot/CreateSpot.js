@@ -90,9 +90,12 @@ const CreateSpot = ({ onX }) => {
       && (description.length >= 5 && description.length <= 255)
       ) {
 
-      dispatch(spotActions.createSpot(data)).then((res) => history.push(`/spots/${res.id}/${user.id}`))
-      // dispatch(spotActions.createSpot(data)).then((res) => console.log('THIS IS RES', res))
-      onX()
+      return dispatch(spotActions.createSpot(data)).then((res) => history.push(`/spots/${res.id}/${user.id}`)).then(() => onX()).catch(
+        async (res) => {
+          const data = await res.json();
+          if (data && data.errors) setErrors(data.errors);
+        }
+      );
     }
 
   };
