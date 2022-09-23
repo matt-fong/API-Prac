@@ -120,8 +120,20 @@ ul {
 .createReviewError {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
-  padding-top: 7px;
-  padding-bottom: 11px;
+  /* padding-top: 7px; */
+  /* padding-bottom: 11px; */
+}
+
+.errorMessageContainer {
+  display: flex;
+}
+
+.exclamation-point {
+  margin-top: 2.5px
+}
+
+.errorMessage {
+  padding-left: 12px;
 }
 
 .createReviewForm {

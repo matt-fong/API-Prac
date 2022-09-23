@@ -35,7 +35,10 @@ function SignUpForm() {
       <div className="signupErrorContainer">
         <div className="signupError">
           {errors.map((error, i) =>
-          <div key={i}>{error}</div>)}
+          <div className="errorMessageContainer" key={i}>
+            <i class="fa-solid fa-exclamation exclamation-point"></i>
+            <div className="errorMessage">{error}</div>
+          </div>)}
         </div>
       </div>
       <div className="signupInputContainer">

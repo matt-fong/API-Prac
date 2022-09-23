@@ -32,13 +32,17 @@ const CreateReview = ({ onX }) => {
       stars: stars,
     };
 
+    let errors = [];
+
     if (userReview) {
-      setErrors({ error: "User has already created a review." })
+      errors.push( "User has already created a review." )
     }
 
     if (reviewMessage.length > 255 || reviewMessage.length < 10) {
-      setErrors({ reviewMessage: "Review must be between 10 to 255 Characters!" });
+      errors.push( "Review must be between 10 to 255 Characters!" );
     }
+
+    setErrors(errors)
 
     if (reviewMessage.length <= 255 && reviewMessage.length >= 10 && !userReview) {
       dispatch(reviewActions.createNewReview(spotId, data)).then(() => dispatch(getReviewsBySpotId(spotId))).then(() => dispatch(getAllSpots()))
@@ -52,9 +56,12 @@ const CreateReview = ({ onX }) => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="createReviewErrorContainer">
-          <div>
-            {Object.values(errors).map((error, i) => (
-              <div className="createReviewError" key={i}>{error}</div>
+          <div className="createSpotError">
+            {(errors).map((error, i) => (
+              <div className="errorMessageContainer" key={i}>
+                <i class="fa-solid fa-exclamation exclamation-point"></i>
+                <div className="errorMessage">{error}</div>
+              </div>
             ))}
           </div>
         </div>
