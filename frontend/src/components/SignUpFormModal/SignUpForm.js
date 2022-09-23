@@ -33,9 +33,9 @@ function SignUpForm() {
   return (
     <form className="signupForm" onSubmit={onSubmit}>
       <div className="signupErrorContainer">
-        <div>
+        <div className="signupError">
           {errors.map((error, i) =>
-          <div className="signupError" key={i}>{error}</div>)}
+          <div key={i}>{error}</div>)}
         </div>
       </div>
       <div className="signupInputContainer">
