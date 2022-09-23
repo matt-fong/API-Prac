@@ -76,7 +76,7 @@ const SpotDetails = () => {
           {` · `}
           <div className="spotDetailLocation">{spot?.city}, {spot?.state}, {spot?.country}</div>
         </div>
-        <div className="testing"><CreateImageModal /></div>
+        {/* <div className="testing"><CreateImageModal /></div> */}
         <div className="spotDetailEditReview"><EditSpotModal /></div>
         <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot?.id)}>Delete</button>
       </div>
@@ -214,7 +214,7 @@ const SpotDetails = () => {
           </div>
 
 
-          <div className="spotDetailBodyRight">
+          {/* <div className="spotDetailBodyRight">
 
             <div className='spotDetailPriceContainer'>
 
@@ -261,7 +261,8 @@ const SpotDetails = () => {
 
             {currentBooking}
 
-          </div>
+          </div> */}
+
         </div>
 
         <div className="spotDetailReviewContainer">

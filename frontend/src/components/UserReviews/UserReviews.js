@@ -77,7 +77,7 @@ const UserReviews = () => {
   return (
     <div className="userReviewContainer">
       <div className="userReviewInnerContainer">
-        <div className="userReviewHeader">User Reviews</div>
+        <div className="userReviewHeader">My Reviews</div>
         <div className="userReviewCardContainer">
           {userNoReviews}
         </div>
