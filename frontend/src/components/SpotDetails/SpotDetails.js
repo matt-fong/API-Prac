@@ -214,7 +214,7 @@ const SpotDetails = () => {
           </div>
 
 
-          {/* <div className="spotDetailBodyRight">
+          <div className="spotDetailBodyRight">
 
             <div className='spotDetailPriceContainer'>
 
@@ -229,23 +229,25 @@ const SpotDetails = () => {
                 </div>
               </div>
 
-              <div className="spotDetailBoxTwo">
+              {/* <div className="spotDetailBoxTwo">
                   <CreateBooking setStartDate={setStartDate} setEndDate={setEndDate} todayDate={todayDate} startDate={startDate} endDate={endDate}/>
-              </div>
+              </div> */}
 
-              <div className="spotDetailBoxThree">
+              {/* <div className="spotDetailBoxThree">
                 You won't be charged yet
-              </div>
+              </div> */}
 
               <div className="spotDetailBoxFour">
                 <div className="spotDetailFeeOne">
                   <div className="spotDetailFeeDescription">{`$100 x ${dateDiffInt} nights`}</div>
                   <div className="spotDetailFeeNumber">${dateDiffInt * spot?.price}</div>
                 </div>
+
                 <div className="spotDetailFeeTwo">
                   <div className="spotDetailFeeDescription">Cleaning fee</div>
                   <div className="spotDetailFeeNumber">Free</div>
                 </div>
+                
                 <div className="spotDetailFeeThree">
                   <div className="spotDetailFeeDescription">Service fee</div>
                   <div className="spotDetailFeeNumber">Free</div>
@@ -259,9 +261,9 @@ const SpotDetails = () => {
 
             </div>
 
-            {currentBooking}
+            {/* {currentBooking} */}
 
-          </div> */}
+          </div>
 
         </div>
 
