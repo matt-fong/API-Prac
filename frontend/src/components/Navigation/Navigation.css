@@ -157,3 +157,11 @@
   width: 77px;
   height: 42px;
 }
+
+.login-button-testing {
+  border-bottom: 1px solid lightgray;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}

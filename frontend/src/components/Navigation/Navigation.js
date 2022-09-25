@@ -7,28 +7,32 @@ import SignUpModal from '../SignUpFormModal/SignUpFormModal';
 import './Navigation.css';
 import logo from '../../assets/airdndlogo.jpg'
 import CreateSpotModal from '../CreateSpot/CreateSpotModal';
-import NoUser from './NoUser';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
 
-  if (sessionUser) {
-    sessionLinks = (
-      <div className="user-session">
-        <ProfileButton user={sessionUser} />
-      </div>
-    );
-  } else {
-    sessionLinks = (
-      <div className="user-session">
-        <LoginModal />
-        <SignUpModal />
-        {/* <NoUser /> */}
-      </div>
-    );
-  }
+  sessionLinks = (
+    <div className="user-session">
+      <ProfileButton user={sessionUser} />
+    </div>
+  );
+
+  // if (sessionUser) {
+  //   sessionLinks = (
+  //     <div className="user-session">
+  //       <ProfileButton user={sessionUser} />
+  //     </div>
+  //   );
+  // } else {
+  //   sessionLinks = (
+  //     <div className="user-session">
+  //       <LoginModal />
+  //       <SignUpModal />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className='navContainer'>
