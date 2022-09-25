@@ -108,6 +108,7 @@
   cursor: pointer;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
+  border-radius: 15px 15px 0 0;
 }
 
 .profile-manage-reviews {
@@ -158,10 +159,29 @@
   height: 42px;
 }
 
-.login-button-testing {
+.no-user-profile-login-button {
   border-bottom: 1px solid lightgray;
   padding: 15px;
   cursor: pointer;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
+}
+
+.no-user-profile-login-button:hover {
+  background-color: rgba(200, 200, 200, 0.18);
+  border-radius: 15px 15px 0 0;
+}
+
+.no-user-profile-signup-button {
+  border-bottom: 1px solid lightgray;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 0 0 15px 15px;
+}
+
+.no-user-profile-signup-button:hover {
+  background-color: rgba(200, 200, 200, 0.18);
+  border-radius: 0 0 15px 15px;
 }
