@@ -46,10 +46,10 @@ function ProfileButton({ user }) {
     history.push('/');
   };
 
-  let testing;
+  let profileButton;
 
   if (user) {
-    testing = (
+    profileButton = (
       <div className="user-session">
       <div className="userProfileMenu">
         <button className='userProfileButton' onClick={openMenu}>
@@ -96,7 +96,7 @@ function ProfileButton({ user }) {
     </div>
     )
   } else {
-    testing = (
+    profileButton = (
       <div className="user-session">
         <div className="userProfileMenu">
           <button className='userProfileButton' onClick={openMenu}>
@@ -151,7 +151,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      {testing}
+      {profileButton}
     </>
   );
 }

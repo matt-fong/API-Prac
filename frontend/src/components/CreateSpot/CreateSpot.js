@@ -49,39 +49,44 @@ const CreateSpot = ({ onX }) => {
       previewImage: true
     };
 
-    if (!isImage(url)) {
-      errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
-    }
+    // if (!user) {
+    //   errors.push( "User must be logged in." )
+    // }
 
     if (!user) {
       errors.push( "User must be logged in." )
-    }
+      setErrors(errors)
+    } else {
+      if (!isImage(url)) {
+        errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
+      }
 
-    if (name.length < 5 || name.length > 255) {
-      errors.push( "Name must be between 5 to 255 characters." )
-    }
+      if (name.length < 5 || name.length > 255) {
+        errors.push( "Name must be between 5 to 255 characters." )
+      }
 
-    if (address.length < 5 || address.length > 255) {
-      errors.push( "Address must be between 5 to 255 characters." )
-    }
+      if (address.length < 5 || address.length > 255) {
+        errors.push( "Address must be between 5 to 255 characters." )
+      }
 
-    if (city.length < 5 || city.length > 255) {
-      errors.push( "City must be between 5 to 255 characters." )
-    }
+      if (city.length < 5 || city.length > 255) {
+        errors.push( "City must be between 5 to 255 characters." )
+      }
 
-    if (state.length < 5 || state.length > 255) {
-      errors.push( "State must be between 5 to 255 characters." )
-    }
+      if (state.length < 5 || state.length > 255) {
+        errors.push( "State must be between 5 to 255 characters." )
+      }
 
-    if (country.length < 5 || country.length > 255) {
-      errors.push( "Country must be between 5 to 255 characters." )
-    }
+      if (country.length < 5 || country.length > 255) {
+        errors.push( "Country must be between 5 to 255 characters." )
+      }
 
-    if (description.length < 5 || description.length > 255) {
-      errors.push( "Description must be between 5 to 255 characters." )
-    }
+      if (description.length < 5 || description.length > 255) {
+        errors.push( "Description must be between 5 to 255 characters." )
+      }
 
-    setErrors(errors)
+      setErrors(errors)
+    }
 
     if (isImage(url)
       && user
