@@ -76,7 +76,7 @@ const SpotDetails = () => {
           {` · `}
           <div className="spotDetailLocation">{spot?.city}, {spot?.state}, {spot?.country}</div>
         </div>
-        {/* <div className="testing"><CreateImageModal /></div> */}
+        <div className="testing"><CreateImageModal /></div>
         <div className="spotDetailEditReview"><EditSpotModal /></div>
         <button className="spotDetailDeleteButton" onClick={() => handleDelete(spot?.id)}>Delete</button>
       </div>
@@ -229,13 +229,13 @@ const SpotDetails = () => {
                 </div>
               </div>
 
-              {/* <div className="spotDetailBoxTwo">
+              <div className="spotDetailBoxTwo">
                   <CreateBooking setStartDate={setStartDate} setEndDate={setEndDate} todayDate={todayDate} startDate={startDate} endDate={endDate}/>
-              </div> */}
+              </div>
 
-              {/* <div className="spotDetailBoxThree">
+              <div className="spotDetailBoxThree">
                 You won't be charged yet
-              </div> */}
+              </div>
 
               <div className="spotDetailBoxFour">
                 <div className="spotDetailFeeOne">
@@ -247,7 +247,7 @@ const SpotDetails = () => {
                   <div className="spotDetailFeeDescription">Cleaning fee</div>
                   <div className="spotDetailFeeNumber">Free</div>
                 </div>
-                
+
                 <div className="spotDetailFeeThree">
                   <div className="spotDetailFeeDescription">Service fee</div>
                   <div className="spotDetailFeeNumber">Free</div>
@@ -261,7 +261,7 @@ const SpotDetails = () => {
 
             </div>
 
-            {/* {currentBooking} */}
+            {currentBooking}
 
           </div>
 

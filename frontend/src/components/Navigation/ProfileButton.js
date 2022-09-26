@@ -59,12 +59,12 @@ function ProfileButton({ user }) {
         {showMenu && (
           <div className="profile-container">
           <div className="profile-item-container">
-            {/* <div
+            <div
                 className="profile-manage-listings"
                 onClick={() => history.push(`/users/account/${user.id}`)}
               >
                 Account
-            </div> */}
+            </div>
             <div
                 className="profile-manage-listings"
                 onClick={() => history.push("/my-spots")}
@@ -77,12 +77,12 @@ function ProfileButton({ user }) {
               >
                 Manage Reviews
             </div>
-            {/* <div
+            <div
                 className="profile-manage-bookings"
                 onClick={() => history.push("/my-bookings")}
               >
                 Manage Bookings
-            </div> */}
+            </div>
 
             <div className="profile-logout" onClick={logout}>
               Log Out

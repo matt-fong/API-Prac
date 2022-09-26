@@ -42,7 +42,7 @@ function App() {
           <Route path="/my-reviews">
             <UserReviews isLoaded={isLoaded} />
           </Route>
-          {/* <Route path="/my-bookings/past">
+          <Route path="/my-bookings/past">
             <UserPastBookings />
           </Route>
           <Route path="/my-bookings">
@@ -56,7 +56,7 @@ function App() {
           </Route>
           <Route path="/users/account/:userId">
             <UserProfile />
-          </Route> */}
+          </Route>
         </Switch>
       )}
     </>
