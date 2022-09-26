@@ -32,7 +32,6 @@ const CreateSpot = ({ onX }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    // setErrors([]);
     let errors = [];
 
     let data = {
@@ -48,10 +47,6 @@ const CreateSpot = ({ onX }) => {
       lng: LNG,
       previewImage: true
     };
-
-    // if (!user) {
-    //   errors.push( "User must be logged in." )
-    // }
 
     if (!user) {
       errors.push( "User must be logged in." )

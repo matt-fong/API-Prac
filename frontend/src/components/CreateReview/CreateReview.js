@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import * as reviewActions from "../../store/reviews";
 import './CreateReview.css'
 import { getAllSpots } from "../../store/spots";
@@ -19,10 +19,6 @@ const CreateReview = ({ onX }) => {
   const [reviewMessage, setReviewMessage] = useState("");
   const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState([]);
-
-  // useEffect(() => {
-  //   dispatch(getAllSpots())
-  // }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +42,6 @@ const CreateReview = ({ onX }) => {
 
     if (reviewMessage.length <= 255 && reviewMessage.length >= 10 && !userReview) {
       dispatch(reviewActions.createNewReview(spotId, data)).then(() => dispatch(getReviewsBySpotId(spotId))).then(() => dispatch(getAllSpots()))
-      // history.push(`/spots/${spotId}/${ownerId}`)
       onX()
     }
 
