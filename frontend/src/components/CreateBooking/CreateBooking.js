@@ -105,7 +105,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
           </div>
           <div className="CreateBookingDiv">
 
-            <div className="testinggg">
+            <div className="CreateBookingInputContainer">
               <div className="createSpotCheckin">CHECK-IN</div>
               <input className="CreateBookingInputCheckin"
                 type="date"
@@ -119,7 +119,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
 
             </div>
 
-            <div className="testinggg">
+            <div className="CreateBookingInputContainer">
               <div className="createSpotCheckout">CHECKOUT</div>
               <input className="CreateBookingInputCheckout"
                 type="date"

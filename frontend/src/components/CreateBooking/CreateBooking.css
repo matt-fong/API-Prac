@@ -205,14 +205,14 @@ input.CreateBookingInputCheckin[type="date"]::-webkit-calendar-picker-indicator 
   background: transparent;
 }
 
-.testinggg {
+.CreateBookingInputContainer {
   width: 50%;
   position: relative;
 }
 
 .createSpotCheckin {
   position: absolute;
-  padding-left: 14px;
+  padding-left: 13.5px;
   padding-top: 13px;
   font-size: 10px;
   font-weight: 600;
