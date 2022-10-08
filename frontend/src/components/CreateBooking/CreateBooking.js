@@ -102,28 +102,36 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
             {errorsli}
           </div>
           <div className="createSpotCheckinCheckoutContainer">
-            <div className="createSpotCheckin">CHECK-IN</div>
-            <div className="createSpotCheckout">CHECKOUT</div>
           </div>
           <div className="CreateBookingDiv">
-            <input className="CreateBookingInputCheckin"
-              type="date"
-              // placeholder="mm/dd/yyyy"
-              // value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              required
-              min={todayDate}
-              max={"9999-12-31"}
-            />
-            <input className="CreateBookingInputCheckout"
-              type="date"
-              // placeholder="mm/dd/yyyy"
-              // value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              required
-              min={todayDate}
-              max="9999-12-31"
+
+            <div className="testinggg">
+              <div className="createSpotCheckin">CHECK-IN</div>
+              <input className="CreateBookingInputCheckin"
+                type="date"
+                // placeholder="mm/dd/yyyy"
+                // value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                required
+                min={todayDate}
+                max={"9999-12-31"}
               />
+
+            </div>
+
+            <div className="testinggg">
+              <div className="createSpotCheckout">CHECKOUT</div>
+              <input className="CreateBookingInputCheckout"
+                type="date"
+                // placeholder="mm/dd/yyyy"
+                // value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                required
+                min={todayDate}
+                max="9999-12-31"
+                />
+
+            </div>
           </div>
           {/* <div>
           <select name="pets" className="CreateBookingGuest">

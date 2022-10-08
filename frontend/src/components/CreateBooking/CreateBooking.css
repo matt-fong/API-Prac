@@ -142,6 +142,7 @@ ul {
   box-sizing: border-box;
   /* width: 12%; */
   padding: 12px;
+  padding-top: 25px;
   /* border: 1px solid #bbbbbb; */
   border-top: 1px solid #bbbbbb;
   border-bottom: 1px solid #bbbbbb;
@@ -151,7 +152,9 @@ ul {
   background-color: transparent !important;
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
-  width: 50%
+  /* width: 50% */
+  width: 100%;
+  height: 100%;
 }
 
 input.CreateBookingInputCheckout[type="date"] {
@@ -173,6 +176,7 @@ input.CreateBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator
   box-sizing: border-box;
   /* width: 12%; */
   padding: 12px;
+  padding-top: 25px;
   /* border: 1px solid #bbbbbb; */
   border-top: 1px solid #bbbbbb;
   border-bottom: 1px solid #bbbbbb;
@@ -181,7 +185,9 @@ input.CreateBookingInputCheckout[type="date"]::-webkit-calendar-picker-indicator
   border-radius: 8px 0 0 0;
   background-color: transparent !important;
   font-family: 'Montserrat', sans-serif;
-  width: 50%
+  /* width: 50% */
+  width: 100%;
+  height: 100%;
 }
 
 input.CreateBookingInputCheckin[type="date"] {
@@ -197,4 +203,25 @@ input.CreateBookingInputCheckin[type="date"]::-webkit-calendar-picker-indicator 
   padding: 0;
   color: transparent;
   background: transparent;
+}
+
+.testinggg {
+  width: 50%;
+  position: relative;
+}
+
+.createSpotCheckin {
+  position: absolute;
+  padding-left: 14px;
+  padding-top: 13px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.createSpotCheckout {
+  position: absolute;
+  padding-left: 14px;
+  padding-top: 13px;
+  font-size: 10px;
+  font-weight: 600;
 }
