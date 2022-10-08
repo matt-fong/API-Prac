@@ -101,8 +101,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
           <div className="CreateBookingErrorContainer">
             {errorsli}
           </div>
-          <div className="createSpotCheckinCheckoutContainer">
-          </div>
+
           <div className="CreateBookingDiv">
 
             <div className="CreateBookingInputContainer">
@@ -146,7 +145,7 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
           </div> */}
 
           <div className="CreateBookingGuest">
-            <div className="CreateBookingGuestOne">Guests</div>
+            <div className="CreateBookingGuestOne">GUESTS</div>
             <div className="CreateBookingGuestTwo">2 guests</div>
           </div>
 

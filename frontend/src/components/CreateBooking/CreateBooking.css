@@ -49,19 +49,32 @@ ul {
   padding: 0
 }
 
-.createSpotCheckinCheckoutContainer {
-  font-family: 'Montserrat', sans-serif;
-  display: flex;
-  font-size: 11px;
-  font-weight: 600;
-  justify-content: space-around;
-}
-
 .CreateBookingDiv {
   display: flex;
   width: 322.33px;
   /* border-radius: 8px 8px 0 0; */
   height: 56px;
+}
+
+.CreateBookingInputContainer {
+  width: 50%;
+  position: relative;
+}
+
+.createSpotCheckin {
+  position: absolute;
+  padding-left: 13.5px;
+  padding-top: 13px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.createSpotCheckout {
+  position: absolute;
+  padding-left: 14px;
+  padding-top: 13px;
+  font-size: 10px;
+  font-weight: 600;
 }
 
 .CreateBookingContainer {
@@ -86,22 +99,22 @@ ul {
   font-family: 'Montserrat', sans-serif;
   background: rgba(0, 0, 0, 0)
   linear-gradient(
-      to right,
-      rgb(230, 30, 77) 0%,
-      rgb(227, 28, 95) 50%,
-      rgb(215, 4, 102) 100%
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
     )
     repeat scroll 0% 0%;
   }
 
-.createBookingSubmit {
-  box-sizing: border-box;
-  /* width: 100%; */
-  /* padding: 17px; */
-  border-radius: 8px;
-  background-color: transparent !important;
-  font-family: 'Montserrat', sans-serif;
-  cursor: pointer;
+  .createBookingSubmit {
+    box-sizing: border-box;
+    /* width: 100%; */
+    /* padding: 17px; */
+    border-radius: 8px;
+    background-color: transparent !important;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
   height: 48px;
 }
 
@@ -115,7 +128,6 @@ ul {
   border-radius: 0 0 8px 8px;
   height: 55px;
   padding-left: 12px;
-  font-family: 'Montserrat', sans-serif;
   margin-bottom: 16px;
 
   /* width: 100%; */
@@ -129,8 +141,8 @@ ul {
 } */
 
 .CreateBookingGuestOne {
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 10px;
 }
 
 .CreateBookingGuestTwo {
@@ -203,25 +215,4 @@ input.CreateBookingInputCheckin[type="date"]::-webkit-calendar-picker-indicator 
   padding: 0;
   color: transparent;
   background: transparent;
-}
-
-.CreateBookingInputContainer {
-  width: 50%;
-  position: relative;
-}
-
-.createSpotCheckin {
-  position: absolute;
-  padding-left: 13.5px;
-  padding-top: 13px;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.createSpotCheckout {
-  position: absolute;
-  padding-left: 14px;
-  padding-top: 13px;
-  font-size: 10px;
-  font-weight: 600;
 }
