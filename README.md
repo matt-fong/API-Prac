@@ -29,11 +29,11 @@ Live site: https://airdnd.herokuapp.com/
 
 Home Page
 
-![splashpage](https://user-images.githubusercontent.com/103220965/196019470-fa815c36-5bcd-4cd1-8156-1d91e275e865.PNG)
+![splashpage](https://user-images.githubusercontent.com/103220965/196019504-4f23704c-cbf1-45a0-b022-e554e5af704e.PNG)
 
 Spot Detail Page
 
-![spot detail](https://user-images.githubusercontent.com/103220965/196019473-605bd5c3-f385-4307-927f-136369b7aae2.PNG)
+![spot detail](https://user-images.githubusercontent.com/103220965/196019508-703968b2-fd86-4845-a30a-a72cfa28d44a.PNG)
 
 ## Locally
 If you would like to launch the site locally please do the following:
