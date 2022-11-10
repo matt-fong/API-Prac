@@ -144,13 +144,20 @@ module.exports = {
         email: 'andrewwiggins@user.io',
         hashedPassword: bcrypt.hashSync('password')
       },
+      {
+        firstName: 'Demo',
+        lastName: 'User',
+        username: 'demouser',
+        email: 'demouser@user.io',
+        hashedPassword: bcrypt.hashSync('password')
+      },
     ], {});
   },
 
   async down (queryInterface, Sequelize) {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete('Users', {
-      username: { [Op.in]: ['lebronjames', 'kevindurant', 'kyrieirving', 'michaeljordan', 'stephcurry', 'kobebryant', 'chrispaul', 'traeyoung', 'jamorant', 'jamesharden', 'jimmybutler', 'lameloball', 'jaysontatum', 'lukadoncic', 'klaythompson', 'demarderozan', 'devinbooker', 'joelembiid', 'jaylenbrown', 'andrewwiggins'] }
+      username: { [Op.in]: ['lebronjames', 'kevindurant', 'kyrieirving', 'michaeljordan', 'stephcurry', 'kobebryant', 'chrispaul', 'traeyoung', 'jamorant', 'jamesharden', 'jimmybutler', 'lameloball', 'jaysontatum', 'lukadoncic', 'klaythompson', 'demarderozan', 'devinbooker', 'joelembiid', 'jaylenbrown', 'andrewwiggins', 'demouser'] }
     }, {});
   }
 };
