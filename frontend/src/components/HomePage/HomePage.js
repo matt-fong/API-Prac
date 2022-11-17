@@ -8,8 +8,6 @@ import { getAllSpots } from "../../store/spots";
 const HomePage = () => {
   const spots = useSelector((state) => Object.values(state.spots));
 
-  // console.log(spots)
-
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -49,7 +49,6 @@ export const editReview = (payload, reviewId) => async (dispatch) => {
   })
   if (response.ok){
       const data = await response.json();
-      console.log('THIS IS DATAAAAAA', data)
       dispatch(updateReview(data))
       return response;
   }
@@ -67,7 +66,6 @@ export const getReviewsByCurrentUser = () => async (dispatch) => {
   const res = await csrfFetch(`/api/reviews/current`);
   if (res.ok) {
     const data = await res.json();
-    // console.log('THIS IS DATA', data)
     dispatch(getCurrentReviews(data.Reviews));
   }
 };
@@ -119,9 +117,6 @@ export default function reviewsReducer(state = {}, action) {
     case UPDATE:
       newState = { ...state };
       newState[action.reviewId.id] = action.reviewId
-      console.log('THIS IS ACTION', action)
-      console.log('THIS IS ACTION PAYLOAD', action.reviewId)
-      console.log('THIS IS NEW STATE', newState)
       return newState;
     case DELETE:
       newState = { ...state };

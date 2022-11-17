@@ -11,26 +11,26 @@ const UserProfile = () => {
   const { userId } = useParams()
 
   const reviews = useSelector(state => Object.values(state.reviews));
-  // console.log('THIS IS REVIEWS', reviews)
+
 
   const spots = useSelector((state) => (state.spots));
 
   const spot = spots[spotId]
-  // console.log('THIS IS SPOT', spot)
+
 
   const users = useSelector(state => (state.users));
   const currentUser = users[userId]
-  // console.log('THIS IS USERS', users)
+
 
   const spotOwner = users[spot?.ownerId]
-  // console.log('THIS IS SPOTOWNER', spotOwner)
+
 
   const dispatch = useDispatch();
 
   const bookings = useSelector(state => (state.bookings));
-  // console.log('THIS IS BOOKINGS', bookings)
+
   const currentBooked = bookings[bookingId]
-  // console.log('THIS IS CURRENT BOOKED', currentBooked)
+
 
   useEffect(() => {
     dispatch(getReviewsByCurrentUser())

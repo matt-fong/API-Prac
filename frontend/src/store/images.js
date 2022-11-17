@@ -53,8 +53,6 @@ export default function imagesReducer(state = {}, action) {
     case DELETE:
       newState = { ...state };
       delete newState[action.imageId];
-      console.log('THIS IS ACTION', action)
-      console.log('THIS IS NEW STATE', newState)
       return newState;
     default:
       return state;

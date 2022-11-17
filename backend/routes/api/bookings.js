@@ -29,8 +29,6 @@ router.get('/current', requireAuth, async (req, res, next) => {
       }
     })
 
-    console.log(image)
-
     if (image) {
       spot.previewImage = image.url
     } else {

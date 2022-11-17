@@ -12,16 +12,16 @@ const CreateBooking = ({ setStartDate, setEndDate, todayDate, startDate, endDate
   const spots = useSelector((state) => (state.spots));
 
   const spot = spots[spotId]
-  // console.log('THIS IS SPOT', spot)
+
 
   const sessionUser = useSelector(state => state.session.user);
-  // console.log('THIS IS USER', sessionUser)
+
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   const bookings = useSelector(state => Object.values(state.bookings));
-  // console.log('THIS IS ALL BOOKINGS', bookings)
+
 
   const startDateNum = new Date(startDate) - 0
   const endDateNum = new Date(endDate) - 0

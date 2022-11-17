@@ -18,7 +18,6 @@ const UserReviews = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  console.log('THIS IS REVIEWS', reviews)
 
   useEffect(() => {
     dispatch(getReviewsByCurrentUser()).then(() => setIsLoaded(true))

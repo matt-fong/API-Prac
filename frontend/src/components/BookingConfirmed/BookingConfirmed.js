@@ -12,20 +12,18 @@ const BookingConfirmed = () => {
   const spots = useSelector((state) => (state.spots));
 
   const spot = spots[spotId]
-  // console.log('THIS IS SPOT', spot)
-
   const users = useSelector(state => (state.users));
-  // console.log('THIS IS USERS', users)
+
 
   const spotOwner = users[spot?.ownerId]
-  // console.log('THIS IS SPOTOWNER', spotOwner)
+
 
   const dispatch = useDispatch();
 
   const bookings = useSelector(state => (state.bookings));
-  // console.log('THIS IS BOOKINGS', bookings)
+
   const currentBooked = bookings[bookingId]
-  // console.log('THIS IS CURRENT BOOKED', currentBooked)
+
 
   useEffect(() => {
     dispatch(getBookingsByCurrentUser())
@@ -33,16 +31,16 @@ const BookingConfirmed = () => {
   }, [ dispatch ]);
 
   const startInt = new Date(currentBooked?.startDate).getDay()
-  // console.log('THIS IS startInt', startInt )
+
 
   const endInt = new Date(currentBooked?.endDate).getDay()
-  // console.log('THIS IS endInt', endInt )
+
 
   // const monthIntend = new Date(currentBooked?.endDate).getMonth()
-  // console.log('THIS IS monthIntend', monthIntend )
+
 
   // const monthIntstart = new Date(currentBooked?.startDate).getMonth()
-  // console.log('THIS IS monthIntstart', monthIntstart )
+
 
   let dateDiffInt;
 

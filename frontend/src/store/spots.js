@@ -59,7 +59,6 @@ export const getAllSpots = () => async (dispatch) => {
     })
     if (response.ok) {
         const data = await response.json();
-        // console.log('THIS IS DATA', data)
         dispatch(getAllSpotsAction(data.Spots))
     }
 }
@@ -68,7 +67,6 @@ export const getSpotById = (spotId) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${spotId}`)
     if (response.ok){
         const data = await response.json();
-        // console.log(data)
         dispatch(getSpotByIdAction(data))
     }
 }
