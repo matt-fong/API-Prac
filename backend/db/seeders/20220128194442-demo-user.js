@@ -154,10 +154,7 @@ module.exports = {
     ], {});
   },
 
-  async down (queryInterface, Sequelize) {
-    const Op = Sequelize.Op;
-    return queryInterface.bulkDelete('Users', {
-      username: { [Op.in]: ['lebronjames', 'kevindurant', 'kyrieirving', 'michaeljordan', 'stephcurry', 'kobebryant', 'chrispaul', 'traeyoung', 'jamorant', 'jamesharden', 'jimmybutler', 'lameloball', 'jaysontatum', 'lukadoncic', 'klaythompson', 'demarderozan', 'devinbooker', 'joelembiid', 'jaylenbrown', 'andrewwiggins', 'demouser'] }
-    }, {});
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete("Users", null, {});
+  },
 };

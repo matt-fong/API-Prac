@@ -8,8 +8,7 @@ import './CurrentBookings.css'
 
 const CurrentBookings = () => {
   const bookings = useSelector(state => Object.values(state.bookings));
-  // console.log('THIS IS USERS BOOKINGS', bookings)
-  // console.log('THIS IS BOOOOOOOOKINGS', new Date(bookings[0]?.endDate).toISOString().split('T')[0])
+
 
   const todayDate = (new Date()).toISOString().slice(0,10);
 
@@ -23,15 +22,12 @@ const CurrentBookings = () => {
     return booking.endDate >= todayDate
   })
 
-  // console.log('THIS IS FILTERED BOOKINGS', filteredBookings)
-
   const spots = useSelector((state) => (state.spots));
-  // console.log('THIS IS SPOTS', spots)
 
   const { spotId } = useParams()
 
   const spot = spots[spotId]
-  // console.log('THIS IS SINGLE SPOT', spot)
+
 
   const [isLoaded, setIsLoaded] = useState(false);
 

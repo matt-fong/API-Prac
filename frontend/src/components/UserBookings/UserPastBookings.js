@@ -19,7 +19,6 @@ const UserPastBookings = () => {
     return booking.endDate < todayDate
   })
 
-  console.log('THIS IS PAST BOOKINGS', filteredBookings)
 
   const [isLoaded, setIsLoaded] = useState(false);
 

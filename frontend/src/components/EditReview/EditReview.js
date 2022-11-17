@@ -11,8 +11,6 @@ const EditReview = ({ onX, reviewId }) => {
   // const { reviewId } = useParams();
   const { spotId } = useParams();
 
-  // console.log('THIS IS REVIEW IDDDDDDDDDDDDD', reviewId)
-
   const dispatch = useDispatch();
   const history = useHistory()
 
@@ -20,7 +18,6 @@ const EditReview = ({ onX, reviewId }) => {
   const [stars, setStars] = useState(reviews[reviewId]?.stars);
   const [errors, setErrors] = useState([]);
 
-  // console.log('THIS IS REVIEW MESSAGE', review)
 
   // might not need this
   useEffect(() => {

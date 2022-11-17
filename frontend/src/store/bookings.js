@@ -20,7 +20,6 @@ export const getBookingsByCurrentUser = () => async (dispatch) => {
   });
   if (res.ok) {
     const data = await res.json();
-    // console.log('THIS IS DATA FOR BOOKINGS', data)
     dispatch(getCurrentBookings(data.Bookings));
   }
 };
@@ -41,7 +40,6 @@ export const createNewBooking = (spotId, bookingData) => async (dispatch) => {
   const res = await csrfFetch(`/api/spots/${spotId}/bookings`, reqData);
   if (res.ok) {
     const data = await res.json();
-    // console.log('THIS IS THE CREATE BOOKING DATA', data)
     dispatch(createBookings(data));
     return data;
   }
@@ -59,7 +57,6 @@ export const getBookingsBySpotId = (spotId) => async (dispatch) => {
   const res = await csrfFetch(`/api/spots/${spotId}/bookings`);
   if (res.ok) {
     const data = await res.json();
-    // console.log('THIS IS BOOKS SPOT ID DATA', data)
     dispatch(getBookings(data.Bookings));
   }
 };
@@ -97,7 +94,6 @@ export const editBooking = (payload, reviewId) => async (dispatch) => {
   })
   if (response.ok){
       const data = await response.json();
-      // console.log('THIS IS DATAAA', data)
       dispatch(updateBooking(data.Bookings))
       return response;
   }
@@ -108,36 +104,22 @@ export default function bookingsReducer(state = {}, action) {
   switch (action.type) {
     case GET_BY_SPOT_ID:
       newState = { ...action.bookings };
-      // console.log('THIS IS ACTION', action)
-      // console.log('THIS IS NEW STATE', newState)
       return newState;
     case GET_CURRENT:
       newState = {};
       action.bookings.forEach((booking) => {
         newState[booking.id] = booking
       })
-      // console.log('THIS IS ACTION', action)
-      // console.log('THIS IS NEW STATE', newState)
       return newState
     case CREATE:
       newState = { ...state };
       newState[action.booking?.booking?.id] = action.booking?.booking;
-      // console.log('THIS IS ACTION', action)
-      // console.log('THIS IS NEW STATE', newState)
       return newState;
-    // case UPDATE:
-    //   newState = { ...state };
-    //   newState[action.reviewId.id] = action.reviewId
-    // console.log('THIS IS STATE', newState)
-    // console.log('THIS IS ACTION', action)
     case DELETE:
       newState = { ...state };
-      // console.log('THIS IS ACTION', action)
-      // console.log('THIS IS NEW STATE', newState)
       delete newState[action.bookingId];
       return newState;
     default:
       return state;
   }
 }
-

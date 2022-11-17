@@ -6,31 +6,22 @@ import { getAllUsers } from "../../store/users";
 import './UserProfile.css'
 
 const UserProfile = () => {
+
+  const dispatch = useDispatch();
+
   const { spotId } = useParams();
   const { bookingId } = useParams();
   const { userId } = useParams()
 
   const reviews = useSelector(state => Object.values(state.reviews));
-  // console.log('THIS IS REVIEWS', reviews)
-
   const spots = useSelector((state) => (state.spots));
+  const bookings = useSelector(state => (state.bookings));
+  const users = useSelector(state => (state.users));
 
   const spot = spots[spotId]
-  // console.log('THIS IS SPOT', spot)
-
-  const users = useSelector(state => (state.users));
-  const currentUser = users[userId]
-  // console.log('THIS IS USERS', users)
-
-  const spotOwner = users[spot?.ownerId]
-  // console.log('THIS IS SPOTOWNER', spotOwner)
-
-  const dispatch = useDispatch();
-
-  const bookings = useSelector(state => (state.bookings));
-  // console.log('THIS IS BOOKINGS', bookings)
   const currentBooked = bookings[bookingId]
-  // console.log('THIS IS CURRENT BOOKED', currentBooked)
+  const currentUser = users[userId]
+  const spotOwner = users[spot?.ownerId]
 
   useEffect(() => {
     dispatch(getReviewsByCurrentUser())
@@ -86,8 +77,8 @@ const UserProfile = () => {
 
           <div className="account-page-right-side-top">
             <div className="account-page-right-side-header">{`Hi, I'm ${currentUser?.firstName}`}</div>
-            <div className="account-page-right-side-text">Random text</div>
-            <div className="account-page-right-side-etc">Random text</div>
+            <div className="account-page-right-side-text">Joined in 2022</div>
+            {/* <div className="account-page-right-side-etc">Random text</div> */}
           </div>
 
           <div className="account-page-right-side-bottom">

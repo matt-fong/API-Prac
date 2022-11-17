@@ -6,13 +6,8 @@ import { deleteBookingById } from "../../store/bookings";
 import './UserBookings.css'
 
 const UserBookings = () => {
-  // const bookings = useSelector(state => (state.bookings));
   const bookings = useSelector(state => Object.values(state.bookings));
-  // console.log('THIS IS USERS BOOKINGS123123', bookings)
 
-  // console.log('BOOLEAN', Object.keys(bookings).length === 0)
-
-  // console.log('THIS IS BOOOOOOOOKINGS', new Date(bookings[0]?.endDate).toISOString().split('T')[0])
 
   const todayDate = (new Date()).toISOString().slice(0,10);
 
@@ -90,7 +85,7 @@ const UserBookings = () => {
                 <NavLink to={`/confirmed/${booking?.Spot.id}/${booking?.id}`}>Booking Details</NavLink>
               </td>
               <td className="user-booking-content-column">
-                <button className='user-booking-delete' onClick={() => handleDelete(booking?.id)}>Delete</button>
+                <button className='user-booking-delete' onClick={() => handleDelete(booking?.id)}>Cancel</button>
               </td>
             </tr>
           </tbody>
