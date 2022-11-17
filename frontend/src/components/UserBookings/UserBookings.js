@@ -85,7 +85,7 @@ const UserBookings = () => {
                 <NavLink to={`/confirmed/${booking?.Spot.id}/${booking?.id}`}>Booking Details</NavLink>
               </td>
               <td className="user-booking-content-column">
-                <button className='user-booking-delete' onClick={() => handleDelete(booking?.id)}>Delete</button>
+                <button className='user-booking-delete' onClick={() => handleDelete(booking?.id)}>Cancel</button>
               </td>
             </tr>
           </tbody>
