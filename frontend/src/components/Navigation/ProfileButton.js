@@ -105,10 +105,10 @@ function ProfileButton({ user }) {
           </button>
           {showMenu && (
             <div className="profile-container">
-            <div className="profile-item-container">
+              <div className="profile-item-container">
 
-              <div className='no-user-profile-login-button' onClick={() => setShowLoginModal(true)}>Log In</div>
-              <div className='no-user-profile-signup-button' onClick={() => setShowSignupModal(true)}>Sign Up</div>
+                <div className='no-user-profile-login-button' onClick={() => setShowLoginModal(true)}>Log In</div>
+                <div className='no-user-profile-signup-button' onClick={() => setShowSignupModal(true)}>Sign Up</div>
 
               </div>
             </div>

@@ -150,6 +150,7 @@ const SpotDetails = () => {
         <img className='spotDetailOneImage' src={spot?.Images?.[0]?.url} alt='mainpic'/>
 
         <div><ViewImagesModal spot={spot} showModal={showModal} setShowModal={setShowModal}/></div>
+
         <div className="spotDetailPhotosTwo" onClick={() => setShowModal(true)}>
           <i className="spotDetailListIcon fa-solid fa-list"></i>
           <div>Show all photos</div>
