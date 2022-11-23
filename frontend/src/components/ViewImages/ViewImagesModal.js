@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Modal } from '../../context/Modal';
-import './CreateReview.css'
+import { ModalImages } from '../../context/Modal';
+import './ViewImages.css'
 import img from './xButton.jpg'
 import ViewImages from './ViewImages';
 
-function ViewImagesModal() {
+function ViewImagesModal({ spot }) {
   const [showModal, setShowModal] = useState(false);
 
   const onX = () => {
@@ -13,20 +13,20 @@ function ViewImagesModal() {
 
   return (
     <>
-      <button className='createReview-button' onClick={() => setShowModal(true)}>New Review</button>
+      <button className='viewImages-button' onClick={() => setShowModal(true)}>View Images</button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <div className='createReview-modal-container'>
-            <div className='createReview-modal-header'>
-              <img className='createReviewXButton' onClick={onX} src={img}></img>
-              <div className='createReviewcreateReview'>New Review</div>
+        <ModalImages onClose={() => setShowModal(false)}>
+          <div className='viewImages-modal-container'>
+            <div className='viewImages-modal-header'>
+              <img className='viewImagesXButton' onClick={onX} src={img}></img>
+              <div className='viewImagesviewImages'>Images</div>
             </div>
-            <div className='createReview-modal-form'>
-              <div className='createReview-welcome'>Add a review</div>
-              <ViewImages onX={ onX }/>
+            <div className='viewImages-modal-form'>
+              {/* <div className='viewImages-welcome'>Images</div> */}
+              <ViewImages onX={ onX } spot={spot}/>
             </div>
           </div>
-      </Modal>
+      </ModalImages>
       )}
     </>
   );

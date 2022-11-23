@@ -36,3 +36,18 @@ export function Modal({ onClose, children }) {
     modalNode
   );
 }
+
+export function ModalImages({ onClose, children }) {
+  const modalNode = useContext(ModalContext);
+  if (!modalNode) return null;
+
+  return ReactDOM.createPortal(
+    <div id="modal-images">
+      <div id="modal-background-images" onClick={onClose} />
+      <div id="modal-content-images">
+        {children}
+      </div>
+    </div>,
+    modalNode
+  );
+}

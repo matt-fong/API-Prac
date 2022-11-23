@@ -38,3 +38,33 @@
     transform: none;
   }
 }
+
+#modal-images {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-background-images {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#modal-content-images {
+  position: absolute;
+  background-color:white;
+  border-radius: 12px;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: slidein;
+}

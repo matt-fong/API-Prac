@@ -11,6 +11,7 @@ import EditSpotModal from "../EditSpot/EditSpotModal";
 import { deleteSpot } from "../../store/spots";
 import CreateReviewModal from "../CreateReview/CreateReviewModal";
 import CreateImageModal from "../CreateImage/CreateImageModal";
+import ViewImagesModal from "../ViewImages/ViewImagesModal";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -281,6 +282,11 @@ const SpotDetails = () => {
               ))}
             </div>
           </div>
+
+          <div>
+            <ViewImagesModal spot={spot}/>
+          </div>
+
         </div>
       </div>
     </div>
