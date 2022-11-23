@@ -3,6 +3,7 @@
   justify-content: center;
   height: 100%;
   /* overflow: scroll; */
+  z-index: 100;
 }
 
 #modal-background-images {

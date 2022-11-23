@@ -4,16 +4,19 @@ import './ViewImages.css'
 import img from './xButton.jpg'
 import ViewImages from './ViewImages';
 
-function ViewImagesModal({ spot }) {
-  const [showModal, setShowModal] = useState(false);
+function ViewImagesModal({ spot, showModal, setShowModal }) {
+  // const [showModal, setShowModal] = useState(false);
 
   const onX = () => {
     setShowModal(false)
   }
 
+
+  console.log("THIS IS SHOW MODAL", showModal)
+
   return (
     <>
-      <button className='viewImages-button' onClick={() => setShowModal(true)}>View Images</button>
+      {/* <div onClick={() => setShowModal(true)}>Show all photos</div> */}
       {showModal && (
         <ModalImages onClose={() => setShowModal(false)}>
           <div className='viewImages-modal-container'>
@@ -23,7 +26,7 @@ function ViewImagesModal({ spot }) {
             </div>
             <div className='viewImages-modal-form'>
               {/* <div className='viewImages-welcome'>Images</div> */}
-              <ViewImages onX={ onX } spot={spot}/>
+              <ViewImages spot={spot} />
             </div>
           </div>
       </ModalImages>

@@ -92,6 +92,7 @@
   margin-left: 8px;
   height: 498.19px;
   margin-top: 16px;
+  position: relative;
 }
 
 .spotDetailPictureOne {
@@ -122,6 +123,50 @@
   /* height: 50%; */
   height: 48.39418695678356%;
   border-radius: 0 0 12px 0;
+}
+
+.spotDetailPhotos {
+  display: flex;
+  position: absolute;
+  color: black;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+  font-weight: 500;
+  z-index: 1;
+  bottom: 24px;
+  right: 24px;
+  padding: 7px 15px;
+  border-radius: 8px;
+  border: 1px solid black;
+  width: 167px;
+  box-sizing: border-box;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.spotDetailPhotosTwo {
+  display: flex;
+  position: absolute;
+  color: black;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+  font-weight: 500;
+  z-index: 1;
+  bottom: 24px;
+  right: 24px;
+  padding: 7px 15px;
+  border-radius: 8px;
+  border: 1px solid black;
+  width: 167px;
+  box-sizing: border-box;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.spotDetailListIcon {
+  margin-right: 8px;
 }
 
 .spotDetailNumReview {
@@ -440,7 +485,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden
+  overflow: hidden;
+  position: relative;
 }
 
 .spotDetailOneImage {

@@ -16,6 +16,7 @@ import ViewImagesModal from "../ViewImages/ViewImagesModal";
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoadedd, setIsLoadedd] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const todayDate = (new Date()).toISOString().slice(0,10);
   const [startDate, setStartDate] = useState();
@@ -115,12 +116,12 @@ const SpotDetails = () => {
   const image4 = (spot?.Images?.[4]?.url) || 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
 
   let spotPicture;
-  if ((spot?.Images?.[1]?.url)) {
+  if (spot?.Images?.length >= 5) {
     spotPicture = (
       <div className='spotDetailPictureContainer'>
 
           <div className="spotDetailPictureLeft">
-            <img className='spotDetailMainImage' src={spot?.previewImage} alt='Spot Detail'/>
+            <img className='spotDetailMainImage' src={spot?.Images?.[0]?.url} alt='Spot Detail'/>
           </div>
 
           <div className="spotDetailPictureRight">
@@ -131,6 +132,13 @@ const SpotDetails = () => {
             <div className='spotDetailPictureColumnTwo'>
               <img className='spotDetailPictureThree' src={image3} alt='thirdpic'/>
               <img className='spotDetailPictureFour' src={image4} alt='fourthpic'/>
+
+              <div><ViewImagesModal spot={spot} showModal={showModal} setShowModal={setShowModal}/></div>
+              <div className="spotDetailPhotos" onClick={() => setShowModal(true)}>
+                <i className="spotDetailListIcon fa-solid fa-list"></i>
+                <div>Show all photos</div>
+              </div>
+
             </div>
           </div>
 
@@ -139,7 +147,13 @@ const SpotDetails = () => {
   } else {
     spotPicture = (
       <div className='spotDetailOnePicture'>
-        <img className='spotDetailOneImage' src={spot?.previewImage} alt='mainpic'/>
+        <img className='spotDetailOneImage' src={spot?.Images?.[0]?.url} alt='mainpic'/>
+
+        <div><ViewImagesModal spot={spot} showModal={showModal} setShowModal={setShowModal}/></div>
+        <div className="spotDetailPhotosTwo" onClick={() => setShowModal(true)}>
+          <i className="spotDetailListIcon fa-solid fa-list"></i>
+          <div>Show all photos</div>
+        </div>
       </div>
     )
   }
@@ -281,10 +295,6 @@ const SpotDetails = () => {
                 <ReviewCard key={review.id} review={review} />
               ))}
             </div>
-          </div>
-
-          <div>
-            <ViewImagesModal spot={spot}/>
           </div>
 
         </div>

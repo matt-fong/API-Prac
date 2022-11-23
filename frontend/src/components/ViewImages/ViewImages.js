@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import * as reviewActions from "../../store/reviews";
 import './ViewImages.css'
-import { getAllSpots, spotsReducer } from "../../store/spots";
-import { getReviewsBySpotId } from "../../store/reviews";
+import { getAllSpots } from "../../store/spots";
 import { deleteImageById } from "../../store/images";
 
-const ViewImages = ({ onX, spot }) => {
+const ViewImages = ({ spot }) => {
 
   const sessionUser = useSelector(state => state.session.user);
 
@@ -37,6 +34,7 @@ const ViewImages = ({ onX, spot }) => {
             <img className='viewimages-image' src={image?.url}></img>
             <div>
               <i className="viewimages-trash fa-solid fa-trash fa-lg" onClick={() => dispatch(deleteImageById(image?.id)).then(dispatch(getAllSpots()))}></i>
+              {/* <i className="viewimages-trash fa-solid fa-trash fa-lg" onClick={() => dispatch(deleteImageById(image?.id))}></i> */}
             </div>
             {/* <div onClick={() => dispatch(deleteImageById(image?.id)).then(dispatch(getAllSpots()))}>Delete</div> */}
           </div>
