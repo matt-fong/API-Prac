@@ -9,7 +9,7 @@
   height: 79px;
   justify-content: space-between;
   border-bottom: 1px solid rgb(228, 228, 228);
-  z-index: 100;
+  z-index: 20;
 }
 
 .navBar {

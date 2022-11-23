@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ModalImages } from '../../context/Modal';
 import './ViewImages.css'
 import img from './xButton.jpg'
 import ViewImages from './ViewImages';
 
 function ViewImagesModal({ spot, showModal, setShowModal }) {
-  // const [showModal, setShowModal] = useState(false);
 
   const onX = () => {
     setShowModal(false)
   }
-
-
-  console.log("THIS IS SHOW MODAL", showModal)
 
   return (
     <>
@@ -21,8 +17,8 @@ function ViewImagesModal({ spot, showModal, setShowModal }) {
         <ModalImages onClose={() => setShowModal(false)}>
           <div className='viewImages-modal-container'>
             <div className='viewImages-modal-header'>
-              <img className='viewImagesXButton' onClick={onX} src={img}></img>
-              <div className='viewImagesviewImages'>Images</div>
+              <img className='viewImagesXButton' onClick={onX} src={img} alt=''></img>
+              <div className='viewImagesviewImages'>Photos</div>
             </div>
             <div className='viewImages-modal-form'>
               {/* <div className='viewImages-welcome'>Images</div> */}

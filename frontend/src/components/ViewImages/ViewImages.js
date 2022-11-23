@@ -10,8 +10,6 @@ const ViewImages = ({ spot }) => {
 
   const spotImagesArr = spot?.Images
 
-  console.log("THIS IS SPOT IMAGES ARR", spotImagesArr)
-
   const dispatch = useDispatch();
 
   let viewImages;
@@ -21,7 +19,7 @@ const ViewImages = ({ spot }) => {
       <div>
         {spotImagesArr.map((image, i) =>
           <div key={i}>
-            <img className='viewimages-image' src={image?.url}></img>
+            <img className='viewimages-image' src={image?.url} alt=''></img>
           </div>
         )}
       </div>
@@ -31,7 +29,7 @@ const ViewImages = ({ spot }) => {
       <div>
         {spotImagesArr.map((image, i) =>
           <div key={i}>
-            <img className='viewimages-image' src={image?.url}></img>
+            <img className='viewimages-image' src={image?.url} alt=''></img>
             <div>
               {sessionUser && (
                 <i className="viewimages-trash fa-solid fa-trash fa-lg" onClick={() => dispatch(deleteImageById(image?.id)).then(dispatch(getAllSpots()))}></i>
