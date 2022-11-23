@@ -17,9 +17,20 @@ const ViewImages = ({ onX, spot }) => {
 
   const dispatch = useDispatch();
 
+  let viewImages;
 
-  return (
-    <>
+  if (spotImagesArr.length === 1) {
+    viewImages = (
+      <div>
+        {spotImagesArr.map((image, i) =>
+          <div key={i}>
+            <img className='viewimages-image' src={image?.url}></img>
+          </div>
+        )}
+      </div>
+    )
+  } else {
+    viewImages = (
       <div>
         {spotImagesArr.map((image, i) =>
           <div key={i}>
@@ -31,10 +42,25 @@ const ViewImages = ({ onX, spot }) => {
           </div>
         )}
       </div>
+    )
+  }
 
+
+  return (
+    <>
       {/* <div>
-        <img className='viewimages-image' src={spotImagesArr[0]?.url}></img>
+        {spotImagesArr.map((image, i) =>
+          <div key={i}>
+            <img className='viewimages-image' src={image?.url}></img>
+            <div>
+              <i className="viewimages-trash fa-solid fa-trash fa-lg" onClick={() => dispatch(deleteImageById(image?.id)).then(dispatch(getAllSpots()))}></i>
+            </div>
+          </div>
+        )}
       </div> */}
+
+      {viewImages}
+
     </>
   );
 };
