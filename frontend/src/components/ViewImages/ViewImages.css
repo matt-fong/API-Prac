@@ -32,7 +32,9 @@
   align-items: center;
   padding: 24px;
   font-family: 'Montserrat', sans-serif;
-  position: relative;
+  position: sticky;
+  top: 0;
+  background-color: white;
 }
 
 .viewImages-modal-form {
@@ -185,4 +187,8 @@ ul {
   max-width: 700px;
   max-height: 350px;
   margin-bottom: 16px;
+}
+
+.viewimages-trash {
+  cursor: pointer;
 }
