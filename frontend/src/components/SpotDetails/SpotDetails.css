@@ -62,14 +62,26 @@
 
 .spotDetailPictureLeft {
   width: 50%;
+  object-fit: cover;
+  height: 498.19px;
+  /* width: 100%; */
+  margin-top: 16px;
+  border-radius: 12px 0 0 12px;
+  background-color: black;
 }
 
 .spotDetailMainImage {
   object-fit: cover;
-  height: 498.19px;
+  /* height: 498.19px; */
+  height: 100%;
   width: 100%;
-  margin-top: 16px;
+  /* margin-top: 16px; */
   border-radius: 12px 0 0 12px;
+}
+
+.spotDetailMainImage:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .spotDetailPictureRight {
@@ -96,34 +108,88 @@
   position: relative;
 }
 
-.spotDetailPictureOne {
+.spotDetailPictureOne-container {
   object-fit: cover;
   width: 100%;
   height: 50%;
+  background-color: black;
+}
+
+.spotDetailPictureOne {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.spotDetailPictureOne:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.spotDetailPictureTwo-container {
+  object-fit: cover;
+  width: 100%;
+  margin-top: 8px;
+  /* height: 50%; */
+  height: 48.39418695678356%;
+  background-color: black;
 }
 
 .spotDetailPictureTwo {
   object-fit: cover;
   width: 100%;
-  padding-top: 8px;
   /* height: 50%; */
-  height: 48.39418695678356%
+  /* height: 48.39418695678356% */
+  height: 100%;
+}
+
+.spotDetailPictureTwo:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.spotDetailPictureThree-container {
+  object-fit: cover;
+  width: 100%;
+  height: 50%;
+  border-radius: 0 12px 0 0;
+  background-color: black;
 }
 
 .spotDetailPictureThree {
   object-fit: cover;
   width: 100%;
-  height: 50%;
+  height: 100%;
   border-radius: 0 12px 0 0;
+}
+
+.spotDetailPictureThree:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.spotDetailPictureFour-container {
+  object-fit: cover;
+  width: 100%;
+  margin-top: 8px;
+  /* height: 50%; */
+  height: 48.39418695678356%;
+  border-radius: 0 0 12px 0;
+  background-color: black;
 }
 
 .spotDetailPictureFour {
   object-fit: cover;
   width: 100%;
-  padding-top: 8px;
   /* height: 50%; */
-  height: 48.39418695678356%;
+  /* height: 48.39418695678356%; */
+  height: 100%;
   border-radius: 0 0 12px 0;
+}
+
+.spotDetailPictureFour:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .spotDetailPhotos {
@@ -490,10 +556,24 @@
   position: relative;
 }
 
-.spotDetailOneImage {
+.spotDetailOneImage-container {
   object-fit: cover;
   height: 498.19px;
   width: 100%;
   margin-top: 24px;
   border-radius: 12px;
+  background-color: black;
+}
+
+.spotDetailOneImage {
+  object-fit: cover;
+  height: 498.19px;
+  width: 100%;
+  /* margin-top: 24px; */
+  border-radius: 12px;
+}
+
+.spotDetailOneImage:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }

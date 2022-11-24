@@ -121,17 +121,34 @@ const SpotDetails = () => {
       <div className='spotDetailPictureContainer'>
 
           <div className="spotDetailPictureLeft">
-            <img className='spotDetailMainImage' src={spot?.Images?.[0]?.url} alt='Spot Detail'/>
+            <img className='spotDetailMainImage' onClick={() => setShowModal(true)} src={spot?.Images?.[0]?.url} alt='Spot Detail'/>
           </div>
 
           <div className="spotDetailPictureRight">
+
             <div className='spotDetailPictureColumnOne'>
-              <img className='spotDetailPictureOne' src={image1} alt='firstpic'/>
-              <img className='spotDetailPictureTwo' src={image2} alt='secondpic'/>
+
+              <div className='spotDetailPictureOne-container'>
+                <img className='spotDetailPictureOne' onClick={() => setShowModal(true)} src={image1} alt='firstpic'/>
+              </div>
+
+              <div className='spotDetailPictureTwo-container'>
+                <img className='spotDetailPictureTwo' onClick={() => setShowModal(true)} src={image2} alt='secondpic'/>
+              </div>
+
             </div>
+
             <div className='spotDetailPictureColumnTwo'>
-              <img className='spotDetailPictureThree' src={image3} alt='thirdpic'/>
-              <img className='spotDetailPictureFour' src={image4} alt='fourthpic'/>
+
+              <div className='spotDetailPictureThree-container'>
+                <img className='spotDetailPictureThree' onClick={() => setShowModal(true)} src={image3} alt='thirdpic'/>
+              </div>
+
+              <div className='spotDetailPictureFour-container'>
+                <img className='spotDetailPictureFour' onClick={() => setShowModal(true)} src={image4} alt='fourthpic'/>
+
+              </div>
+
 
               <div><ViewImagesModal spot={spot} showModal={showModal} setShowModal={setShowModal}/></div>
               <div className="spotDetailPhotos" onClick={() => setShowModal(true)}>
@@ -140,6 +157,7 @@ const SpotDetails = () => {
               </div>
 
             </div>
+
           </div>
 
         </div>
@@ -147,7 +165,11 @@ const SpotDetails = () => {
   } else {
     spotPicture = (
       <div className='spotDetailOnePicture'>
-        <img className='spotDetailOneImage' src={spot?.Images?.[0]?.url} alt='mainpic'/>
+
+        <div className="spotDetailOneImage-container">
+          <img className='spotDetailOneImage' onClick={() => setShowModal(true)} src={spot?.Images?.[0]?.url} alt='mainpic'/>
+
+        </div>
 
         <div><ViewImagesModal spot={spot} showModal={showModal} setShowModal={setShowModal}/></div>
 
