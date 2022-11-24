@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom'
 import './SpotCard.css'
 
 const SpotCard = ({ spot }) => {
+
   return (
     <Link className='spotCardContainer' to={`/spots/${spot.id}/${spot.ownerId}`}>
       <div className='spotCardContainer'>
-        <img className='spotImage' src={spot.previewImage} />
+        <img className='spotImage' src={spot?.Images?.[0]?.url} />
         <div className='spotDescription'>
           <div className='spotDescriptionLeft'>
             <div className='spotLocation'>{spot.city}, {spot.state}</div>
