@@ -31,7 +31,7 @@ const ViewImages = ({ spot }) => {
           <div key={i}>
             <img className='viewimages-image' src={image?.url} alt=''></img>
             <div>
-              {sessionUser && (
+              {sessionUser && (spot?.ownerId === sessionUser.id) && (
                 <i className="viewimages-trash fa-solid fa-trash fa-lg" onClick={() => dispatch(deleteImageById(image?.id)).then(dispatch(getAllSpots()))}></i>
               )}
               {/* <i className="viewimages-trash fa-solid fa-trash fa-lg" onClick={() => dispatch(deleteImageById(image?.id))}></i> */}
