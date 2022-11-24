@@ -11,10 +11,12 @@ import EditSpotModal from "../EditSpot/EditSpotModal";
 import { deleteSpot } from "../../store/spots";
 import CreateReviewModal from "../CreateReview/CreateReviewModal";
 import CreateImageModal from "../CreateImage/CreateImageModal";
+import ViewImagesModal from "../ViewImages/ViewImagesModal";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoadedd, setIsLoadedd] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const todayDate = (new Date()).toISOString().slice(0,10);
   const [startDate, setStartDate] = useState();
@@ -114,23 +116,48 @@ const SpotDetails = () => {
   const image4 = (spot?.Images?.[4]?.url) || 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png'
 
   let spotPicture;
-  if ((spot?.Images?.[1]?.url)) {
+  if (spot?.Images?.length >= 5) {
     spotPicture = (
       <div className='spotDetailPictureContainer'>
 
           <div className="spotDetailPictureLeft">
-            <img className='spotDetailMainImage' src={spot?.previewImage} alt='Spot Detail'/>
+            <img className='spotDetailMainImage' onClick={() => setShowModal(true)} src={spot?.Images?.[0]?.url} alt='Spot Detail'/>
           </div>
 
           <div className="spotDetailPictureRight">
+
             <div className='spotDetailPictureColumnOne'>
-              <img className='spotDetailPictureOne' src={image1} alt='firstpic'/>
-              <img className='spotDetailPictureTwo' src={image2} alt='secondpic'/>
+
+              <div className='spotDetailPictureOne-container'>
+                <img className='spotDetailPictureOne' onClick={() => setShowModal(true)} src={image1} alt='firstpic'/>
+              </div>
+
+              <div className='spotDetailPictureTwo-container'>
+                <img className='spotDetailPictureTwo' onClick={() => setShowModal(true)} src={image2} alt='secondpic'/>
+              </div>
+
             </div>
+
             <div className='spotDetailPictureColumnTwo'>
-              <img className='spotDetailPictureThree' src={image3} alt='thirdpic'/>
-              <img className='spotDetailPictureFour' src={image4} alt='fourthpic'/>
+
+              <div className='spotDetailPictureThree-container'>
+                <img className='spotDetailPictureThree' onClick={() => setShowModal(true)} src={image3} alt='thirdpic'/>
+              </div>
+
+              <div className='spotDetailPictureFour-container'>
+                <img className='spotDetailPictureFour' onClick={() => setShowModal(true)} src={image4} alt='fourthpic'/>
+
+              </div>
+
+
+              <div><ViewImagesModal spot={spot} showModal={showModal} setShowModal={setShowModal}/></div>
+              <div className="spotDetailPhotos" onClick={() => setShowModal(true)}>
+                <i className="spotDetailListIcon fa-solid fa-list"></i>
+                <div>Show all photos</div>
+              </div>
+
             </div>
+
           </div>
 
         </div>
@@ -138,7 +165,18 @@ const SpotDetails = () => {
   } else {
     spotPicture = (
       <div className='spotDetailOnePicture'>
-        <img className='spotDetailOneImage' src={spot?.previewImage} alt='mainpic'/>
+
+        <div className="spotDetailOneImage-container">
+          <img className='spotDetailOneImage' onClick={() => setShowModal(true)} src={spot?.Images?.[0]?.url} alt='mainpic'/>
+
+        </div>
+
+        <div><ViewImagesModal spot={spot} showModal={showModal} setShowModal={setShowModal}/></div>
+
+        <div className="spotDetailPhotosTwo" onClick={() => setShowModal(true)}>
+          <i className="spotDetailListIcon fa-solid fa-list"></i>
+          <div>Show all photos</div>
+        </div>
       </div>
     )
   }
@@ -281,6 +319,7 @@ const SpotDetails = () => {
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </div>

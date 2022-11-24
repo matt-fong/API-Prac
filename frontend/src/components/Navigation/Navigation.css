@@ -9,6 +9,7 @@
   height: 79px;
   justify-content: space-between;
   border-bottom: 1px solid rgb(228, 228, 228);
+  z-index: 20;
 }
 
 .navBar {
@@ -90,7 +91,7 @@
   top: 50px;
   border-radius: 15px;
   border: none;
-  z-index: 1;
+  z-index: 2;
   box-shadow: 0 2px 22px 0 hsla(0, 0%, 31%, 0.158);
 }
 
@@ -108,7 +109,6 @@
   cursor: pointer;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
-  border-radius: 15px 15px 0 0;
 }
 
 .profile-manage-reviews {
