@@ -13,7 +13,6 @@ import UserBookings from "./components/UserBookings/UserBookings";
 import UserPastBookings from "./components/UserBookings/UserPastBookings";
 import BookingConfirmed from "./components/BookingConfirmed/BookingConfirmed";
 import UserProfile from "./components/UserProfile/UserProfile";
-import MapContainer from "./components/Maps";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,9 +56,6 @@ function App() {
           </Route>
           <Route path="/users/account/:userId">
             <UserProfile />
-          </Route>
-          <Route path="/testing">
-            <MapContainer />
           </Route>
         </Switch>
       )}

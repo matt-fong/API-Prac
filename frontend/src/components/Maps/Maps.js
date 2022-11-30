@@ -1,21 +1,23 @@
 import React from 'react';
 import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
 
-const containerStyle = {
-  width: '100%',
-  height: '100%',
-};
 
-const center = {
-  lat: 38.9072,
-  lng: 77.0369,
-};
+const Maps = ({ apiKey, lat, lng }) => {
 
-const Maps = ({ apiKey }) => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: apiKey,
   });
+
+  const containerStyle = {
+    width: '100%',
+    height: '100%',
+  };
+
+  const center = {
+    lat: lat,
+    lng: lng,
+  };
 
   return (
     <>

@@ -15,9 +15,7 @@ const BookingConfirmed = () => {
   const spot = spots[spotId]
   const users = useSelector(state => (state.users));
 
-
   const spotOwner = users[spot?.ownerId]
-
 
   const dispatch = useDispatch();
 
@@ -140,7 +138,7 @@ const BookingConfirmed = () => {
 
       </div>
       <div className="booking-confirmed-map-container">
-        <MapContainer />
+        <MapContainer lat={spot?.lat} lng={spot?.lng}/>
       </div>
     </div>
   );

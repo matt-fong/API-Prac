@@ -12,6 +12,7 @@ import { deleteSpot } from "../../store/spots";
 import CreateReviewModal from "../CreateReview/CreateReviewModal";
 import CreateImageModal from "../CreateImage/CreateImageModal";
 import ViewImagesModal from "../ViewImages/ViewImagesModal";
+import MapContainer from "../Maps";
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -321,6 +322,19 @@ const SpotDetails = () => {
           </div>
 
         </div>
+
+        <div className="spotDetailMapContainer">
+
+          <div className="spotDetailMapHeader">Where you'll be</div>
+          <div className="spotDetailMapLocation">{`${spot?.city}, ${spot?.state}, ${spot?.country}`}</div>
+
+          <div className="spotDetailMap">
+            <MapContainer lat={spot?.lat} lng={spot?.lng}/>
+          </div>
+
+        </div>
+
+
       </div>
     </div>
   )
