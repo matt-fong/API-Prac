@@ -13,7 +13,6 @@ import UserBookings from "./components/UserBookings/UserBookings";
 import UserPastBookings from "./components/UserBookings/UserPastBookings";
 import BookingConfirmed from "./components/BookingConfirmed/BookingConfirmed";
 import UserProfile from "./components/UserProfile/UserProfile";
-import Maps from "./components/Maps/Maps";
 import MapContainer from "./components/Maps";
 
 function App() {

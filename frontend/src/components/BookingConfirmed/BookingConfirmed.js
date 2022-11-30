@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { getBookingsByCurrentUser } from "../../store/bookings"
 import { getAllUsers } from "../../store/users";
 import './BookingConfirmed.css'
+import MapContainer from "../Maps";
 
 const BookingConfirmed = () => {
   const { spotId } = useParams();
@@ -134,6 +135,10 @@ const BookingConfirmed = () => {
 
         </div>
 
+      </div>
+
+      <div className="booking-confirmed-map-container">
+        <MapContainer />
       </div>
     </div>
   );

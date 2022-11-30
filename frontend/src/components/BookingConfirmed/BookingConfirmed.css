@@ -2,6 +2,9 @@
   width: 620px;
   border: 1px solid rgb(221, 221, 221);
   box-sizing: border-box;
+  display: flex;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .booking-confirmed-inner-container {
@@ -16,7 +19,7 @@
 
 .booking-confirmed-image {
   object-fit: cover;
-  width: 596px;
+  width: 579px;
   height: 416px;
   border-radius: 6px;
 }
@@ -176,4 +179,9 @@
   margin-right: -24px;
   height: 8px;
   background-color: rgb(235, 235, 235);
+}
+
+.booking-confirmed-map-container {
+  width: 100%;
+  height: 100%;
 }

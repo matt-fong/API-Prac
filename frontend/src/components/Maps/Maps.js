@@ -1,9 +1,9 @@
 import React from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '400px',
-  height: '400px',
+  width: '100%',
+  height: '100%',
 };
 
 const center = {
@@ -24,7 +24,7 @@ const Maps = ({ apiKey }) => {
           mapContainerStyle={containerStyle}
           center={center}
           zoom={10}
-        />
+        ><MarkerF icon={''} position={center} /> </GoogleMap>
       )}
     </>
   );
