@@ -26,7 +26,7 @@ const Maps = ({ apiKey, lat, lng }) => {
           mapContainerStyle={containerStyle}
           center={center}
           zoom={10}
-        ><MarkerF icon={''} position={center} /> </GoogleMap>
+        ><MarkerF position={center} /> </GoogleMap>
       )}
     </>
   );
