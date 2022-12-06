@@ -117,6 +117,8 @@ export default function bookingsReducer(state = {}, action) {
       return newState;
     case DELETE:
       newState = { ...state };
+      console.log('this is newstate', newState)
+      console.log('this is action', action)
       delete newState[action.bookingId];
       return newState;
     default:
