@@ -77,7 +77,7 @@ const CreateImage = ({ onX }) => {
           <input type="file" onChange={updateFile} />
         </label>
 
-          <button className="createImageSubmit" type="submit">Create Image</button>
+          <button className="createImageSubmit" type="submit">Add Image</button>
           {/* <button className="createImageSubmit" onClick={() => { onX() }}>Go Back</button> */}
         </div>
       </form>
