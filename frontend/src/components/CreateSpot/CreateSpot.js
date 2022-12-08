@@ -60,7 +60,11 @@ const CreateSpot = ({ onX }) => {
       errors.push( "User must be logged in." )
       setErrors(errors)
     } else {
-      if (!isImage(image?.name)) {
+      if (!image) {
+        errors.push( "Must upload an image." )
+      }
+
+      if (image && !isImage(image?.name)) {
         errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
       }
 

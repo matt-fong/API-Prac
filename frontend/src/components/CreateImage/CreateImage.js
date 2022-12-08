@@ -29,7 +29,11 @@ const CreateImage = ({ onX }) => {
 
     let errors = [];
 
-    if (!isImage(image?.name)) {
+    if (!image) {
+      errors.push( "Image must be uploaded." )
+    }
+
+    if (image && !isImage(image?.name)) {
       errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg" )
     }
 
