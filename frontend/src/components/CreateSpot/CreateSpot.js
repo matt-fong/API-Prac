@@ -16,6 +16,7 @@ const CreateSpot = ({ onX }) => {
   // const [lng, setLng] = useState(null);
   const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState([]);
+  const [image, setImage] = useState(null);
 
   const user = useSelector(state => state.session.user);
 
@@ -28,6 +29,11 @@ const CreateSpot = ({ onX }) => {
 
   const LAT = 123.121212;
   const LNG = -321.121212;
+
+  const updateFile = (e) => {
+    const file = e.target.files[0];
+    if (file) setImage(file);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -42,64 +48,68 @@ const CreateSpot = ({ onX }) => {
       country: country,
       description: description,
       price: price,
-      url: url,
+      // url: url,
+      image: image,
       lat: LAT,
       lng: LNG,
       previewImage: true
     };
 
-    if (!user) {
-      errors.push( "User must be logged in." )
-      setErrors(errors)
-    } else {
-      if (!isImage(url)) {
-        errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
-      }
+    return dispatch(spotActions.createSpot(data)).then((res) => history.push(`/spots/${res.id}/${user.id}`)).then(() => onX())
 
-      if (name.length < 5 || name.length > 255) {
-        errors.push( "Name must be between 5 to 255 characters." )
-      }
 
-      if (address.length < 5 || address.length > 255) {
-        errors.push( "Address must be between 5 to 255 characters." )
-      }
+    // if (!user) {
+    //   errors.push( "User must be logged in." )
+    //   setErrors(errors)
+    // } else {
+    //   if (!isImage(url)) {
+    //     errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
+    //   }
 
-      if (city.length < 5 || city.length > 255) {
-        errors.push( "City must be between 5 to 255 characters." )
-      }
+    //   if (name.length < 5 || name.length > 255) {
+    //     errors.push( "Name must be between 5 to 255 characters." )
+    //   }
 
-      if (state.length < 5 || state.length > 255) {
-        errors.push( "State must be between 5 to 255 characters." )
-      }
+    //   if (address.length < 5 || address.length > 255) {
+    //     errors.push( "Address must be between 5 to 255 characters." )
+    //   }
 
-      if (country.length < 5 || country.length > 255) {
-        errors.push( "Country must be between 5 to 255 characters." )
-      }
+    //   if (city.length < 5 || city.length > 255) {
+    //     errors.push( "City must be between 5 to 255 characters." )
+    //   }
 
-      if (description.length < 5 || description.length > 255) {
-        errors.push( "Description must be between 5 to 255 characters." )
-      }
+    //   if (state.length < 5 || state.length > 255) {
+    //     errors.push( "State must be between 5 to 255 characters." )
+    //   }
 
-      setErrors(errors)
-    }
+    //   if (country.length < 5 || country.length > 255) {
+    //     errors.push( "Country must be between 5 to 255 characters." )
+    //   }
 
-    if (isImage(url)
-      && user
-      && (name.length >= 5 && name.length <= 255)
-      && (address.length >= 5 && address.length <= 255)
-      && (city.length >= 5 && city.length <= 255)
-      && (state.length >= 5 && state.length <= 255)
-      && (country.length >= 5 && country.length <= 255)
-      && (description.length >= 5 && description.length <= 255)
-      ) {
+    //   if (description.length < 5 || description.length > 255) {
+    //     errors.push( "Description must be between 5 to 255 characters." )
+    //   }
 
-      return dispatch(spotActions.createSpot(data)).then((res) => history.push(`/spots/${res.id}/${user.id}`)).then(() => onX()).catch(
-        async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        }
-      );
-    }
+    //   setErrors(errors)
+    // }
+
+    // if (isImage(url)
+    //   && user
+    //   && (name.length >= 5 && name.length <= 255)
+    //   && (address.length >= 5 && address.length <= 255)
+    //   && (city.length >= 5 && city.length <= 255)
+    //   && (state.length >= 5 && state.length <= 255)
+    //   && (country.length >= 5 && country.length <= 255)
+    //   && (description.length >= 5 && description.length <= 255)
+    //   ) {
+
+    //   return dispatch(spotActions.createSpot(data)).then((res) => history.push(`/spots/${res.id}/${user.id}`)).then(() => onX()).catch(
+    //     async (res) => {
+    //       const data = await res.json();
+    //       if (data && data.errors) setErrors(data.errors);
+    //     }
+    //   );
+    // }
 
   };
 
@@ -199,7 +209,7 @@ const CreateSpot = ({ onX }) => {
             required
           />
         </div>
-        <div className="createSpotInput">
+        {/* <div className="createSpotInput">
           <input className="createSpotInputText"
             type="text"
             placeholder="Image-Url"
@@ -207,7 +217,12 @@ const CreateSpot = ({ onX }) => {
             onChange={(e) => setUrl(e.target.value)}
             required
           />
-        </div>
+        </div> */}
+
+        <label>
+          <input type="file" onChange={updateFile} />
+        </label>
+
         <button className="createSpotSubmit" type="submit">
           Create New Spot
         </button>

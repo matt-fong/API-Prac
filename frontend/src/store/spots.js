@@ -89,13 +89,21 @@ export const createSpot = (payload) => async (dispatch) => {
     })
     if (response.ok) { // wait for successful creation
         const spotData = await response.json(); // If successful, fetch api to create image
+
+        const formData = new FormData();
+        formData.append("image", payload.image);
+        formData.append("previewImage", payload.previewImage);
+
         const imageResponse = await csrfFetch(`/api/spots/${spotData.id}/images`, {
             method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({
-                url: payload.url,
-                previewImage: payload.previewImage
-            })
+            headers: {"Content-Type": "multipart/form-data",},
+            // headers: {'Content-Type':'application/json'},
+            // body: JSON.stringify({
+            //     // url: payload.url,
+            //     image: payload.image,
+            //     previewImage: payload.previewImage
+            // })
+            body: formData,
         }) // Creates image for the spot
         if(imageResponse.ok) { // If the create image for spots is successful
             const imageData = await imageResponse.json()

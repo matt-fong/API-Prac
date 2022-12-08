@@ -12,10 +12,15 @@ export const createImage = (review) => {
 };
 
 export const createImageBySpotId = (spotId, imageData) => async (dispatch) => {
+  const formData = new FormData();
+  formData.append("image", imageData.image);
+
   const reqData = {
     method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(imageData),
+    // headers: {"Content-Type": "application/json"},
+    headers: {"Content-Type": "multipart/form-data",},
+    // body: JSON.stringify(imageData),
+    body: formData,
   };
   const res = await csrfFetch(`/api/spots/${spotId}/images`, reqData);
   if (res.ok) {

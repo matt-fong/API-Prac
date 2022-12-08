@@ -4,6 +4,7 @@ const { setTokenCookie, requireAuth, restoreUser } = require('../../utils/auth')
 
 const { Booking, Image, Review, Spot, User, sequelize } = require("../../db/models");
 const { Op } = require("sequelize");
+const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3');
 
 const router = express.Router();
 
@@ -275,10 +276,12 @@ router.post('/', requireAuth, async (req, res, next) => {
 })
 
 // Add an Image to a Spot based on the Spot's id
-router.post('/:spotId/images', requireAuth, restoreUser, async (req, res, next) => {
+router.post('/:spotId/images', requireAuth, restoreUser, singleMulterUpload('image'), async (req, res, next) => {
   const spotId = req.params.spotId
   const { url, previewImage } = req.body
   const spot = await Spot.findByPk(spotId)
+
+  const profileImageUrl = await singlePublicFileUpload(req.file)
 
   if (!spot) {
     res.json({
@@ -288,7 +291,7 @@ router.post('/:spotId/images', requireAuth, restoreUser, async (req, res, next) 
   }
 
   let image = await Image.create({
-    url,
+    url: profileImageUrl,
     spotId: spot.dataValues.id,
     userId: req.user.id,
     previewImage,
@@ -297,7 +300,7 @@ router.post('/:spotId/images', requireAuth, restoreUser, async (req, res, next) 
   let response = {
     id: image.id,
     imageableId: image.spotId,
-    url: image.url
+    url: image.url,
   }
 
   res.json(response)
