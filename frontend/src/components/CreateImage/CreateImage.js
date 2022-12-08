@@ -15,10 +15,7 @@ const CreateImage = ({ onX }) => {
 
   const [url, setUrl] = useState("");
   const [errors, setErrors] = useState([]);
-
-  // useEffect(() => {
-  //   dispatch(getAllSpots())
-  // }, []);
+  const [image, setImage] = useState(null);
 
   function isImage(url) {
     return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url)
@@ -28,22 +25,28 @@ const CreateImage = ({ onX }) => {
     e.preventDefault();
 
     let data = {
-      url: url,
+      // url: url,
+      image: image,
     };
 
     let errors = [];
 
-    if (!isImage(url)) {
+    if (!isImage(image?.name)) {
       errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg" )
     }
 
     setErrors(errors)
 
-    if (isImage(url)) {
+    if (isImage(image?.name)) {
       dispatch(createImageBySpotId(spotId, data)).then(() => dispatch(getAllSpots()))
       onX()
     }
 
+  };
+
+  const updateFile = (e) => {
+    const file = e.target.files[0];
+    if (file) setImage(file);
   };
 
   return (
@@ -60,7 +63,7 @@ const CreateImage = ({ onX }) => {
           </div>
         </div>
         <div className="createImageInputContainer">
-          <div className="createImageInput">
+          {/* <div className="createImageInput">
             <input className="createImageInputText"
               type="text"
               placeholder="Image-URL"
@@ -68,9 +71,13 @@ const CreateImage = ({ onX }) => {
               onChange={(e) => setUrl(e.target.value)}
               required
             />
-          </div>
+          </div> */}
 
-          <button className="createImageSubmit" type="submit">Create Image</button>
+        <label>
+          <input type="file" onChange={updateFile} />
+        </label>
+
+          <button className="createImageSubmit" type="submit">Add Image</button>
           {/* <button className="createImageSubmit" onClick={() => { onX() }}>Go Back</button> */}
         </div>
       </form>

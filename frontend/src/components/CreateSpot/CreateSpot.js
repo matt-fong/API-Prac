@@ -16,6 +16,7 @@ const CreateSpot = ({ onX }) => {
   // const [lng, setLng] = useState(null);
   const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState([]);
+  const [image, setImage] = useState(null);
 
   const user = useSelector(state => state.session.user);
 
@@ -28,6 +29,11 @@ const CreateSpot = ({ onX }) => {
 
   const LAT = 123.121212;
   const LNG = -321.121212;
+
+  const updateFile = (e) => {
+    const file = e.target.files[0];
+    if (file) setImage(file);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -42,17 +48,19 @@ const CreateSpot = ({ onX }) => {
       country: country,
       description: description,
       price: price,
-      url: url,
+      // url: url,
+      image: image,
       lat: LAT,
       lng: LNG,
       previewImage: true
     };
 
+
     if (!user) {
       errors.push( "User must be logged in." )
       setErrors(errors)
     } else {
-      if (!isImage(url)) {
+      if (!isImage(image?.name)) {
         errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
       }
 
@@ -83,7 +91,7 @@ const CreateSpot = ({ onX }) => {
       setErrors(errors)
     }
 
-    if (isImage(url)
+    if (isImage(image?.name)
       && user
       && (name.length >= 5 && name.length <= 255)
       && (address.length >= 5 && address.length <= 255)
@@ -199,7 +207,7 @@ const CreateSpot = ({ onX }) => {
             required
           />
         </div>
-        <div className="createSpotInput">
+        {/* <div className="createSpotInput">
           <input className="createSpotInputText"
             type="text"
             placeholder="Image-Url"
@@ -207,7 +215,12 @@ const CreateSpot = ({ onX }) => {
             onChange={(e) => setUrl(e.target.value)}
             required
           />
-        </div>
+        </div> */}
+
+        <label>
+          <input type="file" onChange={updateFile} />
+        </label>
+
         <button className="createSpotSubmit" type="submit">
           Create New Spot
         </button>
