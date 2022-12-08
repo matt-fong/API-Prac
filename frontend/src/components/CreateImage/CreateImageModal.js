@@ -18,8 +18,8 @@ function CreateImageModal() {
         <Modal onClose={() => setShowModal(false)}>
           <div className='CreateImage-modal-container'>
             <div className='CreateImage-modal-header'>
-              <img className='CreateImageXButton' onClick={onX} src={img}></img>
-              <div className='CreateImageCreateImage'>Add Image</div>
+              <img className='CreateImageXButton' onClick={onX} src={img} alt=''></img>
+              <div className='CreateImageCreateImage'>Add Image To Spot</div>
             </div>
             <div className='CreateImage-modal-form'>
               <div className='CreateImage-welcome'>Add an image</div>

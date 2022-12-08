@@ -14,7 +14,7 @@ const CreateSpot = ({ onX }) => {
   const [price, setPrice] = useState(null);
   // const [lat, setLat] = useState(null);
   // const [lng, setLng] = useState(null);
-  const [url, setUrl] = useState(null);
+  // const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState([]);
   const [image, setImage] = useState(null);
 
@@ -60,7 +60,11 @@ const CreateSpot = ({ onX }) => {
       errors.push( "User must be logged in." )
       setErrors(errors)
     } else {
-      if (!isImage(image?.name)) {
+      if (!image) {
+        errors.push( "Must upload an image." )
+      }
+
+      if (image && !isImage(image?.name)) {
         errors.push( "Must be a valid image: jpg, jpeg, png, webp, avif, gif, svg " )
       }
 
