@@ -14,7 +14,7 @@ const CreateSpot = ({ onX }) => {
   const [price, setPrice] = useState(null);
   // const [lat, setLat] = useState(null);
   // const [lng, setLng] = useState(null);
-  const [url, setUrl] = useState(null);
+  // const [url, setUrl] = useState(null);
   const [errors, setErrors] = useState([]);
   const [image, setImage] = useState(null);
 

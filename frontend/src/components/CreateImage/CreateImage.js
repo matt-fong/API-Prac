@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import './CreateImage.css'
 import { getAllSpots } from "../../store/spots";
@@ -11,9 +11,7 @@ const CreateImage = ({ onX }) => {
 
   spotId = Number(spotId);
 
-  const sessionUser = useSelector(state => state.session.user);
-
-  const [url, setUrl] = useState("");
+  // const [url, setUrl] = useState("");
   const [errors, setErrors] = useState([]);
   const [image, setImage] = useState(null);
 
