@@ -43,6 +43,7 @@ const UserBookings = () => {
   if (Object.keys(filteredBookings).length === 0) {
     userBookings = (
       <div className="user-booking-notrip-container">
+
         <div className="user-booking-notrip-inner-container">
           <div className="user-booking-notrip-left">
             <img className="user-booking-notrip-hand" src='https://images.emojiterra.com/google/android-10/512px/1f44b.png' alt=''></img>
@@ -52,6 +53,11 @@ const UserBookings = () => {
           </div>
           <img className="user-booking-notrip-right" src='https://a0.muscache.com/im/pictures/d727f355-3f10-44b5-9750-d1efca2438fc.jpg?im_w=720' alt=''></img>
         </div>
+
+        <div className="user-booking-past-bookings">
+          <NavLink to={`/my-bookings/past`}>Check past bookings</NavLink>
+        </div>
+
       </div>
     )
   } else {
@@ -100,8 +106,7 @@ const UserBookings = () => {
     )
   }
 
-  if (bookings) {
-  }
+
   return (
     <div className="user-booking-container">
       <div className="user-booking-inner-container">
