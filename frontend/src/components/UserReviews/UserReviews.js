@@ -2,13 +2,11 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { deleteReviewById } from "../../store/reviews";
-import { getAllSpots } from "../../store/spots";
 import { getReviewsByCurrentUser } from "../../store/reviews";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import './UserReviews.css'
 import { getAllUsers } from "../../store/users";
 import EditReviewModal from "../EditReview/EditReviewModal";
-import CreateSpotModalTwo from "../CreateSpot/CreateSpotModalTwo";
 
 const UserReviews = () => {
   const reviews = useSelector(state => Object.values(state.reviews));

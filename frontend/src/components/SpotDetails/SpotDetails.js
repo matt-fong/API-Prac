@@ -35,6 +35,10 @@ const SpotDetails = () => {
   const sessionUser = useSelector(state => state.session.user);
   const reviews = useSelector((state) => Object.values(state.reviews));
 
+  const bookings = useSelector((state) => Object.values(state.bookings));
+
+  const userBookings = bookings?.filter((booking) => booking?.userId === sessionUser?.id)
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -54,7 +58,7 @@ const SpotDetails = () => {
 
   let createReview;
 
-  if (sessionUser && !(spot?.ownerId === sessionUser.id)) {
+  if (sessionUser && !(spot?.ownerId === sessionUser.id) && userBookings?.length > 0) {
     createReview = (
       <div className='spotDetailCreateReview'>
         {<CreateReviewModal />}

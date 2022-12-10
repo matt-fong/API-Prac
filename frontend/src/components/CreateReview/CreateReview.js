@@ -34,7 +34,7 @@ const CreateReview = ({ onX }) => {
       errors.push( "User has already created a review." )
     }
 
-    if (reviewMessage.length > 255 || reviewMessage.length < 10) {
+    if (!userReview && (reviewMessage.length > 255 || reviewMessage.length < 10)) {
       errors.push( "Review must be between 10 to 255 Characters!" );
     }
 
