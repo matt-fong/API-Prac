@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
+import EditReviewModal from "../EditReview/EditReviewModal";
+import { deleteReviewById } from "../../store/reviews";
 import "./ReviewCard.css";
 
 function ReviewCard({ review }) {

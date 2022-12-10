@@ -20,8 +20,6 @@ const CreateReview = ({ onX }) => {
   const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState([]);
 
-  console.log('this is userReview', userReview)
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
