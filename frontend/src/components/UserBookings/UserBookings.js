@@ -8,7 +8,6 @@ import './UserBookings.css'
 const UserBookings = () => {
   const bookings = useSelector(state => Object.values(state.bookings));
 
-
   const todayDate = (new Date()).toISOString().slice(0,10);
 
   // Sorts current bookings from most recent to furthest away by endDate

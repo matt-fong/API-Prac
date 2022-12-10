@@ -9,6 +9,7 @@ import { getAllUsers } from "../../store/users";
 import CreateBooking from "../CreateBooking/CreateBooking";
 import EditSpotModal from "../EditSpot/EditSpotModal";
 import { deleteSpot } from "../../store/spots";
+import { getBookingsByCurrentUser } from "../../store/bookings";
 import CreateReviewModal from "../CreateReview/CreateReviewModal";
 import CreateImageModal from "../CreateImage/CreateImageModal";
 import ViewImagesModal from "../ViewImages/ViewImagesModal";
@@ -35,6 +36,10 @@ const SpotDetails = () => {
   const sessionUser = useSelector(state => state.session.user);
   const reviews = useSelector((state) => Object.values(state.reviews));
 
+  // const bookings = useSelector((state) => Object.values(state.bookings));
+
+  // console.log('this is bookings', bookings)
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -42,6 +47,7 @@ const SpotDetails = () => {
     dispatch(getAllSpots()).then(() => setIsLoaded(true));
     dispatch(getReviewsBySpotId(spotId)).then(() => setIsLoadedd(true))
     dispatch(getAllUsers())
+    // dispatch(getBookingsByCurrentUser())
   }, [ dispatch, spotId ]);
 
   const handleDelete = (spotId) => {
