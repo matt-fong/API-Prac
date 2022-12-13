@@ -13,6 +13,7 @@ import CreateReviewModal from "../CreateReview/CreateReviewModal";
 import CreateImageModal from "../CreateImage/CreateImageModal";
 import ViewImagesModal from "../ViewImages/ViewImagesModal";
 import MapContainer from "../Maps";
+import userimage from './userimage.png'
 
 const SpotDetails = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -215,7 +216,7 @@ const SpotDetails = () => {
               </div>
 
               <div className="spotDetailHostRight">
-                <img className='spotDetailOwnerIcon' src='https://www.seekpng.com/png/full/73-730482_existing-user-default-avatar.png' alt='Owner Icon'></img>
+                <img className='spotDetailOwnerIcon' src={userimage} alt='Owner Icon'></img>
               </div>
 
             </div>
