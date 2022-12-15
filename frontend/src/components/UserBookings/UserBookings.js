@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { getBookingsByCurrentUser } from "../../store/bookings"
 import { deleteBookingById } from "../../store/bookings";
 import './UserBookings.css'
+import { getAllSpots } from "../../store/spots";
+import BookingCard from "../BookingCard/BookingCard";
 
 const UserBookings = () => {
   const bookings = useSelector(state => Object.values(state.bookings));
@@ -19,6 +21,8 @@ const UserBookings = () => {
   const filteredBookings = bookings.filter(function(booking) {
     return booking.endDate >= todayDate
   })
+
+  console.log('this is filteredbookings', filteredBookings)
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -106,14 +110,25 @@ const UserBookings = () => {
   }
 
 
+  // return (
+  //   <div className="user-booking-container">
+  //     <div className="user-booking-inner-container">
+  //       <div className="user-booking-header">My Bookings</div>
+  //       {userBookings}
+  //     </div>
+  //   </div>
+  // );
   return (
-    <div className="user-booking-container">
-      <div className="user-booking-inner-container">
-        <div className="user-booking-header">My Bookings</div>
-        {userBookings}
+    <div className="homePageContainer">
+      <div className="spotsContainer">
+        <div className="spotLayout">
+          {Object.values(filteredBookings).map((booking, i) => (
+            <BookingCard booking={booking} />
+          ))}
+          </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default UserBookings;
