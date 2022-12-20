@@ -62,7 +62,7 @@ const BookingConfirmed = () => {
   }
 
   const handleDelete = (reviewId, spotId) => {
-    dispatch(deleteBookingById(reviewId, spotId)).then(dispatch(getAllSpots())).then(history.push(`/my-bookings`))
+    dispatch(deleteBookingById(reviewId, spotId)).then(dispatch(getBookingsByCurrentUser())).then(history.push(`/my-bookings`))
   };
 
   return (
