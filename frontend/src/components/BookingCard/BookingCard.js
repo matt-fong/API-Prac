@@ -36,12 +36,6 @@ const BookingCard = ({ booking }) => {
               {/* <div>{`${weekday(endInt)}, ${booking?.endDate}`}</div> */}
             </div>
 
-            {/* <div className='bookingCardCancel'>Cancel</div> */}
-
-          </div>
-
-          <div className='bookingDescriptionRight'>
-
           </div>
 
         </div>
