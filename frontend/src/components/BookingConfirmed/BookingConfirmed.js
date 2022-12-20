@@ -1,8 +1,9 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getBookingsByCurrentUser } from "../../store/bookings"
 import { getAllUsers } from "../../store/users";
+import { deleteBookingById } from "../../store/bookings";
 import './BookingConfirmed.css'
 import MapContainer from "../Maps";
 
@@ -18,11 +19,11 @@ const BookingConfirmed = () => {
   const spotOwner = users[spot?.ownerId]
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const bookings = useSelector(state => (state.bookings));
 
   const currentBooked = bookings[bookingId]
-
 
   useEffect(() => {
     dispatch(getBookingsByCurrentUser())
@@ -59,6 +60,10 @@ const BookingConfirmed = () => {
     if (day === 5) return 'Sat'
   }
 
+  const handleDelete = (reviewId, spotId) => {
+    dispatch(deleteBookingById(reviewId, spotId)).then(history.push(`/my-bookings`))
+  };
+
   return (
     <div className="booking-confirmed-outer-container">
       <div className="booking-confirmed-container">
@@ -94,6 +99,10 @@ const BookingConfirmed = () => {
                 <div className="booking-confirmed-reservation-details">Reservation Details</div>
                 <div className="booking-confirmed-who-coming">Who's coming</div>
                 <div className="booking-confirmed-guests">2 guests</div>
+                <div className="booking-confirmed-cancel" onClick={() => handleDelete(bookingId)}>
+                  <i class="fa-solid fa-ban"></i>
+                  <div className="booking-confirmed-cancel-reservation">Cancel Reservation</div>
+                </div>
               </div>
 
               <div className="booking-confirmed-divider"></div>
