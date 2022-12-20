@@ -37,10 +37,6 @@ const UserBookings = () => {
 
   if (!isLoaded) return null
 
-  const handleDelete = (reviewId, spotId) => {
-    dispatch(deleteBookingById(reviewId, spotId));
-  };
-
   let userBookings;
 
   if (Object.keys(filteredBookings).length === 0) {
@@ -65,70 +61,27 @@ const UserBookings = () => {
     )
   } else {
     userBookings = (
-    <div className="user-booking-table-container">
-      <div className="user-booking-table-inner-container">
-        <table className="user-booking-table" cellSpacing="0">
-          <tbody>
-            <tr className="user-booking-table-header">
-              <td className="user-booking-table-column">House Name</td>
-              <td className="user-booking-table-column">Address</td>
-              <td className="user-booking-table-column">Location</td>
-              <td className="user-booking-table-column">Start Date</td>
-              <td className="user-booking-table-column">End Date</td>
-              <td className="user-booking-table-column">Confirmation</td>
-              <td className="user-booking-table-column">Delete</td>
-            </tr>
-          </tbody>
-          {Object.values(filteredBookings).map((booking, i) => (
-
-          <tbody key={i}>
-            <tr className="user-booking-content">
-              <td className="user-booking-content-column-name">
-                <NavLink to={`/spots/${booking?.Spot?.id}/${booking?.Spot?.ownerId}`}>{booking?.Spot?.name}</NavLink>
-              </td>
-              <td className="user-booking-content-column">{booking?.Spot?.address}</td>
-              <td className="user-booking-content-column">{booking?.Spot?.city}, {booking?.Spot?.state}</td>
-              <td className="user-booking-content-column">{booking?.startDate}</td>
-              <td className="user-booking-content-column">{booking?.endDate}</td>
-              <td className="user-booking-content-column-confirmed">
-                <NavLink to={`/confirmed/${booking?.Spot.id}/${booking?.id}`}>Booking Details</NavLink>
-              </td>
-              <td className="user-booking-content-column">
-                <button className='user-booking-delete' onClick={() => handleDelete(booking?.id)}>Cancel</button>
-              </td>
-            </tr>
-          </tbody>
-
-          ))}
-        </table>
+      <div className="homePageContainer">
+        <div className="spotsContainer">
+          <div className="spotLayout">
+            {Object.values(filteredBookings).map((booking, i) => (
+              <BookingCard booking={booking} />
+            ))}
+            </div>
+        </div>
       </div>
-      <div className="user-booking-past-bookings">
-        <NavLink to={`/my-bookings/past`}>Check past bookings</NavLink>
-      </div>
-    </div>
     )
   }
 
 
-  // return (
-  //   <div className="user-booking-container">
-  //     <div className="user-booking-inner-container">
-  //       <div className="user-booking-header">My Bookings</div>
-  //       {userBookings}
-  //     </div>
-  //   </div>
-  // );
   return (
-    <div className="homePageContainer">
-      <div className="spotsContainer">
-        <div className="spotLayout">
-          {Object.values(filteredBookings).map((booking, i) => (
-            <BookingCard booking={booking} />
-          ))}
-          </div>
+    <div className="user-booking-container">
+      <div className="user-booking-inner-container">
+        <div className="user-booking-header">My Bookings</div>
+        {userBookings}
       </div>
     </div>
-  )
+  );
 }
 
 export default UserBookings;
