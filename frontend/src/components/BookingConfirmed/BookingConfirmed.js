@@ -6,6 +6,7 @@ import { getAllUsers } from "../../store/users";
 import { deleteBookingById } from "../../store/bookings";
 import './BookingConfirmed.css'
 import MapContainer from "../Maps";
+import { getAllSpots } from "../../store/spots";
 
 const BookingConfirmed = () => {
   const { spotId } = useParams();
@@ -61,7 +62,7 @@ const BookingConfirmed = () => {
   }
 
   const handleDelete = (reviewId, spotId) => {
-    dispatch(deleteBookingById(reviewId, spotId)).then(history.push(`/my-bookings`))
+    dispatch(deleteBookingById(reviewId, spotId)).then(dispatch(getAllSpots())).then(history.push(`/my-bookings`))
   };
 
   return (
