@@ -3,13 +3,8 @@ import './BookingCard.css'
 
 const BookingCard = ({ booking }) => {
 
-  console.log('this is booking', booking)
-
   const startInt = new Date(booking?.startDate).getDay()
-
-
   const endInt = new Date(booking?.endDate).getDay()
-
 
   const weekday = (day) => {
     if (day === 6) return 'Sun'
