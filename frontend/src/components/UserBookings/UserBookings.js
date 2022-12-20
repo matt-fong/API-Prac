@@ -22,8 +22,6 @@ const UserBookings = () => {
     return booking.endDate >= todayDate
   })
 
-  console.log('this is filteredbookings', filteredBookings)
-
   const [isLoaded, setIsLoaded] = useState(false);
 
   const dispatch = useDispatch();
