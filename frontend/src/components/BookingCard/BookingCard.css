@@ -79,3 +79,12 @@ a {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
 }
+
+.bookingCardDates {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  /* justify-content: space-between; */
+  width: 290px;
+  font-weight: 500;
+  font-size: 15px;
+}
