@@ -28,7 +28,7 @@ const CreateSpot = ({ onX }) => {
   }
 
   const LAT = 37.0902;
-  const LNG = 95.7129;
+  const LNG = -95.7129;
 
   const updateFile = (e) => {
     const file = e.target.files[0];
