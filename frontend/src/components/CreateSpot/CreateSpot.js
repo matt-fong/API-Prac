@@ -27,8 +27,8 @@ const CreateSpot = ({ onX }) => {
     return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url)
   }
 
-  const LAT = 123.121212;
-  const LNG = -321.121212;
+  const LAT = 37.0902;
+  const LNG = 95.7129;
 
   const updateFile = (e) => {
     const file = e.target.files[0];
